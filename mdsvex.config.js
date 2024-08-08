@@ -7,12 +7,12 @@ import highlighter from './src/lib/codeHighlighter.js';
 // remarkUnwrapImages is used to remove the wrapping <p> tag around images
 // remarkCodeTitles is used to add titles to code blocks
 const config = {
-	extensions: ['.md', '.svx'],
-	remarkPlugins: [remarkUnwrapImages, remarkCodeTitles],
-	rehypePlugins: [rehypeSlug],
-	highlight: {
-		highlighter
-	}
+  extensions: ['.md', '.svx'],
+  remarkPlugins: [remarkUnwrapImages, remarkCodeTitles],
+  rehypePlugins: [rehypeSlug],
+  highlight: {
+    highlighter
+  }
 };
 
 export default config;

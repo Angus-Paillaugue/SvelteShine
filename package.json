@@ -1,41 +1,44 @@
 {
-	"name": "documentation-template",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write .",
-		"apply-colors": "node ./scripts/apply-colors.js"
-	},
-	"devDependencies": {
-		"@shikijs/transformers": "^1.11.1",
-		"@sveltejs/kit": "^2.0.0",
-		"@sveltejs/vite-plugin-svelte": "^3.0.0",
-		"@types/eslint": "^9.6.0",
-		"autoprefixer": "^10.4.19",
-		"eslint": "^9.0.0",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.36.0",
-		"globals": "^15.0.0",
-		"postcss": "^8.4.39",
-		"prettier": "^3.1.1",
-		"prettier-plugin-svelte": "^3.1.2",
-		"svelte": "^5.0.0-next.1",
-		"tailwindcss": "^3.4.6",
-		"vite": "^5.0.3"
-	},
-	"type": "module",
-	"dependencies": {
-		"@sveltejs/adapter-static": "^3.0.2",
-		"mdsvex": "^0.11.2",
-		"mode-watcher": "^0.4.0",
-		"node-html-parser": "^6.1.13",
-		"rehype-slug": "^6.0.0",
-		"remark-flexible-code-titles": "^1.2.0",
-		"remark-unwrap-images": "^4.0.0",
-		"shiki": "^1.11.1"
-	}
+  "name": "documentation-template",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write .",
+    "setup": "node ./scripts/setup.js"
+  },
+  "devDependencies": {
+    "@shikijs/transformers": "^1.11.1",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@types/eslint": "^9.6.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.36.0",
+    "globals": "^15.0.0",
+    "postcss": "^8.4.39",
+    "prettier": "^3.1.1",
+    "prettier-plugin-svelte": "^3.1.2",
+    "svelte": "^5.0.0-next.1",
+    "tailwindcss": "^3.4.6",
+    "vite": "^5.0.3"
+  },
+  "type": "module",
+  "dependencies": {
+    "@iconify/svelte": "^4.0.2",
+    "@sveltejs/adapter-static": "^3.0.2",
+    "chalk": "^5.3.0",
+    "inquirer": "^10.1.8",
+    "mdsvex": "^0.11.2",
+    "mode-watcher": "^0.4.0",
+    "node-html-parser": "^6.1.13",
+    "rehype-slug": "^6.0.0",
+    "remark-flexible-code-titles": "^1.2.0",
+    "remark-unwrap-images": "^4.0.0",
+    "shiki": "^1.11.1"
+  }
 }

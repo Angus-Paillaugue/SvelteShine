@@ -26,11 +26,7 @@ console.log(test)
 this is a command : `cat passwords.txt`
 
 <script>
-  let count = $state(0)
+  import Counter from "./Counter.svelte";
 </script>
 
-<p>
-  {count}
-</p>
-
-<button onclick={() => (count ++)}>Increment</button>
+<Counter />

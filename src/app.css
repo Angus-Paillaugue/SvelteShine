@@ -6,38 +6,52 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
 * {
-	@apply scroll-smooth;
+  @apply scroll-smooth;
 }
 
 html {
-	scroll-padding-top: 6rem;
-	@apply font-sans;
+  @apply font-sans;
 }
 
 body {
-	@apply font-['Mulish'] bg-white dark:bg-primary-900;
+  @apply font-['Mulish'] bg-white dark:bg-neutral-900;
 }
 
 ::-webkit-scrollbar {
-	@apply w-2 h-2;
+  @apply w-2 h-2;
 }
 
 ::-webkit-scrollbar-track {
-	@apply bg-primary-300;
+  @apply bg-primary-300;
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply rounded-full bg-primary-400;
+  @apply rounded-full bg-primary-300;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	@apply bg-primary-500;
+  @apply bg-primary-500;
 }
 
 ::selection,
 ::-moz-selection {
-	@apply text-white bg-primary-950;
+  @apply text-white bg-primary-950;
 }
 
 /* Text */
@@ -47,125 +61,83 @@ h3,
 h4,
 h5,
 h6 {
-	@apply font-['Poppins'] text-wrap-balance;
+  @apply font-['Poppins'] text-wrap-balance;
 }
 
 h1 {
-	@apply font-medium md:font-semibold text-3xl md:text-6xl leading-[3.5rem] md:leading-[4rem] mb-4;
+  @apply font-medium md:font-semibold text-3xl md:text-6xl leading-[3.5rem] md:leading-[4rem] mb-4;
 }
 
 h2 {
-	@apply font-bold text-4xl leading-6 mb-3;
+  @apply font-bold text-4xl leading-6 mb-3;
 }
 
 h3 {
-	@apply font-semibold text-3xl leading-5 mb-3;
+  @apply font-semibold text-3xl leading-5 mb-3;
 }
 
 h4 {
-	@apply font-semibold text-2xl leading-4 mb-3;
+  @apply font-semibold text-2xl leading-4 mb-3;
 }
 
 h5 {
-	@apply font-semibold text-xl leading-5 mb-3;
+  @apply font-semibold text-xl leading-5 mb-3;
 }
 
 h6 {
-	@apply font-semibold text-lg leading-5 mb-3;
+  @apply font-semibold text-lg leading-5 mb-3;
 }
 
 p,
 li {
-	@apply font-['Mulish'] text-lg font-medium leading-6 mb-4 text-wrap-none;
+  @apply font-['Mulish'] text-lg font-medium leading-6 mb-4 text-wrap-none;
 }
 
 p.balance {
-	@apply text-wrap-balance;
+  @apply text-wrap-balance;
 }
 
 hr {
-	@apply border-none h-1 bg-primary-100 dark:bg-primary-700 my-8;
+  @apply border-none h-1 bg-primary-100 dark:bg-primary-700 my-8;
 }
 
 a.link {
-	@apply underline font-bold hover:no-underline transition-all cursor-pointer;
+  @apply underline font-bold hover:no-underline transition-all cursor-pointer;
 }
 
 small {
-	@apply text-xs text-primary-500 dark:text-primary-400;
+  @apply text-xs text-neutral-500 dark:text-neutral-400;
 }
 
 /* Tooltip */
 [data-tooltip] {
-	@apply cursor-pointer relative inline-block after:content-[attr(data-tooltip)] after:absolute after:shadow-lg after:opacity-0 after:transition-all after:ease-in-out after:pointer-events-none hover:after:opacity-100 after:z-30 focus:after:opacity-100 focus:after:z-30 after:p-3 after:rounded-md after:max-w-[300px] after:break-words after:h-auto after:bg-primary-950 dark:after:bg-primary-700 dark:after:text-white after:text-sm after:leading-4 after:-translate-x-1/2 after:bottom-full after:top-auto after:left-1/2 after:mb-2 after:translate-y-4 hover:after:-translate-y-0 focus:after:-translate-y-0 after:text-white after:font-medium;
+  @apply cursor-pointer relative inline-block after:content-[attr(data-tooltip)] after:absolute after:shadow-lg after:opacity-0 after:transition-all after:ease-in-out after:pointer-events-none hover:after:opacity-100 after:z-30 focus:after:opacity-100 focus:after:z-30 after:p-3 after:rounded-md after:max-w-[300px] after:break-words after:h-auto after:bg-primary-950 dark:after:bg-primary-700 dark:after:text-white after:text-sm after:leading-4 after:-translate-x-1/2 after:bottom-full after:top-auto after:left-1/2 after:mb-2 after:translate-y-4 hover:after:-translate-y-0 focus:after:-translate-y-0 after:text-white after:font-medium;
 }
 
 .tooltip-small {
-	@apply after:p-2 after:rounded after:max-w-[200px] after:text-xs after:leading-3;
-}
-
-/* Left */
-.tooltip-left {
-	@apply after:-translate-y-1/2 after:-translate-x-full after:top-1/2 after:bottom-auto hover:after:-left-2 after:right-auto after:mb-0 hover:after:-translate-y-1/2 focus:after:-translate-y-1/2;
+  @apply after:p-2 after:rounded after:max-w-[200px] after:text-xs after:leading-3;
 }
 
 /* Bottom */
 .tooltip-bottom {
-	@apply after:top-full after:left-1/2 after:bottom-auto after:right-auto after:-translate-y-4 hover:after:translate-y-0 focus:after:translate-y-0 after:mb-0;
+  @apply after:top-full after:left-1/2 after:bottom-auto after:right-auto after:-translate-y-4 hover:after:translate-y-0 focus:after:translate-y-0 after:mb-0;
+}
+
+/* Left */
+.tooltip-left {
+  @apply after:-translate-y-1/2 after:-translate-x-full after:top-1/2 after:bottom-auto hover:after:-left-2 focus:after:-left-2 after:right-auto after:mb-0 hover:after:-translate-y-1/2 focus:after:-translate-y-1/2;
 }
 
 /* Right */
 .tooltip-right {
-	@apply after:-translate-y-1/2 after:translate-x-1/2 after:top-1/2 after:bottom-auto hover:after:mr-2 after:mr-0 after:right-auto after:mb-0 hover:after:-translate-y-1/2 focus:after:-translate-y-1/2;
-}
-
-/* Posts CSS */
-
-h1.article-heading {
-	@apply text-4xl font-bold mb-4;
-}
-
-h2.article-heading {
-	@apply text-3xl font-bold mb-4;
-}
-
-h3.article-heading {
-	@apply text-2xl font-bold mb-4;
-}
-
-h4.article-heading {
-	@apply text-xl font-bold mb-4;
-}
-
-h5.article-heading {
-	@apply text-lg font-bold mb-4;
-}
-
-h6.article-heading {
-	@apply text-base font-bold mb-4;
-}
-
-p.article-text {
-	@apply mb-4 font-normal text-lg leading-8 text-wrap-none;
-}
-
-p.article-text:last-child {
-	@apply mb-0;
-}
-
-p.article-text + .article-heading {
-	@apply mt-10;
-}
-
-p.article-text:last-child {
-	@apply mb-0;
+  @apply after:-translate-y-1/2 after:translate-x-0 after:top-1/2 after:bottom-auto hover:after:left-auto focus:after:left-auto after:right-0 after:mb-0 hover:after:-translate-y-1/2 hover:after:translate-x-full focus:after:-translate-y-1/2 focus:after:translate-x-full;
 }
 
 /* Others */
 kbd {
-	@apply font-mono text-sm bg-primary-300 dark:bg-primary-700 text-primary-700 dark:text-primary-200 rounded-md px-2 py-1;
+  @apply font-mono text-sm bg-primary-300 dark:bg-primary-700 text-primary-700 dark:text-primary-200 rounded-md px-2 py-1;
 }
 
 ul:not(.splide__list) {
-	@apply list-disc list-inside;
+  @apply list-disc list-inside;
 }

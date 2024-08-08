@@ -24,22 +24,22 @@ You can highlight a single or a range of line :
 
 ````md
 ```js {1, 3-5}
-console.log('Line 1');
-console.log('Line 2');
-console.log('Line 3');
-console.log('Line 4');
-console.log('Line 5');
+console.log("Line 1");
+console.log("Line 2");
+console.log("Line 3");
+console.log("Line 4");
+console.log("Line 5");
 ```
 ````
 
 Here is the result
 
 ```js {1, 3-5}
-console.log('Line 1');
-console.log('Line 2');
-console.log('Line 3');
-console.log('Line 4');
-console.log('Line 5');
+console.log("Line 1");
+console.log("Line 2");
+console.log("Line 3");
+console.log("Line 4");
+console.log("Line 5");
 ```
 
 ### Inline highlighting
@@ -48,22 +48,22 @@ You can highlight a single or a range of line :
 
 ````md
 ```js
-console.log('Line 1'); // [!code highlight]
-console.log('Line 2');
-console.log('Line 3'); // [!code highlight:3]
-console.log('Line 4');
-console.log('Line 5');
+console.log("Line 1"); // [!code highlight]
+console.log("Line 2");
+console.log("Line 3"); // [!code highlight:3]
+console.log("Line 4");
+console.log("Line 5");
 ```
 ````
 
 Here is the result
 
 ```js
-console.log('Line 1'); // [!code highlight]
-console.log('Line 2');
-console.log('Line 3'); // [!code highlight:3]
-console.log('Line 4');
-console.log('Line 5');
+console.log("Line 1"); // [!code highlight]
+console.log("Line 2");
+console.log("Line 3"); // [!code highlight:3]
+console.log("Line 4");
+console.log("Line 5");
 ```
 
 ## Code diff
@@ -73,9 +73,9 @@ You can show users the deletion and addition of code lines by adding `// [!code 
 Here is the result
 
 ```js
-console.log('Line 1');
-console.log('New line'); // [!code ++]
-console.log('Deleted line'); // [!code --]
-console.log('Line 4');
-console.log('Line 5');
+console.log("Line 1");
+console.log("New line"); // [!code ++]
+console.log("Deleted line"); // [!code --]
+console.log("Line 4");
+console.log("Line 5");
 ```

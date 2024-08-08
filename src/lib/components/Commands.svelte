@@ -1,0 +1,82 @@
+<script>
+  import { newToast } from '$lib/stores';
+  import Icon from '@iconify/svelte';
+
+  const { commands } = $props();
+
+  let selectedIndex = $state(0);
+  let underlineElement = $state();
+
+  $effect(() => {
+    const selectedItem = document.querySelector('ul > li:nth-child(' + (selectedIndex + 1) + ')');
+    const left = selectedItem.offsetLeft;
+    const width = selectedItem.offsetWidth;
+
+    underlineElement.style.left = left + 'px';
+    underlineElement.style.width = width + 'px';
+  });
+</script>
+
+<div class="w-full">
+  <div class="relative h-fit w-full">
+    <ul
+      class="flex flex-row overflow-x-auto no-scrollbar flex-nowrap gap-2 border-b-2 border-neutral-300 dark:border-neutral-800 mb-2 relative"
+    >
+      {#each commands as command, i}
+        <li class="mb-0 list-none {selectedIndex === i && 'selected'}">
+          <button
+            onclick={() => (selectedIndex = i)}
+            class="px-4 py-2 relative overflow-visible cursor-pointer"
+          >
+            {command.name}
+          </button>
+        </li>
+      {/each}
+    </ul>
+    <span
+      class="absolute h-[2px] bottom-0 bg-primary-700 dark:bg-primary-300 transition-all"
+      bind:this={underlineElement}
+    ></span>
+  </div>
+
+  <div class="border border-neutral-300 dark:border-neutral-800">
+    <div class="flex flex-row gap-2 px-4 py-2">
+      <div class="size-3 bg-neutral-300 dark:bg-neutral-800 rounded-full"></div>
+      <div class="size-3 bg-neutral-300 dark:bg-neutral-800 rounded-full"></div>
+      <div class="size-3 bg-neutral-300 dark:bg-neutral-800 rounded-full"></div>
+    </div>
+    <div
+      class="bg-[var(--inline-code-bg)] text-neutral-300 px-4 py-2 text-lg flex flex-row gap-4 justify-between items-center"
+    >
+      <code class="text-lg">{commands[selectedIndex].command}</code>
+
+      <!-- Copy command button -->
+      <button
+        tabindex="0"
+        class="h-[2.5rem] bg-neutral-950 text-white rounded-full flex items-center justify-center transition hover:scale-105 active:scale-90 focus:outline-primary-200 p-1 aspect-square"
+        onclick={(e) => {
+          const copyButton = e.target.closest('button');
+          copyButton.querySelector('.copy').classList.add('hidden');
+          copyButton.querySelector('.copied').classList.remove('hidden');
+          const textToCopy = copyButton.parentElement.querySelector('code').innerText;
+          // Write the code to clipboard
+          navigator.clipboard.writeText(textToCopy);
+          // Show toast
+          newToast({
+            title: 'Copied to clipboard',
+            message: 'The code has been copied to your clipboard',
+            type: 'green'
+          });
+          setTimeout(() => {
+            // Reset the button icon back to default
+            copyButton.querySelector('.copy').classList.remove('hidden');
+            copyButton.querySelector('.copied').classList.add('hidden');
+          }, 2000);
+        }}
+      >
+        <Icon icon="ri:clipboard-line" class="w-6 h-6 copy" />
+        <Icon icon="ri:check-line" class="w-6 h-6 copied hidden" />
+      </button>
+    </div>
+  </div>
+</div>
