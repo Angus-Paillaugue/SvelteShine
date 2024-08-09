@@ -17,9 +17,18 @@ importers:
       chalk:
         specifier: ^5.3.0
         version: 5.3.0
+      flexsearch:
+        specifier: ^0.7.43
+        version: 0.7.43
       inquirer:
         specifier: ^10.1.8
         version: 10.1.8
+      material-file-icons:
+        specifier: ^2.4.0
+        version: 2.4.0
+      mdast-util-to-string:
+        specifier: ^4.0.0
+        version: 4.0.0
       mdsvex:
         specifier: ^0.11.2
         version: 0.11.2(svelte@5.0.0-next.198)
@@ -38,15 +47,12 @@ importers:
       remark-unwrap-images:
         specifier: ^4.0.0
         version: 4.0.0
-      remixicon:
-        specifier: ^4.3.0
-        version: 4.3.0
       shiki:
         specifier: ^1.11.1
         version: 1.11.1
-      tailwind-merge:
-        specifier: ^2.4.0
-        version: 2.4.0
+      unist-util-visit:
+        specifier: ^5.0.0
+        version: 5.0.0
     devDependencies:
       '@shikijs/transformers':
         specifier: ^1.11.1
@@ -870,6 +876,9 @@ packages:
   flatted@3.3.1:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
 
+  flexsearch@0.7.43:
+    resolution: {integrity: sha512-c5o/+Um8aqCSOXGcZoqZOm+NqtVwNsvVpWv6lfmSclU954O3wvQKxxK8zj74fPaSJbXpSLTs4PRhh+wnoCXnKg==}
+
   foreground-child@3.2.1:
     resolution: {integrity: sha512-PXUUyLqrR2XCWICfv6ukppP96sdFwWbNEnfEMt7jNsISjMsvaLNinAHNDYyvkyU+SZG2BTSbT5NjG+vZslfGTA==}
     engines: {node: '>=14'}
@@ -1052,6 +1061,12 @@ packages:
 
   magic-string@0.30.10:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
+
+  material-file-icons@2.4.0:
+    resolution: {integrity: sha512-MgxhwBgoiNXyQdZVtXvdqP8t7Fu/Z3zW1aPeYN+UqtepzbKyf41b+Wme6DnwGk5Crt2JzmWLtl1XGE2YMooaQw==}
+
+  mdast-util-to-string@4.0.0:
+    resolution: {integrity: sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==}
 
   mdsvex@0.11.2:
     resolution: {integrity: sha512-Y4ab+vLvTJS88196Scb/RFNaHMHVSWw6CwfsgWIQP8f42D57iDII0/qABSu530V4pkv8s6T2nx3ds0MC1VwFLA==}
@@ -1296,9 +1311,6 @@ packages:
   remark-unwrap-images@4.0.0:
     resolution: {integrity: sha512-Ilr5ZhrhZSvnjemy1rRuxlTC0I/39YyWDRiE9d5vF079APcwdYYzwcZL8RGehlCtQCiik8hWMyo4Xhz2Fq0JhA==}
 
-  remixicon@4.3.0:
-    resolution: {integrity: sha512-jRYQ37dTFSkJtvcxwTUAkIiXkYRvA9EDvVuXPNrmt2xf/VS//CRgFtsX2TAFBoQOhh9SDh7l6La4Xu12snEyxg==}
-
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
@@ -1415,9 +1427,6 @@ packages:
   svelte@5.0.0-next.198:
     resolution: {integrity: sha512-1eyQplJR7Rg5dTuHZoDamLJfqyk4k6cB3h6TMybWKrS/MIL4++iNV+q+NP6EUBngZ2iRBup7gRt0jYUbPI0UMw==}
     engines: {node: '>=18'}
-
-  tailwind-merge@2.4.0:
-    resolution: {integrity: sha512-49AwoOQNKdqKPd9CViyH5wJoSKsCDjUlzL8DxuGp3P1FsGY36NJDAa18jLZcaHAUUuTj+JB8IAo8zWgBNvBF7A==}
 
   tailwindcss@3.4.6:
     resolution: {integrity: sha512-1uRHzPB+Vzu57ocybfZ4jh5Q3SdlH7XW23J5sQoM9LhE9eIOlzxer/3XPSsycvih3rboRsvt0QCmzSrqyOYUIA==}
@@ -2341,6 +2350,8 @@ snapshots:
 
   flatted@3.3.1: {}
 
+  flexsearch@0.7.43: {}
+
   foreground-child@3.2.1:
     dependencies:
       cross-spawn: 7.0.3
@@ -2501,6 +2512,12 @@ snapshots:
   magic-string@0.30.10:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  material-file-icons@2.4.0: {}
+
+  mdast-util-to-string@4.0.0:
+    dependencies:
+      '@types/mdast': 4.0.4
 
   mdsvex@0.11.2(svelte@5.0.0-next.198):
     dependencies:
@@ -2708,8 +2725,6 @@ snapshots:
       hast-util-whitespace: 3.0.0
       unist-util-visit: 5.0.0
 
-  remixicon@4.3.0: {}
-
   resolve-from@4.0.0: {}
 
   resolve@1.22.8:
@@ -2850,8 +2865,6 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.10
       zimmerframe: 1.1.2
-
-  tailwind-merge@2.4.0: {}
 
   tailwindcss@3.4.6:
     dependencies:

@@ -4,6 +4,7 @@
   import Navbar from '$lib/components/core/Navbar.svelte';
   import { siteDescription } from '$conf';
   import { afterNavigate } from '$app/navigation';
+  import Nav from './Nav.svelte';
 
   const { data } = $props();
 
@@ -51,30 +52,28 @@
   <meta property="twitter:description" content={data?.description ?? siteDescription} />
 </svelte:head>
 
-<div class="flex flex-col w-full">
+<div class="flex flex-col w-full min-h-screen">
   {#key data?.name}
     <Navbar title={data?.name ?? 'Docs'} />
 
-    <main class="grow p-2 max-w-screen-xl">
-      {#if !data}
-        <p>Loading...</p>
-      {:else if data === undefined}
-        <p>Page not found</p>
-      {:else}
-        {#if data?.lastModified || data?.description}
-          <section class="mb-6">
-            {#if data?.lastModified}
-              <small class="mb-1">{formatDate(new Date(data.lastModified))}</small>
-            {/if}
-            {#if data?.description}
-              <p>{data.description}</p>
-            {/if}
-          </section>
-        {/if}
-        {#if data?.component}
-          <svelte:component this={data.component} />
-        {/if}
+    <main class="grow p-2 max-w-screen-md mx-auto flex flex-col w-full h-full">
+      {#if data?.lastModified || data?.description}
+        <section class="mb-6">
+          {#if data?.lastModified}
+            <small class="mb-1">{formatDate(new Date(data.lastModified))}</small>
+          {/if}
+          {#if data?.description}
+            <p>{data.description}</p>
+          {/if}
+        </section>
       {/if}
+      {#if data?.component}
+        <section>
+          <svelte:component this={data.component} />
+        </section>
+      {/if}
+
+      <Nav slug={data.slug} />
     </main>
   {/key}
 </div>

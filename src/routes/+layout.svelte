@@ -4,7 +4,6 @@
   import { ModeWatcher, mode } from 'mode-watcher';
   import { page } from '$app/stores';
   import { siteName, keywords, siteAuthor } from '$conf';
-  import Sidebar from '$lib/components/core/Sidebar.svelte';
 
   const { children } = $props();
 

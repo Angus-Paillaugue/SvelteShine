@@ -4,14 +4,13 @@
   import { socials } from '$conf';
   import Icon from '@iconify/svelte';
 
-  const { title } = $props();
+  let { title } = $props();
 </script>
 
 <nav
-  class="w-full p-4 flex flex-row justify-between items-center border-b border-neutral-300 dark:border-neutral-800"
+  class="w-full px-4 sticky top-0 z-40 max-md:h-16 md:p-4 bg-white dark:bg-neutral-900 flex flex-row justify-between items-center border-b border-neutral-300 dark:border-neutral-800"
 >
-  <div class="flex flex-row gap-2">
-    <button></button>
+  <div class="flex flex-row gap-2 max-md:pl-12">
     <h1 class="mb-0">{title}</h1>
   </div>
 

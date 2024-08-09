@@ -36,12 +36,14 @@ code {
   @apply max-h-[2.5rem] bg-neutral-950 text-white rounded-full flex items-center justify-center absolute transition hover:scale-105 active:scale-90 focus:outline-none right-1 top-1 bottom-1 p-1 aspect-square;
 }
 
-/* ! Same bg color as the code blocks (set by the theme) */
-code .line::before {
+pre.line-numbers > code .line::before {
   content: counter(step);
   counter-increment: step;
   font-variant-numeric: tabular-nums;
   @apply inline-block text-right mr-2 text-neutral-500 dark:text-neutral-400 w-6;
+}
+pre > code .line {
+  @apply w-full inline-block pl-2;
 }
 pre > code {
   @apply block w-full;

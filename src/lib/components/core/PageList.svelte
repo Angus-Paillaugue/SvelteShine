@@ -11,7 +11,7 @@
   const itemColors =
     'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100';
   const activeItemColors =
-    'text-neutral-900 dark:text-neutral-100 dark:bg-primary-700 bg-primary-300';
+    'text-neutral-100 dark:text-neutral-100 dark:bg-primary-700/50 bg-primary-700/50';
 </script>
 
 <div

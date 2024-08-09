@@ -2,12 +2,15 @@
   // Import code stylesheet
   import '../../../code.css';
   import Sidebar from '$lib/components/core/Sidebar.svelte';
+  import Search from '$lib/components/core/Search.svelte';
 
-  const { children } = $props();
+  let { children, sidebarOpen = $bindable(false) } = $props();
 </script>
 
-<div class="flex flex-col lg:flex-row">
-  <Sidebar />
+<Search />
+
+<div class="flex flex-row">
+  <Sidebar bind:open={sidebarOpen} />
 
   {@render children()}
 </div>

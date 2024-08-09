@@ -11,7 +11,13 @@ import { codeBlockTheme } from '../../user-config.js';
 const transformers = [
   transformerNotationDiff(),
   transformerMetaHighlight(),
-  transformerNotationHighlight()
+  transformerNotationHighlight(),
+  {
+    name: '@shikijs/transformers:line-numbers',
+    postprocess(code) {
+      return code.replace(/<pre class="\b([^>]*)>/g, '<pre class="line-numbers $1>');
+    }
+  }
 ];
 
 /**
@@ -37,7 +43,7 @@ async function highlighter(code, lang, meta) {
     html = highlighter.codeToHtml(code, {
       lang,
       theme: codeBlockTheme,
-      transformers,
+      transformers: meta.includes('no-lines-numbers') ? transformers.slice(0, -1) : transformers,
       meta: { __raw: meta }
     });
   }

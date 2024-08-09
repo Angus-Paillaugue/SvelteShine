@@ -26,7 +26,7 @@
 }
 
 html {
-  @apply font-sans;
+  @apply font-sans scroll-pt-56;
 }
 
 body {
@@ -65,27 +65,27 @@ h6 {
 }
 
 h1 {
-  @apply font-medium md:font-semibold text-3xl md:text-6xl leading-[3.5rem] md:leading-[4rem] mb-4;
+  @apply font-medium md:font-semibold text-4xl leading-[3.5rem] md:leading-[4rem] mb-4;
 }
 
 h2 {
-  @apply font-bold text-4xl leading-6 mb-3;
+  @apply font-bold text-3xl leading-6 mb-3;
 }
 
 h3 {
-  @apply font-semibold text-3xl leading-5 mb-3;
+  @apply font-semibold text-2xl leading-5 mb-3;
 }
 
 h4 {
-  @apply font-semibold text-2xl leading-4 mb-3;
+  @apply font-semibold text-xl leading-4 mb-3;
 }
 
 h5 {
-  @apply font-semibold text-xl leading-5 mb-3;
+  @apply font-semibold text-lg leading-5 mb-3;
 }
 
 h6 {
-  @apply font-semibold text-lg leading-5 mb-3;
+  @apply font-semibold text-base leading-5 mb-3;
 }
 
 p,
@@ -135,9 +135,13 @@ small {
 
 /* Others */
 kbd {
-  @apply font-mono text-sm bg-primary-300 dark:bg-primary-700 text-primary-700 dark:text-primary-200 rounded-md px-2 py-1;
+  @apply font-mono text-sm bg-primary-300 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-md px-2 py-1;
 }
 
 ul:not(.splide__list) {
   @apply list-disc list-inside;
+}
+
+mark {
+  @apply bg-primary-700
 }

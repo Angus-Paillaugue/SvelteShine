@@ -18,20 +18,20 @@ You can use the `Commands` component imported from `$lib/components`. Pass it an
 </script>
 
 <Commands
-	commands={[
-		{
-			name: 'npm',
-			command: 'npm install angus'
-		},
-		{
-			name: 'pnpm',
-			command: 'pnpm install angus'
-		},
-		{
-			name: 'bun',
-			command: 'bun add angus && bun add angus && bun add angus && bun add angus'
-		}
-	]}
+  commands={[
+    {
+      name: 'npm',
+      command: 'npm install angus'
+    },
+    {
+      name: 'pnpm',
+      command: 'pnpm install angus'
+    },
+    {
+      name: 'bun',
+      command: 'bun add angus && bun add angus && bun add angus && bun add angus'
+    }
+  ]}
 />
 ```
 
