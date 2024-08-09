@@ -3,6 +3,7 @@
   import { scale } from 'svelte/transition';
   import { socials } from '$conf';
   import Icon from '@iconify/svelte';
+  import { searchModalShown } from '$lib/stores';
 
   let { title } = $props();
 </script>
@@ -26,14 +27,21 @@
       class="p-2 rounded-md bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 transition-colors"
     >
       {#if $mode === 'dark'}
-        <div class="" in:scale>
+        <div in:scale>
           <Icon icon="ri:sun-line" class="size-6" />
         </div>
       {:else}
-        <div class="" in:scale>
+        <div in:scale>
           <Icon icon="ri:moon-line" class="size-6" />
         </div>
       {/if}
+    </button>
+
+    <button
+      onclick={ () => ($searchModalShown = true)}
+      class="p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+    >
+      <Icon icon="heroicons:magnifying-glass" class="size-6" />
     </button>
   </div>
 </nav>

@@ -38,15 +38,15 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-primary-300;
+  @apply bg-neutral-300;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-primary-300;
+  @apply rounded-full bg-neutral-300;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary-500;
+  @apply bg-neutral-500;
 }
 
 ::selection,
@@ -135,7 +135,7 @@ small {
 
 /* Others */
 kbd {
-  @apply font-mono text-sm bg-primary-300 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-md px-2 py-1;
+  @apply font-mono text-sm bg-neutral-300 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-md px-2 py-1;
 }
 
 ul:not(.splide__list) {

@@ -1,20 +1,20 @@
 <script>
   import { onMount } from "svelte";
-  import { fly } from "svelte/transition";
+  import { fly, fade } from "svelte/transition";
   import { createPostsIndex, searchPostsIndex } from '$lib/search';
   import { afterNavigate } from '$app/navigation';
   import Icon from '@iconify/svelte';
+  import { searchModalShown } from '$lib/stores';
 
 	let search = $state('loading');
 	let searchTerm = $state('');
 	let results = $state([]);
-  let searchModalShown = $state(false);
 
   onMount(async() => {
     window.addEventListener("keydown", (e) => {
       if (event.ctrlKey && event.key === "k") {
         e.preventDefault();
-        searchModalShown = true;
+        $searchModalShown = true;
         setTimeout(() => {
           document.getElementById("search").focus();
         }, 300);
@@ -25,7 +25,7 @@
 
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
-        searchModalShown = false;
+        $searchModalShown = false;
       }
     });
   });
@@ -38,21 +38,22 @@
   });
 
   afterNavigate(() => {
-    if(!searchModalShown) return;
+    if(!$searchModalShown) return;
     document.getElementById("search").value = '';
     searchTerm = '';
-    searchModalShown = false;
+    $searchModalShown = false;
   });
 </script>
 
 
-{#if searchModalShown}
-  <div class="fixed inset-0 z-50 flex flex-col items-center justify-end md:justify-center bg-neutral-950/50 backdrop-blur-sm" transition:fly={{ y:"12", duration:300 }}>
-    <div class="bg-neutral-100 dark:bg-neutral-800 rounded-t-md w-full max-w-screen-md md:rounded-md dark:text-white text-neutral-900 overflow-hidden">
+{#if $searchModalShown}
+  <div class="fixed inset-0 z-[52] bg-neutral-950/50 backdrop-blur-sm" transition:fade={{ duration:300 }}>
+  </div>
+  <div class="bg-neutral-100 z-[52] fixed max-md:top-0 max-md:left-0 max-md:right-0 md:top-1/2 md:left-1/2 md:-translate-y-1/2 md:-translate-x-1/2 dark:bg-neutral-800 md:rounded-t-md w-full max-w-screen-md md:rounded-md dark:text-white text-neutral-900 overflow-hidden" transition:fly={{ y:"12", duration:300 }}>
       <div class="relative w-full">
         <Icon icon="heroicons:magnifying-glass" class="size-6 absolute top-1/2 left-3 -translate-y-1/2" />
         <input type="text" name="search" id="search" class="w-full px-12 py-4 text-xl border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 focus:outline-none {results.length > 0 && "border-b"}" placeholder="Search or pages" autocomplete="off" bind:value={searchTerm}>
-        <kbd class="absolute top-1/2 right-3 -translate-y-1/2">ESC</kbd>
+        <kbd class="hidden md:block absolute top-1/2 right-3 -translate-y-1/2">ESC</kbd>
       </div>
       {#if results.length > 0}
         <div class="grid grid-cols-1 gap-2 p-4 max-h-[50vh] overflow-y-auto no-scrollbar">
@@ -70,5 +71,4 @@
         </div>
       {/if}
     </div>
-  </div>
 {/if}

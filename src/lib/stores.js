@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 
 export const toasts = writable([]);
+export const searchModalShown = writable(false);
 const generateId = () => Date.now().toString() + Math.floor(Math.random() * 10000).toString();
 
 /**
