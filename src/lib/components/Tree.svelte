@@ -22,19 +22,18 @@
 </script>
 
 <ul
-  class={root
-    ? 'bg-[var(--inline-code-bg)] p-4 rounded-md'
-    : 'border-l-2 border-neutral-700 pl-4'}
+  class={root ? 'bg-[var(--inline-code-bg)] p-4 rounded-md' : 'border-l-2 border-neutral-700 pl-4'}
 >
   {#each tree as element}
     {#if element?.children}
       <!-- Is a directory -->
       <details open={element?.open ?? open}>
         <summary
-          class="flex flex-row gap-2 items-center cursor-pointer text-base font-bold text-neutral-100 hover:text-neutral-400 transition-colors mt-1 w-fit {!root && "px-1"} {element?.highted && 'bg-primary-700/50 rounded'}"
+          class="flex flex-row gap-2 items-center cursor-pointer text-base font-bold text-neutral-100 hover:text-neutral-400 transition-colors mt-1 w-fit {!root &&
+            'px-1'} {element?.highted && 'bg-primary-700/50 rounded'}"
         >
-          <Icon icon="ri:folder-line" class="size-4 folder-close" />
-          <Icon icon="ri:folder-2-line" class="size-4 folder-open" />
+          <Icon icon="material-symbols:folder" class="size-4 folder-close" />
+          <Icon icon="material-symbols:folder-open" class="size-4 folder-open" />
           {element.name}
         </summary>
         <Tree tree={element.children} root={false} />
@@ -42,7 +41,8 @@
     {:else}
       <!-- Is a file -->
       <li
-        class="list-none px-1 w-fit m-0 mt-1 flex flex-row gap-2 items-center text-neutral-100 {element?.highted && 'bg-primary-700/50 rounded'}"
+        class="list-none px-1 w-fit m-0 mt-1 flex flex-row gap-2 items-center text-neutral-100 {element?.highted &&
+          'bg-primary-700/50 rounded'}"
       >
         <div class="size-5">
           {@html getIcon(element).svg}

@@ -7,6 +7,7 @@
   --line-added-opacity: 0.3;
   --line-highlighted-bg: 255, 255, 255;
   --line-highlighted-opacity: 0.1;
+  /* The background color of the curent theme's code block */
   --inline-code-bg: #282c34;
 }
 
@@ -21,29 +22,32 @@ code {
 }
 
 .shiki {
-  @apply rounded-md relative mb-4 py-2;
+  @apply rounded-md relative mb-4 py-4;
+}
+.remark-code-container {
+  @apply mt-4;
 }
 
 /* File name */
 .remark-code-title {
-  @apply text-base font-medium bg-neutral-300 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-t-md px-3 py-1 flex flex-row gap-4 items-center;
+  @apply text-base font-medium bg-neutral-300 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 rounded-t-md px-3 py-1 flex flex-row gap-4 items-center;
 }
 .remark-code-title ~ .shiki {
   @apply rounded-t-none;
 }
 
 .copy-code-button {
-  @apply max-h-[2.5rem] bg-neutral-950 text-white rounded-full flex items-center justify-center absolute transition hover:scale-105 active:scale-90 focus:outline-none right-1 top-1 bottom-1 p-1 aspect-square;
+  @apply h-[2.5rem] bg-neutral-950 text-neutral-100 rounded-full flex items-center justify-center absolute transition hover:scale-105 active:scale-90 focus:outline-none right-1.5 top-1.5 bottom-1 p-1 aspect-square;
 }
 
 pre.line-numbers > code .line::before {
   content: counter(step);
   counter-increment: step;
   font-variant-numeric: tabular-nums;
-  @apply inline-block text-right mr-2 text-neutral-500 dark:text-neutral-400 w-6;
+  @apply inline-block text-right mr-2 -ml-2 text-neutral-500 dark:text-neutral-400 w-6;
 }
 pre > code .line {
-  @apply w-full inline-block pl-2;
+  @apply w-full inline-block px-4;
 }
 pre > code {
   @apply block w-full;
@@ -75,6 +79,9 @@ code .line.diff.remove::before {
   background-color: rgba(var(--line-highlighted-bg), var(--line-highlighted-opacity));
 }
 /* Inline code */
-code:not(pre code) {
-  @apply rounded-md bg-[var(--inline-code-bg)] text-neutral-300 px-1 py-0.5 text-base;
+code:not(pre code, .command) {
+  @apply rounded-md bg-primary-300 text-primary-900 dark:bg-primary-950 dark:text-primary-300 px-0.5 text-base text-shadow-none;
+}
+.commands > pre {
+  @apply m-0 rounded-none;
 }

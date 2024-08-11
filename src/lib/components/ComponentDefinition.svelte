@@ -37,7 +37,7 @@
     </thead>
     <tbody>
       {#each definition.content as prop}
-        <tr class="border-b border-neutral-200 dark:border-neutral-900">
+        <tr class="border-b border-neutral-300 dark:border-neutral-800">
           <td class="p-2">
             <p
               class="font-bold px-1 rounded bg-primary-700/50 border border-primary-600 text-white w-fit text-sm"
@@ -46,14 +46,14 @@
             </p>
           </td>
           <td class="p-2">
-            <p class="font-bold px-1 rounded bg-[var(--inline-code-bg)] text-white w-fit text-sm">
+            <p class="font-bold px-1 rounded bg-neutral-600 dark:bg-neutral-800 text-white w-fit text-sm">
               {prop?.default ?? ' - '}
             </p>
           </td>
           <td class="p-2 flex flex-col gap-2">
             {#if prop.type}
               <p
-                class="font-bold px-1 rounded bg-[var(--inline-code-bg)] text-white w-fit text-sm m-0"
+                class="font-bold px-1 rounded bg-neutral-600 dark:bg-neutral-800 text-white w-fit text-sm m-0"
               >
                 {prop.type}
               </p>

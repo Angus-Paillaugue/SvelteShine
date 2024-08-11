@@ -2,49 +2,100 @@
   import PageList from './PageList.svelte';
   import { page } from '$app/stores';
   import Icon from '@iconify/svelte';
+  import { twMerge } from 'tailwind-merge';
+  import { developSidebar } from '$conf';
 
-  const { pages = [], root = false } = $props();
-  const isNested = (page) => page.children && Object.keys(page.children).length > 0;
+  const { pages = [], root = false, style = 'details' } = $props();
   const pathname = $derived(decodeURIComponent($page.url.pathname));
 
+  /**
+   * Determines if a page is nested.
+   *
+   * @param {Object} page - The page object.
+   * @returns {boolean} - True if the page is nested, false otherwise.
+   */
+  const isNested = (page) => page.children && Object.keys(page.children).length > 0;
+
   // USER CONFIG : Customize the sidebar colors
+  const itemBaseClasses =
+    'transition-all px-2.5 py-1.5 font-semibold capitalize text-sm cursor-pointer border-2 whitespace-nowrap rounded-md';
   const itemColors =
-    'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100';
+    'border-transparent dark:border-transparent hover:bg-primary-600/25 dark:hover:bg-primary-900/25';
   const activeItemColors =
-    'text-neutral-100 dark:text-neutral-100 dark:bg-primary-700/50 bg-primary-700/50';
+    ' border-primary-600 bg-primary-400/50 dark:border-primary-400 dark:bg-primary-900/50';
 </script>
 
-<div
-  class="pl-1 ml-2 {!root &&
-    'border-l-2 border-neutral-300 dark:border-neutral-800'} flex flex-col gap-2"
->
-  {#each pages as page}
-    {#if isNested(page)}
-      <details>
-        <summary
-          class="p-2 transition-all flex flex-row justify-between items-center {itemColors} rounded cursor-pointer font-semibold"
+{#if style === 'details'}
+  <div
+    class={twMerge(
+      'p-2 ml-1 pl-1 flex flex-col gap-2',
+      !root && 'border-l-2 border-neutral-300 dark:border-neutral-800 ml-4'
+    )}
+  >
+    {#each pages as page}
+      {#if isNested(page)}
+        <details open={developSidebar || false}>
+          <summary
+            class={twMerge(
+              itemBaseClasses,
+              itemColors,
+              'flex flex-row justify-between items-center hover:bg-transparent dark:hover:bg-transparent'
+            )}
+          >
+            {page.name}
+            <Icon icon="material-symbols:keyboard-arrow-down-rounded" class="size-6 transition-transform arrow" />
+          </summary>
+          <PageList pages={page.children} />
+        </details>
+      {:else}
+        <a
+          href={page.url}
+          class={twMerge(
+            itemBaseClasses,
+            'block',
+            pathname === page.url ? activeItemColors : itemColors
+          )}
         >
           {page.name}
-          <Icon icon="ri:arrow-down-s-line" class="size-6 transition-transform arrow" />
-        </summary>
-        <PageList pages={page.children} />
-      </details>
-    {:else}
-      <a
-        href={page.url}
-        class="block p-2 transition-all rounded cursor-pointer font-semibold {pathname === page.url
-          ? activeItemColors
-          : itemColors}"
-      >
-        {page.name}
-      </a>
-    {/if}
-  {/each}
-</div>
+        </a>
+      {/if}
+    {/each}
+  </div>
+{:else}
+  <div class="flex flex-col gap-2 p-1">
+    {#each pages as page}
+      {#if isNested(page)}
+        <div class="flex flex-col gap-2">
+          <span
+            class={twMerge(
+              itemBaseClasses,
+              'border-none text-neutral-500 dark:text-neutral-400 text-base uppercase'
+            )}>{page.name}</span
+          >
+          <PageList pages={page.children} />
+        </div>
+      {:else}
+        <a
+          href={page.url}
+          class={twMerge(
+            itemBaseClasses,
+            'block',
+            pathname === page.url ? activeItemColors : itemColors
+          )}
+        >
+          {page.name}
+        </a>
+      {/if}
+    {/each}
+  </div>
+{/if}
 
 <style>
   /* Dropdown arrow */
   details[open] .arrow {
     transform: rotate(180deg);
+  }
+  details .arrow {
+    transform: rotate(0deg);
   }
 </style>

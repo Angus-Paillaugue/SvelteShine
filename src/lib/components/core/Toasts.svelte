@@ -6,7 +6,7 @@
   import Icon from '@iconify/svelte';
 
   const baseToastClasses =
-    'rounded-xl border bg-white dark:bg-neutral-950 border-neutral-300 dark:border-neutral-700 p-4 relative text-neutral-600 dark:text-neutral-300';
+    'rounded-md border bg-neutral-100 dark:bg-neutral-950 border-neutral-300 dark:border-neutral-800 p-4 relative text-neutral-600 dark:text-neutral-300';
 
   // USER CONFIG : Customize the toast svg colors
   const svgColors = {
@@ -28,11 +28,11 @@
     >
       <div class="flex items-center gap-2">
         {#if toast.type === 'red'}
-          <Icon icon="ri:alert-line" class="h-5 w-5 {svgColors[toast.type]}" />
+          <Icon icon="material-symbols:dangerous-outline-rounded" class="h-5 w-5 {svgColors[toast.type]}" />
         {:else if toast.type === 'green'}
-          <Icon icon="ri:check-line" class="h-5 w-5 {svgColors[toast.type]}" />
+          <Icon icon="material-symbols:check-rounded" class="h-5 w-5 {svgColors[toast.type]}" />
         {:else}
-          <Icon icon="ri:information-line" class="h-5 w-5 {svgColors[toast.type]}" />
+          <Icon icon="material-symbols:info-outline-rounded" class="h-5 w-5 {svgColors[toast.type]}" />
         {/if}
 
         <strong class="block font-medium">{toast.title}</strong>
@@ -42,7 +42,7 @@
         {@html toast.message}
       </p>
       <button class="absolute top-2 right-2" on:click={() => removeToast(toast.id)}>
-        <Icon icon="ri:close-line" class="size-5" />
+        <Icon icon="material-symbols:close-rounded" class="size-5" />
       </button>
     </div>
   {/each}

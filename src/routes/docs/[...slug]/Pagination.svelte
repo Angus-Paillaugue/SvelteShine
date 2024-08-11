@@ -39,7 +39,7 @@
       href={previousPage.url}
       class="p-4 rounded-md border border-neutral-300 dark:border-neutral-800 hover:gap-4 flex flex-row gap-2 items-center justify-start transition-all"
     >
-      <Icon icon="ri:arrow-left-s-line" class="size-8" />
+      <Icon icon="material-symbols:arrow-back-ios-rounded" class="size-8" />
       <div class="flex flex-col justify-end text-start">
         <span class="font-light text-xl">Previous</span>
         <span class="font-semibold text-lg">
@@ -59,7 +59,7 @@
           {nextPage.name}
         </span>
       </div>
-      <Icon icon="ri:arrow-right-s-line" class="size-8" />
+      <Icon icon="material-symbols:arrow-forward-ios-rounded" class="size-8" />
     </a>
   {/if}
 </div>

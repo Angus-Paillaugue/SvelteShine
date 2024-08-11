@@ -1,5 +1,10 @@
 import { pages, docsUrlStart } from '$conf';
 
+/**
+ * Retrieves the tree structure of pages with added metadata.
+ *
+ * @returns {Array} The tree structure of pages with added metadata.
+ */
 export function getTree() {
   const docs = import.meta.glob('/docs/**/*', { eager: true });
 
@@ -40,9 +45,9 @@ export function getTree() {
 }
 
 /**
- * Retrieves a post by its slug.
- * @param {string} slug - The slug of the post.
- * @returns {Object} The post object.
+ * Retrieves a page by its slug.
+ * @param {string} slug - The slug of the page.
+ * @returns {Object} The page object.
  */
 export async function pageBySlug(slug) {
   const pages = getTree();

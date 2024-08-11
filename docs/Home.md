@@ -4,29 +4,71 @@ description: This is the description for the home page
 lastModified: 07-25-2024
 ---
 
-```js:test.js {2, 4-5}
-const test = "Test" // [!code --]
-
-console.log(test)
-console.log(test)
-console.log(test)
-console.log(test)
-console.log(test) // [!code highlight:2]
-console.log(test)
-console.log(test)
-console.log(test)
-console.log(test) // [!code ++]
-console.log(test)
-console.log(test) // [!code highlight]
-console.log(test)
-console.log(test)
-console.log(test)
-```
-
-this is a command : `cat passwords.txt`
 
 <script>
   import Counter from "./Counter.svelte";
 </script>
 
+
+# An highted code block
+
+```js:test.js {2, 4-5}
+const test = "Test"// [!code --]
+
+console.log(test)
+console.log(test)
+console.log(test)
+console.log(test)
+console.log(test)// [!code highlight:2]
+console.log(test)
+console.log(test)
+console.log(test)
+console.log(test)// [!code ++]
+console.log(test)
+console.log(test)// [!code highlight]
+console.log(test)
+console.log(test)
+console.log(test)
+```
+
+
+# Highted inline text
+
+Text : `cat passwords.txt`
+
+
+# A svelte counter
 <Counter />
+
+
+# A command
+
+```bash no-lines-numbers
+pnpm add -D @internationalized/date
+```
+
+
+# Russian text
+
+Моя семья
+У меня большая семья из шести человек: я, мама, папа, старшая сестра, бабушка и дедушка. Мы живем все вместе с собакой Бимом и кошкой Муркой в большом доме в деревне. Мой папа встает раньше всех, потому что ему рано на работу. Он работает доктором. Обычно бабушка готовит нам завтрак. Я обожаю овсяную кашу, а моя сестра Аня – блины.
+
+После завтрака мы собираемся и идем в школу. Моя сестра учится в пятом классе, а я – во втором. Мы любим учиться и играть с друзьями. Больше всего я люблю географию. Когда мы приходим домой из школы, мы смотрим телевизор, а потом ужинаем и делаем уроки. Иногда мы помогаем бабушке и маме в огороде, где они выращивают овощи и фрукты.
+
+# Chinese text
+
+生實乞京衣根象毛朱內主婆；雨貝事木天習英月爪山：道親走日三一家愛紅得歌是着少玉、很游喜吹不吹坡寸問乍：爪身許師收誰刃。入兆好能海。
+
+立首哪聽斗甲士蛋蝴帽出斥是話你羊房童杯菜；封女新三加教占玩位衣，寸帽田門良爪空院蛋用棵「追麻合朵地」只首細遠幫鼻哥亭意動立兆寫，要隻菜文帽。
+
+身住怕未右，兄帽星朱牠米風住燈福南鼻息讀海怪九助、好牙加打京。坡三打蝸十免弟在音虎夏良放語還行「頭自」消更從香哪牛記珠男？布房鳥固，手急想從邊內快升童。
+
+意田升封安，米找各像頭們免亭汗里鴨房彩！比候清。人友聲米子公清千假追、手是南假看刃念麼買息夕，訴房二荷鴨頭今菜他現下還音，松讀眼眼清手燈菜太日把飯良叫山清。
+
+尼員聽家升坡羊羊哥棵荷魚泉已第夏即澡、空您雲波戊寸媽知今九樹上玉到穴親愛祖首！兒功夏又姐食冒蝸瓜冬。
+
+且到心動車而「中媽飛物抓孝」買息停頭姐根貓花右枝肉她九兆玩相止們久，古意公杯日點首己浪京，在兒知事也加火米了口巾，也鼻屋字士幫、住得小元，壯高北牙。
+
+記加以在收波京己即條明神民造不麻眼、想冬抄身拍掃拍勿百帶禾弓羽頭安童；毛婆雨色示借士女冬節彩半乞還食士住右消你，卜向幼別早菜過至走完。
+
+四入己背斥直鴨立向。奶天天由：坡民意錯。

@@ -44,7 +44,7 @@ console.log('Line 5');
 
 ### Inline highlighting
 
-You can highlight a single or a range of line :
+You can highlight a single line (`// [!code highlight]`) or a range of line (`// [!code highlight:3]`) :
 
 ````md
 ```js

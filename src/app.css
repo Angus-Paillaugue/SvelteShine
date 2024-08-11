@@ -26,7 +26,7 @@
 }
 
 html {
-  @apply font-sans scroll-pt-56;
+  @apply font-sans scroll-pt-28;
 }
 
 body {
@@ -65,7 +65,7 @@ h6 {
 }
 
 h1 {
-  @apply font-medium md:font-semibold text-4xl leading-[3.5rem] md:leading-[4rem] mb-4;
+  @apply font-medium md:font-semibold text-4xl leading-[3.5rem] md:leading-[4rem] mb-4 mt-4;
 }
 
 h2 {
@@ -90,7 +90,7 @@ h6 {
 
 p,
 li {
-  @apply font-['Mulish'] text-lg font-medium leading-6 mb-4 text-wrap-none;
+  @apply font-['Mulish'] text-base font-medium leading-6 mb-4 text-wrap-none;
 }
 
 p.balance {
@@ -143,5 +143,5 @@ ul:not(.splide__list) {
 }
 
 mark {
-  @apply bg-primary-700
+  @apply bg-primary-700;
 }

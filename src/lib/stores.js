@@ -2,6 +2,11 @@ import { writable } from 'svelte/store';
 
 export const toasts = writable([]);
 export const searchModalShown = writable(false);
+
+/**
+ * Generates a unique ID by combining the current timestamp with a random number.
+ * @returns {string} The generated ID.
+ */
 const generateId = () => Date.now().toString() + Math.floor(Math.random() * 10000).toString();
 
 /**

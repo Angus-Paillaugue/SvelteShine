@@ -10,7 +10,8 @@ name: Commands
 
 You can use the `Commands` component imported from `$lib/components`. Pass it an array of objects containing each a `name` key representing for exemple a package manager and a `command` key representing the associated command.
 
-### Here is an exemple of config :
+# Config exemple
+Here is a simple config exemple
 
 ```svelte
 <script>
@@ -35,6 +36,7 @@ You can use the `Commands` component imported from `$lib/components`. Pass it an
 />
 ```
 
-### And here is the result :
+# Result
 
+Here is what the previous config outputs
 <Commands commands={commands} />
