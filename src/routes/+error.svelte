@@ -19,7 +19,7 @@
 
   onMount(() => {
     document.onmousemove = (e) => {
-      cursorScale = e.target.closest("a, button") ? 1.5 : 1;
+      cursorScale = e.target.closest('a, button') ? 1.5 : 1;
       coords.set({ x: e.clientX, y: e.clientY });
     };
     document.onmouseenter = () => (cursor.style.opacity = `1`);
@@ -44,22 +44,32 @@
 <div class="relative h-full w-full pointer-events-none z-10 max-md:hidden" bind:this={cursor}>
   <div
     class="absolute transition-transform duration-500"
-    style="top: {$coords.y}px; left: {$coords.x}px; transform: translate(-50%, -50%) rotate({cursorScale === 1 ? 0 : 12}deg) scale({cursorActive ? 0.5 * cursorScale : cursorScale});"
+    style="top: {$coords.y}px; left: {$coords.x}px; transform: translate(-50%, -50%) rotate({cursorScale ===
+    1
+      ? 0
+      : 12}deg) scale({cursorActive ? 0.5 * cursorScale : cursorScale});"
   >
     {#if cursorScale === 1}
-      <div in:scale={{ duration:500 }}>
+      <div in:scale={{ duration: 500 }}>
         <Icon icon="material-symbols:dangerous-outline-rounded" class="size-10 text-red-600" />
       </div>
     {:else}
-      <div in:scale={{ duration:500 }}>
-        <Icon icon="material-symbols:back-hand-rounded" class="size-10 text-primary-700 rotate-12" />
+      <div in:scale={{ duration: 500 }}>
+        <Icon
+          icon="material-symbols:back-hand-rounded"
+          class="size-10 text-primary-700 rotate-12"
+        />
       </div>
     {/if}
   </div>
 </div>
 
 <section class="flex h-screen flex-col items-center justify-center gap-4 cursor-none">
-  <h1 class="font-extrabold text-8xl transition-all duration-500 hover:text-shadow-[0px_0px_15px_rgba(0,_0,_0,_1)] dark:hover:text-shadow-[0px_0px_15px_rgba(255,_255,_255,_1)]">{$page.status}</h1>
+  <h1
+    class="font-extrabold text-8xl transition-all duration-500 hover:text-shadow-[0px_0px_15px_rgba(0,_0,_0,_1)] dark:hover:text-shadow-[0px_0px_15px_rgba(255,_255,_255,_1)]"
+  >
+    {$page.status}
+  </h1>
   <span class="text-lg">{$page.error.message}</span>
   <Button href="/" class="hover:cursor-none">Go back</Button>
 </section>

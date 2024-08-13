@@ -11,7 +11,14 @@ import { imageTransformer, linkTransformer, headingTransformer } from './src/lib
 // remarkCodeTitles is used to add titles to code blocks
 const config = {
   extensions: ['.md', '.svx', '.mdx'],
-  remarkPlugins: [remarkMath, remarkAttr, imageTransformer, linkTransformer, headingTransformer, remarkCodeTitles],
+  remarkPlugins: [
+    remarkMath,
+    remarkAttr,
+    imageTransformer,
+    linkTransformer,
+    headingTransformer,
+    remarkCodeTitles
+  ],
   rehypePlugins: [rehypeKatexSvelte, rehypeSlug],
   highlight: {
     highlighter

@@ -67,7 +67,6 @@ export function linkTransformer() {
   };
 }
 
-
 /**
  * Transforms headings in a tree by replacing HTTP methods with styled HTML elements.
  *
@@ -75,13 +74,23 @@ export function linkTransformer() {
  * @returns {Function} - A function that performs the transformation on the given tree.
  */
 export function headingTransformer() {
-  const httpMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS', 'HEAD', 'CONNECT', 'TRACE'];
+  const httpMethods = [
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE',
+    'PATCH',
+    'OPTIONS',
+    'HEAD',
+    'CONNECT',
+    'TRACE'
+  ];
 
   const getHttpMethod = (text) =>
     httpMethods.find((method) => text.toUpperCase().startsWith(method));
   return (tree) => {
     visit(tree, 'heading', (node) => {
-      for(const child of node.children) {
+      for (const child of node.children) {
         const text = child.value;
         const matchingMethod = getHttpMethod(text);
 

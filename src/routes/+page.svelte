@@ -130,7 +130,9 @@
     </section> -->
 
     <!-- Bento grid -->
-    <section class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-2 px-2 md:px-10 md:my-24">
+    <section
+      class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-2 px-2 md:px-10 md:my-24"
+    >
       <div
         class="border border-neutral-300/50 dark:border-neutral-700/50 p-4 xl:p-8 text-center flex flex-col items-center gap-2 col-span-1 md:col-span-3 rounded-md relative overflow-hidden md:rounded-tl-[50px] max-md:rounded-t-[50px]"
       >
@@ -139,8 +141,12 @@
           class="w-[80%] object-contain"
           alt=""
         />
-        <div class="absolute left-0 right-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-b from-transparent dark:to-neutral-900 to-white to-40%"></div>
-        <div class="absolute bottom-0 left-0 right-0 flex text-center justify-center flex-col gap-2 p-4 xl:p-8">
+        <div
+          class="absolute left-0 right-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-b from-transparent dark:to-neutral-900 to-white to-40%"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 right-0 flex text-center justify-center flex-col gap-2 p-4 xl:p-8"
+        >
           <h1 class="text-base font-medium m-0">Gorgeous out of the box</h1>
           <span>Opinionated when you're lazy, but infinitely flexible when you need it to be</span>
         </div>
@@ -153,8 +159,12 @@
           class="w-[80%] object-contain"
           alt=""
         />
-        <div class="absolute left-0 right-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-b from-transparent dark:to-neutral-900 col-span-1 md:col-span-2 to-white to-40%"></div>
-        <div class="absolute bottom-0 left-0 right-0 flex text-center justify-center flex-col gap-2 p-4 xl:p-8">
+        <div
+          class="absolute left-0 right-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-b from-transparent dark:to-neutral-900 col-span-1 md:col-span-2 to-white to-40%"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 right-0 flex text-center justify-center flex-col gap-2 p-4 xl:p-8"
+        >
           <h1 class="text-base font-medium m-0">Developer forward</h1>
           <span>Content is powered by markdown and lives alongside your codebase</span>
         </div>
@@ -167,8 +177,12 @@
           class="w-[80%] object-contain"
           alt=""
         />
-        <div class="absolute left-0 right-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-b from-transparent dark:to-neutral-900 to-white to-40%"></div>
-        <div class="absolute bottom-0 left-0 right-0 flex text-center justify-center flex-col gap-2 p-4 xl:p-8">
+        <div
+          class="absolute left-0 right-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-b from-transparent dark:to-neutral-900 to-white to-40%"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 right-0 flex text-center justify-center flex-col gap-2 p-4 xl:p-8"
+        >
           <h1 class="text-base font-medium m-0">Built for performance</h1>
           <span>Meticulously designed and optimized for a great user experience</span>
         </div>
@@ -181,8 +195,12 @@
           class="w-[80%] object-contain"
           alt=""
         />
-        <div class="absolute left-0 right-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-b from-transparent dark:to-neutral-900 to-white to-40%"></div>
-        <div class="absolute bottom-0 left-0 right-0 flex text-center justify-center flex-col gap-2 p-4 xl:p-8">
+        <div
+          class="absolute left-0 right-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-b from-transparent dark:to-neutral-900 to-white to-40%"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 right-0 flex text-center justify-center flex-col gap-2 p-4 xl:p-8"
+        >
           <h1 class="text-base font-medium m-0">Conversion as a priority</h1>
           <span>Crafted for more user engagement and conversions</span>
         </div>
@@ -195,8 +213,12 @@
           class="w-[80%] object-contain"
           alt=""
         />
-        <div class="absolute left-0 right-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-b from-transparent dark:to-neutral-900 to-white to-40%"></div>
-        <div class="absolute bottom-0 left-0 right-0 flex text-center justify-center flex-col gap-2 p-4 xl:p-8">
+        <div
+          class="absolute left-0 right-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-b from-transparent dark:to-neutral-900 to-white to-40%"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 right-0 flex text-center justify-center flex-col gap-2 p-4 xl:p-8"
+        >
           <h1 class="text-base font-medium m-0">Effortlessly maintained</h1>
           <span>Designed to make updating documentation easy</span>
         </div>

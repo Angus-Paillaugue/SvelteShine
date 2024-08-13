@@ -4,7 +4,7 @@
   import { addCopyCodeButtonFunctionality } from '$lib/utils';
   import { onMount } from 'svelte';
   import { Button } from '$lib/components';
-  import { mode } from "mode-watcher"
+  import { mode } from 'mode-watcher';
   const { docsHomePage } = $props();
 
   onMount(addCopyCodeButtonFunctionality);
@@ -52,7 +52,9 @@
     class="flex flex-col justify-center max-w-screen-2xl grow h-full w-full mx-auto items-center gap-20 relative px-2 md:px-10"
   >
     <!-- Left content part -->
-    <div class="max-lg:p-2 max-sm:row-span-1 max-md:row-span-2 max-sm:self-center max-md:self-end shrink-0">
+    <div
+      class="max-lg:p-2 max-sm:row-span-1 max-md:row-span-2 max-sm:self-center max-md:self-end shrink-0"
+    >
       <!-- New version badge -->
       {#if homepage.version.showHomepageMessage}
         <a
@@ -63,7 +65,10 @@
             >NEW</span
           >{siteName} launches v{homepage.version.latestVersion}
 
-          <Icon icon="line-md:arrow-right" class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
+          <Icon
+            icon="line-md:arrow-right"
+            class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1 group-focus-visible:translate-x-1"
+          />
 
           <div
             class="absolute -bottom-px right-2 left-2 h-px [mask-image:linear-gradient(to_right,rgba(217,217,217,0)_0%,#d9d9d9_25%,#d9d9d9_75%,rgba(217,217,217,0)_100%)]"
@@ -78,9 +83,7 @@
       {/if}
 
       <!-- Title -->
-      <h1
-        class="leading-[100%] text-[45px] md:text-[75px] lg:text-[80px]"
-      >
+      <h1 class="leading-[100%] text-[45px] md:text-[75px] lg:text-[80px]">
         <span
           class="dark:text-neutral-50 text-neutral-50 text-shadow-[0_4px_0_#141414] dark:text-shadow-[0_4px_0_#ffffff]"
           style="-webkit-text-fill-color: #fff;-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: #000;"
@@ -89,9 +92,7 @@
       </h1>
 
       <!-- CTA buttons -->
-      <div
-        class="flex flex-row w-full justify-start items-center gap-8 mt-8"
-      >
+      <div class="flex flex-row w-full justify-start items-center gap-8 mt-8">
         <Button href="/docs/{docsHomePage.name}">Get started</Button>
 
         <Button type="ghost" class="flex flex-row gap-4 rounded-full items-center">
@@ -105,20 +106,38 @@
     </div>
 
     <!-- Gradient behind mockup -->
-    <div class="absolute inset-0 -z-10 sm:bg-radient-[45%_20%_at_50%_60%] md:bg-radient-[45%_25%_at_50%_75%] lg:bg-radient-[45%_30%_at_50%_70%] xl:bg-radient-[40%_35%_at_50%_60%] from-primary-600/50 dark:from-primary-600/30" style="animation: float 5s ease-in-out infinite;"></div>
+    <div
+      class="absolute inset-0 -z-10 sm:bg-radient-[45%_20%_at_50%_60%] md:bg-radient-[45%_25%_at_50%_75%] lg:bg-radient-[45%_30%_at_50%_70%] xl:bg-radient-[40%_35%_at_50%_60%] from-primary-600/50 dark:from-primary-600/30"
+      style="animation: float 5s ease-in-out infinite;"
+    ></div>
 
     <!-- Mockup -->
     {#if $mode}
-      <div class="max-sm:hidden max-md:self-start border rounded-xl overflow-hidden border-neutral-300/50 dark:border-neutral-700/50" style="animation: float 5s ease-in-out infinite;">
+      <div
+        class="max-sm:hidden max-md:self-start border rounded-xl overflow-hidden border-neutral-300/50 dark:border-neutral-700/50"
+        style="animation: float 5s ease-in-out infinite;"
+      >
         <picture>
-          <source media="(max-width: 480px)" srcset="/homepage/mockup/{$mode}/homepagePreview_480.webp">
-          <source media="(max-width: 960px)" srcset="/homepage/mockup/{$mode}/homepagePreview_960.webp">
-          <img src="/homepage/mockup/{$mode}/homepagePreview_1920.webp" alt="website mockup" class="object-contain" />
+          <source
+            media="(max-width: 480px)"
+            srcset="/homepage/mockup/{$mode}/homepagePreview_480.webp"
+          />
+          <source
+            media="(max-width: 960px)"
+            srcset="/homepage/mockup/{$mode}/homepagePreview_960.webp"
+          />
+          <img
+            src="/homepage/mockup/{$mode}/homepagePreview_1920.webp"
+            alt="website mockup"
+            class="object-contain"
+          />
         </picture>
       </div>
     {/if}
   </div>
 
   <!-- Bottom gradient to hide the bottom of the mockup -->
-  <div class="pointer-events-none absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-b from-transparent to-white dark:to-neutral-900 to-40% md:to-80% lg:h-[500px] h-[600px] md:h-[400px] max-sm:hidden"></div>
+  <div
+    class="pointer-events-none absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-b from-transparent to-white dark:to-neutral-900 to-40% md:to-80% lg:h-[500px] h-[600px] md:h-[400px] max-sm:hidden"
+  ></div>
 </section>

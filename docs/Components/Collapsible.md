@@ -18,9 +18,8 @@ You can really put anything in here !
 
 1. List item 1
 2. List item 2
-    - Sub list item 1
-    - Sub list item 2
-
+   - Sub list item 1
+   - Sub list item 2
 
 </Collapsible>
 
@@ -45,7 +44,6 @@ function logSomething(something) {
 Wow! this collapsible is super pretty
 
 </Collapsible>
-
 
 # Definition
 
