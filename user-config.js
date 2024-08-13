@@ -79,6 +79,7 @@ export const pages = [
     children: [
       { name: 'Commands' },
       { name: 'Tree' },
+      { name: 'Collapsible' },
       { name: 'Note' },
       { name: 'Definition' },
       { name: 'Tooltip' }

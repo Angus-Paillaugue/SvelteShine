@@ -4,9 +4,12 @@
   import Icon from '@iconify/svelte';
   import { twMerge } from 'tailwind-merge';
   import { developSidebar } from '$conf';
+  import { accordion } from '$lib/utils';
 
   const { pages = [], root = false, style = 'details' } = $props();
   const pathname = $derived(decodeURIComponent($page.url.pathname));
+
+  let open = $state(developSidebar)
 
   /**
    * Determines if a page is nested.
@@ -34,7 +37,21 @@
   >
     {#each pages as page}
       {#if isNested(page)}
-        <details open={developSidebar || false}>
+      <div>
+        <button onclick={() => (open = !open)} class={twMerge(itemBaseClasses, itemColors, 'flex flex-row items-center gap-4 w-full')}>
+          {page.name}
+          <span class="arrow transition-all">
+            <Icon
+              icon="material-symbols:arrow-forward-ios-rounded"
+              class="size-3 transition-transform"
+            />
+          </span>
+        </button>
+        <div use:accordion={open}>
+          <PageList pages={page.children} />
+        </div>
+      </div>
+        <!-- <details open={developSidebar || false}>
           <summary class={twMerge(itemBaseClasses, itemColors, 'flex flex-row items-center gap-4')}>
             {page.name}
             <span class="arrow transition-all">
@@ -45,7 +62,7 @@
             </span>
           </summary>
           <PageList pages={page.children} />
-        </details>
+        </details> -->
       {:else}
         <a
           href={page.url}

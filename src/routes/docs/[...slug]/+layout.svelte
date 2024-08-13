@@ -9,7 +9,7 @@
 <Search />
 
 <div class="flex flex-row">
-  <Sidebar bind:open={sidebarOpen} style={sidebarStyle} />
+  <Sidebar open={sidebarOpen} style={sidebarStyle} />
 
   {@render children()}
 </div>

@@ -11,3 +11,4 @@
 - [x] Make an error page
 - [x] Make table of contents work (to active section marker tho)
 - [ ] Make a logo
+- [x] Make a collapsible component

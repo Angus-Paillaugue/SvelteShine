@@ -23,7 +23,7 @@
   });
 </script>
 
-<div class="w-full">
+<div class="w-full commands mb-4">
   <div class="relative h-fit w-full">
     <ul
       class="flex flex-row no-scrollbar flex-nowrap gap-2 border-b-2 border-neutral-300/50 dark:border-neutral-700/50 mb-2 relative"
@@ -32,7 +32,7 @@
         <li class="mb-0 list-none">
           <button
             onclick={() => (selectedIndex = i)}
-            class="px-4 py-2 relative overflow-visible cursor-pointer flex flex-row gap-2 items-center text-lg font-bold"
+            class="px-4 py-2 relative overflow-visible cursor-pointer flex flex-row gap-2 items-center text-lg font-bold list-none"
           >
             {command.name}
           </button>

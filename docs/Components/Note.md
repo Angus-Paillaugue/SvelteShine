@@ -40,6 +40,11 @@ definition={
 "description": "The type of the alert. Can be \"note\", \"tip\", \"important\", \"warning\" or \"caution\""
 },
 {
+"name":"<slot>",
+"type": "HTMLElement",
+"description": "The actual contents of the note."
+},
+{
 "name":"style",
 "default":"\"custom\"",
 "type": "string",
@@ -48,12 +53,7 @@ definition={
 {
 "name":"class",
 "type": "string",
-"description": "Optional classes to add to the alert component's outer most div"
-},
-{
-"name":"children",
-"type": "HTMLElement",
-"description": "A writable store that controls whether or not the collapsible is open."
+"description": "(Optionnal) Classes to add to the alert component's outer most div"
 }
 ]
 }}

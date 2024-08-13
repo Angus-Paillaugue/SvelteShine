@@ -135,18 +135,18 @@ definition={
 "name":"tree.open",
 "default":"true",
 "type": "boolean",
-"description": "If the children is a directory, controls whether the children are displayed."
+"description": "(Optionnal) If the children is a directory, controls whether the children are displayed."
 },
 {
 "name":"tree.children",
-"type": "array ? optional",
-"description": "The list of children of a directory."
+"type": "array",
+"description": "(Optionnal) The list of children of a directory."
 },
 {
 "name":"tree.highlighted",
 "type": "boolean",
 "default": "false",
-"description": "Controls weather to hight a directory or file."
+"description": "(Optionnal) Controls weather to hight a directory or file."
 }
 ]
 }

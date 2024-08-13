@@ -59,7 +59,8 @@ export default {
       textShadow: {
         code: '0 1px rgba(0, 0, 0, 0.3)',
         none: 'none'
-      }
+      },
+      radialGradients: _presets()
     }
   },
   plugins: [
@@ -74,7 +75,14 @@ export default {
         },
         {
           values: theme('textShadow')
-        }
+        },
+        {
+          // map to bg-radient-[*]
+          'bg-radient': (value) => ({
+            'background-image': `radial-gradient(${value},var(--tw-gradient-stops))`
+          })
+        },
+        { values: theme('radialGradients') }
       ),
         addUtilities({
           // Add font-ligatures utilities

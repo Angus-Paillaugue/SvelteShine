@@ -97,7 +97,7 @@
 
         <Pagination slug={data.slug} />
       </main>
-      <div class="lg:ml-4 lg:sticky lg:top-24 lg:h-fit py-4 px-2 w-fit text-nowrap">
+      <div class="lg:ml-4 lg:sticky lg:top-24 lg:h-fit py-4 px-2 lg:w-[200px] text-nowrap">
         <Toc {headings} root={true} />
       </div>
     </div>
