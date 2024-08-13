@@ -60,3 +60,33 @@ export const urlHealer = {
       .replace(/-{2,}/g, '-')
       .toLowerCase()
 };
+
+import { newToast } from '$lib/stores';
+/**
+ * Adds functionality to the copy code button.
+ */
+export function addCopyCodeButtonFunctionality() {
+  const copyCodeButtons = document.querySelectorAll('.copy-code-button');
+  copyCodeButtons.forEach((copyButton) => {
+    // On copy code button click
+    copyButton.onclick = () => {
+      // Change the button icon to a checkmark
+      copyButton.querySelector('.copy').style.display = 'none';
+      copyButton.querySelector('.copied').style.display = 'block';
+      const textToCopy = copyButton.parentElement.querySelector('code').innerText;
+      // Write the code to clipboard
+      navigator.clipboard.writeText(textToCopy);
+      // Show toast
+      newToast({
+        title: 'Copied to clipboard',
+        message: 'The code has been copied to your clipboard',
+        type: 'green'
+      });
+      setTimeout(() => {
+        // Reset the button icon back to default
+        copyButton.querySelector('.copy').style.display = 'block';
+        copyButton.querySelector('.copied').style.display = 'none';
+      }, 2000);
+    };
+  });
+}

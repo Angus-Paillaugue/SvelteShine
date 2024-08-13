@@ -6,7 +6,7 @@
   import Icon from '@iconify/svelte';
 
   const baseToastClasses =
-    'rounded-md border bg-neutral-100 dark:bg-neutral-950 border-neutral-300 dark:border-neutral-800 p-4 relative text-neutral-600 dark:text-neutral-300';
+    'rounded-xl border bg-neutral-50 dark:bg-neutral-950 border-neutral-300/50 dark:border-neutral-700/50 p-4 relative';
 
   // USER CONFIG : Customize the toast svg colors
   const svgColors = {
@@ -28,11 +28,17 @@
     >
       <div class="flex items-center gap-2">
         {#if toast.type === 'red'}
-          <Icon icon="material-symbols:dangerous-outline-rounded" class="h-5 w-5 {svgColors[toast.type]}" />
+          <Icon
+            icon="material-symbols:dangerous-outline-rounded"
+            class="h-5 w-5 {svgColors[toast.type]}"
+          />
         {:else if toast.type === 'green'}
           <Icon icon="material-symbols:check-rounded" class="h-5 w-5 {svgColors[toast.type]}" />
         {:else}
-          <Icon icon="material-symbols:info-outline-rounded" class="h-5 w-5 {svgColors[toast.type]}" />
+          <Icon
+            icon="material-symbols:info-outline-rounded"
+            class="h-5 w-5 {svgColors[toast.type]}"
+          />
         {/if}
 
         <strong class="block font-medium">{toast.title}</strong>

@@ -1,4 +1,6 @@
 <script>
+  // Import stylesheets
+  import '../code.css';
   import '../app.css';
   import Toasts from '$lib/components/core/Toasts.svelte';
   import { ModeWatcher, mode } from 'mode-watcher';

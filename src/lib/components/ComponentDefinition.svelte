@@ -2,9 +2,9 @@
   const { name, description, definition, notes } = $props();
 </script>
 
-<div class="rounded-md border border-neutral-300 dark:border-neutral-800">
+<div class="rounded-md border border-neutral-300/50 dark:border-neutral-700/50">
   <div
-    class="bg-primary-700/50 text-white w-fit p-2 rounded-tl-md rounded-br-md border-2 border-primary-600"
+    class="border-primary-600 bg-primary-400/50 dark:border-primary-400 dark:bg-primary-900/50 text-primary-950 dark:text-primary-50 w-fit p-2 rounded-tl-md rounded-br-md border-2"
   >
     <h1 class="font-bold text-xl m-0">{name}</h1>
   </div>
@@ -22,7 +22,7 @@
   <table class="w-full table-auto">
     <thead>
       <tr
-        class="border-b border-neutral-300 dark:border-neutral-800 whitespace-nowrap text-base font-medium"
+        class="border-b border-neutral-300/50 dark:border-neutral-700/50 whitespace-nowrap text-base font-medium"
       >
         {#if definition?.colNames}
           {#each definition.colNames as colName}
@@ -37,23 +37,25 @@
     </thead>
     <tbody>
       {#each definition.content as prop}
-        <tr class="border-b border-neutral-300 dark:border-neutral-800">
+        <tr class="border-b border-neutral-300/50 dark:border-neutral-700/50">
           <td class="p-2">
             <p
-              class="font-bold px-1 rounded bg-primary-700/50 border border-primary-600 text-white w-fit text-sm"
+              class="font-bold px-1 rounded border-primary-600 bg-primary-400/50 dark:border-primary-400 dark:bg-primary-900/50 text-primary-950 dark:text-primary-50 border w-fit text-sm m-0"
             >
               {prop.name}
             </p>
           </td>
           <td class="p-2">
-            <p class="font-bold px-1 rounded bg-neutral-600 dark:bg-neutral-800 text-white w-fit text-sm">
+            <p
+              class="font-bold px-1 rounded bg-neutral-600 dark:bg-neutral-800 text-white dark:text-white w-fit text-sm m-0"
+            >
               {prop?.default ?? ' - '}
             </p>
           </td>
           <td class="p-2 flex flex-col gap-2">
             {#if prop.type}
               <p
-                class="font-bold px-1 rounded bg-neutral-600 dark:bg-neutral-800 text-white w-fit text-sm m-0"
+                class="font-bold px-1 rounded bg-neutral-600 dark:bg-neutral-800 text-white dark:text-white w-fit text-sm m-0"
               >
                 {prop.type}
               </p>

@@ -30,7 +30,7 @@ code {
 
 /* File name */
 .remark-code-title {
-  @apply text-base font-medium bg-neutral-300 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 rounded-t-md px-3 py-1 flex flex-row gap-4 items-center;
+  @apply text-base font-medium bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 rounded-t-md px-3 py-1 flex flex-row gap-4 items-center;
 }
 .remark-code-title ~ .shiki {
   @apply rounded-t-none;
@@ -84,4 +84,63 @@ code:not(pre code, .command) {
 }
 .commands > pre {
   @apply m-0 rounded-none;
+}
+
+/* Styling page components */
+
+/* Image */
+.page-image {
+  @apply rounded-md;
+}
+.page-image ~ figcaption {
+  @apply text-sm text-neutral-600 dark:text-neutral-400 text-center block mb-2;
+}
+#pageContainer figure:has(> .page-image) {
+  @apply w-fit;
+}
+
+/* Table */
+#pageContainer > table {
+  @apply w-full border-collapse table-fixed text-sm my-4 rounded-md overflow-hidden text-left;
+}
+
+#pageContainer > table thead {
+  @apply bg-neutral-200/40 dark:bg-neutral-800/50;
+}
+
+#pageContainer > table th {
+  @apply border-b dark:border-neutral-700/50 font-medium p-4 pl-8 pb-3 text-neutral-800 dark:text-neutral-200 text-left;
+}
+
+#pageContainer > table td {
+  @apply border-b border-neutral-300/50 dark:border-neutral-700/50 p-4 pl-8 text-neutral-600 dark:text-neutral-400;
+}
+
+/* Lists */
+#pageContainer ul:not(.tree ul),
+#pageContainer ol {
+  @apply pl-0 my-5 ps-6 list-outside list-none;
+}
+
+#pageContainer li:not(.tree ul li) {
+  @apply ps-1 relative;
+}
+
+#pageContainer ul:not(.tree ul) > li::before {
+  @apply rounded-full bg-neutral-300 dark:bg-neutral-700 content-[''] w-3 h-0.5 absolute top-[12px] -left-[1.25rem];
+}
+
+#pageContainer ol > li {
+  @apply list-decimal;
+}
+
+#pageContainer blockquote {
+  @apply border-l-4 border-neutral-300/50 dark:border-neutral-700/50 pl-4 my-6;
+}
+/* TaskList */
+#pageContainer .task-list-item {
+  @apply flex items-center gap-2;
+}
+#pageContainer .task-list-item input[type='checkbox'] {
+  @apply size-[1.15rem] border border-neutral-300 relative dark:border-neutral-700 appearance-none rounded-md checked:bg-primary-300 after:text-primary-800 dark:checked:bg-primary-400 checked:after:content-["✓"] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 after:text-sm after:font-bold;
 }

@@ -1,6 +1,4 @@
 <script>
-  // Import code stylesheet
-  import '../../../code.css';
   import Sidebar from '$lib/components/core/Sidebar.svelte';
   import Search from '$lib/components/core/Search.svelte';
   import { sidebarStyle } from '$conf';

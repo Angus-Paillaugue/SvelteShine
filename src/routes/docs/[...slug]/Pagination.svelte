@@ -37,11 +37,11 @@
   {#if previousPage}
     <a
       href={previousPage.url}
-      class="p-4 rounded-md border border-neutral-300 dark:border-neutral-800 hover:gap-4 flex flex-row gap-2 items-center justify-start transition-all"
+      class="p-4 rounded-md border border-neutral-300/50 dark:border-neutral-700/50 hover:gap-4 flex flex-row gap-2 items-center justify-start transition-all"
     >
       <Icon icon="material-symbols:arrow-back-ios-rounded" class="size-8" />
       <div class="flex flex-col justify-end text-start">
-        <span class="font-light text-xl">Previous</span>
+        <span class="font-light text-xl text-neutral-500 dark:text-neutral-600">Previous</span>
         <span class="font-semibold text-lg">
           {previousPage.name}
         </span>
@@ -51,10 +51,10 @@
   {#if nextPage}
     <a
       href={nextPage.url}
-      class="col-start-2 p-4 rounded-md border border-neutral-300 dark:border-neutral-800 hover:gap-4 flex flex-row gap-2 items-center justify-end transition-all"
+      class="col-start-2 p-4 rounded-md border border-neutral-300/50 dark:border-neutral-700/50 hover:gap-4 flex flex-row gap-2 items-center justify-end transition-all"
     >
       <div class="flex flex-col justify-end text-end">
-        <span class="font-light text-xl">Next</span>
+        <span class="font-light text-xl text-neutral-500 dark:text-neutral-600">Next</span>
         <span class="font-semibold text-lg">
           {nextPage.name}
         </span>

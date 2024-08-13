@@ -24,6 +24,7 @@ export function getTree() {
           ...metadata.metadata,
           component: metadata.default,
           url: pageUrl,
+          filePath: docKey,
           slug
         };
       } else if (page.children) {
@@ -36,7 +37,14 @@ export function getTree() {
         const metadata = docs[docKey] || {};
         const pageUrl = baseUrl + '/' + page.name;
         const slug = pageUrl.replace(docsUrlStart + '/', '');
-        return { ...page, ...metadata.metadata, component: metadata.default, url: pageUrl, slug };
+        return {
+          ...page,
+          ...metadata.metadata,
+          filePath: docKey,
+          component: metadata.default,
+          url: pageUrl,
+          slug
+        };
       }
     });
   }

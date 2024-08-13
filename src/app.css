@@ -22,15 +22,15 @@
 }
 
 * {
-  @apply scroll-smooth;
+  @apply scroll-smooth focus:outline-1 outline-offset-4 outline-primary-600;
 }
 
 html {
-  @apply font-sans scroll-pt-28;
+  @apply font-sans scroll-pt-20 md:scroll-pt-28;
 }
 
 body {
-  @apply font-['Mulish'] bg-white dark:bg-neutral-900;
+  @apply font-['Mulish'] bg-white dark:bg-neutral-900 text-neutral-950 dark:text-neutral-100;
 }
 
 ::-webkit-scrollbar {
@@ -38,20 +38,20 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-neutral-300;
+  @apply bg-inherit;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-neutral-300;
+  @apply rounded-full bg-neutral-300 dark:bg-neutral-700;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-neutral-500;
+  @apply bg-neutral-400 dark:bg-neutral-600;
 }
 
 ::selection,
 ::-moz-selection {
-  @apply text-white bg-primary-950;
+  @apply bg-primary-300 text-primary-950;
 }
 
 /* Text */
@@ -61,7 +61,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-['Poppins'] text-wrap-balance;
+  @apply font-['Poppins'] text-wrap-balance text-black dark:text-white;
 }
 
 h1 {
@@ -90,23 +90,28 @@ h6 {
 
 p,
 li {
-  @apply font-['Mulish'] text-base font-medium leading-6 mb-4 text-wrap-none;
+  @apply font-['Mulish'] text-base font-medium leading-6 mb-4 text-wrap-none text-neutral-500 dark:text-neutral-400;
 }
-
+span,
+small {
+  @apply text-neutral-500 dark:text-neutral-400;
+}
 p.balance {
   @apply text-wrap-balance;
 }
-
-hr {
-  @apply border-none h-1 bg-primary-100 dark:bg-primary-700 my-8;
-}
-
-a.link {
-  @apply underline font-bold hover:no-underline transition-all cursor-pointer;
-}
-
 small {
-  @apply text-xs text-neutral-500 dark:text-neutral-400;
+  @apply text-xs;
+}
+hr {
+  @apply border-none h-[2px] mx-4 rounded-full bg-neutral-300/50 dark:bg-neutral-800 my-8;
+}
+/* Page links */
+.link {
+  @apply border-b no-underline text-inherit transition-colors border-primary-400/50 hover:border-primary-400/75 bg-primary-300/30 dark:bg-primary-500/10 dark:border-primary-500/40 dark:text-primary-500 relative;
+}
+/* For the external links icons */
+.link[href^='http'] > svg.newTabIcon {
+  @apply inline-block ml-1;
 }
 
 /* Tooltip */
@@ -143,5 +148,5 @@ ul:not(.splide__list) {
 }
 
 mark {
-  @apply bg-primary-700;
+  @apply bg-primary-400 dark:bg-primary-700;
 }

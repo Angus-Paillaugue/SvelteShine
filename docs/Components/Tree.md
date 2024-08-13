@@ -16,14 +16,14 @@ lastModified: 08-09-2024
           children: [
             {
               name: "components",
-              highted: true,
+              highlighted: true,
               children: [
                 {
                   name: "core",
                   children: [
                     {
                       name:"Tree.svelte",
-                      highted:true
+                      highlighted:true
                     },
                     "index.js"
                   ]
@@ -69,14 +69,14 @@ You can use the `Tree` component imported from `$lib/components`. Pass it a tree
           children: [
             {
               name: 'components',
-              highted: true,
+              highlighted: true,
               children: [
                 {
                   name: 'core',
                   children: [
                     {
                       name: 'Tree.svelte',
-                      highted: true
+                      highlighted: true
                     },
                     'index.js'
                   ]
@@ -143,7 +143,7 @@ definition={
 "description": "The list of children of a directory."
 },
 {
-"name":"tree.highted",
+"name":"tree.highlighted",
 "type": "boolean",
 "default": "false",
 "description": "Controls weather to hight a directory or file."

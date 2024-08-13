@@ -18,21 +18,34 @@ export const tailwindColors = {
 // You may also have to change the variable in the src/code.css 8:14
 export const codeBlockTheme = 'one-dark-pro';
 
-// "static" or "details" (default: "details")
-export const sidebarStyle = 'details';
-// true or false (default: true), Only works with sidebarStyle "details"
-export const developSidebar = true;
+export const sidebarStyle = 'details'; // "static"|"details" (default: "details")
+export const developSidebar = true; // true|false (default: true), Only works with sidebarStyle "details"
 
-// Socials in the navbar
-export const socials = {
-  GitHub: 'https://github.com/Angus-Paillaugue'
-};
+// Socials in the navbar (see https://icon-sets.iconify.design) for the icon names
+export const socials = [
+  {
+    name: 'GitHub',
+    icon: 'line-md:github-loop',
+    url: 'https://github.com/Angus-Paillaugue'
+  }
+];
+// The target pf the socials links
+export const socialsTarget = '_blank'; // _blank|_self|_parent|_top|framename
 
 // Site meta config
-export const siteName = 'Doc-template';
+export const siteName = 'SvelteShine';
 export const siteDescription = 'A simple documentation template for SvelteKit';
 export const siteAuthor = 'Angus Paillaugue';
 export const keywords = 'svelte, sveltekit, documentation, template';
+
+export const homepage = {
+  version: {
+    showHomepageMessage: true,
+    latestVersion: '1.0.0',
+    latestVersionURL: '/docs'
+  },
+  catchphrase: 'Illuminate your Svelte documentation'
+};
 
 // All of your docs pages
 // You can add, sort, and nest pages here
@@ -63,7 +76,13 @@ export const pages = [
   },
   {
     name: 'Components',
-    children: [{ name: 'Commands' }, { name: 'Tooltip' }, { name: 'Tree' }, { name: 'Definition' }]
+    children: [
+      { name: 'Commands' },
+      { name: 'Tree' },
+      { name: 'Note' },
+      { name: 'Definition' },
+      { name: 'Tooltip' }
+    ]
   }
 ];
 

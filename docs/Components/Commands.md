@@ -11,6 +11,7 @@ name: Commands
 You can use the `Commands` component imported from `$lib/components`. Pass it an array of objects containing each a `name` key representing for exemple a package manager and a `command` key representing the associated command.
 
 # Config exemple
+
 Here is a simple config exemple
 
 ```svelte

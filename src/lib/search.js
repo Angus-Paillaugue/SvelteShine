@@ -4,10 +4,10 @@ import FlexSearch from 'flexsearch';
 /**
  * Flattens the pages in the sidebar.
  *
- * @param {Array} sidebar - The sidebar containing the pages.
+ * @param {Array} tree - The sidebar containing the pages.
  * @returns {Array} - The flattened array of pages.
  */
-function flattenPages(sidebar) {
+function flattenPages(tree) {
   let newPages = [];
   function traverse(items) {
     for (const item of items) {
@@ -19,7 +19,7 @@ function flattenPages(sidebar) {
       }
     }
   }
-  traverse(sidebar);
+  traverse(tree);
   return newPages;
 }
 
@@ -33,17 +33,19 @@ let pagesIndex;
  */
 export function createPagesIndex() {
   const tree = getTree();
-  const pages = flattenPages(tree);
+  const flattenedPages = flattenPages(tree);
 
   // create the pages index
   pagesIndex = new FlexSearch.Index({ tokenize: 'forward' });
 
-  pages.forEach((page, i) => {
+  flattenedPages.forEach((page, i) => {
     // index the title and content together
     const item = `${page.name} ${page.description}`;
     // add the item to the index 👍️
     pagesIndex.add(i, item);
   });
+
+  pages = flattenedPages;
 }
 
 /**
