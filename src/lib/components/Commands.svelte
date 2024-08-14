@@ -23,16 +23,16 @@
   });
 </script>
 
-<div class="w-full commands mb-4">
+<div class="commands mb-4 w-full">
   <div class="relative h-fit w-full">
     <ul
-      class="flex flex-row no-scrollbar flex-nowrap gap-2 border-b-2 border-neutral-300/50 dark:border-neutral-700/50 mb-2 relative"
+      class="no-scrollbar relative mb-2 flex flex-row flex-nowrap gap-2 border-b-2 border-neutral-300/50 dark:border-neutral-700/50"
     >
       {#each commands as command, i}
         <li class="mb-0 list-none">
           <button
             onclick={() => (selectedIndex = i)}
-            class="px-4 py-2 relative overflow-visible cursor-pointer flex flex-row gap-2 items-center text-lg font-bold list-none"
+            class="relative flex cursor-pointer list-none flex-row items-center gap-2 overflow-visible px-4 py-2 text-lg font-bold"
           >
             {command.name}
           </button>
@@ -40,18 +40,18 @@
       {/each}
     </ul>
     <span
-      class="absolute h-[2px] bottom-0 bg-primary-600 dark:bg-primary-400 transition-all"
+      class="absolute bottom-0 h-[2px] bg-primary-600 transition-all dark:bg-primary-400"
       bind:this={underlineElement}
     ></span>
   </div>
 
-  <div class="border border-neutral-300/50 dark:border-neutral-700/50 rounded-md overflow-hidden">
+  <div class="overflow-hidden rounded-md border border-neutral-300/50 dark:border-neutral-700/50">
     <div class="flex flex-row gap-2 px-4 py-2">
-      <div class="size-3 bg-neutral-300 dark:bg-neutral-800 rounded-full"></div>
-      <div class="size-3 bg-neutral-300 dark:bg-neutral-800 rounded-full"></div>
-      <div class="size-3 bg-neutral-300 dark:bg-neutral-800 rounded-full"></div>
+      <div class="size-3 rounded-full bg-neutral-300 dark:bg-neutral-800"></div>
+      <div class="size-3 rounded-full bg-neutral-300 dark:bg-neutral-800"></div>
+      <div class="size-3 rounded-full bg-neutral-300 dark:bg-neutral-800"></div>
     </div>
-    <div class="relative commands">
+    <div class="commands relative">
       {#await highlighter then highlighter}
         {@html highlighter.codeToHtml(commands[selectedIndex].command, {
           theme: codeBlockTheme,
@@ -62,7 +62,7 @@
       <!-- Copy command button -->
       <button
         tabindex="0"
-        class="h-[2.5rem] bg-neutral-950 text-white rounded-full flex items-center justify-center transition hover:scale-105 active:scale-90 focus:outline-primary-200 p-1 aspect-square absolute top-1/2 right-2 -translate-y-1/2"
+        class="absolute right-2 top-1/2 flex aspect-square h-[2.5rem] -translate-y-1/2 items-center justify-center rounded-full bg-neutral-950 p-1 text-white transition hover:scale-105 focus:outline-primary-200 active:scale-90"
         onclick={(e) => {
           const copyButton = e.target.closest('button');
           copyButton.querySelector('.copy').classList.add('hidden');
@@ -83,8 +83,8 @@
           }, 2000);
         }}
       >
-        <Icon icon="material-symbols:content-copy-outline-rounded" class="w-6 h-6 copy" />
-        <Icon icon="material-symbols:check-rounded" class="w-6 h-6 copied hidden" />
+        <Icon icon="material-symbols:content-copy-outline-rounded" class="copy h-6 w-6" />
+        <Icon icon="material-symbols:check-rounded" class="copied hidden h-6 w-6" />
       </button>
     </div>
   </div>

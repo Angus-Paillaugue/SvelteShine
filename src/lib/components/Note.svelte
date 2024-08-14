@@ -69,7 +69,7 @@
       <div class="flex flex-col gap-1">
         <div class="flex flex-row items-center gap-2 {iconClasses[style][type]}">
           <Icon class="size-6" icon={iconNames[type]} />
-          <span class="capitalize font-semibold">{type}</span>
+          <span class="font-semibold capitalize">{type}</span>
         </div>
         <p class="m-0 text-neutral-700 dark:text-neutral-300">{@render children()}</p>
       </div>

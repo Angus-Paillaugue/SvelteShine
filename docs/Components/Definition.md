@@ -1,58 +1,71 @@
 ---
-name: Definition
+lastModified: 08-07-2024
 ---
 
 <script>
   import { Definition } from "$lib/components";
 </script>
 
+# Explanation
+
+This component is used to define and explain component usage.
+
+## Exemple
+
+Here you can see a chunk of the code for the definition of the tree component
+
+```js
 <Definition
-name="createCollapsible"
-description="The builder function used to create the collapsible component."
-definition={
-{
-"name":"props",
-"content": [
-{
-"name":"disabled",
-"default":"false",
-"type": "boolean",
-"description": "Whether or not the collapsible is disabled."
-},
-{
-"name":"forceVisible",
-"default":"false",
-"type": "boolean",
-"description": "Whether or not to force the collapsible to always be visible. This is useful for custom transitions and animations using conditional blocks."
-},
-{
-"name":"defaultOpen",
-"default":"false",
-"type": "boolean",
-"description": "Whether the collapsible is open by default or not."
-},
-{
-"name":"open",
-"type": "Writable<boolean>",
-"description": "A writable store that controls whether or not the collapsible is open."
-},
-{
-"name":"onOpenChange",
-"type": "ChangeFn<boolean>",
-"description": "A callback called when the value of the open store should be changed."
-},
-{
-"name":"defaultOpen",
-"default":"false",
-"type": "boolean",
-"description": "Whether the collapsible is open by default or not."
-},
-{
-"name":"defaultOpen",
-"default":"false",
-"type": "boolean",
-"description": "Whether the collapsible is open by default or not."
-}
-]
-}}
-/>
+  name="Tree"
+  description="The tree component."
+>
+  <Definition.Prop
+    type="array"
+    path="tree"
+    default="[]"
+    required
+  >
+    The actual array of the tree.
+  </Definition.Prop>
+  <Definition.Prop
+    type="array"
+    path="tree.children"
+  >
+    The list of children of a directory.
+  </Definition.Prop>
+
+  <Definition.Note>
+    For a single file, instead of using an object with a name...
+  </Definition.Note>
+</Definition>
+```
+
+
+# Definition
+
+<Definition
+  name="Definition"
+  description="The definition component."
+>
+  <Definition.Prop type="string" path="name" required>The name of the component.</Definition.Prop>
+  <Definition.Prop type="string" path="description">The Description of the component.</Definition.Prop>
+  <Definition.Prop type="HTMLElement" path="<slot>" required>The actual contents of the note.</Definition.Prop>
+</Definition>
+
+<Definition
+  name="Definition.Prop"
+  description="A prop of the component."
+>
+  <Definition.Prop type="string" path="path" required>The "name" of the prop.</Definition.Prop>
+  <Definition.Prop type="HTMLElement" path="<slot>" required>The description of the prop.</Definition.Prop>
+  <Definition.Prop type="string" path="type" required>The type of the prop.</Definition.Prop>
+  <Definition.Prop type="string" path="default">The default value of the prop (if it has one).</Definition.Prop>
+  <Definition.Prop type="boolean" path="required">If the prop is required.</Definition.Prop>
+</Definition>
+
+<Definition
+  name="Definition.Note"
+  description="A note about the component."
+>
+  <Definition.Prop type="HTMLElement" path="<slot>" required>The "name" of the prop.</Definition.Prop>
+</Definition>

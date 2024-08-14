@@ -13,7 +13,7 @@
     circle:
       'p-2 rounded-full text-primary-950 bg-primary-300 dark:bg-primary-400 dark:text-primary-950 hover:bg-primary-400 dark:hover:bg-primary-500',
     ghost:
-      'bg-transparent dark:bg-transparent hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 text-neutral-900 dark:text-neutral-100 border border-neutral-300/50 dark:border-neutral-700/50'
+      'bg-white dark:bg-neutral-900 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 text-neutral-900 dark:text-neutral-100 border border-neutral-300/50 dark:border-neutral-700/50'
   };
 
   const buttonClasses = twMerge(

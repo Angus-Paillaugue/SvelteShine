@@ -12,3 +12,4 @@
 - [x] Make table of contents work (to active section marker tho)
 - [ ] Make a logo
 - [x] Make a collapsible component
+- [x] Fix wide tables (Added transformer)

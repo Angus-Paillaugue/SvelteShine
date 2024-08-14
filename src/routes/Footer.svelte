@@ -5,10 +5,10 @@
 </script>
 
 <footer
-  class="sticky md:bottom-0 md:-z-10 w-full px-6 pt-14 pb-6 text-neutral-100 dark:text-neutral-950"
+  class="sticky w-full px-6 pb-6 pt-14 text-neutral-100 dark:text-neutral-950 md:bottom-0 md:-z-10"
 >
   <div
-    class="md:grid md:grid-cols-[auto,400px] max-w-screen-lg mx-auto gap-8 flex max-md:flex-col-reverse"
+    class="mx-auto flex max-w-screen-lg gap-8 max-md:flex-col-reverse md:grid md:grid-cols-[auto,400px]"
   >
     <div class="flex flex-col gap-8">
       <p class="m-0 text-neutral-100 dark:text-neutral-950">{siteName}, {catchphrase}</p>
@@ -17,7 +17,7 @@
           xmlns="http://www.w3.org/2000/svg"
           enable-background="new 0 0 128 128"
           viewBox="0 0 128 128"
-          class="size-6 inline-block"
+          class="inline-block size-6"
           ><path
             d="m93.99 8.97c-21.91 0-29.96 22.39-29.96 22.39s-7.94-22.39-30-22.39c-16.58 0-35.48 13.14-28.5 43.01s58.56 67.08 58.56 67.08 51.39-37.21 58.38-67.08c6.98-29.87-10.56-43.01-28.48-43.01z"
             fill="#f44336"
@@ -41,89 +41,89 @@
 
     <div class="grid grid-cols-2">
       <ul>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="#pricing"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Pricing</a
           >
         </li>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/changelog"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Changelog</a
           >
         </li>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/blog"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Blog</a
           >
         </li>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/contact"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Contact</a
           >
         </li>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/help"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Help-center</a
           >
         </li>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/careers"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Careers</a
           >
         </li>
       </ul>
       <ul>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="#pricing"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Pricing</a
           >
         </li>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/changelog"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Changelog</a
           >
         </li>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/blog"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Blog</a
           >
         </li>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/contact"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Contact</a
           >
         </li>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/help"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Help-center</a
           >
         </li>
-        <li class="list-none font-semibold m-0 mb-1 text-base">
+        <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/careers"
-            class="transition-colors text-neutral-100 dark:text-neutral-950 dark:hover:text-neutral-500 hover:text-neutral-500"
+            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
             >Careers</a
           >
         </li>

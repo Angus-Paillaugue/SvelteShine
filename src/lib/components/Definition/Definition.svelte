@@ -1,0 +1,18 @@
+<script>
+  const { name, description, children } = $props();
+</script>
+
+<div class="rounded-md border border-neutral-300/50 dark:border-neutral-700/50 mt-8">
+  <div
+    class="w-fit rounded-br-md rounded-tl-md border-2 border-primary-600 bg-primary-400/50 p-2 text-primary-950 dark:border-primary-400 dark:bg-primary-900/50 dark:text-primary-50"
+  >
+    <h1 class="m-0 text-xl font-bold">{name}</h1>
+  </div>
+  {#if description}
+    <p class="mx-4 mb-0 mt-5 leading-7">
+      {description}
+    </p>
+  {/if}
+
+  {@render children()}
+</div>

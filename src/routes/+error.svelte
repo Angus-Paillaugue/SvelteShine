@@ -41,7 +41,7 @@
   <title>{$page.status} Error</title>
 </svelte:head>
 
-<div class="relative h-full w-full pointer-events-none z-10 max-md:hidden" bind:this={cursor}>
+<div class="pointer-events-none relative z-10 h-full w-full max-md:hidden" bind:this={cursor}>
   <div
     class="absolute transition-transform duration-500"
     style="top: {$coords.y}px; left: {$coords.x}px; transform: translate(-50%, -50%) rotate({cursorScale ===
@@ -57,19 +57,19 @@
       <div in:scale={{ duration: 500 }}>
         <Icon
           icon="material-symbols:back-hand-rounded"
-          class="size-10 text-primary-700 rotate-12"
+          class="size-10 rotate-12 text-primary-700"
         />
       </div>
     {/if}
   </div>
 </div>
 
-<section class="flex h-screen flex-col items-center justify-center gap-4 cursor-none">
+<section class="flex h-screen cursor-none flex-col items-center justify-center gap-4">
   <h1
-    class="font-extrabold text-8xl transition-all duration-500 hover:text-shadow-[0px_0px_15px_rgba(0,_0,_0,_1)] dark:hover:text-shadow-[0px_0px_15px_rgba(255,_255,_255,_1)]"
+    class="text-8xl font-extrabold transition-all duration-500 hover:text-shadow-[0px_0px_15px_rgba(0,_0,_0,_1)] dark:hover:text-shadow-[0px_0px_15px_rgba(255,_255,_255,_1)]"
   >
     {$page.status}
   </h1>
   <span class="text-lg">{$page.error.message}</span>
-  <Button onclick={() => (window.history.back())} class="hover:cursor-none">Go back</Button>
+  <Button onclick={() => window.history.back()} class="hover:cursor-none">Go back</Button>
 </section>

@@ -23,19 +23,19 @@
 
 <ul
   class={root
-    ? 'bg-[var(--inline-code-bg)] p-4 rounded-md tree'
-    : 'border-l-2 border-neutral-700 pl-2.5 ml-1.5'}
+    ? 'tree rounded-md bg-[var(--inline-code-bg)] p-4'
+    : 'ml-1.5 border-l-2 border-neutral-700 pl-2.5'}
 >
   {#each tree as element}
     {#if element?.children}
       <!-- Is a directory -->
       <details open={element?.open ?? open}>
         <summary
-          class="flex flex-row gap-2 items-center cursor-pointer text-base font-bold text-neutral-100 hover:text-neutral-400 transition-colors mt-1 w-fit {!root &&
-            'px-1'} {element?.highlighted && 'bg-primary-700/50 rounded'}"
+          class="mt-1 flex w-fit cursor-pointer flex-row items-center gap-2 text-base font-bold text-neutral-100 transition-colors hover:text-neutral-400 {!root &&
+            'px-1'} {element?.highlighted && 'rounded bg-primary-700/50'}"
         >
-          <Icon icon="material-symbols:folder" class="size-4 folder-close" />
-          <Icon icon="material-symbols:folder-open" class="size-4 folder-open" />
+          <Icon icon="material-symbols:folder" class="folder-close size-4" />
+          <Icon icon="material-symbols:folder-open" class="folder-open size-4" />
           {element.name}
         </summary>
         <Tree tree={element.children} root={false} />
@@ -43,8 +43,8 @@
     {:else}
       <!-- Is a file -->
       <li
-        class="list-none px-1 w-fit m-0 mt-1 flex flex-row gap-2 items-center text-base {element?.highlighted &&
-          'bg-primary-700/50 rounded'}"
+        class="m-0 mt-1 flex w-fit list-none flex-row items-center gap-2 px-1 text-base text-neutral-300 dark:text-neutral-300 {element?.highlighted &&
+          'rounded bg-primary-700/50'}"
       >
         <div class="size-5">
           {@html getIcon(element).svg}

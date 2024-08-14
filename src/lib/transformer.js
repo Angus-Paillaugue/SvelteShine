@@ -20,16 +20,18 @@ export function imageTransformer() {
         newNode = {
           type: 'html',
           value: `
-            <figure role="figure" alt="${alt}">
-              <img src=${src} alt="${alt}" class="page-image" />
-              <figcaption>${caption}</figcaption>
-            </figure>
+            <div class="page-image-container">
+              <figure role="figure" alt="${alt}">
+                <img src="${src}" alt="${alt}" class="page-image" />
+                <figcaption>${caption}</figcaption>
+              </figure>
+            </div>
           `
         };
       } else {
         newNode = {
           type: 'html',
-          value: `<img src=${src} class="page-image" alt="${alt}" />`
+          value: `<div class="page-image-container"><img src="${src}" class="page-image" alt="${alt}" /></div>`
         };
       }
 
@@ -101,6 +103,27 @@ export function headingTransformer() {
           );
         }
       }
+    });
+  };
+}
+
+/**
+ * Wraps table into a div.table-container
+ *
+ * @param {Object} tree - The tree object to be transformed.
+ * @returns {Function} - A function that performs the transformation on the given tree.
+ */
+export function tableTransformer() {
+  return (tree) => {
+    visit(tree, 'table', (node, index, parent) => {
+      const wrapper = {
+        type: 'element',
+        tagName: 'div',
+        data: {hProperties: { className: 'table-container' }},
+        children: [node]
+      };
+
+      parent.children[index] = wrapper;
     });
   };
 }

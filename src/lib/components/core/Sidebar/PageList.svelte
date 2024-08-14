@@ -27,13 +27,17 @@
 {#if style === 'details'}
   <div
     class={twMerge(
-      'p-2 ml-1 pl-1 flex flex-col gap-2',
-      !root && 'border-l-2 border-neutral-300/50 dark:border-neutral-700/50 ml-4'
+      'ml-1 flex flex-col gap-2 p-2 pl-1',
+      !root && 'ml-4 border-l-2 border-neutral-300/50 dark:border-neutral-700/50'
     )}
   >
     {#each pages as page}
       {#if isNested(page)}
-        <Sidebar.PageListCollapsible summary={page.name} classes={{ itemBaseClasses, itemColors }} open={developSidebar}>
+        <Sidebar.PageListCollapsible
+          summary={page.name}
+          classes={{ itemBaseClasses, itemColors }}
+          open={developSidebar}
+        >
           <Sidebar.PageList pages={page.children} />
         </Sidebar.PageListCollapsible>
       {:else}

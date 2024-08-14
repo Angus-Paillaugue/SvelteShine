@@ -15,14 +15,16 @@
 
 <div
   class={twMerge(
-    'border border-neutral-300/50 dark:border-neutral-700/50 rounded-md bg-white dark:bg-neutral-950 overflow-hidden transition-colors w-full mb-6',
+    'collapsible mb-6 w-full rounded-md border border-neutral-300/50 bg-white transition-colors dark:border-neutral-700/50 dark:bg-neutral-950',
     classlist
   )}
+  {...restProps}
 >
   <button
     onclick={() => (open = !open)}
-    {...restProps}
-    class="cursor-pointer flex flex-row items-center items-between text-base font-semibold p-2 hover:bg-neutral-200/50 hover:dark:bg-inherit transition-colors w-full"
+    aria-expanded={open}
+    aria-controls={summary}
+    class="items-between flex w-full cursor-pointer flex-row items-center px-4 py-2 text-base font-semibold transition-colors hover:bg-neutral-200/50 dark:bg-inherit"
   >
     <span class="arrow transition-all">
       <Icon
@@ -31,12 +33,12 @@
       />
     </span>
     {#if icon}
-      <Icon {icon} class="size-6 mr-2" />
+      <Icon {icon} class="mr-2 size-6" />
     {/if}
     {@html summary}
   </button>
   <div use:accordion={open}>
-    <div class="p-4 collapsible-details">
+    <div class="collapsible-details p-4">
       {@render children()}
     </div>
   </div>

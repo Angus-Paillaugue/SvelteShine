@@ -17,7 +17,7 @@
 </script>
 
 <div
-  class="fixed bottom-0 z-[51] right-0 p-2 lg:p-4 flex flex-col gap-2 max-h-[100vh-5rem] max-w-[500px] w-full"
+  class="fixed bottom-0 right-0 z-[51] flex max-h-[100vh-5rem] w-full max-w-[500px] flex-col gap-2 p-2 lg:p-4"
 >
   {#each $toasts.slice(0, 4) as toast (toast.id)}
     <div
@@ -44,10 +44,10 @@
         <strong class="block font-medium">{toast.title}</strong>
       </div>
 
-      <p class="mt-2 mb-0 text-sm">
+      <p class="mb-0 mt-2 text-sm">
         {@html toast.message}
       </p>
-      <button class="absolute top-2 right-2" on:click={() => removeToast(toast.id)}>
+      <button class="absolute right-2 top-2" on:click={() => removeToast(toast.id)}>
         <Icon icon="material-symbols:close-rounded" class="size-5" />
       </button>
     </div>

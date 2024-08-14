@@ -33,19 +33,19 @@
   const { previousPage, nextPage } = getNavigation();
 </script>
 
-<div class="grid grid-cols-2 gap-4 items-end justify-between py-4 mt-auto">
+<div class="mt-auto grid grid-cols-2 items-end justify-between gap-4 py-4">
   {#if previousPage}
     <a
       href={previousPage.url}
-      class="p-4 rounded-md border border-neutral-300/50 dark:border-neutral-700/50 hover:gap-4 flex flex-row gap-2 items-center justify-start transition-all"
+      class="flex flex-row items-center justify-start gap-2 rounded-md border border-neutral-300/50 p-4 transition-all hover:gap-4 dark:border-neutral-700/50"
     >
       <Icon
         icon="material-symbols:arrow-back-ios-rounded"
         class="size-8 text-neutral-500 dark:text-neutral-600"
       />
       <div class="flex flex-col justify-end text-start">
-        <span class="font-light text-xl text-neutral-500 dark:text-neutral-600">Previous</span>
-        <span class="font-semibold text-lg">
+        <span class="text-xl font-light text-neutral-500 dark:text-neutral-600">Previous</span>
+        <span class="text-lg font-semibold">
           {previousPage.name}
         </span>
       </div>
@@ -54,11 +54,11 @@
   {#if nextPage}
     <a
       href={nextPage.url}
-      class="col-start-2 p-4 rounded-md border border-neutral-300/50 dark:border-neutral-700/50 hover:gap-4 flex flex-row gap-2 items-center justify-end transition-all"
+      class="col-start-2 flex flex-row items-center justify-end gap-2 rounded-md border border-neutral-300/50 p-4 transition-all hover:gap-4 dark:border-neutral-700/50"
     >
       <div class="flex flex-col justify-end text-end">
-        <span class="font-light text-xl text-neutral-500 dark:text-neutral-600">Next</span>
-        <span class="font-semibold text-lg">
+        <span class="text-xl font-light text-neutral-500 dark:text-neutral-600">Next</span>
+        <span class="text-lg font-semibold">
           {nextPage.name}
         </span>
       </div>

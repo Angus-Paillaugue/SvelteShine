@@ -22,19 +22,19 @@
 }
 
 * {
-  @apply scroll-smooth focus:outline-1 outline-offset-4 outline-primary-600;
+  @apply scroll-smooth outline-offset-4 outline-primary-600 focus:outline-1 dark:outline-primary-600;
 }
 
 html {
-  @apply font-sans scroll-pt-20 md:scroll-pt-28;
+  @apply scroll-pt-20 font-sans md:scroll-pt-28;
 }
 
 body {
-  @apply font-['Mulish'] bg-white dark:bg-neutral-900 text-neutral-950 dark:text-neutral-100;
+  @apply bg-white font-['Mulish'] text-neutral-950 dark:bg-neutral-900 dark:text-neutral-100;
 }
 
 ::-webkit-scrollbar {
-  @apply w-2 h-2;
+  @apply h-2 w-2;
 }
 
 ::-webkit-scrollbar-track {
@@ -61,36 +61,36 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-['Poppins'] text-wrap-balance text-black dark:text-white;
+  @apply font-['Poppins'] text-black text-wrap-balance dark:text-white;
 }
 
 h1 {
-  @apply font-medium md:font-semibold text-4xl leading-[3.5rem] md:leading-[4rem] mb-4 mt-4;
+  @apply mb-2 mt-4 text-4xl font-medium leading-[3.5rem] md:font-semibold md:leading-[4rem];
 }
 
 h2 {
-  @apply font-bold text-3xl leading-6 mb-3;
+  @apply mb-2 mt-4 text-3xl font-bold;
 }
 
 h3 {
-  @apply font-semibold text-2xl leading-5 mb-3;
+  @apply mb-2 mt-4 text-2xl font-semibold;
 }
 
 h4 {
-  @apply font-semibold text-xl leading-4 mb-3;
+  @apply mb-2 mt-4 text-xl font-semibold;
 }
 
 h5 {
-  @apply font-semibold text-lg leading-5 mb-3;
+  @apply mb-2 mt-4 text-lg font-semibold;
 }
 
 h6 {
-  @apply font-semibold text-base leading-5 mb-3;
+  @apply mb-2 mt-4 text-base font-semibold;
 }
 
 p,
 li {
-  @apply font-['Mulish'] text-base font-medium leading-6 mb-4 text-wrap-none text-neutral-500 dark:text-neutral-400;
+  @apply mb-4 font-['Mulish'] text-base font-medium leading-6 text-neutral-500 text-wrap-none dark:text-neutral-400;
 }
 span,
 small {
@@ -103,48 +103,24 @@ small {
   @apply text-xs;
 }
 hr {
-  @apply border-none h-[2px] mx-4 rounded-full bg-neutral-300/50 dark:bg-neutral-800 my-8;
+  @apply mx-4 my-8 h-[2px] rounded-full border-none bg-neutral-300/50 dark:bg-neutral-800;
 }
 /* Page links */
 .link {
-  @apply border-b no-underline text-inherit transition-colors border-primary-400/50 hover:border-primary-400/75 bg-primary-300/30 dark:bg-primary-500/10 dark:border-primary-500/40 dark:text-primary-500 relative;
+  @apply relative border-b border-primary-400/50 bg-primary-300/30 text-inherit no-underline transition-colors hover:border-primary-400/75 dark:border-primary-500/40 dark:bg-primary-500/10 dark:text-primary-500;
 }
 /* For the external links icons */
 .link[href^='http'] > svg.newTabIcon {
-  @apply inline-block ml-1;
-}
-
-/* Tooltip */
-[data-tooltip] {
-  @apply cursor-pointer relative inline-block after:content-[attr(data-tooltip)] after:absolute after:shadow-lg after:opacity-0 after:transition-all after:ease-in-out after:pointer-events-none hover:after:opacity-100 after:z-30 focus:after:opacity-100 focus:after:z-30 after:p-3 after:rounded-md after:max-w-[300px] after:break-words after:h-auto after:bg-primary-950 dark:after:bg-primary-700 dark:after:text-white after:text-sm after:leading-4 after:-translate-x-1/2 after:bottom-full after:top-auto after:left-1/2 after:mb-2 after:translate-y-4 hover:after:-translate-y-0 focus:after:-translate-y-0 after:text-white after:font-medium;
-}
-
-.tooltip-small {
-  @apply after:p-2 after:rounded after:max-w-[200px] after:text-xs after:leading-3;
-}
-
-/* Bottom */
-.tooltip-bottom {
-  @apply after:top-full after:left-1/2 after:bottom-auto after:right-auto after:-translate-y-4 hover:after:translate-y-0 focus:after:translate-y-0 after:mb-0;
-}
-
-/* Left */
-.tooltip-left {
-  @apply after:-translate-y-1/2 after:-translate-x-full after:top-1/2 after:bottom-auto hover:after:-left-2 focus:after:-left-2 after:right-auto after:mb-0 hover:after:-translate-y-1/2 focus:after:-translate-y-1/2;
-}
-
-/* Right */
-.tooltip-right {
-  @apply after:-translate-y-1/2 after:translate-x-0 after:top-1/2 after:bottom-auto hover:after:left-auto focus:after:left-auto after:right-0 after:mb-0 hover:after:-translate-y-1/2 hover:after:translate-x-full focus:after:-translate-y-1/2 focus:after:translate-x-full;
+  @apply ml-1 inline-block;
 }
 
 /* Others */
 kbd {
-  @apply font-mono text-sm bg-neutral-300 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-md px-2 py-1;
+  @apply rounded-md bg-neutral-300 px-2 py-1 font-mono text-sm text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200;
 }
 
 ul:not(.splide__list) {
-  @apply list-disc list-inside;
+  @apply list-inside list-disc;
 }
 
 mark {

@@ -67,14 +67,6 @@ export const pages = [
     ]
   },
   {
-    name: 'Configuration',
-    children: [{ name: 'Colors' }]
-  },
-  {
-    name: 'Directories',
-    children: [{ name: 'Sort Directories' }]
-  },
-  {
     name: 'Components',
     children: [
       { name: 'Commands' },
@@ -82,7 +74,10 @@ export const pages = [
       { name: 'Collapsible' },
       { name: 'Note' },
       { name: 'Definition' },
-      { name: 'Tooltip' }
+      { name: 'Tooltip' },
+      { name: 'Images' },
+      { name: 'Api-reference' },
+      { name: 'Tables' },
     ]
   }
 ];

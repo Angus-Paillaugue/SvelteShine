@@ -35,10 +35,10 @@
   </style>
 </svelte:head>
 
-<section class="relative isolate transform-gpu h-screen flex flex-col md:pt-52 md:pb-10" id="home">
+<section class="relative isolate flex h-screen transform-gpu flex-col md:pb-10 md:pt-52" id="home">
   <!-- Grid -->
   <svg
-    class="absolute inset-0 -z-10 h-full w-full dark:stroke-white/5 stroke-black/5 [mask-image:radial-gradient(75%_50%_at_top_center,white,transparent)]"
+    class="absolute inset-0 -z-10 h-full w-full stroke-black/5 [mask-image:radial-gradient(75%_50%_at_top_center,white,transparent)] dark:stroke-white/5"
     aria-hidden="true"
     ><defs
       ><pattern id="hero" width="80" height="80" x="50%" y="-1" patternUnits="userSpaceOnUse"
@@ -49,19 +49,19 @@
 
   <!-- Main content -->
   <div
-    class="flex flex-col justify-center max-w-screen-2xl grow h-full w-full mx-auto items-center gap-20 relative px-2 md:px-10"
+    class="relative mx-auto flex h-full w-full max-w-screen-2xl grow flex-col items-center justify-center gap-20 px-2 md:px-10"
   >
     <!-- Left content part -->
     <div
-      class="max-lg:p-2 max-sm:row-span-1 max-md:row-span-2 max-sm:self-center max-md:self-end shrink-0"
+      class="shrink-0 max-lg:p-2 max-md:row-span-2 max-md:self-end max-sm:row-span-1 max-sm:self-center"
     >
       <!-- New version badge -->
       {#if homepage.version.showHomepageMessage}
         <a
-          class="border-neutral-300/50 dark:border-neutral-700/50 group mb-5 flex w-max items-center gap-x-2 rounded-full border text-sm py-1 px-2 transition-colors hover:bg-neutral-600/10 focus-visible:bg-neutral-600/20 relative"
+          class="group relative mb-5 flex w-max items-center gap-x-2 rounded-full border border-neutral-300/50 px-2 py-1 text-sm transition-colors hover:bg-neutral-600/10 focus-visible:bg-neutral-600/20 dark:border-neutral-700/50"
           href={homepage.version.latestVersionURL}
           ><span
-            class="-ml-1 flex items-center gap-2 rounded-full px-2 py-1 text-xs font-medium text-neutral-100 bg-neutral-950"
+            class="-ml-1 flex items-center gap-2 rounded-full bg-neutral-950 px-2 py-1 text-xs font-medium text-neutral-100"
             >NEW</span
           >{siteName} launches v{homepage.version.latestVersion}
 
@@ -71,7 +71,7 @@
           />
 
           <div
-            class="absolute -bottom-px right-2 left-2 h-px [mask-image:linear-gradient(to_right,rgba(217,217,217,0)_0%,#d9d9d9_25%,#d9d9d9_75%,rgba(217,217,217,0)_100%)]"
+            class="absolute -bottom-px left-2 right-2 h-px [mask-image:linear-gradient(to_right,rgba(217,217,217,0)_0%,#d9d9d9_25%,#d9d9d9_75%,rgba(217,217,217,0)_100%)]"
             aria-hidden="true"
           >
             <div
@@ -83,23 +83,23 @@
       {/if}
 
       <!-- Title -->
-      <h1 class="leading-[100%] text-[45px] md:text-[75px] lg:text-[80px]">
+      <h1 class="text-[45px] leading-[100%] md:text-[75px] lg:text-[80px]">
         <span
-          class="dark:text-neutral-50 text-neutral-50 text-shadow-[0_4px_0_#141414] dark:text-shadow-[0_4px_0_#ffffff]"
+          class="text-neutral-50 text-shadow-[0_4px_0_#141414] dark:text-neutral-50 dark:text-shadow-[0_4px_0_#ffffff]"
           style="-webkit-text-fill-color: #fff;-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: #000;"
           >{siteName}</span
         >, {homepage.catchphrase}
       </h1>
 
       <!-- CTA buttons -->
-      <div class="flex flex-row w-full justify-start items-center gap-8 mt-8">
+      <div class="mt-8 flex w-full flex-row items-center justify-start gap-8">
         <Button href="/docs/{docsHomePage.name}">Get started</Button>
 
-        <Button type="ghost" class="flex flex-row gap-4 rounded-full items-center">
+        <Button type="ghost" class="flex flex-row items-center gap-4 rounded-full">
           Learn more
           <Icon
             icon="line-md:arrow-right"
-            class="size-6 p-1 rounded-full bg-neutral-200/50 dark:bg-neutral-700/50 dark:text-neutral-100 text-neutral-950"
+            class="size-6 rounded-full bg-neutral-200/50 p-1 text-neutral-950 dark:bg-neutral-700/50 dark:text-neutral-100"
           />
         </Button>
       </div>
@@ -107,14 +107,14 @@
 
     <!-- Gradient behind mockup -->
     <div
-      class="absolute inset-0 -z-10 sm:bg-radient-[45%_20%_at_50%_60%] md:bg-radient-[45%_25%_at_50%_75%] lg:bg-radient-[45%_30%_at_50%_70%] xl:bg-radient-[40%_35%_at_50%_60%] from-primary-600/50 dark:from-primary-600/30"
+      class="absolute inset-0 -z-10 from-primary-600/50 dark:from-primary-600/30 sm:bg-radient-[45%_20%_at_50%_60%] md:bg-radient-[45%_25%_at_50%_75%] lg:bg-radient-[45%_30%_at_50%_70%] xl:bg-radient-[40%_35%_at_50%_60%]"
       style="animation: float 5s ease-in-out infinite;"
     ></div>
 
     <!-- Mockup -->
     {#if $mode}
       <div
-        class="max-sm:hidden max-md:self-start border rounded-xl overflow-hidden border-neutral-300/50 dark:border-neutral-700/50"
+        class="overflow-hidden rounded-xl border border-neutral-300/50 dark:border-neutral-700/50 max-md:self-start max-sm:hidden"
         style="animation: float 5s ease-in-out infinite;"
       >
         <picture>
@@ -138,6 +138,6 @@
 
   <!-- Bottom gradient to hide the bottom of the mockup -->
   <div
-    class="pointer-events-none absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-b from-transparent to-white dark:to-neutral-900 to-40% md:to-80% lg:h-[500px] h-[600px] md:h-[400px] max-sm:hidden"
+    class="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-[600px] bg-gradient-to-b from-transparent to-white to-40% dark:to-neutral-900 max-sm:hidden md:h-[400px] md:to-80% lg:h-[500px]"
   ></div>
 </section>

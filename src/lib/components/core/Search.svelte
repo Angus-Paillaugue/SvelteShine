@@ -19,7 +19,7 @@
         setTimeout(() => {
           document.getElementById('search').focus();
         }, 300);
-      }else if (e.key === 'Escape') {
+      } else if (e.key === 'Escape') {
         $searchModalShown = false;
       }
     });
@@ -51,29 +51,32 @@
     onclick={() => ($searchModalShown = false)}
   ></div>
   <div
-    class="bg-neutral-100 z-[52] fixed max-md:top-0 max-md:left-0 max-md:right-0 md:top-1/2 md:left-1/2 md:-translate-y-1/2 md:-translate-x-1/2 dark:bg-neutral-800 md:rounded-t-md w-full max-w-screen-md md:rounded-md dark:text-white overflow-hidden"
+    class="fixed z-[52] w-full max-w-screen-md overflow-hidden bg-neutral-100 dark:bg-neutral-800 dark:text-white max-md:left-0 max-md:right-0 max-md:top-0 md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-md md:rounded-t-md"
     transition:fly={{ y: '12', duration: 300 }}
   >
     <div class="relative w-full">
-      <Icon icon="line-md:search" class="size-6 absolute top-1/2 left-3 -translate-y-1/2" />
+      <Icon icon="line-md:search" class="absolute left-3 top-1/2 size-6 -translate-y-1/2" />
       <input
         type="text"
         name="search"
         id="search"
-        class="w-full px-12 py-4 text-xl bg-neutral-100 dark:bg-neutral-800 focus:outline-none {results.length >
+        class="w-full bg-neutral-100 px-12 py-4 text-xl focus:outline-none dark:bg-neutral-800 {results.length >
           0 && 'border-b'}"
         placeholder="Search or pages"
         autocomplete="off"
         bind:value={searchTerm}
       />
-      <kbd class="hidden md:block absolute top-1/2 right-3 -translate-y-1/2">ESC</kbd>
+      <kbd class="absolute right-3 top-1/2 hidden -translate-y-1/2 md:block">ESC</kbd>
     </div>
     {#if results.length > 0}
-      <div class="grid grid-cols-1 gap-2 p-4 max-h-[50vh] overflow-y-auto no-scrollbar" id="results">
+      <div
+        class="no-scrollbar grid max-h-[50vh] grid-cols-1 gap-2 overflow-y-auto p-4"
+        id="results"
+      >
         {#each results as result (result.url)}
           <a
             href={result.url}
-            class="list-none w-full p-2 rounded-md border border-neutral-300/50 dark:border-neutral-700/50 flex flex-col gap-2 hover:bg-neutral-300/50 dark:hover:bg-neutral-700/50 transition-colors"
+            class="flex w-full list-none flex-col gap-2 rounded-md border border-neutral-300/50 p-2 transition-colors hover:bg-neutral-300/50 dark:border-neutral-700/50 dark:hover:bg-neutral-700/50"
           >
             <h2 class="m-0">
               {@html result.name}

@@ -20,9 +20,6 @@ importers:
       flexsearch:
         specifier: ^0.7.43
         version: 0.7.43
-      hast-util-whitespace:
-        specifier: ^3.0.0
-        version: 3.0.0
       inquirer:
         specifier: ^10.1.8
         version: 10.1.8
@@ -50,15 +47,9 @@ importers:
       remark-flexible-code-titles:
         specifier: ^1.2.0
         version: 1.2.0
-      remark-unwrap-images:
-        specifier: ^4.0.0
-        version: 4.0.0
       shiki:
         specifier: ^1.11.1
         version: 1.11.1
-      svelte-reveal:
-        specifier: ^1.1.0
-        version: 1.1.0
       tailwind-merge:
         specifier: ^2.5.0
         version: 2.5.0
@@ -97,11 +88,14 @@ importers:
         specifier: ^8.4.39
         version: 8.4.39
       prettier:
-        specifier: ^3.1.1
+        specifier: ^3.3.3
         version: 3.3.3
       prettier-plugin-svelte:
         specifier: ^3.1.2
         version: 3.2.6(prettier@3.3.3)(svelte@5.0.0-next.198)
+      prettier-plugin-tailwindcss:
+        specifier: ^0.6.6
+        version: 0.6.6(prettier-plugin-svelte@3.2.6(prettier@3.3.3)(svelte@5.0.0-next.198))(prettier@3.3.3)
       remark-math:
         specifier: ^3.0.0
         version: 3.0.0
@@ -1072,9 +1066,6 @@ packages:
   hast-util-whitespace@2.0.1:
     resolution: {integrity: sha512-nAxA0v8+vXSBDt3AnRUNjyRIQ0rD+ntpbAp4LnPkumc5M9yUbSMa4XDU9Q6etY4f1Wp4bNgvc1yjiZtsTTrSng==}
 
-  hast-util-whitespace@3.0.0:
-    resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
-
   he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
@@ -1485,6 +1476,61 @@ packages:
       prettier: ^3.0.0
       svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
 
+  prettier-plugin-tailwindcss@0.6.6:
+    resolution: {integrity: sha512-OPva5S7WAsPLEsOuOWXATi13QrCKACCiIonFgIR6V4lYv4QLp++UXVhZSzRbZxXGimkQtQT86CC6fQqTOybGng==}
+    engines: {node: '>=14.21.3'}
+    peerDependencies:
+      '@ianvs/prettier-plugin-sort-imports': '*'
+      '@prettier/plugin-pug': '*'
+      '@shopify/prettier-plugin-liquid': '*'
+      '@trivago/prettier-plugin-sort-imports': '*'
+      '@zackad/prettier-plugin-twig-melody': '*'
+      prettier: ^3.0
+      prettier-plugin-astro: '*'
+      prettier-plugin-css-order: '*'
+      prettier-plugin-import-sort: '*'
+      prettier-plugin-jsdoc: '*'
+      prettier-plugin-marko: '*'
+      prettier-plugin-multiline-arrays: '*'
+      prettier-plugin-organize-attributes: '*'
+      prettier-plugin-organize-imports: '*'
+      prettier-plugin-sort-imports: '*'
+      prettier-plugin-style-order: '*'
+      prettier-plugin-svelte: '*'
+    peerDependenciesMeta:
+      '@ianvs/prettier-plugin-sort-imports':
+        optional: true
+      '@prettier/plugin-pug':
+        optional: true
+      '@shopify/prettier-plugin-liquid':
+        optional: true
+      '@trivago/prettier-plugin-sort-imports':
+        optional: true
+      '@zackad/prettier-plugin-twig-melody':
+        optional: true
+      prettier-plugin-astro:
+        optional: true
+      prettier-plugin-css-order:
+        optional: true
+      prettier-plugin-import-sort:
+        optional: true
+      prettier-plugin-jsdoc:
+        optional: true
+      prettier-plugin-marko:
+        optional: true
+      prettier-plugin-multiline-arrays:
+        optional: true
+      prettier-plugin-organize-attributes:
+        optional: true
+      prettier-plugin-organize-imports:
+        optional: true
+      prettier-plugin-sort-imports:
+        optional: true
+      prettier-plugin-style-order:
+        optional: true
+      prettier-plugin-svelte:
+        optional: true
+
   prettier@3.3.3:
     resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
     engines: {node: '>=14'}
@@ -1535,9 +1581,6 @@ packages:
 
   remark-math@3.0.0:
     resolution: {integrity: sha512-1ptXVKQaxexoS1pywvbtoRofKenkulyWa7trXUh2LR5NCdzmqfUlM/aA8qyke7h63BGMFXVjPNjOZmD8oWkKDg==}
-
-  remark-unwrap-images@4.0.0:
-    resolution: {integrity: sha512-Ilr5ZhrhZSvnjemy1rRuxlTC0I/39YyWDRiE9d5vF079APcwdYYzwcZL8RGehlCtQCiik8hWMyo4Xhz2Fq0JhA==}
 
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
@@ -1679,9 +1722,6 @@ packages:
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
     peerDependencies:
       svelte: ^3.19.0 || ^4.0.0
-
-  svelte-reveal@1.1.0:
-    resolution: {integrity: sha512-TnLZy7UOj14ZGsbKjZUK/c+aCnPl1sieZ1VrmKPCtG1Cw9XDUslpV/KJGqJeo7sVNVeG7QnH1asrsugogR3YYg==}
 
   svelte@5.0.0-next.198:
     resolution: {integrity: sha512-1eyQplJR7Rg5dTuHZoDamLJfqyk4k6cB3h6TMybWKrS/MIL4++iNV+q+NP6EUBngZ2iRBup7gRt0jYUbPI0UMw==}
@@ -2858,10 +2898,6 @@ snapshots:
 
   hast-util-whitespace@2.0.1: {}
 
-  hast-util-whitespace@3.0.0:
-    dependencies:
-      '@types/hast': 3.0.4
-
   he@1.2.0: {}
 
   html-element-attributes@2.3.0: {}
@@ -3203,6 +3239,12 @@ snapshots:
       prettier: 3.3.3
       svelte: 5.0.0-next.198
 
+  prettier-plugin-tailwindcss@0.6.6(prettier-plugin-svelte@3.2.6(prettier@3.3.3)(svelte@5.0.0-next.198))(prettier@3.3.3):
+    dependencies:
+      prettier: 3.3.3
+    optionalDependencies:
+      prettier-plugin-svelte: 3.2.6(prettier@3.3.3)(svelte@5.0.0-next.198)
+
   prettier@3.3.3: {}
 
   prism-svelte@0.4.7: {}
@@ -3259,12 +3301,6 @@ snapshots:
   remark-footnotes@1.0.0: {}
 
   remark-math@3.0.0: {}
-
-  remark-unwrap-images@4.0.0:
-    dependencies:
-      '@types/mdast': 4.0.4
-      hast-util-whitespace: 3.0.0
-      unist-util-visit: 5.0.0
 
   resolve-from@4.0.0: {}
 
@@ -3410,8 +3446,6 @@ snapshots:
   svelte-hmr@0.16.0(svelte@5.0.0-next.198):
     dependencies:
       svelte: 5.0.0-next.198
-
-  svelte-reveal@1.1.0: {}
 
   svelte@5.0.0-next.198:
     dependencies:

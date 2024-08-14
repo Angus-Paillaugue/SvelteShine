@@ -18,14 +18,14 @@
 </script>
 
 <aside
-  class="h-screen p-2 max-xl:pt-0 flex flex-col gap-0 xl:w-[300px] max-xl:top-[3.8rem] pb-[58px] overflow-y-auto pl-0 z-40 fixed xl:sticky max-xl:inset-0 bg-white dark:bg-neutral-900 transition-transform top-0 border-r border-neutral-300/50 dark:border-neutral-700/50 shrink-0 justify-between {open
+  class="fixed top-0 z-40 flex h-screen shrink-0 flex-col justify-between gap-0 overflow-y-auto border-r border-neutral-300/50 bg-white p-2 max-xl:pb-[58px] pl-0 transition-transform dark:border-neutral-700/50 dark:bg-neutral-900 max-xl:inset-0 max-xl:top-[3.8rem] max-xl:pt-0 xl:sticky xl:w-[300px] {open
     ? 'max-xl:translate-x-0'
     : 'max-xl:-translate-x-full'}"
 >
   <Sidebar.PageList {pages} root={true} {style} />
   <!-- Navbar right side on desktop is on the sidebar on mobile -->
   <div
-    class="flex flex-row gap-2 items-center justify-end xl:hidden sticky bottom-0 left-0 right-0 bg-inherit p-2 pr-0"
+    class="sticky bottom-0 left-0 right-0 flex flex-row items-center justify-end gap-2 bg-inherit p-2 pr-0 xl:hidden"
   >
     {#each socials as { name, url, icon }}
       <a href={url} target={socialsTarget} class="h-fit p-1" {name}>
@@ -35,7 +35,7 @@
 
     <!-- Vertical separator -->
     {#if socials.length > 0}
-      <span class="w-px h-10 bg-neutral-300/50 dark:bg-neutral-700/50"></span>
+      <span class="h-10 w-px bg-neutral-300/50 dark:bg-neutral-700/50"></span>
     {/if}
 
     <!-- Toggle mode button -->
@@ -43,7 +43,7 @@
       name="toggleMode"
       onclick={toggleMode}
       type={['square', 'ghost']}
-      class="bg-neutral-200/50 dark:bg-neutral-700/50 hover:bg-transparent hover:dark:bg-transparent"
+      class="bg-neutral-200/50 hover:bg-transparent dark:bg-neutral-700/50 hover:dark:bg-transparent"
     >
       {#if $mode === 'dark'}
         <div in:scale>
@@ -63,7 +63,7 @@
 </aside>
 
 <button
-  class="h-12 aspect-square flex flex-col items-center justify-center xl:hidden fixed z-50 top-[0.5rem] left-[0.5rem]"
+  class="fixed left-[0.5rem] top-[0.5rem] z-50 flex aspect-square h-12 flex-col items-center justify-center xl:hidden"
   onclick={() => (open = !open)}
   name="search"
 >
