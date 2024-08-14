@@ -8,7 +8,7 @@
 {#if headings.length > 0}
   <div class="">
     {#if root}
-      <h6 class="flex flex-row items-center gap-1 text-base font-medium">
+      <h6 class="flex flex-row items-center gap-1 m-0 text-base font-medium">
         <Icon icon="line-md:menu-unfold-right" class="size-4" />On this page
       </h6>
     {/if}

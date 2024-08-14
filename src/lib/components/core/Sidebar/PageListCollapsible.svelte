@@ -1,5 +1,5 @@
 <script>
-  import { twMerge } from 'tailwind-merge';
+  import { cn } from '$lib/utils';
   import Icon from '@iconify/svelte';
   import { accordion } from '$lib/utils';
 
@@ -10,7 +10,7 @@
   <button
     onclick={() => (open = !open)}
     {...restProps}
-    class={twMerge(
+    class={cn(
       'flex w-full flex-row items-center',
       classes.itemBaseClasses,
       classes.itemColors

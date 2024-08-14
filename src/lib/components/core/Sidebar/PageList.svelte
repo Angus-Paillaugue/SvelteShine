@@ -1,6 +1,6 @@
 <script>
   import { page } from '$app/stores';
-  import { twMerge } from 'tailwind-merge';
+  import { cn } from '$lib/utils';
   import { developSidebar } from '$conf';
   import Sidebar from './';
 
@@ -26,7 +26,7 @@
 
 {#if style === 'details'}
   <div
-    class={twMerge(
+    class={cn(
       'ml-1 flex flex-col gap-2 p-2 pl-1',
       !root && 'ml-4 border-l-2 border-neutral-300/50 dark:border-neutral-700/50'
     )}
@@ -43,7 +43,7 @@
       {:else}
         <a
           href={page.url}
-          class={twMerge(
+          class={cn(
             itemBaseClasses,
             'block text-neutral-600 dark:text-neutral-400',
             pathname === page.url ? activeItemColors : itemColors
@@ -59,7 +59,7 @@
     {#each pages as page}
       {#if isNested(page)}
         <div class="flex flex-col gap-2">
-          <span class={twMerge(itemBaseClasses, 'border-none text-base uppercase')}
+          <span class={cn(itemBaseClasses, 'border-none text-base uppercase')}
             >{page.name}</span
           >
           <PageList pages={page.children} />
@@ -67,7 +67,7 @@
       {:else}
         <a
           href={page.url}
-          class={twMerge(
+          class={cn(
             itemBaseClasses,
             'block',
             pathname === page.url ? activeItemColors : itemColors

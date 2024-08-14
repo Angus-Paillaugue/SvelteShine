@@ -1,6 +1,6 @@
 <script>
   import Icon from '@iconify/svelte';
-  import { twMerge } from 'tailwind-merge';
+  import { cn } from '$lib/utils';
 
   const { type = 'warning', class: className, children, style = 'custom', ...restProps } = $props();
 
@@ -61,7 +61,7 @@
   </p>
 {:else if Object.keys(typeClasses[style]).includes(type)}
   <div
-    class={twMerge(baseClasses[style], typeClasses[style][type], className)}
+    class={cn(baseClasses[style], typeClasses[style][type], className)}
     {...restProps}
     role="alert"
   >

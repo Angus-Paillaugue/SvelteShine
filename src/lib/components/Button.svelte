@@ -1,5 +1,5 @@
 <script>
-  import { twMerge } from 'tailwind-merge';
+  import { cn } from '$lib/utils';
   const { children, class: className, href, type = 'normal', ...restProps } = $props();
 
   const baseClasses =
@@ -16,7 +16,7 @@
       'bg-white dark:bg-neutral-900 hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 text-neutral-900 dark:text-neutral-100 border border-neutral-300/50 dark:border-neutral-700/50'
   };
 
-  const buttonClasses = twMerge(
+  const buttonClasses = cn(
     baseClasses,
     type instanceof Array ? type.map((t) => typeClasses[t]).join(' ') : typeClasses[type],
     className

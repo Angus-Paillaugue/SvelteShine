@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { fly } from 'svelte/transition';
   import { backOut } from 'svelte/easing';
-  import { twMerge } from 'tailwind-merge';
+  import { cn } from '$lib/utils';
 
   const { children, title, position = 'top' } = $props();
 
@@ -79,7 +79,7 @@
 {#if isHovered}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
-    class={twMerge(
+    class={cn(
       'absolute z-40 flex max-w-[200px] flex-col items-center p-2',
       positionClasses[position]
     )}

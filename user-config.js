@@ -78,6 +78,8 @@ export const pages = [
       { name: 'Images' },
       { name: 'Api-reference' },
       { name: 'Tables' },
+      { name: 'ComponentPreview' },
+      { name: 'RequestBuilder' }
     ]
   }
 ];

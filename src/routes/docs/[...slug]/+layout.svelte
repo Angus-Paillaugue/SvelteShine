@@ -1,15 +1,9 @@
 <script>
-  import Sidebar from '$lib/components/core/Sidebar';
   import Search from '$lib/components/core/Search.svelte';
-  import { sidebarStyle } from '$conf';
 
-  let { children, sidebarOpen = $bindable(false) } = $props();
+  let { children } = $props();
 </script>
 
 <Search />
 
-<div class="flex flex-row">
-  <Sidebar open={sidebarOpen} style={sidebarStyle} />
-
-  {@render children()}
-</div>
+{@render children()}

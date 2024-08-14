@@ -1,5 +1,5 @@
 <script>
-  import { twMerge } from 'tailwind-merge';
+  import { cn } from '$lib/utils';
   import Icon from '@iconify/svelte';
   import { accordion } from '$lib/utils';
 
@@ -14,8 +14,8 @@
 </script>
 
 <div
-  class={twMerge(
-    'collapsible mb-6 w-full rounded-md border border-neutral-300/50 bg-white transition-colors dark:border-neutral-700/50 dark:bg-neutral-950',
+  class={cn(
+    'collapsible mb-6 w-full rounded-md border border-neutral-300/50 bg-white overflow-hidden transition-colors dark:border-neutral-700/50 dark:bg-neutral-950',
     classlist
   )}
   {...restProps}

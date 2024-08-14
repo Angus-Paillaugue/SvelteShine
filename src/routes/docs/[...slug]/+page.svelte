@@ -1,6 +1,8 @@
 <script>
   import { formatDate, addCopyCodeButtonFunctionality } from '$lib/utils';
   import Navbar from '$lib/components/core/Navbar.svelte';
+  import Sidebar from '$lib/components/core/Sidebar';
+  import { sidebarStyle } from '$conf';
   import { Button } from '$lib/components/';
   import { siteDescription } from '$conf';
   import { afterNavigate } from '$app/navigation';
@@ -11,6 +13,7 @@
   const { data } = $props();
   let headings = $state([]);
   let mobileTocVisible = $state(false);
+  let sidebarOpen = $state(false)
 
   afterNavigate(() => {
     addCopyCodeButtonFunctionality();
@@ -88,45 +91,49 @@
   />
 </svelte:head>
 
-<div class="flex min-h-screen w-full flex-col">
-  {#key data?.name}
-    <Navbar title={data?.name ?? 'Docs'} />
+{#key data?.name}
+  <div class="flex min-h-screen w-full flex-row mx-auto max-w-screen-2xl">
+    <Sidebar open={sidebarOpen} style={sidebarStyle} />
 
-    <div class="mx-auto flex h-full w-full grow flex-col-reverse justify-center max-lg:items-center lg:flex-row">
-      <main class="flex h-full w-full max-w-screen-md grow flex-col p-2 lg:shrink-0">
-        {#if data?.lastModified || data?.description}
-          <section class="mb-6">
-            {#if data?.lastModified}
-              <small class="mb-1">{formatDate(new Date(data.lastModified))}</small>
-            {/if}
-            {#if data?.description}
-              <p class="m-0">{data.description}</p>
-            {/if}
-          </section>
-        {/if}
-        {#if data?.component}
-          <section id="pageContainer">
-            <svelte:component this={data.component} />
-          </section>
-        {/if}
+    <div class="flex-col flex grow">
+      <Navbar title={data?.name ?? 'Docs'} />
 
-        <Pagination slug={data.slug} />
-      </main>
-      <!-- Toc -->
-      {#if headings.length > 0}
-        <!-- Toggle toc on mobile -->
-        <Button name="openToc" onclick={() => (mobileTocVisible = !mobileTocVisible)} type={["square", "ghost"]} class="flex lg:hidden items-center justify-center fixed top-[4.5rem] right-4 z-20 p-3">
-          <Icon icon="line-md:menu-unfold-right" class="size-5" />
-        </Button>
+      <div class="flex h-full flex-col-reverse justify-center max-lg:items-center lg:gap-8 lg:flex-row">
+        <main class="flex h-full grow flex-col p-4 max-w-screen-lg mx-auto">
+          {#if data?.lastModified || data?.description}
+            <section class="mb-6">
+              {#if data?.lastModified}
+                <small class="mb-1">{formatDate(new Date(data.lastModified))}</small>
+              {/if}
+              {#if data?.description}
+                <p class="m-0">{data.description}</p>
+              {/if}
+            </section>
+          {/if}
+          {#if data?.component}
+            <section id="pageContainer">
+              <svelte:component this={data.component} />
+            </section>
+          {/if}
 
+          <Pagination slug={data.slug} />
+        </main>
         <!-- Toc -->
-        <div class="text-nowrap lg:px-2 lg:py-4 lg:sticky lg:top-24 lg:ml-4 lg:h-fit lg:w-[250px] overflow-auto max-lg:fixed max-lg:inset-0 max-lg:bg-white max-lg:dark:bg-neutral-900 max-lg:flex max-lg:flex-col max-lg:items-center max-lg:justify-center transition-transform max-lg:z-10 {mobileTocVisible ? 'max-lg:translate-x-0' : "max-lg:-translate-x-full"}" id="toc-container">
-          <Toc {headings} root={true} />
-        </div>
-      {/if}
+        {#if headings.length > 0}
+          <!-- Toggle toc on mobile -->
+          <Button name="openToc" onclick={() => (mobileTocVisible = !mobileTocVisible)} type={["square", "ghost"]} class="flex lg:hidden items-center justify-center fixed top-[4.5rem] right-4 z-40 p-3">
+            <Icon icon="line-md:menu-unfold-right" class="size-5" />
+          </Button>
+
+          <!-- Toc -->
+          <div class="text-nowrap lg:px-2 lg:py-4 lg:sticky top-16 lg:top-24 lg:h-fit lg:w-[250px] overflow-auto fixed max-lg:inset-0 max-lg:bg-white max-lg:dark:bg-neutral-900 max-lg:flex max-lg:flex-col max-lg:pl-4 max-lg:pt-4 transition-transform max-lg:z-30 lg:shrink-0 {mobileTocVisible ? 'max-lg:translate-x-0' : "max-lg:-translate-x-full"}" id="toc-container">
+            <Toc {headings} root={true} />
+          </div>
+        {/if}
+      </div>
     </div>
-  {/key}
-</div>
+  </div>
+{/key}
 
 <style>
   :global(#pageContainer > h1:first-child) {

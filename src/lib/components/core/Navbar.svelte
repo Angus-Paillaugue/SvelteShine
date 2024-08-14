@@ -6,14 +6,14 @@
   import { searchModalShown } from '$lib/stores';
   import { Button } from '$lib/components';
 
-  let { title } = $props();
+  const { title } = $props();
 </script>
 
 <nav
-  class="sticky top-0 z-40 flex w-full flex-row items-center justify-between border-b border-neutral-300/50 bg-white px-4 dark:border-neutral-700/50 dark:bg-neutral-900 max-xl:h-16 xl:p-4"
+  class="sticky top-0 z-20 flex w-full flex-row items-center justify-between border-b border-neutral-300/50 bg-white/75 px-4 dark:border-neutral-700/50 dark:bg-neutral-900/75 backdrop-blur h-16 xl:h-24"
 >
-  <div class="flex flex-row gap-2 max-xl:pl-12">
-    <h1 class="m-0">{title}</h1>
+  <div class="flex flex-row gap-2 ml-4 max-xl:ml-12">
+    <h1 class="m-0 max-md:text-2xl line-clamp-1 truncate">{title}</h1>
   </div>
 
   <div class="flex flex-row items-center gap-2 max-xl:hidden">

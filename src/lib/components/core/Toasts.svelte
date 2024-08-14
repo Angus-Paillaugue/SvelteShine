@@ -17,7 +17,7 @@
 </script>
 
 <div
-  class="fixed bottom-0 right-0 z-[51] flex max-h-[100vh-5rem] w-full max-w-[500px] flex-col gap-2 p-2 lg:p-4"
+  class="fixed bottom-0 right-0 z-[51] flex max-h-[100vh-5rem] w-full max-w-[500px] flex-col-reverse gap-2 p-2 lg:p-4"
 >
   {#each $toasts.slice(0, 4) as toast (toast.id)}
     <div
