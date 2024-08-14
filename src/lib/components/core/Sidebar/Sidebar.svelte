@@ -1,6 +1,6 @@
 <script>
   import { getTree } from '$lib/pages';
-  import PageList from './PageList.svelte';
+  import Sidebar from './';
   import { afterNavigate } from '$app/navigation';
   import Icon from '@iconify/svelte';
   import { searchModalShown } from '$lib/stores';
@@ -22,7 +22,7 @@
     ? 'max-xl:translate-x-0'
     : 'max-xl:-translate-x-full'}"
 >
-  <PageList {pages} root={true} {style} />
+  <Sidebar.PageList {pages} root={true} {style} />
   <!-- Navbar right side on desktop is on the sidebar on mobile -->
   <div
     class="flex flex-row gap-2 items-center justify-end xl:hidden sticky bottom-0 left-0 right-0 bg-inherit p-2 pr-0"

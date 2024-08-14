@@ -71,5 +71,5 @@
     {$page.status}
   </h1>
   <span class="text-lg">{$page.error.message}</span>
-  <Button href="/" class="hover:cursor-none">Go back</Button>
+  <Button onclick={() => (window.history.back())} class="hover:cursor-none">Go back</Button>
 </section>

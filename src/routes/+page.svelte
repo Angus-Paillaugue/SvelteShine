@@ -8,8 +8,6 @@
   import { Button } from '$lib/components';
   import { backOut } from 'svelte/easing';
 
-  const { data } = $props();
-  const { markdownPreview } = data;
   let getStartedButtonNavShown = $state(false);
   const docsHomePage = getDocsHomePage();
 
@@ -92,42 +90,7 @@
 <div class="isolate w-full flex flex-col dark:bg-white bg-neutral-900">
   <main class="rounded-b-[32px] overflow-clip dark:bg-neutral-900 bg-white">
     <!-- Main page -->
-    <Hero {...data} {docsHomePage} />
-
-    <!-- Bento grid -->
-    <!-- <section class="pt-[56px] pb-[100px] px-2 md:px-12">
-      <h1 class="mt-0 mb-6 text-center text-4xl md:text-6xl font-bold">Engage with users</h1>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-screen-2xl mx-auto">
-        <div class="h-full flex flex-col items-center">
-          <div
-            class="relative mx-auto rounded-3xl w-full p-4 border border-neutral-300/50 dark:border-neutral-700/50 overflow-hidden grow"
-          >
-            <svelte:component this={markdownPreview.SvelteComponents} />
-          </div>
-          <div class="text-center max-w-md mx-auto space-y-4 mt-8">
-            <h1 class="text-xl font-semibold text-black dark:text-white m-0">Svelte components</h1>
-            <p class="text-neutral-500 m-0">
-              You can include your own or our pre-made svelte components in your documentation.
-            </p>
-          </div>
-        </div>
-
-        <div class="h-full flex flex-col items-center">
-          <div
-            class="relative mx-auto rounded-3xl w-full p-4 border border-neutral-300/50 dark:border-neutral-700/50 overflow-hidden grow"
-          >
-            <svelte:component this={markdownPreview.CodeBlock} />
-          </div>
-          <div class="text-center max-w-md mx-auto space-y-4 mt-8">
-            <h1 class="text-xl font-semibold text-black dark:text-white m-0">Code blocks</h1>
-            <p class="text-neutral-500 m-0">
-              When adding code blocks to your documentation, everything the users need is already
-              included
-            </p>
-          </div>
-        </div>
-      </div>
-    </section> -->
+    <Hero {docsHomePage} />
 
     <!-- Bento grid -->
     <section

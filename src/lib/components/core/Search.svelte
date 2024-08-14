@@ -9,6 +9,7 @@
   let search = $state('loading');
   let searchTerm = $state('');
   let results = $state([]);
+  let currentlyFocusedSearchResult = $state(0);
 
   onMount(async () => {
     window.addEventListener('keydown', (e) => {
@@ -18,16 +19,12 @@
         setTimeout(() => {
           document.getElementById('search').focus();
         }, 300);
+      }else if (e.key === 'Escape') {
+        $searchModalShown = false;
       }
     });
     createPagesIndex();
     search = 'ready';
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        $searchModalShown = false;
-      }
-    });
   });
 
   $effect(() => {
@@ -72,7 +69,7 @@
       <kbd class="hidden md:block absolute top-1/2 right-3 -translate-y-1/2">ESC</kbd>
     </div>
     {#if results.length > 0}
-      <div class="grid grid-cols-1 gap-2 p-4 max-h-[50vh] overflow-y-auto no-scrollbar">
+      <div class="grid grid-cols-1 gap-2 p-4 max-h-[50vh] overflow-y-auto no-scrollbar" id="results">
         {#each results as result (result.url)}
           <a
             href={result.url}

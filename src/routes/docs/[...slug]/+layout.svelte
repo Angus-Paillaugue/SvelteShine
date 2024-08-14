@@ -1,5 +1,5 @@
 <script>
-  import Sidebar from '$lib/components/core/Sidebar.svelte';
+  import Sidebar from '$lib/components/core/Sidebar';
   import Search from '$lib/components/core/Search.svelte';
   import { sidebarStyle } from '$conf';
 

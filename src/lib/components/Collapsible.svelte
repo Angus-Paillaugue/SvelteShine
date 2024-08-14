@@ -4,7 +4,7 @@
   import { accordion } from '$lib/utils';
 
   let {
-    class: cLasslist,
+    class: classlist,
     summary,
     children,
     icon,
@@ -16,12 +16,12 @@
 <div
   class={twMerge(
     'border border-neutral-300/50 dark:border-neutral-700/50 rounded-md bg-white dark:bg-neutral-950 overflow-hidden transition-colors w-full mb-6',
-    cLasslist
+    classlist
   )}
 >
   <button
     onclick={() => (open = !open)}
-    {restProps}
+    {...restProps}
     class="cursor-pointer flex flex-row items-center items-between text-base font-semibold p-2 hover:bg-neutral-200/50 hover:dark:bg-inherit transition-colors w-full"
   >
     <span class="arrow transition-all">
@@ -36,8 +36,15 @@
     {@html summary}
   </button>
   <div use:accordion={open}>
-    <div class="p-4">
+    <div class="p-4 collapsible-details">
       {@render children()}
     </div>
   </div>
 </div>
+
+<style>
+  /* Removes the margin bottom to the last element of the details of the collapsible to have just a nice padding all around */
+  :global(.collapsible-details *:last-child) {
+    margin-bottom: 0;
+  }
+</style>

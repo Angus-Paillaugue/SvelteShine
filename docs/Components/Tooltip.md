@@ -3,55 +3,60 @@ name: Tooltip
 description: Easley use tooltips
 lastModified: 07-25-2024
 ---
+<script>
+  import { Tooltip, Definition } from "$lib/components";
+</script>
 
-# Creating a tooltip
+# Exemples
 
-You can add a tooltip to some text by wrapping it into a `<span>` and adding a `data-tooltip="content"` attribute to it like so :
+## Top
 
-```svelte
-<p>
-  Lorem ipsum dolor sit amet, <span data-tooltip="This does not mean anything" class="font-bold"
-    >adipisicing elit</span
-  >.
-</p>
-```
+Lorem ipsum <Tooltip title="dolor sit" position="top">I'm a tooltip</Tooltip> amet consectetur.
 
-And here is the result :
 
-<p>
-  Lorem ipsum dolor sit amet, <span data-tooltip="This does not mean anything" class="font-bold">adipisicing elit</span>.
-</p>
+## Left
 
-<div class="grid grid-cols-4 gap-4 w-fit">
-  <p data-tooltip="Tooltip content" tabindex="0" class="text-center">
-    Top
-  </p>
+Lorem ipsum <Tooltip title="dolor sit" position="left">I'm a tooltip</Tooltip> amet consectetur.
 
-  <p data-tooltip="Tooltip content" tabindex="0" class="tooltip-left text-center">
-    Left
-  </p>
 
-  <p data-tooltip="Tooltip content" tabindex="0" class="tooltip-right text-center">
-    Right
-  </p>
+## Bottom
 
-  <p data-tooltip="Tooltip content" tabindex="0" class="tooltip-bottom text-center">
-    Bottom
-  </p>
+Lorem ipsum <Tooltip title="dolor sit" position="bottom">I'm a tooltip</Tooltip> amet consectetur.
 
-  <p data-tooltip="Tooltip content" tabindex="0" class="text-center tooltip-small">
-    Small Top
-  </p>
 
-  <p data-tooltip="Tooltip content" tabindex="0" class="tooltip-left tooltip-small text-center">
-    Small Left
-  </p>
+## Right
 
-  <p data-tooltip="Tooltip content" tabindex="0" class="tooltip-right tooltip-small text-center">
-    Small Right
-  </p>
+Lorem ipsum <Tooltip title="dolor sit" position="right">I'm a tooltip</Tooltip> amet consectetur.
 
-  <p data-tooltip="Tooltip content" tabindex="0" class="tooltip-bottom tooltip-small text-center">
-    Small Bottom
-  </p>
-</div>
+## With a link
+Lorem ipsum <Tooltip title="dolor sit">[I'm a tooltip with a link](#)</Tooltip> amet consectetur.
+
+
+# Definition
+
+<Definition
+name="Tooltip"
+description="The tooltip component."
+definition={
+{
+"name":"props",
+"content": [
+{
+"name":"title",
+"type": "string",
+"description": "The text shown that, when hovered, reveals the content of the tooltip."
+},
+{
+"name":"<slot>",
+"type": "HTMLElement",
+"description": "The content of the tooltip."
+},
+{
+"name":"position",
+"default":"\"top\"",
+"type": "string",
+"description": "The position of the tooltip. Can be either \"top\", \"right\", \"bottom\" or \"right\""
+}
+]
+}}
+/>
