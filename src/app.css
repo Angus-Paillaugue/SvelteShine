@@ -30,7 +30,7 @@ html {
 }
 
 body {
-  @apply bg-white font-['Mulish'] text-neutral-950 dark:bg-neutral-900 dark:text-neutral-100;
+  @apply bg-body font-['Mulish'] text-text-heading dark:bg-body-dark dark:text-text-heading-dark;
 }
 
 ::-webkit-scrollbar {
@@ -90,11 +90,11 @@ h6 {
 
 p,
 li {
-  @apply mb-4 font-['Mulish'] text-base font-medium leading-6 text-neutral-500 text-wrap-none dark:text-neutral-400;
+  @apply mb-4 font-['Mulish'] text-base font-medium leading-6 text-text-body text-wrap-none dark:text-text-body-dark;
 }
 span,
 small {
-  @apply text-neutral-500 dark:text-neutral-400;
+  @apply text-text-body dark:text-text-body-dark;
 }
 p.balance {
   @apply text-wrap-balance;

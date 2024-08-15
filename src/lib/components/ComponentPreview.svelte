@@ -4,7 +4,7 @@
   const { children, title, class: className, ...restProps } = $props();
 </script>
 
-<div class={cn("relative mt-2", className)} {...restProps}>
+<div class={cn('relative mt-2', className)} {...restProps}>
   {#if title}
     <h3 class="m-0 mb-2">{title}</h3>
   {/if}

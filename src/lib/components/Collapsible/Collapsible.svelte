@@ -15,7 +15,7 @@
 
 <div
   class={cn(
-    'collapsible mb-6 w-full overflow-hidden rounded-md border border-neutral-300/50 bg-white transition-colors dark:border-neutral-700/50 dark:bg-neutral-950',
+    'collapsible mb-6 w-full overflow-hidden rounded-md border border-main bg-body transition-colors dark:border-main-dark dark:bg-neutral-950',
     className
   )}
   {...restProps}
@@ -29,7 +29,7 @@
     <span class="arrow transition-all">
       <Icon
         icon="material-symbols:arrow-right-rounded"
-        class={cn("size-7 transition-transform" , open && 'rotate-90')}
+        class={cn('size-7 transition-transform', open && 'rotate-90')}
       />
     </span>
     {#if icon}

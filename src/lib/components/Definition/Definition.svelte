@@ -1,10 +1,13 @@
 <script>
   import { cn } from '$lib/utils';
 
-  const { name, description, children, class:className, ...restProps } = $props();
+  const { name, description, children, class: className, ...restProps } = $props();
 </script>
 
-<div class={cn("mt-8 rounded-md border border-neutral-300/50 dark:border-neutral-700/50", className)} {...restProps}>
+<div
+  class={cn('mt-8 rounded-md border border-main dark:border-main-dark', className)}
+  {...restProps}
+>
   <div
     class="w-fit rounded-br-md rounded-tl-md border-2 border-primary-600 bg-primary-400/50 p-2 text-primary-950 dark:border-primary-400 dark:bg-primary-900/50 dark:text-primary-50"
   >

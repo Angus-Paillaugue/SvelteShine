@@ -39,7 +39,7 @@
 </script>
 
 <div
-  class="flex flex-row items-center justify-between gap-2 rounded-md border border-neutral-300/50 p-2 dark:border-neutral-700/50"
+  class="flex flex-row items-center justify-between gap-2 rounded-md border border-main dark:border-main-dark"
 >
   <div class="flex grow flex-row items-center gap-2">
     <div class="http-keyword w-fit" data-keyword={method.toLocaleUpperCase()}>
@@ -51,8 +51,8 @@
         <span
           class={cn(
             pathElement === '/'
-              ? 'text-neutral-400 dark:text-neutral-600'
-              : 'text-neutral-900 dark:text-neutral-100',
+              ? 'text-text-body dark:text-text-body-dark'
+              : 'text-text-heading dark:text-text-heading-dark',
             isPathParam(pathElement) &&
               'rounded-md border border-primary-700 bg-primary-600/20 px-2 py-0.5 text-primary-900 dark:text-primary-100'
           )}>{pathElement}</span

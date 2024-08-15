@@ -58,7 +58,7 @@
       <!-- New version badge -->
       {#if homepage.version.showHomepageMessage}
         <a
-          class="group relative mb-5 flex w-max items-center gap-x-2 rounded-full border border-neutral-300/50 px-2 py-1 text-sm transition-colors hover:bg-neutral-600/10 focus-visible:bg-neutral-600/20 dark:border-neutral-700/50"
+          class="group relative mb-5 flex w-max items-center gap-x-2 rounded-full border border-main px-2 py-1 text-sm transition-colors hover:bg-neutral-600/10 focus-visible:bg-neutral-600/20 dark:border-main-dark"
           href={homepage.version.latestVersionURL}
           ><span
             class="-ml-1 flex items-center gap-2 rounded-full bg-neutral-950 px-2 py-1 text-xs font-medium text-neutral-100"
@@ -99,7 +99,7 @@
           Learn more
           <Icon
             icon="line-md:arrow-right"
-            class="size-6 rounded-full bg-neutral-200/50 p-1 text-neutral-950 dark:bg-neutral-700/50 dark:text-neutral-100"
+            class="size-6 rounded-full bg-neutral-200/50 p-1 text-text-heading dark:bg-neutral-700/50 dark:text-text-heading-dark"
           />
         </Button>
       </div>
@@ -114,7 +114,7 @@
     <!-- Mockup -->
     {#if $mode}
       <div
-        class="overflow-hidden rounded-xl border border-neutral-300/50 dark:border-neutral-700/50 max-md:self-start max-sm:hidden"
+        class="overflow-hidden rounded-xl border border-main dark:border-main-dark max-md:self-start max-sm:hidden"
         style="animation: float 5s ease-in-out infinite;"
       >
         <picture>

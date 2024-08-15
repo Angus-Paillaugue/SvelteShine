@@ -5,7 +5,7 @@
   import { afterNavigate } from '$app/navigation';
   import Icon from '@iconify/svelte';
   import { searchModalShown } from '$lib/stores';
-  import { cn } from '$lib/utils';;
+  import { cn } from '$lib/utils';
 
   let search = $state('loading');
   let searchTerm = $state('');
@@ -19,7 +19,7 @@
 
     return () => {
       window.removeEventListener('keydown', onWindowKeyDown);
-    }
+    };
   });
 
   function onWindowKeyDown(e) {
@@ -56,9 +56,9 @@
   function onResultsScroll(e) {
     const searchContainer = document.getElementById('searchContainer');
     if (e.target.scrollTop > 0) {
-      searchContainer.classList.add('border-neutral-300/50', 'dark:border-neutral-700/50');
+      searchContainer.classList.add('border-main dark:border-main-dark');
     } else {
-      searchContainer.classList.remove('border-neutral-300/50', 'dark:border-neutral-700/50');
+      searchContainer.classList.remove('border-main dark:border-main-dark');
     }
   }
 
@@ -100,7 +100,7 @@
   ></div>
   <div class="fixed inset-0 z-50 p-4 sm:p-6 md:p-12">
     <div
-      class="no-scrollbar mx-auto max-h-full w-full max-w-screen-md overflow-hidden overflow-y-auto rounded-2xl border border-neutral-300/50 bg-neutral-100 dark:border-neutral-700/50 dark:bg-neutral-950 dark:text-white"
+      class="no-scrollbar mx-auto max-h-full w-full max-w-screen-md overflow-hidden overflow-y-auto rounded-2xl border border-main bg-neutral-100 dark:border-main-dark dark:bg-neutral-950 dark:text-white"
       transition:scale={{ start: 0.8, duration: 200 }}
       onscroll={onResultsScroll}
     >
@@ -117,8 +117,10 @@
             type="text"
             name="search"
             id="search"
-            class={cn("w-full rounded-xl border border-neutral-300/50 bg-transparent py-4 pl-10 text-xl focus:outline-none dark:border-neutral-700/50 dark:bg-transparent md:px-12", results.length >
-              0 && 'border-b')}
+            class={cn(
+              'w-full rounded-xl border border-main bg-transparent py-4 pl-10 text-xl focus:outline-none dark:border-main-dark dark:bg-transparent md:px-12',
+              results.length > 0 && 'border-b'
+            )}
             placeholder="Search or pages"
             autocomplete="off"
             onkeydown={handleKeyDown}
@@ -133,8 +135,10 @@
           {#each results as result, index}
             <a
               href={result.url}
-              class={cn("group relative m-0 flex list-none flex-row items-center justify-between rounded-xl p-2 px-4 py-2 transition-colors hover:bg-neutral-300/50 focus:bg-neutral-300/50 focus:outline-none dark:hover:bg-neutral-800/50 dark:focus:bg-neutral-800/50",  index ===
-                selectedIndex && 'selected bg-neutral-300/50 dark:bg-neutral-800/50')}
+              class={cn(
+                'group relative m-0 flex list-none flex-row items-center justify-between rounded-xl p-2 px-4 py-2 transition-colors hover:bg-neutral-300/50 focus:bg-neutral-300/50 focus:outline-none dark:hover:bg-neutral-800/50 dark:focus:bg-neutral-800/50',
+                index === selectedIndex && 'selected bg-neutral-300/50 dark:bg-neutral-800/50'
+              )}
               id={`result-${index}`}
             >
               <div class="flex w-full list-none flex-col justify-center gap-2 rounded-md">

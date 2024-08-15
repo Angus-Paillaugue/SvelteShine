@@ -26,7 +26,7 @@
 <div class="commands mb-4 w-full">
   <div class="relative h-fit w-full">
     <ul
-      class="no-scrollbar relative mb-2 flex flex-row flex-nowrap gap-2 border-b-2 border-neutral-300/50 dark:border-neutral-700/50"
+      class="no-scrollbar relative mb-2 flex flex-row flex-nowrap gap-2 border-b-2 border-main dark:border-main-dark"
     >
       {#each commands as command, i}
         <li class="mb-0 list-none">
@@ -45,7 +45,7 @@
     ></span>
   </div>
 
-  <div class="overflow-hidden rounded-md border border-neutral-300/50 dark:border-neutral-700/50">
+  <div class="overflow-hidden rounded-md border border-main dark:border-main-dark">
     <div class="flex flex-row gap-2 px-4 py-2">
       <div class="size-3 rounded-full bg-neutral-300 dark:bg-neutral-800"></div>
       <div class="size-3 rounded-full bg-neutral-300 dark:bg-neutral-800"></div>

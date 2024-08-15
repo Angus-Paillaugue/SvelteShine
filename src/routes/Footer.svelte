@@ -5,14 +5,14 @@
 </script>
 
 <footer
-  class="sticky w-full px-6 pb-6 pt-14 text-neutral-100 dark:text-neutral-950 md:bottom-0 md:-z-10"
+  class="sticky w-full px-6 pb-6 pt-14 text-text-heading dark:text-text-heading-dark md:bottom-0 md:-z-10"
 >
   <div
     class="mx-auto flex max-w-screen-lg gap-8 max-md:flex-col-reverse md:grid md:grid-cols-[auto,400px]"
   >
     <div class="flex flex-col gap-8">
-      <p class="m-0 text-neutral-100 dark:text-neutral-950">{siteName}, {catchphrase}</p>
-      <p class="m-0 mt-auto text-neutral-100 dark:text-neutral-950">
+      <p class="m-0 text-text-heading dark:text-text-heading-dark">{siteName}, {catchphrase}</p>
+      <p class="m-0 mt-auto text-text-heading dark:text-text-heading-dark">
         Made with <svg
           xmlns="http://www.w3.org/2000/svg"
           enable-background="new 0 0 128 128"
@@ -44,42 +44,42 @@
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="#pricing"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Pricing</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/changelog"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Changelog</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/blog"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Blog</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/contact"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Contact</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/help"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Help-center</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/careers"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Careers</a
           >
         </li>
@@ -88,42 +88,42 @@
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="#pricing"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Pricing</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/changelog"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Changelog</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/blog"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Blog</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/contact"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Contact</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/help"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Help-center</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/careers"
-            class="text-neutral-100 transition-colors hover:text-neutral-500 dark:text-neutral-950 dark:hover:text-neutral-500"
+            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
             >Careers</a
           >
         </li>

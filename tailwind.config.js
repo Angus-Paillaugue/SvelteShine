@@ -1,48 +1,17 @@
 import plugin from 'tailwindcss/plugin';
 import { tailwindColors } from './user-config';
 
-const radialGradientPlugin = plugin(
-  function ({ matchUtilities, theme }) {
-    matchUtilities(
-      {
-        // map to bg-radient-[*]
-        'bg-radient': (value) => ({
-          'background-image': `radial-gradient(${value},var(--tw-gradient-stops))`
-        })
-      },
-      { values: theme('radialGradients') }
-    );
-  },
-  {
-    theme: {
-      radialGradients: _presets()
-    }
-  }
-);
-
-/**
- * utility class presets
- */
-function _presets() {
-  const shapes = ['circle', 'ellipse'];
-  const pos = {
-    c: 'center',
-    t: 'top',
-    b: 'bottom',
-    l: 'left',
-    r: 'right',
-    tl: 'top left',
-    tr: 'top right',
-    bl: 'bottom left',
-    br: 'bottom right'
-  };
-  let result = {};
-  for (const shape of shapes)
-    for (const [posName, posValue] of Object.entries(pos))
-      result[`${shape}-${posName}`] = `${shape} at ${posValue}`;
-
-  return result;
-}
+const radialGradientPlugin = plugin(function ({ matchUtilities, theme }) {
+  matchUtilities(
+    {
+      // map to bg-radient-[*]
+      'bg-radient': (value) => ({
+        'background-image': `radial-gradient(${value},var(--tw-gradient-stops))`
+      })
+    },
+    { values: theme('radialGradients') }
+  );
+});
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -54,13 +23,30 @@ export default {
         mono: ['JetBrains Mono']
       },
       colors: {
-        primary: tailwindColors
+        primary: tailwindColors,
+        'text-body': {
+          DEFAULT: 'theme(colors.neutral.500)',
+          dark: 'theme(colors.neutral.400)'
+        },
+        'text-heading': {
+          DEFAULT: 'theme(colors.neutral.900)',
+          dark: 'theme(colors.neutral.100)'
+        },
+        body: {
+          DEFAULT: 'theme(colors.white)',
+          dark: 'theme(colors.neutral.900)'
+        }
       },
       textShadow: {
         code: '0 1px rgba(0, 0, 0, 0.3)',
         none: 'none'
       },
-      radialGradients: _presets()
+      borderColor: {
+        main: {
+          DEFAULT: 'theme(colors.neutral.300/50)',
+          dark: 'theme(colors.neutral.700/50)'
+        }
+      }
     }
   },
   plugins: [
@@ -75,14 +61,7 @@ export default {
         },
         {
           values: theme('textShadow')
-        },
-        {
-          // map to bg-radient-[*]
-          'bg-radient': (value) => ({
-            'background-image': `radial-gradient(${value},var(--tw-gradient-stops))`
-          })
-        },
-        { values: theme('radialGradients') }
+        }
       ),
         addUtilities({
           // Add font-ligatures utilities

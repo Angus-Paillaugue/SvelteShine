@@ -13,9 +13,7 @@
       </h6>
     {/if}
 
-    <ol
-      class={!root && 'ml-1.5 border-l-2 border-neutral-300/50 pl-2.5 dark:border-neutral-700/50'}
-    >
+    <ol class={!root && 'ml-1.5 border-l-2 border-main pl-2.5 dark:border-main-dark'}>
       {#each headings as heading}
         <li class="mb-2 list-none first:mt-2">
           <a

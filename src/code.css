@@ -44,7 +44,7 @@ pre.line-numbers > code .line::before {
   content: counter(step);
   counter-increment: step;
   font-variant-numeric: tabular-nums;
-  @apply -ml-2 mr-2 inline-block w-6 text-right text-neutral-500 dark:text-neutral-400;
+  @apply -ml-2 mr-2 inline-block w-6 text-right text-text-body dark:text-text-body-dark;
 }
 pre > code .line {
   @apply inline-block w-full px-4;
@@ -89,12 +89,12 @@ code:not(pre code, .command) {
 /* Styling page components */
 
 #pageContainer h1 {
-  @apply border-b border-neutral-300/50 leading-[3rem] dark:border-neutral-700/50 md:leading-[3.5rem];
+  @apply border-b border-main leading-[3rem] dark:border-main-dark md:leading-[3.5rem];
 }
 
 /* Image */
 .page-image-container {
-  @apply mb-4 rounded-md border border-neutral-300/50 bg-neutral-100 p-2 dark:border-neutral-700/50 dark:bg-neutral-950;
+  @apply mb-4 rounded-md border border-main bg-neutral-100 p-2 dark:border-main-dark dark:bg-neutral-950;
 }
 .page-image {
   @apply rounded-md;
@@ -123,7 +123,7 @@ code:not(pre code, .command) {
 }
 
 #pageContainer table td {
-  @apply border-b border-neutral-300/50 p-4 pl-8 text-neutral-600 dark:border-neutral-700/50 dark:text-neutral-400;
+  @apply border-b border-main p-4 pl-8 text-neutral-600 dark:border-main-dark dark:text-neutral-400;
 }
 
 /* Lists */
@@ -145,7 +145,7 @@ code:not(pre code, .command) {
 }
 
 #pageContainer blockquote {
-  @apply my-6 border-l-4 border-neutral-300/50 pl-4 dark:border-neutral-700/50;
+  @apply my-6 border-l-4 border-main pl-4 dark:border-main-dark;
 }
 /* TaskList */
 #pageContainer .task-list-item {

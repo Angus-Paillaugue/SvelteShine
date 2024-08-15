@@ -67,7 +67,7 @@
 
 <!-- Navbar -->
 <nav
-  class="fixed left-1/2 top-5 z-30 flex h-16 w-[calc(100vw-40px)] -translate-x-1/2 gap-x-6 rounded-full border border-neutral-200/50 bg-neutral-50/75 p-4 backdrop-blur-md dark:border-neutral-600 dark:bg-neutral-600/50 md:w-[584px]"
+  class="fixed left-1/2 top-5 z-30 flex h-16 w-[calc(100vw-40px)] -translate-x-1/2 gap-x-6 rounded-full border border-main bg-neutral-50/75 p-4 backdrop-blur-md dark:border-main dark:bg-neutral-600/50 md:w-[584px]"
 >
   <div class="relative h-full w-full">
     <div
@@ -94,8 +94,8 @@
   </div>
 </nav>
 
-<div class="isolate flex w-full flex-col bg-neutral-900 dark:bg-white">
-  <main class="overflow-clip rounded-b-[32px] bg-white dark:bg-neutral-900">
+<div class="isolate flex w-full flex-col bg-body-dark dark:bg-body">
+  <main class="overflow-clip rounded-b-[32px] bg-body dark:bg-body-dark">
     <!-- Main page -->
     <Hero {docsHomePage} />
 
@@ -104,7 +104,7 @@
       class="mx-auto grid max-w-screen-2xl grid-cols-1 gap-2 px-2 md:my-24 md:grid-cols-6 md:px-10"
     >
       <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-neutral-300/50 p-4 text-center dark:border-neutral-700/50 max-md:rounded-t-[50px] md:col-span-3 md:rounded-tl-[50px] xl:p-8"
+        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-main p-4 text-center dark:border-main-dark max-md:rounded-t-[50px] md:col-span-3 md:rounded-tl-[50px] xl:p-8"
       >
         <img
           src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fgorgeous.png&w=640&q=75"
@@ -122,7 +122,7 @@
         </div>
       </div>
       <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-neutral-300/50 p-4 text-center dark:border-neutral-700/50 md:col-span-3 md:rounded-tr-[50px] xl:p-8"
+        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-main p-4 text-center dark:border-main-dark md:col-span-3 md:rounded-tr-[50px] xl:p-8"
       >
         <img
           src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fdeveloper.png&w=640&q=75"
@@ -140,7 +140,7 @@
         </div>
       </div>
       <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-neutral-300/50 p-4 text-center dark:border-neutral-700/50 md:col-span-2 md:rounded-bl-[50px] xl:p-8"
+        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-main p-4 text-center dark:border-main-dark md:col-span-2 md:rounded-bl-[50px] xl:p-8"
       >
         <img
           src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fperformance.png&w=640&q=75"
@@ -158,7 +158,7 @@
         </div>
       </div>
       <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-neutral-300/50 p-4 text-center dark:border-neutral-700/50 md:col-span-2 xl:p-8"
+        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-main p-4 text-center dark:border-main-dark md:col-span-2 xl:p-8"
       >
         <img
           src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fconversion.png&w=640&q=75"
@@ -176,7 +176,7 @@
         </div>
       </div>
       <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-neutral-300/50 p-4 text-center dark:border-neutral-700/50 max-md:rounded-b-[50px] md:col-span-2 md:rounded-br-[50px] xl:p-8"
+        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-main p-4 text-center dark:border-main-dark max-md:rounded-b-[50px] md:col-span-2 md:rounded-br-[50px] xl:p-8"
       >
         <img
           src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fmaintained.png&w=640&q=75"

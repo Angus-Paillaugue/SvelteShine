@@ -1,11 +1,14 @@
 <script>
   import { cn } from '$lib/utils';
-  
-  const { children, class:className, ...restProps } = $props();
+
+  const { children, class: className, ...restProps } = $props();
 </script>
 
 <div
-  class={cn("my-5 flex flex-col gap-4 border-t border-neutral-300/50 px-4 pt-5 dark:border-neutral-700/50", className)}
+  class={cn(
+    'my-5 flex flex-col gap-4 border-t border-main px-4 pt-5 dark:border-main-dark',
+    className
+  )}
   {...restProps}
 >
   <p class="mb-0">

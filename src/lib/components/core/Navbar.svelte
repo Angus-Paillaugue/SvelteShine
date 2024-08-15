@@ -10,7 +10,7 @@
 </script>
 
 <nav
-  class="sticky top-0 z-20 flex h-16 w-full flex-row items-center justify-between border-b border-neutral-300/50 bg-white/75 px-4 backdrop-blur dark:border-neutral-700/50 dark:bg-neutral-900/75 xl:h-24"
+  class="bg-body/75 dark:bg-body-dark/75 sticky top-0 z-20 flex h-16 w-full flex-row items-center justify-between border-b border-main px-4 backdrop-blur dark:border-main-dark xl:h-24"
 >
   <div class="ml-4 flex flex-row gap-2 max-xl:ml-12">
     <h1 class="m-0 line-clamp-1 truncate max-md:text-2xl">{title}</h1>

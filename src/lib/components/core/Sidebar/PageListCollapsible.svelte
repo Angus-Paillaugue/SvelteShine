@@ -3,20 +3,32 @@
   import Icon from '@iconify/svelte';
   import { accordion } from '$lib/utils';
 
-  let { classes, summary, children, open = $bindable(false), class:className, ...restProps } = $props();
+  let {
+    classes,
+    summary,
+    children,
+    open = $bindable(false),
+    class: className,
+    ...restProps
+  } = $props();
 </script>
 
 <div class="flex flex-col">
   <button
     onclick={() => (open = !open)}
-    class={cn('flex w-full flex-row items-center', classes.itemBaseClasses, classes.itemColors, className)}
+    class={cn(
+      'flex w-full flex-row items-center',
+      classes.itemBaseClasses,
+      classes.itemColors,
+      className
+    )}
     {...restProps}
   >
     {@html summary}
     <span>
       <Icon
         icon="material-symbols:keyboard-arrow-down-rounded"
-        class={cn("size-6 transition-transform", !open && '-rotate-90')}
+        class={cn('size-6 transition-transform', !open && '-rotate-90')}
       />
     </span>
   </button>

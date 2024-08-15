@@ -1,6 +1,6 @@
 <script>
   import { cn } from '$lib/utils';
-  
+
   const { children, class: className, ...restProps } = $props();
 </script>
 

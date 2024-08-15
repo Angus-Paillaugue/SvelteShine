@@ -7,7 +7,7 @@
   import { cn } from '$lib/utils';
 
   const baseToastClasses =
-    'rounded-xl border bg-neutral-50 dark:bg-neutral-950 border-neutral-300/50 dark:border-neutral-700/50 p-4 relative';
+    'rounded-xl border bg-neutral-50 dark:bg-neutral-950 border-main dark:border-main-dark p-4 relative';
 
   // USER CONFIG : Customize the toast svg colors
   const svgColors = {
@@ -31,10 +31,13 @@
         {#if toast.type === 'red'}
           <Icon
             icon="material-symbols:dangerous-outline-rounded"
-            class={cn("h-5 w-5", svgColors[toast.type])}
+            class={cn('h-5 w-5', svgColors[toast.type])}
           />
         {:else if toast.type === 'green'}
-          <Icon icon="material-symbols:check-rounded" class={cn("h-5 w-5", svgColors[toast.type])} />
+          <Icon
+            icon="material-symbols:check-rounded"
+            class={cn('h-5 w-5', svgColors[toast.type])}
+          />
         {:else}
           <Icon
             icon="material-symbols:info-outline-rounded"

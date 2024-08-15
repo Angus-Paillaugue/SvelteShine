@@ -19,20 +19,21 @@
 </script>
 
 <aside
-  class={cn("fixed top-0 z-[45] flex shrink-0 flex-col gap-0 overflow-y-auto border-r border-neutral-300/50 bg-white p-2 pl-0 transition-transform dark:border-neutral-700/50 dark:bg-neutral-900 max-xl:inset-0 max-xl:top-16 max-xl:-mt-1 max-xl:pb-0 max-xl:pt-0 lg:max-h-screen xl:sticky xl:w-[300px]", open
-    ? 'max-xl:translate-x-0'
-    : 'max-xl:-translate-x-full')}
+  class={cn(
+    'fixed top-0 z-[45] flex shrink-0 flex-col gap-0 border-r border-main bg-body p-2 pl-0 transition-transform dark:border-main-dark dark:bg-body-dark max-xl:inset-0 max-xl:top-16 max-xl:-mt-1 max-xl:flex max-xl:flex-col max-xl:pb-0 max-xl:pt-0 lg:max-h-screen xl:sticky xl:w-[300px]',
+    open ? 'max-xl:translate-x-0' : 'max-xl:-translate-x-full'
+  )}
 >
   <!-- Sidebar heading -->
   <div class="flex flex-col pl-4 pr-2 pt-4">
     <h3 class="m-0">{siteName}</h3>
-    <span class="mb-2 mt-4 grow border-b border-neutral-300/50 dark:border-neutral-700/50"></span>
+    <span class="mb-2 mt-4 grow border-b border-main dark:border-main-dark"></span>
   </div>
-  <Sidebar.PageList {pages} root={true} {style} />
+  <div class="grow overflow-y-auto">
+    <Sidebar.PageList {pages} root={true} {style} />
+  </div>
   <!-- Navbar right side on desktop is on the sidebar on mobile -->
-  <div
-    class="sticky bottom-0 left-0 right-0 flex flex-row items-center justify-end gap-2 bg-inherit p-2 pr-0 xl:hidden"
-  >
+  <div class="flex flex-row items-center justify-end gap-2 bg-inherit p-2 pr-0 xl:hidden">
     {#each socials as { name, url, icon }}
       <a href={url} target={socialsTarget} class="h-fit p-1" {name}>
         <Icon {icon} class="size-6" />

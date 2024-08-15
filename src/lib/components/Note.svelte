@@ -71,12 +71,12 @@
           <Icon class="size-6" icon={iconNames[type]} />
           <span class="font-semibold capitalize">{type}</span>
         </div>
-        <p class="m-0 text-neutral-700 dark:text-neutral-300">{@render children()}</p>
+        <p class="m-0 text-text-body dark:text-text-body-dark">{@render children()}</p>
       </div>
     {:else if style === 'custom'}
       <div class="flex flex-row items-center gap-2">
         <Icon class="size-6" icon={iconNames[type]} />
-        <p class="m-0 text-neutral-700 dark:text-neutral-300">{@render children()}</p>
+        <p class="m-0 text-text-body dark:text-text-body-dark">{@render children()}</p>
       </div>
     {/if}
   </div>

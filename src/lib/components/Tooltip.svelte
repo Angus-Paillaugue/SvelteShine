@@ -4,7 +4,7 @@
   import { backOut } from 'svelte/easing';
   import { cn } from '$lib/utils';
 
-  const { children, title, position = 'top', class:className, ...restProps } = $props();
+  const { children, title, position = 'top', class: className, ...restProps } = $props();
 
   let isHovered = $state(false);
   let tooltipCoords = $state({ x: 0, y: 0, width: 0 });
@@ -80,7 +80,10 @@
 
 <button
   tabindex="0"
-  class={cn("inline-block cursor-pointer font-semibold underline decoration-primary-600/50 decoration-dashed underline-offset-2 dark:decoration-primary-600/70", className)}
+  class={cn(
+    'inline-block cursor-pointer font-semibold underline decoration-primary-600/50 decoration-dashed underline-offset-2 dark:decoration-primary-600/70',
+    className
+  )}
   {...restProps}
   bind:this={tooltip}
 >
@@ -101,15 +104,16 @@
     onmouseleave={hideTooltip}
   >
     <div
-      class="relative rounded-md bg-neutral-200 p-2 text-sm text-neutral-500 dark:bg-neutral-950 dark:text-neutral-400"
+      class="relative rounded-md bg-neutral-200 p-2 text-sm text-text-body dark:bg-neutral-950 dark:text-text-body-dark"
     >
       {@render children()}
       <!-- Tooltip arrow -->
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class={cn("absolute size-5 text-neutral-200 dark:text-neutral-950", arrowPositionClasses[
-          position
-        ])}
+        class={cn(
+          'absolute size-5 text-neutral-200 dark:text-neutral-950',
+          arrowPositionClasses[position]
+        )}
         viewBox="0 0 40 40"
       >
         <path fill="currentColor" d="M4.659 11.833h30.682L20 32.167z" />
