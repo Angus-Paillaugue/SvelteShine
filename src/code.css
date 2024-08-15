@@ -22,7 +22,7 @@ code {
 }
 
 .shiki {
-  @apply relative rounded-md whitespace-pre overflow-auto py-4;
+  @apply relative overflow-auto whitespace-pre rounded-md py-4;
 }
 .remark-code-container {
   @apply my-4;
@@ -89,7 +89,7 @@ code:not(pre code, .command) {
 /* Styling page components */
 
 #pageContainer h1 {
-  @apply border-b border-neutral-300/50 dark:border-neutral-700/50 leading-[3rem] md:leading-[3.5rem]
+  @apply border-b border-neutral-300/50 leading-[3rem] dark:border-neutral-700/50 md:leading-[3.5rem];
 }
 
 /* Image */
@@ -108,7 +108,7 @@ code:not(pre code, .command) {
 
 /* Table */
 #pageContainer .table-container {
-  @apply overflow-auto
+  @apply overflow-auto;
 }
 #pageContainer table {
   @apply my-4 w-full table-auto border-collapse overflow-hidden rounded-md text-left text-sm;

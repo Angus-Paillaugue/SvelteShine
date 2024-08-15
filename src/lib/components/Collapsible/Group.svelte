@@ -1,8 +1,10 @@
 <script>
-  const { children, ...restProps } = $props();
+  import { cn } from '$lib/utils';
+  
+  const { children, class: className, ...restProps } = $props();
 </script>
 
-<div class="collapsible-group flex flex-col gap-0">
+<div class={cn('collapsible-group flex flex-col gap-0', className)} {...restProps}>
   {@render children()}
 </div>
 

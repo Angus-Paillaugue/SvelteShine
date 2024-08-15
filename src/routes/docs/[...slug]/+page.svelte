@@ -8,12 +8,12 @@
   import { afterNavigate } from '$app/navigation';
   import Pagination from './Pagination.svelte';
   import Toc from './Toc.svelte';
-  import Icon from "@iconify/svelte"
+  import Icon from '@iconify/svelte';
 
   const { data } = $props();
   let headings = $state([]);
   let mobileTocVisible = $state(false);
-  let sidebarOpen = $state(false)
+  let sidebarOpen = $state(false);
 
   afterNavigate(() => {
     addCopyCodeButtonFunctionality();
@@ -31,12 +31,24 @@
 
     headings = createHeadingTree(headingElements);
 
-    window.addEventListener("click", (e) => {
-      if(e.target.closest("#toc-container")) {
-        mobileTocVisible = false;
-      }
-    })
+    window.addEventListener('click', windowClickHandler);
+
+    return () => {
+      window.removeEventListener('click', windowClickHandler);
+    };
   });
+
+
+  /**
+   * Handles the click event on the window.
+   *
+   * @param {Event} e - The click event object.
+   */
+  function windowClickHandler(e) {
+    if (e.target.closest('#toc-container')) {
+      mobileTocVisible = false;
+    }
+  }
 
   /**
    * Creates a heading tree from the given headings.
@@ -92,14 +104,16 @@
 </svelte:head>
 
 {#key data?.name}
-  <div class="flex min-h-screen w-full flex-row mx-auto max-w-screen-2xl">
+  <div class="mx-auto flex min-h-screen w-full max-w-screen-2xl flex-row">
     <Sidebar open={sidebarOpen} style={sidebarStyle} />
 
-    <div class="flex-col flex grow">
+    <div class="flex grow flex-col">
       <Navbar title={data?.name ?? 'Docs'} />
 
-      <div class="flex h-full flex-col-reverse justify-center max-lg:items-center lg:gap-8 lg:flex-row">
-        <main class="flex h-full grow flex-col p-4 max-w-screen-lg mx-auto">
+      <div
+        class="flex h-full flex-col-reverse justify-center max-lg:items-center lg:flex-row lg:gap-8"
+      >
+        <main class="mx-auto flex h-full max-w-screen-lg grow flex-col p-4">
           {#if data?.lastModified || data?.description}
             <section class="mb-6">
               {#if data?.lastModified}
@@ -121,12 +135,22 @@
         <!-- Toc -->
         {#if headings.length > 0}
           <!-- Toggle toc on mobile -->
-          <Button name="openToc" onclick={() => (mobileTocVisible = !mobileTocVisible)} type={["square", "ghost"]} class="flex lg:hidden items-center justify-center fixed top-[4.5rem] right-4 z-40 p-3">
+          <Button
+            name="openToc"
+            onclick={() => (mobileTocVisible = !mobileTocVisible)}
+            type={['square', 'ghost']}
+            class="fixed right-4 top-[4.5rem] z-40 flex items-center justify-center p-3 lg:hidden"
+          >
             <Icon icon="line-md:menu-unfold-right" class="size-5" />
           </Button>
 
           <!-- Toc -->
-          <div class="text-nowrap lg:px-2 lg:py-4 lg:sticky top-16 lg:top-24 lg:h-fit lg:w-[250px] overflow-auto fixed max-lg:inset-0 max-lg:bg-white max-lg:dark:bg-neutral-900 max-lg:flex max-lg:flex-col max-lg:pl-4 max-lg:pt-4 transition-transform max-lg:z-30 lg:shrink-0 {mobileTocVisible ? 'max-lg:translate-x-0' : "max-lg:-translate-x-full"}" id="toc-container">
+          <div
+            class="fixed top-16 overflow-auto text-nowrap transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-white max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-neutral-900 lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 {mobileTocVisible
+              ? 'max-lg:translate-x-0'
+              : 'max-lg:-translate-x-full'}"
+            id="toc-container"
+          >
             <Toc {headings} root={true} />
           </div>
         {/if}

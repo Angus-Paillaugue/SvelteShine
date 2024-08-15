@@ -1,8 +1,8 @@
 <script>
-  const { type, path, default: defaultValue, required = false, children } = $props();
+  const { type, path, default: defaultValue, required = false, children, class:className, ...restProps } = $props();
 </script>
 
-<div class="my-5 border-t border-neutral-300/50 px-4 pt-5 dark:border-neutral-700/50">
+<div class={cn("my-5 border-t border-neutral-300/50 px-4 pt-5 dark:border-neutral-700/50", className)} {...restProps}>
   <div class="flex flex-wrap items-center gap-2">
     <span class="font-bold text-primary-800 dark:text-primary-600">
       {path}

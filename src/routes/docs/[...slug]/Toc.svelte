@@ -8,12 +8,14 @@
 {#if headings.length > 0}
   <div class="">
     {#if root}
-      <h6 class="flex flex-row items-center gap-1 m-0 text-base font-medium">
+      <h6 class="m-0 flex flex-row items-center gap-1 text-base font-medium">
         <Icon icon="line-md:menu-unfold-right" class="size-4" />On this page
       </h6>
     {/if}
 
-    <ol class={!root && 'ml-1.5 border-l-2 border-neutral-300/50 pl-2.5 dark:border-neutral-700/50'}>
+    <ol
+      class={!root && 'ml-1.5 border-l-2 border-neutral-300/50 pl-2.5 dark:border-neutral-700/50'}
+    >
       {#each headings as heading}
         <li class="mb-2 list-none first:mt-2">
           <a

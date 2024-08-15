@@ -15,31 +15,17 @@ This component is used to define and explain component usage.
 Here you can see a chunk of the code for the definition of the tree component
 
 ```js
-<Definition
-  name="Tree"
-  description="The tree component."
->
-  <Definition.Prop
-    type="array"
-    path="tree"
-    default="[]"
-    required
-  >
+<Definition name="Tree" description="The tree component.">
+  <Definition.Prop type="array" path="tree" default="[]" required>
     The actual array of the tree.
   </Definition.Prop>
-  <Definition.Prop
-    type="array"
-    path="tree.children"
-  >
+  <Definition.Prop type="array" path="tree.children">
     The list of children of a directory.
   </Definition.Prop>
 
-  <Definition.Note>
-    For a single file, instead of using an object with a name...
-  </Definition.Note>
+  <Definition.Note>For a single file, instead of using an object with a name...</Definition.Note>
 </Definition>
 ```
-
 
 # Definition
 
@@ -49,9 +35,8 @@ Here you can see a chunk of the code for the definition of the tree component
 >
   <Definition.Prop type="string" path="name" required>The name of the component.</Definition.Prop>
   <Definition.Prop type="string" path="description">The Description of the component.</Definition.Prop>
-  <Definition.Prop type="HTMLElement" path="<slot>" required>The actual contents of the note.</Definition.Prop>
+<Definition.Prop type="HTMLElement" path="<slot>" required>The actual contents of the note.</Definition.Prop>
 </Definition>
-
 <Definition
   name="Definition.Prop"
   description="A prop of the component."
@@ -60,7 +45,7 @@ Here you can see a chunk of the code for the definition of the tree component
   <Definition.Prop type="HTMLElement" path="<slot>" required>The description of the prop.</Definition.Prop>
   <Definition.Prop type="string" path="type" required>The type of the prop.</Definition.Prop>
   <Definition.Prop type="string" path="default">The default value of the prop (if it has one).</Definition.Prop>
-  <Definition.Prop type="boolean" path="required">If the prop is required.</Definition.Prop>
+<Definition.Prop type="boolean" path="required">If the prop is required.</Definition.Prop>
 </Definition>
 
 <Definition

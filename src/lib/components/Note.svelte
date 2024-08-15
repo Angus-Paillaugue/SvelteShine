@@ -62,8 +62,8 @@
 {:else if Object.keys(typeClasses[style]).includes(type)}
   <div
     class={cn(baseClasses[style], typeClasses[style][type], className)}
-    {...restProps}
     role="alert"
+    {...restProps}
   >
     {#if style === 'github'}
       <div class="flex flex-col gap-1">

@@ -42,7 +42,6 @@ Here is a simple config exemple
 Here is what the previous config outputs
 <Commands commands={commands} />
 
-
 # Definition
 
 <Definition

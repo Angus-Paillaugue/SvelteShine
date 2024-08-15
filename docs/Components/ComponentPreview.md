@@ -3,7 +3,6 @@ lastModified: 08-07-2024
 name: Component preview
 ---
 
-
 <script>
   import { ComponentPreview, Collapsible } from "$lib/components";
 </script>

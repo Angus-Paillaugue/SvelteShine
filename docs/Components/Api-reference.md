@@ -18,6 +18,7 @@ This is the `GET` endpoint to `/users`
 ```
 
 # Exemples
+
 Here is what all http methods look like :
 
 #### GET /users

@@ -85,8 +85,8 @@ function collapsibleFunction() {
 # Definition
 
 <Definition
-name="Collapsible"
-description="The collapsible component."
+  name="Collapsible"
+  description="The collapsible component."
 >
   <Definition.Prop type="string" path="summary" required>The summary text that will appear when the collapsible is closed.</Definition.Prop>
   <Definition.Prop type="HTMLElement" path="<slot>" required>The contents of the collapsible when it is expanded. Can contain markdown.</Definition.Prop>
@@ -94,15 +94,10 @@ description="The collapsible component."
   <Definition.Prop type="string" path="class">List of classes to apply the the outside most element.</Definition.Prop>
 </Definition>
 
-
 <Definition
-name="Collapsible.Group"
-description="The collapsible group wrapper component."
+  name="Collapsible.Group"
+  description="The collapsible group wrapper component."
 >
-  <Definition.Prop type="HTMLElement" path="<slot>" required>
-    A list of `Collapsible`.
-  </Definition.Prop>
-  <Definition.Note>
-    This component is just a wrapper. It dos't have any props except for the `slot`
-  </Definition.Note>
+  <Definition.Prop type="HTMLElement" path="<slot>" required>A list of `Collapsible`.</Definition.Prop>
+  <Definition.Note>This component is just a wrapper. It dos't have any props except for the `slot`</Definition.Note>
 </Definition>

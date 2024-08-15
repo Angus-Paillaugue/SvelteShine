@@ -4,7 +4,7 @@
   import { accordion } from '$lib/utils';
 
   let {
-    class: classlist,
+    class: className,
     summary,
     children,
     icon,
@@ -15,8 +15,8 @@
 
 <div
   class={cn(
-    'collapsible mb-6 w-full rounded-md border border-neutral-300/50 bg-white overflow-hidden transition-colors dark:border-neutral-700/50 dark:bg-neutral-950',
-    classlist
+    'collapsible mb-6 w-full overflow-hidden rounded-md border border-neutral-300/50 bg-white transition-colors dark:border-neutral-700/50 dark:bg-neutral-950',
+    className
   )}
   {...restProps}
 >
@@ -29,7 +29,7 @@
     <span class="arrow transition-all">
       <Icon
         icon="material-symbols:arrow-right-rounded"
-        class="size-7 transition-transform {open && 'rotate-90'}"
+        class={cn("size-7 transition-transform" , open && 'rotate-90')}
       />
     </span>
     {#if icon}

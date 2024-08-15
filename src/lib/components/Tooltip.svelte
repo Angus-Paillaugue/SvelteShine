@@ -4,13 +4,16 @@
   import { backOut } from 'svelte/easing';
   import { cn } from '$lib/utils';
 
-  const { children, title, position = 'top' } = $props();
+  const { children, title, position = 'top', class:className, ...restProps } = $props();
 
   let isHovered = $state(false);
   let tooltipCoords = $state({ x: 0, y: 0, width: 0 });
   let tooltip = $state();
   let tooltipContent = $state();
 
+  /**
+   * Show the tooltip.
+   */
   const showTooltip = () => {
     const rect = tooltip.getBoundingClientRect();
     tooltipCoords = {
@@ -22,6 +25,9 @@
     isHovered = true;
   };
 
+  /**
+   * Hides the tooltip.
+   */
   const hideTooltip = () => {
     isHovered = false;
   };
@@ -33,7 +39,11 @@
     tooltip.addEventListener('blur', hideTooltip);
   });
 
-  // Positioning of the tooltip
+  /**
+   * Retrieves the styles for the Tooltip component.
+   *
+   * @returns {Object} The styles object.
+   */
   const getStyles = () => {
     if (position === 'top') {
       return `top: ${tooltipCoords.y}px; left: ${tooltipCoords.x + tooltipCoords.width / 2}px;`;
@@ -70,14 +80,14 @@
 
 <button
   tabindex="0"
-  class="inline-block cursor-pointer font-semibold underline decoration-primary-600/50 decoration-dashed underline-offset-2 dark:decoration-primary-600/70"
+  class={cn("inline-block cursor-pointer font-semibold underline decoration-primary-600/50 decoration-dashed underline-offset-2 dark:decoration-primary-600/70", className)}
+  {...restProps}
   bind:this={tooltip}
 >
   {title}
 </button>
 
 {#if isHovered}
-  <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
     class={cn(
       'absolute z-40 flex max-w-[200px] flex-col items-center p-2',
@@ -97,9 +107,9 @@
       <!-- Tooltip arrow -->
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="absolute size-5 text-neutral-200 dark:text-neutral-950 {arrowPositionClasses[
+        class={cn("absolute size-5 text-neutral-200 dark:text-neutral-950", arrowPositionClasses[
           position
-        ]}"
+        ])}
         viewBox="0 0 40 40"
       >
         <path fill="currentColor" d="M4.659 11.833h30.682L20 32.167z" />

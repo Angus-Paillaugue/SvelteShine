@@ -17,8 +17,15 @@
     // Run on page scroll and load
     window.onscroll = onScroll;
     onScroll();
+
+    return () => {
+      window.onscroll = null;
+    };
   });
 
+  /**
+   * Function that handles the scroll event.
+   */
   function onScroll() {
     const screenHeight = window.screen.availHeight;
     const triggerHeight = window.scrollY + (screenHeight / 3) * 2;

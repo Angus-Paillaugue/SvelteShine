@@ -124,5 +124,5 @@ ul:not(.splide__list) {
 }
 
 mark {
-  @apply bg-primary-400 dark:bg-primary-700;
+  @apply bg-transparent text-primary-400 dark:bg-transparent dark:text-primary-600;
 }
