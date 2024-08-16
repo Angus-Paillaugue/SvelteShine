@@ -16,3 +16,4 @@
 - [ ] Make an api request builder (https://mintlify.com/docs/advanced/rest-api/trigger-update)
 - [x] Make search design better and more accessible (arrow navigation of the results). See mintlify.com search
 - [ ] Make image zoom like on mintlify.com
+- [ ] Write the homepage definition

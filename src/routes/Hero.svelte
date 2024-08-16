@@ -1,5 +1,5 @@
 <script>
-  import { siteName, homepage } from '$conf';
+  import { project, homepage } from '$conf';
   import Icon from '@iconify/svelte';
   import { addCopyCodeButtonFunctionality } from '$lib/utils';
   import { onMount } from 'svelte';
@@ -63,7 +63,7 @@
           ><span
             class="-ml-1 flex items-center gap-2 rounded-full bg-neutral-950 px-2 py-1 text-xs font-medium text-neutral-100"
             >NEW</span
-          >{siteName} launches v{homepage.version.latestVersion}
+          >{project.name} launches v{homepage.version.latestVersion}
 
           <Icon
             icon="line-md:arrow-right"
@@ -87,7 +87,7 @@
         <span
           class="text-neutral-50 text-shadow-[0_4px_0_#141414] dark:text-neutral-50 dark:text-shadow-[0_4px_0_#ffffff]"
           style="-webkit-text-fill-color: #fff;-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: #000;"
-          >{siteName}</span
+          >{project.name}</span
         >, {homepage.catchphrase}
       </h1>
 

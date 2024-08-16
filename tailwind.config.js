@@ -1,5 +1,5 @@
 import plugin from 'tailwindcss/plugin';
-import { tailwindColors } from './user-config';
+import { colors } from './project.config.js';
 
 const radialGradientPlugin = plugin(function ({ matchUtilities, theme }) {
   matchUtilities(
@@ -15,7 +15,7 @@ const radialGradientPlugin = plugin(function ({ matchUtilities, theme }) {
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,svelte}', './docs/**/*.{md,svelte,js}'],
+  content: ['./**/*.{html,js,svelte,md,svx,mdx}', '!./node_modules/**'],
   theme: {
     extend: {
       fontFamily: {
@@ -23,7 +23,7 @@ export default {
         mono: ['JetBrains Mono']
       },
       colors: {
-        primary: tailwindColors,
+        primary: colors.tailwindColors,
         'text-body': {
           DEFAULT: 'theme(colors.neutral.500)',
           dark: 'theme(colors.neutral.400)'
@@ -44,7 +44,7 @@ export default {
       borderColor: {
         main: {
           DEFAULT: 'theme(colors.neutral.300/50)',
-          dark: 'theme(colors.neutral.700/50)'
+          dark: 'theme(colors.neutral.800)'
         }
       }
     }

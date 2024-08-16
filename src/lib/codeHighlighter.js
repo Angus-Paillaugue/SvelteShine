@@ -6,7 +6,9 @@ import {
   transformerMetaHighlight,
   transformerNotationHighlight
 } from '@shikijs/transformers';
-import { codeBlockTheme } from '../../user-config.js';
+import { colors } from '../../project.config.js';
+
+const { codeBlockTheme } = colors;
 
 const transformers = [
   transformerNotationDiff(),

@@ -1,5 +1,5 @@
 <script>
-  import { siteName, siteDescription, pages } from '$conf';
+  import { project, pages } from '$conf';
   import Footer from './Footer.svelte';
   import Hero from './Hero.svelte';
   import { addCopyCodeButtonFunctionality } from '$lib/utils';
@@ -45,10 +45,10 @@
 </script>
 
 <svelte:head>
-  <title>{siteName}</title>
-  <meta name="description" content={siteDescription} />
-  <meta property="og:description" content={siteDescription} />
-  <meta property="twitter:description" content={siteDescription} />
+  <title>{project.name}</title>
+  <meta name="description" content={project.description} />
+  <meta property="og:description" content={project.description} />
+  <meta property="twitter:description" content={project.description} />
 
   <style>
     @keyframes text {
@@ -79,7 +79,7 @@
         class="m-0 inline-block w-fit bg-gradient-to-r from-primary-500 via-purple-500 to-primary-500 bg-clip-text text-center text-2xl font-bold text-transparent dark:from-primary-500 dark:via-neutral-200 dark:to-primary-500 dark:text-transparent"
         style="animation: text 5s ease infinite;"
       >
-        {siteName}
+        {project.name}
       </h1>
     </div>
 

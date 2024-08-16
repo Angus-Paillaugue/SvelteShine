@@ -2,10 +2,11 @@
   import { newToast } from '$lib/stores';
   import Icon from '@iconify/svelte';
   import { createHighlighter } from 'shiki';
-  import { codeBlockTheme } from '$conf';
+  import { colors } from '$conf';
 
   const { commands } = $props();
 
+  const { codeBlockTheme } = colors;
   let selectedIndex = $state(0);
   let underlineElement = $state();
   const highlighter = createHighlighter({

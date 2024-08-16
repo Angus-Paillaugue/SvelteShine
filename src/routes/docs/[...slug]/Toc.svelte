@@ -5,15 +5,13 @@
   import { afterNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
 
-
   let { headings = [], root = false } = $props();
   let headingScrolls = $state({});
   let tocIndicator = $state();
   const topTriggerOffset = 10;
 
-
-  function windowScrollHandler (offset) {
-    if(!tocIndicator) return;
+  function windowScrollHandler(offset) {
+    if (!tocIndicator) return;
     const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
     const maxScrollPosition = document.documentElement.scrollHeight - window.innerHeight;
     // Calculate the progress based on how much the user has scrolled relative to the maximum scroll position
@@ -26,55 +24,60 @@
     for (let i in headingScrolls) {
       if (headingScrolls[i] <= trigger) {
         const activeHeadingInSidebar = document.querySelector(`[href="#${i}"]`);
-        if(!activeHeadingInSidebar) return;
+        if (!activeHeadingInSidebar) return;
         const activeHeadingInSidebarTop = activeHeadingInSidebar.offsetTop;
         tocIndicator.style.top = activeHeadingInSidebarTop + 'px';
       }
     }
   }
 
-
   afterNavigate(() => {
-    if(!root) return;
+    if (!root) return;
 
     setTopPos(headings, topTriggerOffset);
 
     const navBar = document.getElementsByTagName('nav')[0];
     const topOffset = topTriggerOffset + navBar.clientHeight;
-    windowScrollHandler(topOffset)
+    windowScrollHandler(topOffset);
 
-    window.addEventListener('scroll', () => {windowScrollHandler(topOffset)});
+    window.addEventListener('scroll', () => {
+      windowScrollHandler(topOffset);
+    });
 
     return () => {
-      window.removeEventListener('scroll',  () => {windowScrollHandler(topOffset)});
+      window.removeEventListener('scroll', () => {
+        windowScrollHandler(topOffset);
+      });
     };
   });
 
   onMount(() => {
-    if(!root) return;
+    if (!root) return;
 
     setTopPos(headings);
 
-
     const navBar = document.getElementsByTagName('nav')[0];
     const topOffset = topTriggerOffset + navBar.clientHeight;
-    windowScrollHandler(topOffset)
+    windowScrollHandler(topOffset);
 
-    window.addEventListener('scroll', () => {windowScrollHandler(topOffset)});
+    window.addEventListener('scroll', () => {
+      windowScrollHandler(topOffset);
+    });
 
     return () => {
-      window.removeEventListener('scroll',  () => {windowScrollHandler(topOffset)});
+      window.removeEventListener('scroll', () => {
+        windowScrollHandler(topOffset);
+      });
     };
   });
 
-
-  function setTopPos (headings) {
-    headings.forEach(function(e) {
+  function setTopPos(headings) {
+    headings.forEach(function (e) {
       const element = document.getElementById(e.id);
-      if(!element) return;
+      if (!element) return;
       headingScrolls[e.id] = element.getBoundingClientRect().top + window.scrollY;
 
-      if(e.children.length > 0) {
+      if (e.children.length > 0) {
         setTopPos(e.children);
       }
     });
@@ -89,9 +92,14 @@
       </h6>
     {/if}
 
-    <ol class={cn(root ? 'relative border-l border-main dark:border-main-dark pl-4 mt-2' : 'ml-1.5')}>
+    <ol
+      class={cn(root ? 'relative mt-2 border-l border-main pl-4 dark:border-main-dark' : 'ml-1.5')}
+    >
       {#if root}
-        <div class="absolute w-[3px] -left-[2px] rounded-full bg-primary-500 h-[1.4rem] transition-[top,opacity] ease-[cubic-bezier(0,1,.5,1)]" bind:this={tocIndicator}></div>
+        <div
+          class="absolute -left-[2px] h-[1.4rem] w-[3px] rounded-full bg-primary-500 transition-[top,opacity] ease-[cubic-bezier(0,1,.5,1)]"
+          bind:this={tocIndicator}
+        ></div>
       {/if}
       {#each headings as heading}
         <li class="mb-2 list-none first:mt-2">

@@ -107,11 +107,7 @@ hr {
 }
 /* Page links */
 .link {
-  @apply relative border-b border-primary-400/50 bg-primary-300/30 text-inherit no-underline transition-colors hover:border-primary-400/75 dark:border-primary-500/40 dark:bg-primary-500/10 dark:text-primary-500;
-}
-/* For the external links icons */
-.link[href^='http'] > svg.newTabIcon {
-  @apply ml-1 inline-block;
+  @apply relative inline-flex flex-row items-center gap-1 border-b border-primary-400/50 bg-primary-300/30 text-inherit no-underline transition-colors hover:border-primary-400/75 dark:border-primary-500/40 dark:bg-primary-500/10 dark:text-primary-500;
 }
 
 /* Others */

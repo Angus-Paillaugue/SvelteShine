@@ -2,9 +2,9 @@
   import { formatDate, addCopyCodeButtonFunctionality } from '$lib/utils';
   import Navbar from '$lib/components/core/Navbar.svelte';
   import Sidebar from '$lib/components/core/Sidebar';
-  import { sidebarStyle } from '$conf';
+  import { sideBar } from '$conf';
   import { Button } from '$lib/components/';
-  import { siteDescription } from '$conf';
+  import { project } from '$conf';
   import { afterNavigate } from '$app/navigation';
   import Pagination from './Pagination.svelte';
   import Toc from './Toc.svelte';
@@ -88,9 +88,9 @@
   <meta property="og:title" content={data?.name ?? 'Docs'} />
   <meta property="twitter:title" content={data?.name ?? 'Docs'} />
 
-  <meta name="description" content={data?.description ?? siteDescription} />
-  <meta property="og:description" content={data?.description ?? siteDescription} />
-  <meta property="twitter:description" content={data?.description ?? siteDescription} />
+  <meta name="description" content={data?.description ?? project.description} />
+  <meta property="og:description" content={data?.description ?? project.description} />
+  <meta property="twitter:description" content={data?.description ?? project.description} />
   <!-- Adding katex stylesheet for math support -->
   <link
     rel="stylesheet"
@@ -102,7 +102,7 @@
 
 {#key data?.name}
   <div class="mx-auto flex min-h-screen w-full max-w-screen-2xl flex-row">
-    <Sidebar open={sidebarOpen} style={sidebarStyle} />
+    <Sidebar open={sidebarOpen} style={sideBar.style} />
 
     <div class="flex grow flex-col">
       <Navbar title={data?.name ?? 'Docs'} />
