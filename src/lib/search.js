@@ -1,27 +1,6 @@
 import { getTree } from './pages';
 import FlexSearch from 'flexsearch';
-
-/**
- * Flattens the pages in the sidebar.
- *
- * @param {Array} tree - The sidebar containing the pages.
- * @returns {Array} - The flattened array of pages.
- */
-function flattenPages(tree) {
-  let newPages = [];
-  function traverse(items) {
-    for (const item of items) {
-      if (item.url) {
-        newPages.push(item);
-      }
-      if (item.children) {
-        traverse(item.children);
-      }
-    }
-  }
-  traverse(tree);
-  return newPages;
-}
+import { flattenPages } from './utils';
 
 let pages;
 let pagesIndex;

@@ -18,7 +18,6 @@
   afterNavigate(() => {
     addCopyCodeButtonFunctionality();
     const pageContainer = document.querySelector('#pageContainer');
-
     const allowedElements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
     const disallowedSelectors = [
       allowedElements.map((element) => '.collapsible ' + element).join(', ')
@@ -28,7 +27,6 @@
         .map((element) => element + '[id]:not(' + disallowedSelectors.join(', ') + ')')
         .join(', ')
     );
-
     headings = createHeadingTree(headingElements);
 
     window.addEventListener('click', windowClickHandler);

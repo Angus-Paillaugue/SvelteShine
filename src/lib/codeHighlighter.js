@@ -13,7 +13,7 @@ const transformers = [
   transformerMetaHighlight(),
   transformerNotationHighlight(),
   {
-    name: '@shikijs/transformers:line-numbers',
+    name: 'line-numbers',
     postprocess(code) {
       return code.replace(/<pre class="\b([^>]*)>/g, '<pre class="line-numbers $1>');
     }

@@ -14,6 +14,28 @@ export function formatDate(date, dateStyle = 'medium', locales = 'en') {
 }
 
 /**
+ * Flattens the pages in the sidebar.
+ *
+ * @param {Array} tree - The sidebar containing the pages.
+ * @returns {Array} - The flattened array of pages.
+ */
+export function flattenPages(tree) {
+  let newPages = [];
+  function traverse(items) {
+    for (const item of items) {
+      if (item.url) {
+        newPages.push(item);
+      }
+      if (item.children) {
+        traverse(item.children);
+      }
+    }
+  }
+  traverse(tree);
+  return newPages;
+}
+
+/**
  * A collection of utility functions for working with URLs.
  */
 export const urlHealer = {

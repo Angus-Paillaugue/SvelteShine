@@ -1,32 +1,11 @@
 <script>
   import { getTree } from '$lib/pages';
   import Icon from '@iconify/svelte';
+  import { flattenPages } from '$lib/utils';
 
   const { slug = $bindable() } = $props();
 
   const pages = flattenPages(getTree());
-
-  /**
-   * Function to flatten the pages in the sidebar.
-   *
-   * @param {Object} sidebar - The sidebar object.
-   * @returns {Array} - The flattened pages.
-   */
-  function flattenPages(sidebar) {
-    let newPages = [];
-    function traverse(items) {
-      for (const item of items) {
-        if (item.url) {
-          newPages.push(item);
-        }
-        if (item.children) {
-          traverse(item.children);
-        }
-      }
-    }
-    traverse(sidebar);
-    return newPages;
-  }
 
   /**
    *
