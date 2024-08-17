@@ -110,7 +110,7 @@
       <div
         class="flex h-full flex-col-reverse justify-center max-lg:items-center lg:flex-row lg:gap-8"
       >
-        <main class="mx-auto flex h-full max-w-screen-lg grow flex-col p-4">
+        <main class="mx-auto flex h-full grow w-full flex-col p-4">
           {#if data?.lastModified || data?.description}
             <section class="mb-6">
               {#if data?.lastModified}
@@ -129,7 +129,8 @@
 
           <Pagination slug={data.slug} />
         </main>
-        <!-- Toc -->
+
+        <!-- Mobile open toc button -->
         {#if headings.length > 0}
           <!-- Toggle toc on mobile -->
           <Button
@@ -140,17 +141,17 @@
           >
             <Icon icon="line-md:menu-unfold-right" class="size-5" />
           </Button>
-
-          <!-- Toc -->
-          <div
-            class="fixed top-16 overflow-auto text-nowrap transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 {mobileTocVisible
-              ? 'max-lg:translate-x-0'
-              : 'max-lg:-translate-x-full'}"
-            id="toc-container"
-          >
-            <Toc {headings} root={true} />
-          </div>
         {/if}
+
+        <!-- Toc -->
+        <div
+          class="fixed top-16 overflow-auto text-nowrap transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 {mobileTocVisible
+            ? 'max-lg:translate-x-0'
+            : 'max-lg:-translate-x-full'}"
+          id="toc-container"
+        >
+          <Toc {headings} root={true} />
+        </div>
       </div>
     </div>
   </div>

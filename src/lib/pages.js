@@ -16,7 +16,12 @@ export function getTree() {
       if (typeof page === 'string') {
         const pageUrl = baseUrl + '/' + page;
         // If the page is a string, create an object with the name and add metadata
-        const docKey = Object.keys(docs).find((key) => key.includes(page));
+        const docKey = Object.keys(docs)
+          .map((el) => {
+            let filename = el.split('/').pop().split('.')[0];
+            if (filename == page) return el;
+          })
+          .filter((el) => el);
         const metadata = docs[docKey] || {};
         const slug = pageUrl.replace(docsUrlStart + '/', '');
         return {
@@ -33,7 +38,13 @@ export function getTree() {
         return { ...page, children: updatedChildren };
       } else {
         // Add metadata to the page
-        const docKey = Object.keys(docs).find((key) => key.includes(page.name));
+
+        const docKey = Object.keys(docs)
+          .map((el) => {
+            let filename = el.split('/').pop().split('.')[0];
+            if (filename == page.name) return el;
+          })
+          .filter((el) => el);
         const metadata = docs[docKey] || {};
         const pageUrl = baseUrl + '/' + page.name;
         const slug = pageUrl.replace(docsUrlStart + '/', '');
@@ -59,6 +70,7 @@ export function getTree() {
  */
 export async function pageBySlug(slug) {
   const pages = getTree();
+
 
   function findPageBySlug(pages, slug) {
     for (const page of pages) {
