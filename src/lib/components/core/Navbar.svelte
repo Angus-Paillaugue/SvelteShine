@@ -32,7 +32,7 @@
     <Button
       name="toggleMode"
       onclick={toggleMode}
-      type={['square', 'ghost']}
+      type="square ghost"
       class="bg-neutral-200/50 hover:bg-transparent dark:bg-neutral-700/50 hover:dark:bg-transparent"
     >
       {#if $mode === 'dark'}
@@ -46,7 +46,7 @@
       {/if}
     </Button>
 
-    <Button onclick={() => ($searchModalShown = true)} type={['square', 'ghost']} name="search">
+    <Button onclick={() => ($searchModalShown = true)} type="square ghost" name="search">
       <Icon icon="line-md:search" class="size-6" />
     </Button>
   </div>

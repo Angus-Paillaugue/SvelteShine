@@ -13,12 +13,18 @@
     circle:
       'p-2 rounded-full text-primary-950 bg-primary-300 dark:bg-primary-400 dark:text-primary-950 hover:bg-primary-400 dark:hover:bg-primary-500',
     ghost:
-      'bg-body dark:bg-body-dark hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 text-text-heading dark:text-text-heading-dark border border-main dark:border-main-dark'
+      'bg-body dark:bg-body-dark hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 text-text-heading dark:text-text-heading-dark border border-main dark:border-main-dark',
+    noStyle: ''
   };
 
+  const isStyled = !type.split(' ').includes('noStyle');
+
   const buttonClasses = cn(
-    baseClasses,
-    type instanceof Array ? type.map((t) => typeClasses[t]).join(' ') : typeClasses[type],
+    isStyled && baseClasses,
+    type
+      .split(' ')
+      .map((t) => typeClasses[t]?.trim())
+      .join(' '),
     className
   );
 </script>

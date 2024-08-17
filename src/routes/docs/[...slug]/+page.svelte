@@ -135,7 +135,7 @@
           <Button
             name="openToc"
             onclick={() => (mobileTocVisible = !mobileTocVisible)}
-            type={['square', 'ghost']}
+            type="square ghost"
             class="fixed right-4 top-[4.5rem] z-40 flex items-center justify-center p-3 lg:hidden"
           >
             <Icon icon="line-md:menu-unfold-right" class="size-5" />

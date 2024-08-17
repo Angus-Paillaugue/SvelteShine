@@ -110,6 +110,7 @@ export const pages = [
       { name: 'Commands', icon: 'material-symbols:terminal-rounded' },
       { name: 'Tree', icon: 'material-symbols:account-tree-rounded' },
       { name: 'Collapsible', icon: 'tabler:layout-bottombar-collapse-filled' },
+      { name: 'Dropdown', icon: 'material-symbols:arrow-drop-down-circle-rounded' },
       { name: 'Note', icon: 'material-symbols:sticky-note-2-rounded' },
       { name: 'Definition', icon: 'material-symbols:text-snippet-rounded' },
       { name: 'Tooltip', icon: 'material-symbols:tooltip-rounded' },
