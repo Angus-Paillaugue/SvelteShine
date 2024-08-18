@@ -3,13 +3,43 @@
   import Icon from '@iconify/svelte';
   import { cn } from '$lib/utils';
   import { afterNavigate } from '$app/navigation';
-  import { onMount } from 'svelte';
+  import imageZoomPlugin from './image-zoom-plugin';
 
-  let { headings = [], root = false } = $props();
+  let { headings, root = false } = $props();
   let headingScrolls = $state({});
   let tocIndicator = $state();
   const topTriggerOffset = 10;
 
+  afterNavigate(load);
+
+  /**
+   * On window load event handler.
+   *
+   */
+  function load() {
+    if (!root) return;
+
+    // On scroll event handler
+    setTopPos(headings);
+    const navBar = document.getElementsByTagName('nav')[0];
+    const topOffset = topTriggerOffset + navBar.clientHeight;
+    windowScrollHandler(topOffset);
+    window.addEventListener('scroll', () => {
+      windowScrollHandler(topOffset);
+    });
+
+    imageZoomPlugin();
+
+    return () => {
+      window.removeEventListener('scroll', windowScrollHandler(topOffset));
+    };
+  }
+
+  /**
+   * Function to handle window scroll events.
+   *
+   * @param {number} offset - The offset value.
+   */
   function windowScrollHandler(offset) {
     if (!tocIndicator) return;
     const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
@@ -31,46 +61,11 @@
     }
   }
 
-  afterNavigate(() => {
-    if (!root) return;
-
-    setTopPos(headings, topTriggerOffset);
-
-    const navBar = document.getElementsByTagName('nav')[0];
-    const topOffset = topTriggerOffset + navBar.clientHeight;
-    windowScrollHandler(topOffset);
-
-    window.addEventListener('scroll', () => {
-      windowScrollHandler(topOffset);
-    });
-
-    return () => {
-      window.removeEventListener('scroll', () => {
-        windowScrollHandler(topOffset);
-      });
-    };
-  });
-
-  onMount(() => {
-    if (!root) return;
-
-    setTopPos(headings);
-
-    const navBar = document.getElementsByTagName('nav')[0];
-    const topOffset = topTriggerOffset + navBar.clientHeight;
-    windowScrollHandler(topOffset);
-
-    window.addEventListener('scroll', () => {
-      windowScrollHandler(topOffset);
-    });
-
-    return () => {
-      window.removeEventListener('scroll', () => {
-        windowScrollHandler(topOffset);
-      });
-    };
-  });
-
+  /**
+   * Sets the top position of headings.
+   *
+   * @param {Array} headings - The array of headings.
+   */
   function setTopPos(headings) {
     headings.forEach(function (e) {
       const element = document.getElementById(e.id);

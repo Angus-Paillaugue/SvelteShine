@@ -22,7 +22,7 @@ export function imageTransformer() {
           value: `
             <div class="page-image-container">
               <figure role="figure" alt="${alt}">
-                <img src="${src}" alt="${alt}" class="page-image" />
+                <img src="${src}" alt="${alt}" class="page-image" tabindex="0" />
                 <figcaption>${caption}</figcaption>
               </figure>
             </div>
@@ -31,7 +31,7 @@ export function imageTransformer() {
       } else {
         newNode = {
           type: 'html',
-          value: `<div class="page-image-container"><img src="${src}" class="page-image" alt="${alt}" /></div>`
+          value: `<div class="page-image-container"><img src="${src}" class="page-image" tabindex="0" alt="${alt}" /></div>`
         };
       }
 
