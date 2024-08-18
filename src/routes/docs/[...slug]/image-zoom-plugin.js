@@ -1,3 +1,6 @@
+/**
+ * Initializes the image zoom plugin.
+ */
 export default function imageZoomPlugin() {
   const allImages = document.querySelectorAll('img.page-image');
 
@@ -28,7 +31,7 @@ function onImageClick(e) {
   // Add the classes to the new div
   imageZoomImage.classList = 'w-full h-full zoom-container object-contain';
   imageZoomContainer.classList.add(
-    ...'inset-0 fixed z-50 bg-neutral-300/50 dark:bg-neutral-800/50 transition-all duration-300 scale-0 flex-col items-center justify-center'.split(
+    ...'inset-0 fixed z-50 bg-neutral-300/50 dark:bg-neutral-800/50 transition-all duration-300 scale-0 flex-col items-center justify-center cursor-zoom-out'.split(
       ' '
     )
   );

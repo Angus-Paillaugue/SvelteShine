@@ -4,6 +4,7 @@
   import { cn } from '$lib/utils';
   import { afterNavigate } from '$app/navigation';
   import imageZoomPlugin from './image-zoom-plugin';
+  import { onMount } from 'svelte';
 
   let { headings, root = false } = $props();
   let headingScrolls = $state({});
@@ -11,6 +12,7 @@
   const topTriggerOffset = 10;
 
   afterNavigate(load);
+  onMount(load);
 
   /**
    * On window load event handler.
@@ -82,13 +84,13 @@
 {#if headings.length > 0}
   <div>
     {#if root}
-      <h6 class="m-0 flex flex-row items-center gap-1 text-base font-medium">
+      <h6 class="m-0 flex flex-row items-center gap-1 mb-1 text-base font-medium">
         <Icon icon="line-md:menu-unfold-right" class="size-4" />On this page
       </h6>
     {/if}
 
     <ol
-      class={cn(root ? 'relative mt-2 border-l border-main pl-4 dark:border-main-dark' : 'ml-1.5')}
+      class={cn(root ? 'relative border-l border-main pl-4 dark:border-main-dark py-1' : 'ml-1.5')}
     >
       {#if root}
         <div
@@ -97,10 +99,10 @@
         ></div>
       {/if}
       {#each headings as heading}
-        <li class="mb-2 list-none first:mt-2">
+        <li class="mb-2 list-none first:mt-2 last:m-0">
           <a
             href={'#' + heading.id}
-            class="mt-1 w-fit max-w-[50px] truncate transition-colors hocus:text-primary-500 dark:hocus:text-primary-600 {!root &&
+            class="mt-1 max-w-[50px] transition-colors hocus:text-primary-500 dark:hocus:text-primary-600 {!root &&
               'px-1'}"
           >
             {heading.text}

@@ -7,8 +7,6 @@ lastModified: 08-16-2024
 </script>
 
 
-
-
 # Definition
 
 The color config is made thru the exported `colors` object.
@@ -22,6 +20,6 @@ The color config is made thru the exported `colors` object.
   </Definition.Prop>
   <Definition.Prop type="string" path="codeBlockTheme" required>
 
-    The name of the code block theme see [https://shiki.matsu.io/themes](https://shiki.matsu.io/themes) for a list of themes. If you change the theme, you might also want to change the variable color in `src/code.css 8:14`.
+    The name of the code block theme see [shiki.matsu.io/themes](https://shiki.matsu.io/themes) for a list of themes. If you change the theme, you might also want to change the variable color in `src/code.css 8:14`.
   </Definition.Prop>
 </Definition>

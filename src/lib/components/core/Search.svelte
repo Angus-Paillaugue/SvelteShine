@@ -22,6 +22,25 @@
     };
   });
 
+  afterNavigate(() => {
+    if (!$searchModalShown) return;
+    document.getElementById('search').value = '';
+    searchTerm = '';
+    $searchModalShown = false;
+  });
+
+  $effect(() => {
+    if (search === 'ready') {
+      // runs each time `searchTerm` updates
+      results = searchPagesIndex(searchTerm);
+    }
+  });
+
+  /**
+   * Function to handle keydown events on the window.
+   *
+   * @param {KeyboardEvent} e - The keyboard event object.
+   */
   function onWindowKeyDown(e) {
     if (e.ctrlKey && e.key === 'k') {
       e.preventDefault();
@@ -33,20 +52,6 @@
       $searchModalShown = false;
     }
   }
-
-  $effect(() => {
-    if (search === 'ready') {
-      // runs each time `searchTerm` updates
-      results = searchPagesIndex(searchTerm);
-    }
-  });
-
-  afterNavigate(() => {
-    if (!$searchModalShown) return;
-    document.getElementById('search').value = '';
-    searchTerm = '';
-    $searchModalShown = false;
-  });
 
   /**
    * Add border to the search container when scrolling the results.

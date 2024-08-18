@@ -89,7 +89,7 @@ code:not(pre code, .command) {
 /* Styling page components */
 
 #pageContainer h1 {
-  @apply border-b border-main leading-[3rem] dark:border-main-dark md:leading-[3.5rem];
+  @apply border-b border-main leading-[3rem] dark:border-main-dark;
 }
 
 /* Image */
@@ -97,7 +97,7 @@ code:not(pre code, .command) {
   @apply mb-4 rounded-md border border-main bg-neutral-100 p-2 dark:border-main-dark dark:bg-neutral-950;
 }
 .page-image {
-  @apply cursor-pointer rounded-md;
+  @apply cursor-zoom-in rounded-md;
 }
 .page-image ~ figcaption {
   @apply relative mt-2 block justify-center rounded-xl px-8 text-center text-base text-gray-700 dark:text-gray-400;
@@ -127,7 +127,7 @@ code:not(pre code, .command) {
 }
 
 /* Lists */
-#pageContainer ul:not(.tree ul, .commands ul),
+#pageContainer ul:not(.tree ul, .commands ul, .collapsible-details ul, .collapsible-details ol),
 #pageContainer ol {
   @apply my-5 list-outside list-none pl-0 ps-6;
 }

@@ -60,7 +60,7 @@ export const homepage = {
 // If you add a markdown page but don't add it here, it won't appear in the sidebar
 export const pages = [
   {
-    name: 'Home',
+    name: 'Quickstart',
     icon: {
       name: 'material-symbols:rocket-rounded',
       class: 'rotate-45'

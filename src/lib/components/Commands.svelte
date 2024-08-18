@@ -5,17 +5,18 @@
   import { colors } from '$conf';
 
   const { commands } = $props();
-
   const { codeBlockTheme } = colors;
-  let selectedIndex = $state(0);
-  let underlineElement = $state();
   const highlighter = createHighlighter({
     themes: [codeBlockTheme],
     langs: ['bash']
   });
 
+  let selectedIndex = $state(0);
+  let underlineElement = $state();
+  let commandsContainer = $state();
+
   $effect(() => {
-    const selectedItem = document.querySelector('ul > li:nth-child(' + (selectedIndex + 1) + ')');
+    const selectedItem = commandsContainer.querySelector('ul > li:nth-child(' + (selectedIndex + 1) + ')');
     const left = selectedItem.offsetLeft;
     const width = selectedItem.offsetWidth;
 
@@ -24,7 +25,7 @@
   });
 </script>
 
-<div class="commands mb-4 w-full">
+<div class="commands mb-4 w-full" bind:this={commandsContainer}>
   <div class="relative h-fit w-full">
     <ul
       class="no-scrollbar relative mb-2 flex flex-row flex-nowrap gap-2 border-b-2 border-main dark:border-main-dark"

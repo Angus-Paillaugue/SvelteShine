@@ -45,7 +45,7 @@ async function highlighter(code, lang, meta) {
     html = highlighter.codeToHtml(code, {
       lang,
       theme: codeBlockTheme,
-      transformers: meta.includes('no-lines-numbers') ? transformers.slice(0, -1) : transformers,
+      transformers: meta.includes('no-line-numbers') ? transformers.slice(0, -1) : transformers,
       meta: { __raw: meta }
     });
   }
@@ -87,7 +87,7 @@ function customCodeBlocks(html) {
  */
 function makeFocusable(html) {
   const root = parse(html);
-  root.querySelector('pre').setAttribute('tabIndex', '0');
+  root.querySelector('pre').setAttribute('tabindex', '0');
   return root.toString();
 }
 

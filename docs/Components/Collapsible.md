@@ -11,7 +11,7 @@ lastModified: 08-14-2024
 
 ## Base collapsible
 
-<Collapsible summary="Base collapsible" >
+<Collapsible summary="Base collapsible">
 You can really put anything in here !
 
 ### Heading

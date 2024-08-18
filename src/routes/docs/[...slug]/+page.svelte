@@ -9,6 +9,7 @@
   import Pagination from './Pagination.svelte';
   import Toc from './Toc.svelte';
   import Icon from '@iconify/svelte';
+  import { onMount } from 'svelte';
 
   const { data } = $props();
   let headings = $state([]);
@@ -16,6 +17,25 @@
   let sidebarOpen = $state(false);
 
   afterNavigate(() => {
+    load();
+    window.addEventListener('click', windowClickHandler);
+
+    return () => {
+      window.removeEventListener('click', windowClickHandler);
+    };
+  });
+
+  onMount(() => {
+    load();
+
+    window.addEventListener('click', windowClickHandler);
+
+    return () => {
+      window.removeEventListener('click', windowClickHandler);
+    };
+  });
+
+  function load() {
     addCopyCodeButtonFunctionality();
     const pageContainer = document.querySelector('#pageContainer');
     const allowedElements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
@@ -28,13 +48,7 @@
         .join(', ')
     );
     headings = createHeadingTree(headingElements);
-
-    window.addEventListener('click', windowClickHandler);
-
-    return () => {
-      window.removeEventListener('click', windowClickHandler);
-    };
-  });
+  }
 
   /**
    * Handles the click event on the window.
@@ -117,7 +131,7 @@
                 <small class="mb-1">{formatDate(new Date(data.lastModified))}</small>
               {/if}
               {#if data?.description}
-                <p class="m-0">{data.description}</p>
+                <p class="m-0 text-lg">{data.description}</p>
               {/if}
             </section>
           {/if}
@@ -145,7 +159,7 @@
 
         <!-- Toc -->
         <div
-          class="fixed top-16 overflow-auto text-nowrap transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 {mobileTocVisible
+          class="fixed top-16 overflow-y-auto transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 {mobileTocVisible
             ? 'max-lg:translate-x-0'
             : 'max-lg:-translate-x-full'}"
           id="toc-container"

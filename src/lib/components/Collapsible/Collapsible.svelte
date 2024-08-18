@@ -18,13 +18,13 @@
    */
   function setTabIndex() {
     const details = collapsible.querySelector('.collapsible-details');
-    const detailsElements = details.querySelectorAll('*');
+    const detailsElements = details.querySelectorAll('a, button, input, select, textarea, pre.shiki');
 
     detailsElements.forEach((el) => {
       if (open) {
-        el.setAttribute('tabindex', el.getAttribute('data-tabindex'));
+        el.setAttribute('tabindex', el.getAttribute('data-tabindex') ?? 0);
       } else {
-        el.setAttribute('data-tabindex', el.getAttribute('tabindex'));
+        el.setAttribute('data-tabindex', el.getAttribute('tabindex') ?? 0);
         el.setAttribute('tabindex', -1);
       }
     });

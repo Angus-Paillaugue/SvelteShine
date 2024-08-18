@@ -65,15 +65,15 @@ h6 {
 }
 
 h1 {
-  @apply mb-2 mt-4 text-4xl font-medium leading-[3.5rem] md:font-semibold md:leading-[4rem];
+  @apply mb-2 mt-4 text-3xl font-medium leading-[3.5rem] md:font-semibold md:leading-[4rem];
 }
 
 h2 {
-  @apply mb-2 mt-4 text-3xl font-bold;
+  @apply mb-4 mt-12 leading-6 text-2xl font-bold;
 }
 
 h3 {
-  @apply mb-2 mt-4 text-2xl font-semibold;
+  @apply mb-2 mt-9 text-xl font-semibold leading-6;
 }
 
 h4 {
