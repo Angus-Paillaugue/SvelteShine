@@ -4,7 +4,7 @@
   const { children, class: className, href, ...restProps } = $props();
 
   const classes = cn(
-    'list-none py-2 font-medium transition-colors text-base px-4 flex flex-row items-center gap-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 -outline-offset-1 dropdown-item',
+    'list-none py-2 font-medium transition-colors text-base px-4 flex flex-row items-center gap-2 hocus:bg-neutral-200 dark:hocus:bg-neutral-800 -outline-offset-1 dropdown-item',
     className
   );
 </script>

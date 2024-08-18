@@ -1,17 +1,11 @@
-import plugin from 'tailwindcss/plugin';
 import { colors } from './project.config.js';
-
-const radialGradientPlugin = plugin(function ({ matchUtilities, theme }) {
-  matchUtilities(
-    {
-      // map to bg-radient-[*]
-      'bg-radient': (value) => ({
-        'background-image': `radial-gradient(${value},var(--tw-gradient-stops))`
-      })
-    },
-    { values: theme('radialGradients') }
-  );
-});
+import {
+  radialGradientPlugin,
+  hocusPlugin,
+  textShadowPlugin,
+  textWrapPlugin,
+  ligaturesPlugin
+} from './plugins.tailwind.js';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -49,37 +43,6 @@ export default {
       }
     }
   },
-  plugins: [
-    radialGradientPlugin,
-    plugin(function ({ matchUtilities, addUtilities, theme }) {
-      // Add text-shadow utilities
-      matchUtilities(
-        {
-          'text-shadow': (value) => ({
-            textShadow: value
-          })
-        },
-        {
-          values: theme('textShadow')
-        }
-      ),
-        addUtilities({
-          // Add font-ligatures utilities
-          '.ligatures-normal': {
-            fontVariantLigatures: 'normal'
-          },
-          '.ligatures-none': {
-            fontVariantLigatures: 'none'
-          },
-          // Add text-wrap utilities
-          '.text-wrap-none': {
-            textWrap: 'none'
-          },
-          '.text-wrap-balance': {
-            textWrap: 'balance'
-          }
-        });
-    })
-  ],
+  plugins: [radialGradientPlugin, hocusPlugin, textShadowPlugin, textWrapPlugin, ligaturesPlugin],
   darkMode: 'class'
 };

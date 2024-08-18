@@ -105,7 +105,7 @@
         <li class="mb-2 list-none first:mt-2">
           <a
             href={'#' + heading.id}
-            class="mt-1 w-fit max-w-[50px] truncate transition-colors hover:text-primary-500 dark:hover:text-primary-600 {!root &&
+            class="mt-1 w-fit max-w-[50px] truncate transition-colors hocus:text-primary-500 dark:hocus:text-primary-600 {!root &&
               'px-1'}"
           >
             {heading.text}

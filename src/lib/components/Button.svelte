@@ -7,13 +7,13 @@
 
   const typeClasses = {
     normal:
-      'text-primary-950 bg-primary-300 dark:bg-primary-400 dark:text-primary-950 rounded-full hover:bg-primary-400 dark:hover:bg-primary-500',
+      'text-primary-950 bg-primary-300 dark:bg-primary-400 dark:text-primary-950 rounded-full hocus:bg-primary-400 dark:hocus:bg-primary-500',
     square:
-      'p-2 text-primary-950 bg-primary-300 dark:bg-primary-400 dark:text-primary-950 hover:bg-primary-400 dark:hover:bg-primary-500',
+      'p-2 text-primary-950 bg-primary-300 dark:bg-primary-400 dark:text-primary-950 hocus:bg-primary-400 dark:hocus:bg-primary-500',
     circle:
-      'p-2 rounded-full text-primary-950 bg-primary-300 dark:bg-primary-400 dark:text-primary-950 hover:bg-primary-400 dark:hover:bg-primary-500',
+      'p-2 rounded-full text-primary-950 bg-primary-300 dark:bg-primary-400 dark:text-primary-950 hocus:bg-primary-400 dark:hocus:bg-primary-500',
     ghost:
-      'bg-body dark:bg-body-dark hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 text-text-heading dark:text-text-heading-dark border border-main dark:border-main-dark',
+      'bg-body dark:bg-body-dark hocus:bg-neutral-200/50 dark:hocus:bg-neutral-700/50 text-text-heading dark:text-text-heading-dark border border-main dark:border-main-dark',
     noStyle: ''
   };
 

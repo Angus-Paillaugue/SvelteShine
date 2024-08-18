@@ -22,7 +22,7 @@
 }
 
 * {
-  @apply scroll-smooth outline-offset-4 outline-primary-600 focus:outline-1 dark:outline-primary-600;
+  @apply scroll-smooth outline-offset-4 focus:outline-1 focus:outline-primary-600 dark:focus:outline-primary-600;
 }
 
 html {
@@ -107,7 +107,7 @@ hr {
 }
 /* Page links */
 .link {
-  @apply relative inline-flex flex-row items-center gap-1 border-b border-primary-400/50 bg-primary-300/30 text-inherit no-underline transition-colors hover:border-primary-400/75 dark:border-primary-500/40 dark:bg-primary-500/10 dark:text-primary-500;
+  @apply relative inline-flex flex-row items-center gap-1 border-b border-primary-400/50 bg-primary-300/30 text-inherit no-underline transition-colors hocus:border-primary-400/75 dark:border-primary-500/40 dark:bg-primary-500/10 dark:text-primary-500;
 }
 
 /* Others */

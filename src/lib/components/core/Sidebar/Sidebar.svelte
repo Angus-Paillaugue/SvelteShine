@@ -50,7 +50,7 @@
       name="toggleMode"
       onclick={toggleMode}
       type="square ghost"
-      class="bg-neutral-200/50 hover:bg-transparent dark:bg-neutral-700/50 hover:dark:bg-transparent"
+      class="bg-neutral-200/50 hocus:bg-transparent dark:bg-neutral-700/50 hocus:dark:bg-transparent"
     >
       {#if $mode === 'dark'}
         <div in:scale>

@@ -58,7 +58,7 @@
       <!-- New version badge -->
       {#if homepage.version.showHomepageMessage}
         <a
-          class="group relative mb-5 flex w-max items-center gap-x-2 rounded-full border border-main px-2 py-1 text-sm transition-colors hover:bg-neutral-600/10 focus-visible:bg-neutral-600/20 dark:border-main-dark"
+          class="group relative mb-5 flex w-max items-center gap-x-2 rounded-full border border-main px-2 py-1 text-sm transition-colors focus-visible:bg-neutral-600/20 hocus:bg-neutral-600/10 dark:border-main-dark"
           href={homepage.version.latestVersionURL}
           ><span
             class="-ml-1 flex items-center gap-2 rounded-full bg-neutral-950 px-2 py-1 text-xs font-medium text-neutral-100"
@@ -67,7 +67,7 @@
 
           <Icon
             icon="line-md:arrow-right"
-            class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1 group-focus-visible:translate-x-1"
+            class="group-hocus:translate-x-1 h-4 w-4 transition-transform duration-500 group-focus-visible:translate-x-1"
           />
 
           <div

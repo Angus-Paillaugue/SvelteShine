@@ -110,7 +110,7 @@
       <div
         class="flex h-full flex-col-reverse justify-center max-lg:items-center lg:flex-row lg:gap-8"
       >
-        <main class="mx-auto flex h-full grow w-full flex-col p-4">
+        <main class="mx-auto flex h-full w-full grow flex-col p-4">
           {#if data?.lastModified || data?.description}
             <section class="mb-6">
               {#if data?.lastModified}

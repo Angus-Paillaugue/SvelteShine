@@ -63,7 +63,7 @@
       <!-- Copy command button -->
       <button
         tabindex="0"
-        class="absolute right-2 top-1/2 flex aspect-square h-[2.5rem] -translate-y-1/2 items-center justify-center rounded-full bg-neutral-950 p-1 text-white transition hover:scale-105 focus:outline-primary-200 active:scale-90"
+        class="absolute right-2 top-1/2 flex aspect-square h-[2.5rem] -translate-y-1/2 items-center justify-center rounded-full bg-neutral-950 p-1 text-white transition focus:outline-primary-200 active:scale-90 hocus:scale-105"
         onclick={(e) => {
           const copyButton = e.target.closest('button');
           copyButton.querySelector('.copy').classList.add('hidden');

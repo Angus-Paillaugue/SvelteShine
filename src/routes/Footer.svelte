@@ -11,8 +11,8 @@
     class="mx-auto flex max-w-screen-lg gap-8 max-md:flex-col-reverse md:grid md:grid-cols-[auto,400px]"
   >
     <div class="flex flex-col gap-8">
-      <p class="m-0 text-text-heading dark:text-text-heading-dark">{project.name}, {catchphrase}</p>
-      <p class="m-0 mt-auto text-text-heading dark:text-text-heading-dark">
+      <p class="m-0 text-text-heading-dark dark:text-text-heading">{project.name}, {catchphrase}</p>
+      <p class="m-0 mt-auto text-text-heading-dark dark:text-text-heading">
         Made with <svg
           xmlns="http://www.w3.org/2000/svg"
           enable-background="new 0 0 128 128"
@@ -44,42 +44,42 @@
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="#pricing"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Pricing</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/changelog"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Changelog</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/blog"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Blog</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/contact"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Contact</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/help"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Help-center</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/careers"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Careers</a
           >
         </li>
@@ -88,42 +88,42 @@
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="#pricing"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Pricing</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/changelog"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Changelog</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/blog"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Blog</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/contact"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Contact</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/help"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Help-center</a
           >
         </li>
         <li class="m-0 mb-1 list-none text-base font-semibold">
           <a
             href="/careers"
-            class="text-text-heading transition-colors hover:text-text-body dark:text-text-heading-dark dark:hover:text-text-body-dark"
+            class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Careers</a
           >
         </li>

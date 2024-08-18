@@ -136,7 +136,7 @@
             <a
               href={result.url}
               class={cn(
-                'group relative m-0 flex list-none flex-row items-center justify-between rounded-xl p-2 px-4 py-2 transition-colors hover:bg-neutral-300/50 focus:bg-neutral-300/50 focus:outline-none dark:hover:bg-neutral-800/50 dark:focus:bg-neutral-800/50',
+                'group relative m-0 flex list-none flex-row items-center justify-between rounded-xl p-2 px-4 py-2 transition-colors focus:outline-none hocus:bg-neutral-300/50 dark:hocus:bg-neutral-800/50',
                 index === selectedIndex && 'selected bg-neutral-300/50 dark:bg-neutral-800/50'
               )}
               id={`result-${index}`}
@@ -149,7 +149,7 @@
               </div>
               <Icon
                 icon="material-symbols:arrow-forward-ios-rounded"
-                class="text-primary-400 opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100 dark:text-primary-600 [.group.selected_&]:opacity-100"
+                class="group-hocus:opacity-100 text-primary-400 opacity-0 transition-opacity group-focus:opacity-100 dark:text-primary-600 [.group.selected_&]:opacity-100"
               />
             </a>
           {/each}

@@ -71,7 +71,6 @@ export function getTree() {
 export async function pageBySlug(slug) {
   const pages = getTree();
 
-
   function findPageBySlug(pages, slug) {
     for (const page of pages) {
       if (page.slug === slug) return page;

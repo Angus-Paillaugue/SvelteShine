@@ -22,7 +22,7 @@ code {
 }
 
 .shiki {
-  @apply relative overflow-auto whitespace-pre rounded-md py-4;
+  @apply relative overflow-auto whitespace-pre rounded-md py-4 focus:-outline-offset-1;
 }
 .remark-code-container {
   @apply my-4;
@@ -37,7 +37,7 @@ code {
 }
 
 .copy-code-button {
-  @apply absolute bottom-1 right-1.5 top-1.5 flex aspect-square h-[2.5rem] items-center justify-center rounded-full bg-neutral-950 p-1 text-neutral-100 transition hover:scale-105 focus:outline-none active:scale-90;
+  @apply absolute bottom-1 right-1.5 top-1.5 flex aspect-square h-[2.5rem] items-center justify-center rounded-full bg-neutral-950 p-1 text-neutral-100 transition active:scale-90 hocus:scale-105;
 }
 
 pre.line-numbers > code .line::before {

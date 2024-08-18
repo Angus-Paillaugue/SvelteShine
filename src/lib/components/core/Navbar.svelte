@@ -18,7 +18,7 @@
 
   <div class="flex flex-row items-center gap-2 max-xl:hidden">
     {#each sideBar.socials.list as { name, url, icon }}
-      <a href={url} target={sideBar.socials.target ?? '_self'} class="h-fit p-1" {name}>
+      <a href={url} target={sideBar.socials.target ?? '_self'} class="h-fit rounded-md p-2" {name}>
         <Icon {icon} class="size-6" />
       </a>
     {/each}
@@ -33,7 +33,7 @@
       name="toggleMode"
       onclick={toggleMode}
       type="square ghost"
-      class="bg-neutral-200/50 hover:bg-transparent dark:bg-neutral-700/50 hover:dark:bg-transparent"
+      class="bg-neutral-200/50 hocus:bg-transparent dark:bg-neutral-700/50 dark:hocus:bg-transparent"
     >
       {#if $mode === 'dark'}
         <div in:scale>
