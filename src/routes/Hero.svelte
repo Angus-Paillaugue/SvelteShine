@@ -5,6 +5,7 @@
   import { onMount } from 'svelte';
   import { Button } from '$lib/components';
   import { mode } from 'mode-watcher';
+
   const { docsHomePage } = $props();
 
   onMount(addCopyCodeButtonFunctionality);

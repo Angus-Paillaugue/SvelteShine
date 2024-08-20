@@ -6,6 +6,7 @@
   import { ModeWatcher, mode } from 'mode-watcher';
   import { page } from '$app/stores';
   import { project } from '$conf';
+  import PageLoader from '$lib/components/core/PageLoader.svelte';
 
   const { children } = $props();
 
@@ -41,5 +42,6 @@
 
 <Toasts />
 <ModeWatcher defaultMode={'dark'} />
+<PageLoader />
 
 {@render children()}

@@ -26,7 +26,9 @@
 >
   <!-- Sidebar heading -->
   <div class="flex flex-col pl-4 pr-2 pt-4">
-    <h3 class="m-0">{project.name}</h3>
+    <a href="/">
+      <h3 class="m-0">{project.name}</h3>
+    </a>
     <span class="mb-2 mt-4 grow border-b border-main dark:border-main-dark"></span>
   </div>
   <div class="grow overflow-y-auto">

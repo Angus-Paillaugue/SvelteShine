@@ -40,6 +40,9 @@ export default {
           DEFAULT: 'theme(colors.neutral.300/50)',
           dark: 'theme(colors.neutral.800)'
         }
+      },
+      transitionTimingFunction: {
+        'back-out': 'cubic-bezier(0.34, 1.56, 0.64, 1)'
       }
     }
   },

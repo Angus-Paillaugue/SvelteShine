@@ -81,7 +81,10 @@
           )}
         >
           {#if page.icon}
-            <Icon icon={page.icon} class="size-5" />
+            <Icon
+              icon={typeof page.icon === 'string' ? page.icon : page.icon.name}
+              class={cn('size-5', typeof page.icon === 'object' && page.icon.class)}
+            />
           {/if}
           {page.name}
         </a>

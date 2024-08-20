@@ -8,8 +8,8 @@
   import { Button } from '$lib/components';
   import { backOut } from 'svelte/easing';
 
-  let getStartedButtonNavShown = $state(false);
   const docsHomePage = getDocsHomePage();
+  let getStartedButtonNavShown = $state(false);
 
   onMount(() => {
     addCopyCodeButtonFunctionality();
@@ -71,7 +71,7 @@
 >
   <div class="relative h-full w-full">
     <div
-      class="absolute top-1/2 w-fit -translate-y-1/2 transition-all duration-500 ease-out {getStartedButtonNavShown
+      class="absolute top-1/2 w-fit -translate-y-1/2 transition-all duration-500 ease-back-out {getStartedButtonNavShown
         ? 'left-0'
         : 'left-1/2 -translate-x-1/2'}"
     >

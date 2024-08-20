@@ -72,7 +72,7 @@ With the server running, you can now edit the config file located at `project.co
  - Markdown Pages: Reference the markdown files you want to include in the sidebar.
 
 
-## Features
+# Features
 
 Here are some of the key features you can use:
 
@@ -87,3 +87,12 @@ Here are some of the key features you can use:
  - [API Reference](/docs/Components/Api-reference): Document API endpoints with detailed reference sections.
  - [Tables](/docs/Components/Tables): Create and style tables for structured data presentation.
  - [Component Preview](/docs/Components/ComponentPreview): Preview Svelte components directly within your documentation.
+
+
+# Conclusion
+
+That's it! You're now ready to start building your documentation with {projectName}. As you continue developing, you can take full advantage of the customization options and features provided by this template.
+
+If you encounter any issues or have questions, please refer to the project's documentation (as it grows) or reach out for support.
+
+Happy documenting!

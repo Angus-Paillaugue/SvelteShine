@@ -1,13 +1,12 @@
 <script>
-  import { formatDate, addCopyCodeButtonFunctionality } from '$lib/utils';
+  import { Button } from '$lib/components/';
   import Navbar from '$lib/components/core/Navbar.svelte';
   import Sidebar from '$lib/components/core/Sidebar';
-  import { sideBar } from '$conf';
-  import { Button } from '$lib/components/';
-  import { project } from '$conf';
-  import { afterNavigate } from '$app/navigation';
   import Pagination from './Pagination.svelte';
   import Toc from './Toc.svelte';
+  import { formatDate, addCopyCodeButtonFunctionality } from '$lib/utils';
+  import { sideBar, project } from '$conf';
+  import { afterNavigate } from '$app/navigation';
   import Icon from '@iconify/svelte';
   import { onMount } from 'svelte';
 
@@ -159,7 +158,7 @@
 
         <!-- Toc -->
         <div
-          class="fixed top-16 overflow-y-auto transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 {mobileTocVisible
+          class="fixed top-16 overflow-y-auto transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 lg:pb-8 {mobileTocVisible
             ? 'max-lg:translate-x-0'
             : 'max-lg:-translate-x-full'}"
           id="toc-container"

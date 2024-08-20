@@ -5,11 +5,25 @@
   import { afterNavigate } from '$app/navigation';
   import imageZoomPlugin from './image-zoom-plugin';
   import { onMount } from 'svelte';
+  import { spring } from 'svelte/motion';
 
   let { headings, root = false } = $props();
   let headingScrolls = $state({});
-  let tocIndicator = $state();
   const topTriggerOffset = 10;
+  let indicatorHeight = spring(
+    0,
+    {
+      stiffness: 0.1,
+      damping: 0.25
+    }
+  );
+  let indicatorCoords = spring(
+    0,
+    {
+      stiffness: 0.05,
+      damping: 0.25
+    }
+  );
 
   afterNavigate(load);
   onMount(load);
@@ -43,7 +57,6 @@
    * @param {number} offset - The offset value.
    */
   function windowScrollHandler(offset) {
-    if (!tocIndicator) return;
     const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
     const maxScrollPosition = document.documentElement.scrollHeight - window.innerHeight;
     // Calculate the progress based on how much the user has scrolled relative to the maximum scroll position
@@ -52,15 +65,19 @@
     // Interpolate the trigger value between offset and window.innerHeight
     // As progress goes from 0 to 1, trigger smoothly moves from scrollPosition + offset to scrollPosition + window.innerHeight
     const trigger = scrollPosition + offset + progress * (window.innerHeight - offset);
+    let activeHeadingInSidebar;
 
+    // Find the lowest heading that is above the trigger
     for (let i in headingScrolls) {
       if (headingScrolls[i] <= trigger) {
-        const activeHeadingInSidebar = document.querySelector(`[href="#${i}"]`);
-        if (!activeHeadingInSidebar) return;
-        const activeHeadingInSidebarTop = activeHeadingInSidebar.offsetTop;
-        tocIndicator.style.top = activeHeadingInSidebarTop + 'px';
+        const currentHeading = document.querySelector(`[href="#${i}"]`);
+        if (!currentHeading) return;
+        activeHeadingInSidebar = currentHeading;
       }
     }
+    if (!activeHeadingInSidebar) return;
+    $indicatorCoords = activeHeadingInSidebar.offsetTop;
+    $indicatorHeight = activeHeadingInSidebar.offsetHeight;
   }
 
   /**
@@ -94,8 +111,8 @@
     >
       {#if root}
         <div
-          class="absolute -left-[2px] h-[1.4rem] w-[3px] rounded-full bg-primary-500 transition-[top,opacity] ease-[cubic-bezier(0,1,.5,1)]"
-          bind:this={tocIndicator}
+          class="absolute -left-[2px] h-[1.4rem] w-[3px] rounded-full bg-primary-500"
+          style="top: {$indicatorCoords}px; height: {$indicatorHeight}px;"
         ></div>
       {/if}
       {#each headings as heading}

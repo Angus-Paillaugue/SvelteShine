@@ -3,6 +3,7 @@
   import Icon from '@iconify/svelte';
   import { createHighlighter } from 'shiki';
   import { colors } from '$conf';
+  import { spring } from 'svelte/motion';
 
   const { commands } = $props();
   const { codeBlockTheme } = colors;
@@ -12,16 +13,29 @@
   });
 
   let selectedIndex = $state(0);
-  let underlineElement = $state();
   let commandsContainer = $state();
+  let underlineWidth = spring(
+    0,
+    {
+      stiffness: 0.1,
+      damping: 0.25
+    }
+  );
+  let underlineCoords = spring(
+    0,
+    {
+      stiffness: 0.1,
+      damping: 0.25
+    }
+  );
 
   $effect(() => {
     const selectedItem = commandsContainer.querySelector('ul > li:nth-child(' + (selectedIndex + 1) + ')');
     const left = selectedItem.offsetLeft;
     const width = selectedItem.offsetWidth;
 
-    underlineElement.style.left = left + 'px';
-    underlineElement.style.width = width + 'px';
+    $underlineCoords = left;
+    $underlineWidth = width;
   });
 </script>
 
@@ -42,8 +56,8 @@
       {/each}
     </ul>
     <span
-      class="absolute bottom-0 h-[2px] bg-primary-600 transition-all dark:bg-primary-400"
-      bind:this={underlineElement}
+      class="absolute bottom-0 h-[2px] bg-primary-600 dark:bg-primary-400"
+      style="left: {$underlineCoords}px; width: {$underlineWidth}px;"
     ></span>
   </div>
 
