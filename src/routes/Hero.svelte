@@ -1,10 +1,11 @@
 <script>
-  import { siteName, homepage } from '$conf';
+  import { project, homepage } from '$conf';
   import Icon from '@iconify/svelte';
   import { addCopyCodeButtonFunctionality } from '$lib/utils';
   import { onMount } from 'svelte';
   import { Button } from '$lib/components';
   import { mode } from 'mode-watcher';
+
   const { docsHomePage } = $props();
 
   onMount(addCopyCodeButtonFunctionality);
@@ -58,16 +59,16 @@
       <!-- New version badge -->
       {#if homepage.version.showHomepageMessage}
         <a
-          class="group relative mb-5 flex w-max items-center gap-x-2 rounded-full border border-main px-2 py-1 text-sm transition-colors hover:bg-neutral-600/10 focus-visible:bg-neutral-600/20 dark:border-main-dark"
+          class="group relative mb-5 flex w-max items-center gap-x-2 rounded-full border border-main px-2 py-1 text-sm transition-colors focus-visible:bg-neutral-600/20 hocus:bg-neutral-600/10 dark:border-main-dark"
           href={homepage.version.latestVersionURL}
           ><span
             class="-ml-1 flex items-center gap-2 rounded-full bg-neutral-950 px-2 py-1 text-xs font-medium text-neutral-100"
             >NEW</span
-          >{siteName} launches v{homepage.version.latestVersion}
+          >{project.name} launches v{homepage.version.latestVersion}
 
           <Icon
             icon="line-md:arrow-right"
-            class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1 group-focus-visible:translate-x-1"
+            class="group-hocus:translate-x-1 h-4 w-4 transition-transform duration-500 group-focus-visible:translate-x-1"
           />
 
           <div
@@ -87,7 +88,7 @@
         <span
           class="text-neutral-50 text-shadow-[0_4px_0_#141414] dark:text-neutral-50 dark:text-shadow-[0_4px_0_#ffffff]"
           style="-webkit-text-fill-color: #fff;-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: #000;"
-          >{siteName}</span
+          >{project.name}</span
         >, {homepage.catchphrase}
       </h1>
 

@@ -1,5 +1,5 @@
 <script>
-  import { siteName, siteDescription, pages } from '$conf';
+  import { project, pages } from '$conf';
   import Footer from './Footer.svelte';
   import Hero from './Hero.svelte';
   import { addCopyCodeButtonFunctionality } from '$lib/utils';
@@ -8,8 +8,8 @@
   import { Button } from '$lib/components';
   import { backOut } from 'svelte/easing';
 
-  let getStartedButtonNavShown = $state(false);
   const docsHomePage = getDocsHomePage();
+  let getStartedButtonNavShown = $state(false);
 
   onMount(() => {
     addCopyCodeButtonFunctionality();
@@ -45,10 +45,10 @@
 </script>
 
 <svelte:head>
-  <title>{siteName}</title>
-  <meta name="description" content={siteDescription} />
-  <meta property="og:description" content={siteDescription} />
-  <meta property="twitter:description" content={siteDescription} />
+  <title>{project.name}</title>
+  <meta name="description" content={project.description} />
+  <meta property="og:description" content={project.description} />
+  <meta property="twitter:description" content={project.description} />
 
   <style>
     @keyframes text {
@@ -67,11 +67,11 @@
 
 <!-- Navbar -->
 <nav
-  class="fixed left-1/2 top-5 z-30 flex h-16 w-[calc(100vw-40px)] -translate-x-1/2 gap-x-6 rounded-full border border-main bg-neutral-50/75 p-4 backdrop-blur-md dark:border-main dark:bg-neutral-600/50 md:w-[584px]"
+  class="fixed left-1/2 top-5 z-30 flex h-16 w-[calc(100vw-40px)] -translate-x-1/2 gap-x-6 rounded-full border border-main bg-neutral-50/75 p-4 backdrop-blur-md dark:border-main-dark dark:bg-neutral-600/50 md:w-[584px]"
 >
   <div class="relative h-full w-full">
     <div
-      class="absolute top-1/2 w-fit -translate-y-1/2 transition-all duration-500 ease-out {getStartedButtonNavShown
+      class="absolute top-1/2 w-fit -translate-y-1/2 transition-all duration-500 ease-back-out {getStartedButtonNavShown
         ? 'left-0'
         : 'left-1/2 -translate-x-1/2'}"
     >
@@ -79,7 +79,7 @@
         class="m-0 inline-block w-fit bg-gradient-to-r from-primary-500 via-purple-500 to-primary-500 bg-clip-text text-center text-2xl font-bold text-transparent dark:from-primary-500 dark:via-neutral-200 dark:to-primary-500 dark:text-transparent"
         style="animation: text 5s ease infinite;"
       >
-        {siteName}
+        {project.name}
       </h1>
     </div>
 

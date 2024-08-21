@@ -5,7 +5,8 @@
   import Toasts from '$lib/components/core/Toasts.svelte';
   import { ModeWatcher, mode } from 'mode-watcher';
   import { page } from '$app/stores';
-  import { siteName, keywords, siteAuthor } from '$conf';
+  import { project } from '$conf';
+  import PageLoader from '$lib/components/core/PageLoader.svelte';
 
   const { children } = $props();
 
@@ -25,14 +26,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content={$page.url.href.split('#')[0]} />
   <!-- <meta property="og:locale" content={$locale} /> -->
-  <meta property="og:site_name" content={siteName} />
+  <meta property="og:site_name" content={project.name} />
 
   <meta name="robots" content="all" />
   <meta name="googlebot" content="all" />
   <meta name="googlebot-news" content="all" />
-  <meta name="keywords" content={keywords} />
-  <meta name="author" content={siteAuthor} />
-  <meta name="publisher" content={siteAuthor} />
+  <meta name="keywords" content={project.keywords} />
+  <meta name="author" content={project.author} />
+  <meta name="publisher" content={project.author} />
   <meta name="audience" content="all" />
   <meta name="distribution" content="global" />
   <meta name="copyright" content="Copyright {new Date().getFullYear()}" />
@@ -41,5 +42,6 @@
 
 <Toasts />
 <ModeWatcher defaultMode={'dark'} />
+<PageLoader />
 
 {@render children()}

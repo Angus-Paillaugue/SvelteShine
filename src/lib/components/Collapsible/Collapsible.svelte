@@ -11,6 +11,26 @@
     open = $bindable(false),
     ...restProps
   } = $props();
+  let collapsible = $state();
+
+  /**
+   * Sets the tab index for the collapsible component children.
+   */
+  function setTabIndex() {
+    const details = collapsible.querySelector('.collapsible-details');
+    const detailsElements = details.querySelectorAll('a, button, input, select, textarea, pre.shiki');
+
+    detailsElements.forEach((el) => {
+      if (open) {
+        el.setAttribute('tabindex', el.getAttribute('data-tabindex') ?? 0);
+      } else {
+        el.setAttribute('data-tabindex', el.getAttribute('tabindex') ?? 0);
+        el.setAttribute('tabindex', -1);
+      }
+    });
+  }
+
+  $effect(setTabIndex);
 </script>
 
 <div
@@ -19,12 +39,13 @@
     className
   )}
   {...restProps}
+  bind:this={collapsible}
 >
   <button
     onclick={() => (open = !open)}
     aria-expanded={open}
     aria-controls={summary}
-    class="items-between flex w-full cursor-pointer flex-row items-center px-4 py-2 text-base font-semibold transition-colors hover:bg-neutral-200/50 dark:bg-inherit"
+    class="items-between flex w-full cursor-pointer flex-row items-center px-4 py-2 text-base font-semibold -outline-offset-2 transition-colors hover:bg-neutral-200/50 dark:bg-inherit"
   >
     <span class="arrow transition-all">
       <Icon

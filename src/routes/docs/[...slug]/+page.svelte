@@ -1,14 +1,14 @@
 <script>
-  import { formatDate, addCopyCodeButtonFunctionality } from '$lib/utils';
+  import { Button } from '$lib/components/';
   import Navbar from '$lib/components/core/Navbar.svelte';
   import Sidebar from '$lib/components/core/Sidebar';
-  import { sidebarStyle } from '$conf';
-  import { Button } from '$lib/components/';
-  import { siteDescription } from '$conf';
-  import { afterNavigate } from '$app/navigation';
   import Pagination from './Pagination.svelte';
   import Toc from './Toc.svelte';
+  import { formatDate, addCopyCodeButtonFunctionality } from '$lib/utils';
+  import { sideBar, project } from '$conf';
+  import { afterNavigate } from '$app/navigation';
   import Icon from '@iconify/svelte';
+  import { onMount } from 'svelte';
 
   const { data } = $props();
   let headings = $state([]);
@@ -16,6 +16,25 @@
   let sidebarOpen = $state(false);
 
   afterNavigate(() => {
+    load();
+    window.addEventListener('click', windowClickHandler);
+
+    return () => {
+      window.removeEventListener('click', windowClickHandler);
+    };
+  });
+
+  onMount(() => {
+    load();
+
+    window.addEventListener('click', windowClickHandler);
+
+    return () => {
+      window.removeEventListener('click', windowClickHandler);
+    };
+  });
+
+  function load() {
     addCopyCodeButtonFunctionality();
     const pageContainer = document.querySelector('#pageContainer');
     const allowedElements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
@@ -28,13 +47,7 @@
         .join(', ')
     );
     headings = createHeadingTree(headingElements);
-
-    window.addEventListener('click', windowClickHandler);
-
-    return () => {
-      window.removeEventListener('click', windowClickHandler);
-    };
-  });
+  }
 
   /**
    * Handles the click event on the window.
@@ -88,9 +101,9 @@
   <meta property="og:title" content={data?.name ?? 'Docs'} />
   <meta property="twitter:title" content={data?.name ?? 'Docs'} />
 
-  <meta name="description" content={data?.description ?? siteDescription} />
-  <meta property="og:description" content={data?.description ?? siteDescription} />
-  <meta property="twitter:description" content={data?.description ?? siteDescription} />
+  <meta name="description" content={data?.description ?? project.description} />
+  <meta property="og:description" content={data?.description ?? project.description} />
+  <meta property="twitter:description" content={data?.description ?? project.description} />
   <!-- Adding katex stylesheet for math support -->
   <link
     rel="stylesheet"
@@ -102,7 +115,7 @@
 
 {#key data?.name}
   <div class="mx-auto flex min-h-screen w-full max-w-screen-2xl flex-row">
-    <Sidebar open={sidebarOpen} style={sidebarStyle} />
+    <Sidebar open={sidebarOpen} style={sideBar.style} />
 
     <div class="flex grow flex-col">
       <Navbar title={data?.name ?? 'Docs'} />
@@ -110,14 +123,14 @@
       <div
         class="flex h-full flex-col-reverse justify-center max-lg:items-center lg:flex-row lg:gap-8"
       >
-        <main class="mx-auto flex h-full max-w-screen-lg grow flex-col p-4">
+        <main class="mx-auto flex h-full w-full grow flex-col p-4">
           {#if data?.lastModified || data?.description}
             <section class="mb-6">
               {#if data?.lastModified}
                 <small class="mb-1">{formatDate(new Date(data.lastModified))}</small>
               {/if}
               {#if data?.description}
-                <p class="m-0">{data.description}</p>
+                <p class="m-0 text-lg">{data.description}</p>
               {/if}
             </section>
           {/if}
@@ -129,28 +142,29 @@
 
           <Pagination slug={data.slug} />
         </main>
-        <!-- Toc -->
+
+        <!-- Mobile open toc button -->
         {#if headings.length > 0}
           <!-- Toggle toc on mobile -->
           <Button
             name="openToc"
             onclick={() => (mobileTocVisible = !mobileTocVisible)}
-            type={['square', 'ghost']}
+            type="square ghost"
             class="fixed right-4 top-[4.5rem] z-40 flex items-center justify-center p-3 lg:hidden"
           >
             <Icon icon="line-md:menu-unfold-right" class="size-5" />
           </Button>
-
-          <!-- Toc -->
-          <div
-            class="fixed top-16 overflow-auto text-nowrap transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 {mobileTocVisible
-              ? 'max-lg:translate-x-0'
-              : 'max-lg:-translate-x-full'}"
-            id="toc-container"
-          >
-            <Toc {headings} root={true} />
-          </div>
         {/if}
+
+        <!-- Toc -->
+        <div
+          class="fixed top-16 overflow-y-auto transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 lg:pb-8 {mobileTocVisible
+            ? 'max-lg:translate-x-0'
+            : 'max-lg:-translate-x-full'}"
+          id="toc-container"
+        >
+          <Toc {headings} root={true} />
+        </div>
       </div>
     </div>
   </div>

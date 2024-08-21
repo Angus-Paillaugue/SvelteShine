@@ -1,7 +1,7 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import path from 'path';
-import { docsUrlStart } from './user-config.js';
+import { docsUrlStart } from './project.config.js';
 
 export default defineConfig({
   plugins: [sveltekit()],
@@ -16,7 +16,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      $conf: path.resolve(__dirname, './user-config.js')
+      $conf: path.resolve(__dirname, './project.config.js')
     }
   }
 });

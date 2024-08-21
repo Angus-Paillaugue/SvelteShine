@@ -42,5 +42,5 @@
       {/if}
     </div>
   </div>
-  <p class="m-0 mt-2 text-neutral-700 dark:text-neutral-400">{@render children()}</p>
+  <div class="m-0 mt-2 text-neutral-700 dark:text-neutral-400">{@render children()}</div>
 </div>

@@ -2,28 +2,44 @@
   import { newToast } from '$lib/stores';
   import Icon from '@iconify/svelte';
   import { createHighlighter } from 'shiki';
-  import { codeBlockTheme } from '$conf';
+  import { colors } from '$conf';
+  import { spring } from 'svelte/motion';
 
   const { commands } = $props();
-
-  let selectedIndex = $state(0);
-  let underlineElement = $state();
+  const { codeBlockTheme } = colors;
   const highlighter = createHighlighter({
     themes: [codeBlockTheme],
     langs: ['bash']
   });
 
+  let selectedIndex = $state(0);
+  let commandsContainer = $state();
+  let underlineWidth = spring(
+    0,
+    {
+      stiffness: 0.1,
+      damping: 0.25
+    }
+  );
+  let underlineCoords = spring(
+    0,
+    {
+      stiffness: 0.1,
+      damping: 0.25
+    }
+  );
+
   $effect(() => {
-    const selectedItem = document.querySelector('ul > li:nth-child(' + (selectedIndex + 1) + ')');
+    const selectedItem = commandsContainer.querySelector('ul > li:nth-child(' + (selectedIndex + 1) + ')');
     const left = selectedItem.offsetLeft;
     const width = selectedItem.offsetWidth;
 
-    underlineElement.style.left = left + 'px';
-    underlineElement.style.width = width + 'px';
+    $underlineCoords = left;
+    $underlineWidth = width;
   });
 </script>
 
-<div class="commands mb-4 w-full">
+<div class="commands mb-4 w-full" bind:this={commandsContainer}>
   <div class="relative h-fit w-full">
     <ul
       class="no-scrollbar relative mb-2 flex flex-row flex-nowrap gap-2 border-b-2 border-main dark:border-main-dark"
@@ -40,8 +56,8 @@
       {/each}
     </ul>
     <span
-      class="absolute bottom-0 h-[2px] bg-primary-600 transition-all dark:bg-primary-400"
-      bind:this={underlineElement}
+      class="absolute bottom-0 h-[2px] bg-primary-600 dark:bg-primary-400"
+      style="left: {$underlineCoords}px; width: {$underlineWidth}px;"
     ></span>
   </div>
 
@@ -62,7 +78,7 @@
       <!-- Copy command button -->
       <button
         tabindex="0"
-        class="absolute right-2 top-1/2 flex aspect-square h-[2.5rem] -translate-y-1/2 items-center justify-center rounded-full bg-neutral-950 p-1 text-white transition hover:scale-105 focus:outline-primary-200 active:scale-90"
+        class="absolute right-2 top-1/2 flex aspect-square h-[2.5rem] -translate-y-1/2 items-center justify-center rounded-full bg-neutral-950 p-1 text-white transition focus:outline-primary-200 active:scale-90 hocus:scale-105"
         onclick={(e) => {
           const copyButton = e.target.closest('button');
           copyButton.querySelector('.copy').classList.add('hidden');

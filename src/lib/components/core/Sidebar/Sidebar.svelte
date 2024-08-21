@@ -5,7 +5,7 @@
   import Icon from '@iconify/svelte';
   import { searchModalShown } from '$lib/stores';
   import { toggleMode, mode } from 'mode-watcher';
-  import { socials, socialsTarget, siteName } from '$conf';
+  import { sideBar, project } from '$conf';
   import { scale } from 'svelte/transition';
   import { Button } from '$lib/components';
   import { cn } from '$lib/utils';
@@ -26,7 +26,9 @@
 >
   <!-- Sidebar heading -->
   <div class="flex flex-col pl-4 pr-2 pt-4">
-    <h3 class="m-0">{siteName}</h3>
+    <a href="/">
+      <h3 class="m-0">{project.name}</h3>
+    </a>
     <span class="mb-2 mt-4 grow border-b border-main dark:border-main-dark"></span>
   </div>
   <div class="grow overflow-y-auto">
@@ -34,14 +36,14 @@
   </div>
   <!-- Navbar right side on desktop is on the sidebar on mobile -->
   <div class="flex flex-row items-center justify-end gap-2 bg-inherit p-2 pr-0 xl:hidden">
-    {#each socials as { name, url, icon }}
-      <a href={url} target={socialsTarget} class="h-fit p-1" {name}>
+    {#each sideBar.socials.list as { name, url, icon }}
+      <a href={url} target={sideBar.socials.target} class="h-fit p-1" {name}>
         <Icon {icon} class="size-6" />
       </a>
     {/each}
 
     <!-- Vertical separator -->
-    {#if socials.length > 0}
+    {#if sideBar.socials.list.length > 0}
       <span class="h-10 w-px bg-neutral-300/50 dark:bg-neutral-700/50"></span>
     {/if}
 
@@ -49,8 +51,8 @@
     <Button
       name="toggleMode"
       onclick={toggleMode}
-      type={['square', 'ghost']}
-      class="bg-neutral-200/50 hover:bg-transparent dark:bg-neutral-700/50 hover:dark:bg-transparent"
+      type="square ghost"
+      class="bg-neutral-200/50 hocus:bg-transparent dark:bg-neutral-700/50 hocus:dark:bg-transparent"
     >
       {#if $mode === 'dark'}
         <div in:scale>
@@ -63,7 +65,7 @@
       {/if}
     </Button>
 
-    <Button onclick={() => ($searchModalShown = true)} type={['square', 'ghost']}>
+    <Button onclick={() => ($searchModalShown = true)} type="square ghost">
       <Icon icon="line-md:search" class="size-6" />
     </Button>
   </div>

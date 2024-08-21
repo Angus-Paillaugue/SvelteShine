@@ -82,10 +82,10 @@ console.log('Line 5');
 
 ## Line numbers
 
-By default, the line numbers are shown in code blocks. You can remove them by adding `no-lines-numbers` in the code block meta like so :
+By default, the line numbers are shown in code blocks. You can remove them by adding `no-line-numbers` in the code block meta like so :
 
 ````md
-```js no-lines-numbers
+```js no-line-numbers
 console.log('This code block has no line numbers');
 
 console.log('Yay!');
@@ -94,7 +94,7 @@ console.log('Yay!');
 
 And here is what it looks like without line numbers :
 
-```js no-lines-numbers
+```js no-line-numbers
 console.log('This code block has no line numbers');
 
 console.log('Yay!');

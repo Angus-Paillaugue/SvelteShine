@@ -1,21 +1,15 @@
-import plugin from 'tailwindcss/plugin';
-import { tailwindColors } from './user-config';
-
-const radialGradientPlugin = plugin(function ({ matchUtilities, theme }) {
-  matchUtilities(
-    {
-      // map to bg-radient-[*]
-      'bg-radient': (value) => ({
-        'background-image': `radial-gradient(${value},var(--tw-gradient-stops))`
-      })
-    },
-    { values: theme('radialGradients') }
-  );
-});
+import { colors } from './project.config.js';
+import {
+  radialGradientPlugin,
+  hocusPlugin,
+  textShadowPlugin,
+  textWrapPlugin,
+  ligaturesPlugin
+} from './plugins.tailwind.js';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,svelte}', './docs/**/*.{md,svelte,js}'],
+  content: ['./**/*.{html,js,svelte,md,svx,mdx}', '!./node_modules/**'],
   theme: {
     extend: {
       fontFamily: {
@@ -23,7 +17,7 @@ export default {
         mono: ['JetBrains Mono']
       },
       colors: {
-        primary: tailwindColors,
+        primary: colors.tailwindColors,
         'text-body': {
           DEFAULT: 'theme(colors.neutral.500)',
           dark: 'theme(colors.neutral.400)'
@@ -44,42 +38,14 @@ export default {
       borderColor: {
         main: {
           DEFAULT: 'theme(colors.neutral.300/50)',
-          dark: 'theme(colors.neutral.700/50)'
+          dark: 'theme(colors.neutral.800)'
         }
+      },
+      transitionTimingFunction: {
+        'back-out': 'cubic-bezier(0.34, 1.56, 0.64, 1)'
       }
     }
   },
-  plugins: [
-    radialGradientPlugin,
-    plugin(function ({ matchUtilities, addUtilities, theme }) {
-      // Add text-shadow utilities
-      matchUtilities(
-        {
-          'text-shadow': (value) => ({
-            textShadow: value
-          })
-        },
-        {
-          values: theme('textShadow')
-        }
-      ),
-        addUtilities({
-          // Add font-ligatures utilities
-          '.ligatures-normal': {
-            fontVariantLigatures: 'normal'
-          },
-          '.ligatures-none': {
-            fontVariantLigatures: 'none'
-          },
-          // Add text-wrap utilities
-          '.text-wrap-none': {
-            textWrap: 'none'
-          },
-          '.text-wrap-balance': {
-            textWrap: 'balance'
-          }
-        });
-    })
-  ],
+  plugins: [radialGradientPlugin, hocusPlugin, textShadowPlugin, textWrapPlugin, ligaturesPlugin],
   darkMode: 'class'
 };
