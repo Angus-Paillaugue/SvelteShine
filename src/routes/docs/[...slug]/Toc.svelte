@@ -10,20 +10,14 @@
   let { headings, root = false } = $props();
   let headingScrolls = $state({});
   const topTriggerOffset = 10;
-  let indicatorHeight = spring(
-    0,
-    {
-      stiffness: 0.1,
-      damping: 0.25
-    }
-  );
-  let indicatorCoords = spring(
-    0,
-    {
-      stiffness: 0.05,
-      damping: 0.25
-    }
-  );
+  let indicatorHeight = spring(0, {
+    stiffness: 0.1,
+    damping: 0.25
+  });
+  let indicatorCoords = spring(0, {
+    stiffness: 0.05,
+    damping: 0.25
+  });
 
   afterNavigate(load);
   onMount(load);
@@ -101,13 +95,13 @@
 {#if headings.length > 0}
   <div>
     {#if root}
-      <h6 class="m-0 flex flex-row items-center gap-1 mb-1 text-base font-medium">
+      <h6 class="m-0 mb-1 flex flex-row items-center gap-1 text-base font-medium">
         <Icon icon="line-md:menu-unfold-right" class="size-4" />On this page
       </h6>
     {/if}
 
     <ol
-      class={cn(root ? 'relative border-l border-main pl-4 dark:border-main-dark py-1' : 'ml-1.5')}
+      class={cn(root ? 'relative border-l border-main py-1 pl-4 dark:border-main-dark' : 'ml-1.5')}
     >
       {#if root}
         <div

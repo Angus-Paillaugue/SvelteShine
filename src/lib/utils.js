@@ -111,7 +111,6 @@ export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
-
 /**
  * Converts a string into a slug by replacing spaces with hyphens.
  *

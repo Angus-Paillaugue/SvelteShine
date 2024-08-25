@@ -14,24 +14,20 @@
 
   let selectedIndex = $state(0);
   let commandsContainer = $state();
-  let underlineWidth = spring(
-    0,
-    {
-      stiffness: 0.1,
-      damping: 0.25
-    }
-  );
-  let underlineCoords = spring(
-    0,
-    {
-      stiffness: 0.1,
-      damping: 0.25
-    }
-  );
+  let underlineWidth = spring(0, {
+    stiffness: 0.1,
+    damping: 0.25
+  });
+  let underlineCoords = spring(0, {
+    stiffness: 0.1,
+    damping: 0.25
+  });
 
   // Update the underline width and position based on the selected index
   $effect(() => {
-    const selectedItem = commandsContainer.querySelector('ul > li:nth-child(' + (selectedIndex + 1) + ')');
+    const selectedItem = commandsContainer.querySelector(
+      'ul > li:nth-child(' + (selectedIndex + 1) + ')'
+    );
     const left = selectedItem.offsetLeft;
     const width = selectedItem.offsetWidth;
 
@@ -40,12 +36,12 @@
   });
 
   // If a syncKey is provided, create a key in the syncKey store and update the selected index accordingly
-  if(syncKey) {
-    $syncKeyStore = {[syncKey]: 0};
+  if (syncKey) {
+    $syncKeyStore = { [syncKey]: 0 };
 
     // Set the selected index from the syncKey store
     syncKeyStore.subscribe((value) => {
-      if(value[syncKey] !== undefined) {
+      if (value[syncKey] !== undefined) {
         selectedIndex = value[syncKey] % commands.length;
       }
     });
@@ -53,11 +49,11 @@
 
   // Update the selected index when the syncKey changes
   $effect(() => {
-    if(!syncKey) return;
+    if (!syncKey) return;
 
     // Set the selected index to the syncKey store
     $syncKeyStore[syncKey] = selectedIndex;
-  })
+  });
 </script>
 
 <div class="commands mb-4 w-full" bind:this={commandsContainer}>
@@ -69,7 +65,7 @@
         <li class="mb-0 list-none">
           <button
             onclick={() => (selectedIndex = i)}
-            class="relative flex cursor-pointer list-none flex-row items-center gap-2 overflow-visible lenis-prevent px-4 py-2 text-lg font-bold"
+            class="lenis-prevent relative flex cursor-pointer list-none flex-row items-center gap-2 overflow-visible px-4 py-2 text-lg font-bold"
           >
             {command.name}
           </button>

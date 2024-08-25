@@ -2,8 +2,7 @@
   import { cn } from '$lib/utils';
   const { children, class: className, href, type = 'normal', ...restProps } = $props();
 
-  const baseClasses =
-    'px-4 py-2 text-lg block rounded active:scale-90 transition-all font-medium';
+  const baseClasses = 'px-4 py-2 text-lg block rounded active:scale-90 transition-all font-medium';
 
   const typeClasses = {
     normal:

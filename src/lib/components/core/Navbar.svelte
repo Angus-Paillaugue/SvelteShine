@@ -18,7 +18,12 @@
 
   <div class="flex flex-row items-center gap-2 max-xl:hidden">
     {#each sideBar.socials.list as { name, url, icon }}
-      <a href={url} target={sideBar.socials.target ?? '_self'} class="h-fit rounded p-2" id="{name}-link">
+      <a
+        href={url}
+        target={sideBar.socials.target ?? '_self'}
+        class="h-fit rounded p-2"
+        id="{name}-link"
+      >
         <Icon {icon} class="size-6" />
       </a>
     {/each}

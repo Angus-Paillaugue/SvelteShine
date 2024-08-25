@@ -105,7 +105,7 @@
   ></div>
   <div class="fixed inset-0 z-50 p-4 sm:p-6 md:p-12">
     <div
-      class="no-scrollbar mx-auto max-h-full w-full max-w-screen-md overflow-hidden overflow-y-auto lenis-prevent rounded-2xl border border-main bg-neutral-100 dark:border-main-dark dark:bg-neutral-950 dark:text-white"
+      class="no-scrollbar lenis-prevent mx-auto max-h-full w-full max-w-screen-md overflow-hidden overflow-y-auto rounded-2xl border border-main bg-neutral-100 dark:border-main-dark dark:bg-neutral-950 dark:text-white"
       transition:scale={{ start: 0.8, duration: 200 }}
       onscroll={onResultsScroll}
     >

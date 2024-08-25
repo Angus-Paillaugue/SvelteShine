@@ -2,19 +2,18 @@
   // Import stylesheets
   import '../code.css';
   import '../app.css';
+  import 'lenis/dist/lenis.css';
   import Toasts from '$lib/components/core/Toasts.svelte';
   import { ModeWatcher, mode } from 'mode-watcher';
   import { page } from '$app/stores';
   import { project } from '$conf';
   import PageLoader from '$lib/components/core/PageLoader.svelte';
-  import Lenis from 'lenis'
+  import Lenis from 'lenis';
   import { onMount } from 'svelte';
-  import 'lenis/dist/lenis.css'
 
   onMount(() => {
     const lenis = new Lenis({
-      prevent: (node) => node.classList.contains('lenis-prevent'),
-      
+      prevent: (node) => node.classList.contains('lenis-prevent')
     });
 
     function raf(time) {
@@ -22,8 +21,7 @@
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-  })
-
+  });
 
   const { children } = $props();
 

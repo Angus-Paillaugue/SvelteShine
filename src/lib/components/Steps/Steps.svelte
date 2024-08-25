@@ -1,11 +1,10 @@
 <script>
   import { cn } from '$lib/utils';
 
-  const { children, class:className, ...restProps } = $props();
+  const { children, class: className, ...restProps } = $props();
 </script>
 
-
-<ol role="list" class={cn("list-none steps", className)} {...restProps}>
+<ol role="list" class={cn('steps list-none', className)} {...restProps}>
   {@render children()}
 </ol>
 

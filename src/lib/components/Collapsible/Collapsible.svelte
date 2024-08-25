@@ -18,7 +18,9 @@
    */
   function setTabIndex() {
     const details = collapsible.querySelector('.collapsible-details');
-    const detailsElements = details.querySelectorAll('a, button, input, select, textarea, pre.shiki');
+    const detailsElements = details.querySelectorAll(
+      'a, button, input, select, textarea, pre.shiki'
+    );
 
     detailsElements.forEach((el) => {
       if (open) {

@@ -8,13 +8,12 @@ export default function imageZoomPlugin() {
     // On image click, create a new div with the image and append it to the body
     image.addEventListener('click', onImageClick);
     image.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter') {
+      if (e.key === 'Enter') {
         onImageClick(e);
       }
     });
-  })
+  });
 }
-
 
 /**
  * Handles the click event on an image to create an image zoom container.
@@ -22,8 +21,7 @@ export default function imageZoomPlugin() {
  */
 function onImageClick(e) {
   // If there is already an image zoom container, return
-  if (document.querySelector('.zoom-container'))
-    return;
+  if (document.querySelector('.zoom-container')) return;
   // Create a new div with the image
   const imageZoomContainer = document.createElement('div');
   // Clone the original image
@@ -40,14 +38,14 @@ function onImageClick(e) {
 
   // For animation to work, we need to wait for the next frame
   setTimeout(() => {
-    imageZoomContainer.classList.remove(...'scale-0'.split(" "));
+    imageZoomContainer.classList.remove('scale-0');
     imageZoomContainer.classList.add(...'scale-100 flex'.split(' '));
-  }, 0)
+  }, 0);
 
   // On click, remove the image zoom container
   imageZoomContainer.addEventListener('click', () => {
     imageZoomContainer.classList.remove(...'scale-100 flex'.split(' '));
-    imageZoomContainer.classList.add(...'scale-0'.split(' '));
+    imageZoomContainer.classList.add('scale-0');
     setTimeout(() => {
       imageZoomContainer.remove();
     }, 300);

@@ -11,7 +11,7 @@
   import { cn } from '$lib/utils';
 
   const pages = getTree();
-  let theme = $state('dark')
+  let theme = $state('dark');
   let { open = $bindable(false), style = 'details' } = $props();
 
   // Close the mobile sidebar on navigation
@@ -34,14 +34,18 @@
   <!-- Sidebar heading -->
   <div class="flex flex-col pl-4 pr-2 pt-4">
     <a href="/">
-      <h3 class="m-0 flex flex-row gap-4 items-center">
-        <img src="/logos/{project.name}-{theme}.svg" alt="{project.name}'s logo" class="w-12 h-8 object-contain">
+      <h3 class="m-0 flex flex-row items-center gap-4">
+        <img
+          src="/logos/{project.name}-{theme}.svg"
+          alt="{project.name}'s logo"
+          class="h-8 w-12 object-contain"
+        />
         {project.name}
       </h3>
     </a>
     <span class="mb-2 mt-4 grow border-b border-main dark:border-main-dark"></span>
   </div>
-  <div class="grow overflow-y-auto lenis-prevent">
+  <div class="lenis-prevent grow overflow-y-auto">
     <Sidebar.PageList {pages} root={true} {style} />
   </div>
   <!-- Navbar right side on desktop is on the sidebar on mobile -->
