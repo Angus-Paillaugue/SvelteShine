@@ -1,11 +1,11 @@
 <script>
-  import { newToast } from '$lib/stores';
+  import { newToast, syncKeyStore } from '$lib/stores';
   import Icon from '@iconify/svelte';
   import { createHighlighter } from 'shiki';
   import { colors } from '$conf';
   import { spring } from 'svelte/motion';
 
-  const { commands } = $props();
+  const { commands, syncKey } = $props();
   const { codeBlockTheme } = colors;
   const highlighter = createHighlighter({
     themes: [codeBlockTheme],
@@ -29,6 +29,7 @@
     }
   );
 
+  // Update the underline width and position based on the selected index
   $effect(() => {
     const selectedItem = commandsContainer.querySelector('ul > li:nth-child(' + (selectedIndex + 1) + ')');
     const left = selectedItem.offsetLeft;
@@ -37,6 +38,26 @@
     $underlineCoords = left;
     $underlineWidth = width;
   });
+
+  // If a syncKey is provided, create a key in the syncKey store and update the selected index accordingly
+  if(syncKey) {
+    $syncKeyStore = {[syncKey]: 0};
+
+    // Set the selected index from the syncKey store
+    syncKeyStore.subscribe((value) => {
+      if(value[syncKey] !== undefined) {
+        selectedIndex = value[syncKey] % commands.length;
+      }
+    });
+  }
+
+  // Update the selected index when the syncKey changes
+  $effect(() => {
+    if(!syncKey) return;
+
+    // Set the selected index to the syncKey store
+    $syncKeyStore[syncKey] = selectedIndex;
+  })
 </script>
 
 <div class="commands mb-4 w-full" bind:this={commandsContainer}>

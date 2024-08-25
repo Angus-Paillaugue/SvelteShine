@@ -117,7 +117,8 @@ export const pages = [
       { name: 'Images', icon: 'material-symbols:imagesmode' },
       { name: 'Api-reference', icon: 'mdi:api' },
       { name: 'Tables', icon: 'material-symbols:table-rows-narrow' },
-      { name: 'ComponentPreview', icon: 'iconamoon:component-fill' }
+      { name: 'ComponentPreview', icon: 'iconamoon:component-fill' },
+      { name: 'Steps', icon: 'material-symbols:steppers' }
     ]
   }
 ];

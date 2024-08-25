@@ -42,6 +42,22 @@ Here is a simple config exemple
 Here is what the previous config outputs
 <Commands commands={commands} />
 
+# SyncKey
+
+You can use the `syncKey` property to sync multiple `Commands` components selected elements. For exemple :
+
+```svelte
+<Commands commands={commands} syncKey="test" />
+<Commands commands={commands} syncKey="test" />
+```
+
+Gives the following result :
+
+
+<Commands commands={commands} syncKey="test" />
+<Commands commands={commands} syncKey="test" />
+
+
 # Definition
 
 <Definition
@@ -51,4 +67,5 @@ Here is what the previous config outputs
   <Definition.Prop type="array" path="commands" required>The name of the component.</Definition.Prop>
   <Definition.Prop type="string" path="commands.name" required>The name of the file or directory.</Definition.Prop>
   <Definition.Prop type="string" path="commands.command" required>The actual command displayed.</Definition.Prop>
+  <Definition.Prop type="string" path="syncKey">A key used to identify and sync multiple components selected item.</Definition.Prop>
 </Definition>

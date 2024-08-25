@@ -46,7 +46,6 @@
     "remark-attr": "^0.11.1",
     "remark-flexible-code-titles": "^1.2.0",
     "shiki": "^1.11.1",
-    "svelte-i18n": "^4.0.0",
     "tailwind-merge": "^2.5.0",
     "unist-util-visit": "^5.0.0"
   }

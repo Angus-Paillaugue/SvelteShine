@@ -12,8 +12,8 @@
 }
 
 code {
-  counter-reset: step;
-  counter-increment: step 0;
+  counter-reset: codeStep;
+  counter-increment: codeStep 0;
   direction: ltr;
   -moz-tab-size: 2;
   -o-tab-size: 2;
@@ -41,8 +41,8 @@ code {
 }
 
 pre.line-numbers > code .line::before {
-  content: counter(step);
-  counter-increment: step;
+  content: counter(codeStep);
+  counter-increment: codeStep;
   font-variant-numeric: tabular-nums;
   @apply -ml-2 mr-2 inline-block w-6 text-right text-text-body dark:text-text-body-dark;
 }
@@ -63,7 +63,7 @@ code .line {
   background-color: rgba(var(--line-added-bg), var(--line-added-opacity));
 }
 code .line.diff::before {
-  counter-increment: step;
+  counter-increment: codeStep;
   font-variant-numeric: tabular-nums;
   @apply mr-2 inline-block w-6 text-right;
 }
@@ -128,7 +128,7 @@ code:not(pre code, .command) {
 
 /* Lists */
 #pageContainer ul:not(.tree ul, .commands ul, .collapsible-details ul, .collapsible-details ol),
-#pageContainer ol {
+#pageContainer ol:not(.steps) {
   @apply my-5 list-outside list-none pl-0 ps-6;
 }
 
@@ -140,7 +140,7 @@ code:not(pre code, .command) {
   @apply absolute -left-[1.25rem] top-[12px] h-0.5 w-3 rounded-full bg-neutral-300 content-[''] dark:bg-neutral-700;
 }
 
-#pageContainer ol > li {
+#pageContainer ol:not(.steps) > li {
   @apply list-decimal;
 }
 

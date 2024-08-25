@@ -1,11 +1,11 @@
 import { createHighlighter } from 'shiki';
 import { parse } from 'node-html-parser';
-// If you want to add other transformers for code blocks visit https://shiki.style/packages/transformers
+
 import {
   transformerNotationDiff,
   transformerMetaHighlight,
   transformerNotationHighlight
-} from '@shikijs/transformers';
+} from '@shikijs/transformers'; /** @see https://shiki.style/packages/transformers  */
 import { colors } from '../../project.config.js';
 
 const { codeBlockTheme } = colors;
