@@ -112,7 +112,7 @@ hr {
 
 /* Others */
 kbd {
-  @apply rounded-md bg-neutral-300 px-2 py-1 font-mono text-sm text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200;
+  @apply rounded bg-neutral-300 px-2 py-1 font-mono text-sm text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200;
 }
 
 ul:not(.splide__list) {

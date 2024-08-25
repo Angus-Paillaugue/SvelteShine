@@ -69,7 +69,7 @@
         <li class="mb-0 list-none">
           <button
             onclick={() => (selectedIndex = i)}
-            class="relative flex cursor-pointer list-none flex-row items-center gap-2 overflow-visible px-4 py-2 text-lg font-bold"
+            class="relative flex cursor-pointer list-none flex-row items-center gap-2 overflow-visible lenis-prevent px-4 py-2 text-lg font-bold"
           >
             {command.name}
           </button>
@@ -82,7 +82,7 @@
     ></span>
   </div>
 
-  <div class="overflow-hidden rounded-md border border-main dark:border-main-dark">
+  <div class="overflow-hidden rounded border border-main dark:border-main-dark">
     <div class="flex flex-row gap-2 px-4 py-2">
       <div class="size-3 rounded-full bg-neutral-300 dark:bg-neutral-800"></div>
       <div class="size-3 rounded-full bg-neutral-300 dark:bg-neutral-800"></div>

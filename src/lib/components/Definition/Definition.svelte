@@ -5,7 +5,7 @@
 </script>
 
 <div
-  class={cn('mt-8 rounded-md border border-main dark:border-main-dark', className)}
+  class={cn('mt-8 rounded border border-main dark:border-main-dark', className)}
   id="definition-{name}"
   {...restProps}
 >

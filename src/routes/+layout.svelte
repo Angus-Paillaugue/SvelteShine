@@ -7,14 +7,53 @@
   import { page } from '$app/stores';
   import { project } from '$conf';
   import PageLoader from '$lib/components/core/PageLoader.svelte';
+  import Lenis from 'lenis'
+  import { onMount } from 'svelte';
+  import 'lenis/dist/lenis.css'
+
+  onMount(() => {
+    const lenis = new Lenis({
+      prevent: (node) => node.classList.contains('lenis-prevent'),
+      
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  })
+
 
   const { children } = $props();
 
   // Watch for mode changes
   $effect(() => {
+    // Set mode class
     $mode === 'dark'
       ? document.documentElement.classList.add('dark')
       : document.documentElement.classList.remove('dark');
+
+    // Set favicon
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      link.type = 'image/png';
+      link.sizes = '32x32';
+      document.head.appendChild(link);
+    }
+    link.href = `/favicon/${$mode}/favicon-32x32.png`;
+
+    // Set apple touch icon
+    let appleTouchIcon = document.querySelector("link[rel~='apple-touch-icon']");
+    if (!appleTouchIcon) {
+      appleTouchIcon = document.createElement('link');
+      appleTouchIcon.rel = 'apple-touch-icon';
+      appleTouchIcon.sizes = '180x180';
+      document.head.appendChild(appleTouchIcon);
+    }
+    appleTouchIcon.href = `/favicon/${$mode}/apple-touch-icon.png`;
   });
 </script>
 

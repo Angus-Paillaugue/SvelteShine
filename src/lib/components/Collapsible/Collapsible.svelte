@@ -35,7 +35,7 @@
 
 <div
   class={cn(
-    'collapsible mb-6 w-full overflow-hidden rounded-md border border-main bg-body transition-colors dark:border-main-dark dark:bg-neutral-950',
+    'collapsible mb-6 w-full overflow-hidden rounded border border-main bg-body transition-colors dark:border-main-dark dark:bg-neutral-950',
     className
   )}
   {...restProps}

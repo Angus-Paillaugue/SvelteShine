@@ -43,6 +43,9 @@ export default {
       },
       transitionTimingFunction: {
         'back-out': 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+      },
+      borderRadius: {
+        DEFAULT: '0.375rem'
       }
     }
   },

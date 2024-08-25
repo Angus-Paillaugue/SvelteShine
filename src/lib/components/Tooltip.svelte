@@ -104,7 +104,7 @@
     onmouseleave={hideTooltip}
   >
     <div
-      class="relative rounded-md bg-neutral-200 p-2 text-sm text-text-body dark:bg-neutral-950 dark:text-text-body-dark"
+      class="relative rounded bg-neutral-200 p-2 text-sm text-text-body dark:bg-neutral-950 dark:text-text-body-dark"
     >
       {@render children()}
       <!-- Tooltip arrow -->

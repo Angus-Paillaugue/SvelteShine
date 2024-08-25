@@ -1,4 +1,5 @@
 import { pages, docsUrlStart } from '$conf';
+import { slugify } from './utils';
 
 /**
  * Retrieves the tree structure of pages with added metadata.
@@ -14,7 +15,7 @@ export function getTree() {
   function traverseAndAddMetadata(pages, baseUrl = '') {
     return pages.map((page) => {
       if (typeof page === 'string') {
-        const pageUrl = baseUrl + '/' + page;
+        const pageUrl = slugify(baseUrl + '/' + page);
         // If the page is a string, create an object with the name and add metadata
         const docKey = Object.keys(docs)
           .map((el) => {
@@ -23,7 +24,7 @@ export function getTree() {
           })
           .filter((el) => el);
         const metadata = docs[docKey] || {};
-        const slug = pageUrl.replace(docsUrlStart + '/', '');
+        const slug = slugify(pageUrl.replace(docsUrlStart + '/', ''));
         return {
           name: page,
           ...metadata.metadata,
@@ -46,8 +47,8 @@ export function getTree() {
           })
           .filter((el) => el);
         const metadata = docs[docKey] || {};
-        const pageUrl = baseUrl + '/' + page.name;
-        const slug = pageUrl.replace(docsUrlStart + '/', '');
+        const pageUrl = slugify(baseUrl + '/' + page.name);
+        const slug = slugify(pageUrl.replace(docsUrlStart + '/', ''));
         return {
           ...page,
           ...metadata.metadata,

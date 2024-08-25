@@ -9,7 +9,7 @@
     <h3 class="m-0 mb-2">{title}</h3>
   {/if}
   <div
-    class="component-preview relative flex min-h-[20rem] items-center overflow-auto rounded-xl bg-primary-400 before:absolute before:inset-0 before:opacity-100 before:transition-opacity before:content-[''] before:hover:opacity-0 lg:min-h-[28rem]"
+    class="component-preview relative flex min-h-[20rem] items-center overflow-auto lenis-prevent rounded-xl bg-primary-400 before:absolute before:inset-0 before:opacity-100 before:transition-opacity before:content-[''] before:hover:opacity-0 lg:min-h-[28rem]"
   >
     <div class="z-10 mx-auto inline-block p-12">
       {@render children()}

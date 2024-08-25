@@ -37,6 +37,7 @@
     "clsx": "^2.1.1",
     "flexsearch": "^0.7.43",
     "inquirer": "^10.1.8",
+    "lenis": "^1.1.11",
     "material-file-icons": "^2.4.0",
     "mdsvex": "^0.11.2",
     "mode-watcher": "^0.4.0",

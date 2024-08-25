@@ -11,10 +11,17 @@
   import { cn } from '$lib/utils';
 
   const pages = getTree();
+  let theme = $state('dark')
   let { open = $bindable(false), style = 'details' } = $props();
 
+  // Close the mobile sidebar on navigation
   afterNavigate(() => {
     if (open) open = false;
+  });
+
+  // Watch for mode changes
+  $effect(() => {
+    theme = $mode;
   });
 </script>
 
@@ -27,17 +34,20 @@
   <!-- Sidebar heading -->
   <div class="flex flex-col pl-4 pr-2 pt-4">
     <a href="/">
-      <h3 class="m-0">{project.name}</h3>
+      <h3 class="m-0 flex flex-row gap-4 items-center">
+        <img src="/logos/{project.name}-{theme}.svg" alt="{project.name}'s logo" class="w-12 h-8 object-contain">
+        {project.name}
+      </h3>
     </a>
     <span class="mb-2 mt-4 grow border-b border-main dark:border-main-dark"></span>
   </div>
-  <div class="grow overflow-y-auto">
+  <div class="grow overflow-y-auto lenis-prevent">
     <Sidebar.PageList {pages} root={true} {style} />
   </div>
   <!-- Navbar right side on desktop is on the sidebar on mobile -->
   <div class="flex flex-row items-center justify-end gap-2 bg-inherit p-2 pr-0 xl:hidden">
     {#each sideBar.socials.list as { name, url, icon }}
-      <a href={url} target={sideBar.socials.target} class="h-fit p-1" {name}>
+      <a href={url} target={sideBar.socials.target} class="h-fit p-1" id="{name}-link">
         <Icon {icon} class="size-6" />
       </a>
     {/each}
@@ -71,6 +81,7 @@
   </div>
 </aside>
 
+<!-- Open mobile sidebar button -->
 <button
   class="fixed left-[0.5rem] top-[0.5rem] z-30 flex aspect-square h-12 flex-col items-center justify-center xl:hidden"
   onclick={() => (open = !open)}

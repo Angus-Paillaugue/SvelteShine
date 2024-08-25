@@ -104,7 +104,7 @@
       class="mx-auto grid max-w-screen-2xl grid-cols-1 gap-2 px-2 md:my-24 md:grid-cols-6 md:px-10"
     >
       <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-main p-4 text-center dark:border-main-dark max-md:rounded-t-[50px] md:col-span-3 md:rounded-tl-[50px] xl:p-8"
+        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark max-md:rounded-t-[50px] md:col-span-3 md:rounded-tl-[50px] xl:p-8"
       >
         <img
           src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fgorgeous.png&w=640&q=75"
@@ -122,7 +122,7 @@
         </div>
       </div>
       <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-main p-4 text-center dark:border-main-dark md:col-span-3 md:rounded-tr-[50px] xl:p-8"
+        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark md:col-span-3 md:rounded-tr-[50px] xl:p-8"
       >
         <img
           src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fdeveloper.png&w=640&q=75"
@@ -140,7 +140,7 @@
         </div>
       </div>
       <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-main p-4 text-center dark:border-main-dark md:col-span-2 md:rounded-bl-[50px] xl:p-8"
+        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark md:col-span-2 md:rounded-bl-[50px] xl:p-8"
       >
         <img
           src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fperformance.png&w=640&q=75"
@@ -158,7 +158,7 @@
         </div>
       </div>
       <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-main p-4 text-center dark:border-main-dark md:col-span-2 xl:p-8"
+        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark md:col-span-2 xl:p-8"
       >
         <img
           src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fconversion.png&w=640&q=75"
@@ -176,7 +176,7 @@
         </div>
       </div>
       <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded-md border border-main p-4 text-center dark:border-main-dark max-md:rounded-b-[50px] md:col-span-2 md:rounded-br-[50px] xl:p-8"
+        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark max-md:rounded-b-[50px] md:col-span-2 md:rounded-br-[50px] xl:p-8"
       >
         <img
           src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fmaintained.png&w=640&q=75"

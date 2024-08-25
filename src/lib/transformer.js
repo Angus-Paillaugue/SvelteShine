@@ -119,7 +119,7 @@ export function tableTransformer() {
       const wrapper = {
         type: 'element',
         tagName: 'div',
-        data: { hProperties: { className: 'table-container' } },
+        data: { hProperties: { className: 'table-container lenis-prevent' } },
         children: [node]
       };
 
