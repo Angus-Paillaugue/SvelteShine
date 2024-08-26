@@ -23,9 +23,9 @@
 </script>
 
 <ul
-  class={cn(
+  class={cn('tree',
     root
-      ? 'tree rounded bg-[var(--inline-code-bg)] p-4'
+      ? 'rounded bg-[var(--inline-code-bg)] p-4'
       : 'ml-1.5 border-l-2 border-neutral-700 pl-2.5',
     className
   )}

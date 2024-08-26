@@ -22,7 +22,6 @@
         href={url}
         target={sideBar.socials.target ?? '_self'}
         class="h-fit rounded p-2"
-        id="{name}-link"
         aria-label="{name} link"
       >
         <Icon {icon} class="size-6" />
@@ -36,7 +35,6 @@
 
     <!-- Toggle mode button -->
     <Button
-      id="toggleMode"
       name="Toggle mode"
       onclick={toggleMode}
       type="square ghost"

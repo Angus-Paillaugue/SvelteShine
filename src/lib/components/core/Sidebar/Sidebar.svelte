@@ -56,7 +56,6 @@
         target={sideBar.socials.target}
         class="h-fit p-1"
         aria-label="{name} link"
-        id="{name}-link"
       >
         <Icon {icon} class="size-6" />
       </a>
@@ -69,7 +68,6 @@
 
     <!-- Toggle mode button -->
     <Button
-      id="toggleMode"
       name="Toggle mode"
       onclick={toggleMode}
       type="square ghost"
