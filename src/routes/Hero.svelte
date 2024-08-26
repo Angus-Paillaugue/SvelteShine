@@ -96,7 +96,11 @@
       <div class="mt-8 flex w-full flex-row items-center justify-start gap-8">
         <Button href="/docs/{docsHomePage.name}" name="Go to docs">Get started</Button>
 
-        <Button type="ghost" name="Learn more" class="flex flex-row items-center gap-4 rounded-full">
+        <Button
+          type="ghost"
+          name="Learn more"
+          class="flex flex-row items-center gap-4 rounded-full"
+        >
           Learn more
           <Icon
             icon="line-md:arrow-right"

@@ -88,7 +88,9 @@
         transition:fly={{ y: '-100%', duration: 500, easing: backOut }}
         class="absolute right-0 top-1/2 -translate-y-1/2"
       >
-        <Button href="/docs/{docsHomePage.name}" name="Go home" class="rounded-full py-1.5">Get started</Button>
+        <Button href="/docs/{docsHomePage.name}" name="Go home" class="rounded-full py-1.5"
+          >Get started</Button
+        >
       </span>
     {/if}
   </div>

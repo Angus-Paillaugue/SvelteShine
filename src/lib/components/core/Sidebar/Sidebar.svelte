@@ -51,7 +51,13 @@
   <!-- Navbar right side on desktop is on the sidebar on mobile -->
   <div class="flex flex-row items-center justify-end gap-2 bg-inherit p-2 pr-0 xl:hidden">
     {#each sideBar.socials.list as { name, url, icon }}
-      <a href={url} target={sideBar.socials.target} class="h-fit p-1" aria-label="{name} link" id="{name}-link">
+      <a
+        href={url}
+        target={sideBar.socials.target}
+        class="h-fit p-1"
+        aria-label="{name} link"
+        id="{name}-link"
+      >
         <Icon {icon} class="size-6" />
       </a>
     {/each}

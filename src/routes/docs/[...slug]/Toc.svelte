@@ -95,7 +95,9 @@
 {#if headings.length > 0}
   <div>
     {#if root}
-      <p class="m-0 mb-1 flex flex-row items-center gap-1 text-base font-medium font-['Poppins'] text-black text-wrap-balance dark:text-white">
+      <p
+        class="m-0 mb-1 flex flex-row items-center gap-1 font-['Poppins'] text-base font-medium text-black text-wrap-balance dark:text-white"
+      >
         <Icon icon="line-md:menu-unfold-right" class="size-4" />On this page
       </p>
     {/if}
@@ -107,9 +109,7 @@
           style="top: {$indicatorCoords}px; height: {$indicatorHeight}px;"
         ></div>
       {/if}
-      <ol
-        class={cn(root ? 'border-l border-main py-1 pl-4 dark:border-main-dark' : 'ml-1.5')}
-      >
+      <ol class={cn(root ? 'border-l border-main py-1 pl-4 dark:border-main-dark' : 'ml-1.5')}>
         {#each headings as heading}
           <li class="mb-2 list-none first:mt-2 last:m-0">
             <a

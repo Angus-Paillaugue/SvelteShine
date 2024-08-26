@@ -51,7 +51,12 @@
       <p class="mb-0 mt-2 text-sm">
         {@html toast.message}
       </p>
-      <button class="absolute right-2 top-2" name="Remove toast" aria-label="Remove toast" on:click={() => removeToast(toast.id)}>
+      <button
+        class="absolute right-2 top-2"
+        name="Remove toast"
+        aria-label="Remove toast"
+        on:click={() => removeToast(toast.id)}
+      >
         <Icon icon="material-symbols:close-rounded" class="size-5" />
       </button>
     </div>

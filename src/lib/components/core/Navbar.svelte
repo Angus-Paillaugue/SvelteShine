@@ -53,7 +53,12 @@
       {/if}
     </Button>
 
-    <Button onclick={() => ($searchModalShown = true)} name="Open Search" type="square ghost" id="search">
+    <Button
+      onclick={() => ($searchModalShown = true)}
+      name="Open Search"
+      type="square ghost"
+      id="search"
+    >
       <Icon icon="line-md:search" class="size-6" />
     </Button>
   </div>

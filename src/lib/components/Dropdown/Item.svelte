@@ -14,7 +14,7 @@
     {@render children()}
   </a>
 {:else}
-  <button class={classes}  {name} aria-label={name} {...restProps}>
+  <button class={classes} {name} aria-label={name} {...restProps}>
     {@render children()}
   </button>
 {/if}

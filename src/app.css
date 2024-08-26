@@ -103,12 +103,12 @@ hr {
 }
 /* Page links */
 .link {
-  @apply relative inline-flex flex-row items-center gap-1 border-b border-primary-400/50 bg-primary-300/30 text-inherit no-underline transition-colors hocus:border-primary-400/75 dark:border-primary-500/40 dark:bg-primary-500/10 dark:text-primary-500 text-primary-900;
+  @apply relative inline-flex flex-row items-center gap-1 border-b border-primary-400/50 bg-primary-300/30 text-inherit text-primary-900 no-underline transition-colors hocus:border-primary-400/75 dark:border-primary-500/40 dark:bg-primary-500/10 dark:text-primary-500;
 }
 
 /* Others */
 kbd {
-  @apply rounded bg-neutral-300 px-2 py-1 font-mono font-normal text-sm text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200;
+  @apply rounded bg-neutral-300 px-2 py-1 font-mono text-sm font-normal text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200;
 }
 
 mark {

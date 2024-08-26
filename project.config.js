@@ -42,7 +42,7 @@ export const project = {
   description: 'A simple documentation template for SvelteKit',
   author: 'Angus Paillaugue',
   keywords: 'svelte, sveltekit, documentation, template',
-  domain: 'https://svelte-shine.paillaugue.fr',
+  domain: 'https://svelte-shine.paillaugue.fr'
 };
 
 // Homepage config
