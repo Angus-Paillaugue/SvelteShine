@@ -101,7 +101,7 @@
         <Icon icon="line-md:menu-unfold-right" class="size-4" />On this page
       </p>
     {/if}
-    <div class="relative">
+    <div class={cn(root ? 'pl-4 py-1 relative border-l border-main dark:border-main-dark' : "ml-2")}>
       <!-- TOC Indicator -->
       {#if root}
         <div
@@ -109,7 +109,7 @@
           style="top: {$indicatorCoords}px; height: {$indicatorHeight}px;"
         ></div>
       {/if}
-      <ol class={cn(root ? 'border-l border-main py-1 pl-4 dark:border-main-dark' : 'ml-1.5')}>
+      <ol>
         {#each headings as heading}
           <li class="mb-2 list-none first:mt-2 last:m-0">
             <a

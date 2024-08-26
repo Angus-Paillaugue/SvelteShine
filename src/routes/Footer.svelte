@@ -41,42 +41,42 @@
 
     <div class="grid grid-cols-2">
       <ul>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="#pricing"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Pricing</a
           >
         </li>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="/changelog"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Changelog</a
           >
         </li>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="/blog"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Blog</a
           >
         </li>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="/contact"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Contact</a
           >
         </li>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="/help"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Help-center</a
           >
         </li>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="/careers"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
@@ -85,42 +85,42 @@
         </li>
       </ul>
       <ul>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="#pricing"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Pricing</a
           >
         </li>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="/changelog"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Changelog</a
           >
         </li>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="/blog"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Blog</a
           >
         </li>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="/contact"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Contact</a
           >
         </li>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="/help"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
             >Help-center</a
           >
         </li>
-        <li class="m-0 mb-1 list-none text-base font-semibold">
+        <li class="m-0 mb-2 list-none text-base font-semibold">
           <a
             href="/careers"
             class="text-text-heading-dark transition-colors hocus:text-text-body dark:text-text-heading dark:hocus:text-text-body-dark"
