@@ -24,7 +24,6 @@
 
   /**
    * On window load event handler.
-   *
    */
   function load() {
     if (!root) return;

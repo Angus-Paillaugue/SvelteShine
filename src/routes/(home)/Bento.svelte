@@ -15,9 +15,11 @@
 
   onMount(() => {
     // For updating the progress bar when it intersects with the viewport
-    const observer = new IntersectionObserver(intersect, {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(intersect);
+    }, {
       threshold: 1,
-      rootMargin: '0px 0px -100px 0px'
+      rootMargin: '0px 0px -150px 0px'
     });
     // Observe both of the progress bars
     const accessibilityProgress = document.getElementById('accessibilityProgress');
@@ -26,7 +28,7 @@
     observer.observe(performanceProgress);
 
     // Function to update the progress bar based on intersection
-    function intersect([entry]) {
+    function intersect(entry) {
       if (entry.target === accessibilityProgress) {
         accessibilityScore.set(entry.isIntersecting ? 100 : 0);
       } else {
@@ -77,7 +79,7 @@
           />
         </svg>
         <span
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-bold !text-white"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-bold dark:text-text-heading-dark"
         >
           {Math.round($accessibilityScore)}%
         </span>
@@ -153,7 +155,7 @@
   <!-- Configuration -->
   <div
     class="relative flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark lg:rounded-bl-[50px] xl:p-8"
-    use:reveal
+    use:reveal={{ bottomMargin: 200 }}
   >
     <picture class="w-[80%]">
       <source media="(max-width: 500px)" srcset="/homepage/editConfiguration_480.webp" />
@@ -180,7 +182,7 @@
   <!-- Performance -->
   <div
     class="relative flex min-h-[400px] flex-col items-center gap-2 overflow-hidden rounded rounded-b-[50px] border border-main p-4 text-center dark:border-main-dark lg:rounded-bl-none xl:p-8"
-    use:reveal={{ bottomMargin: 200 }}
+    use:reveal
   >
     <div class="mx-auto flex h-2/3 w-[80%] flex-col items-center justify-start">
       <!-- Progress bar -->
@@ -210,7 +212,7 @@
           />
         </svg>
         <span
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-bold !text-white"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-bold dark:text-text-heading-dark"
         >
           {Math.round($performanceScore)}%
         </span>

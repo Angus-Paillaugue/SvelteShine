@@ -1,22 +1,24 @@
 <script>
-  import Bento from './Bento.svelte';
-  import Footer from './Footer.svelte';
-  import Hero from './Hero.svelte';
-  import { project, pages } from '$conf';
-  import { onMount } from 'svelte';
+  import { project } from '$conf';
   import { fly } from 'svelte/transition';
   import { Button } from '$lib/components';
   import { backOut } from 'svelte/easing';
+  import { afterNavigate } from '$app/navigation';
 
-  const docsHomePage = getDocsHomePage();
   let getStartedButtonNavShown = $state(false);
+  const { data, children } = $props();
+  const { docsHomePage } = data;
 
-  onMount(() => {
+  afterNavigate(() => {
     // For displaying the cta in the navbar when the user scrolls past the cta section
     const observer = new IntersectionObserver(intersect, { threshold: 0 });
     // Observe the cta section
     const ctaSection = document.getElementById('cta');
-    observer.observe(ctaSection);
+    if(ctaSection) {
+      observer.observe(ctaSection);
+    }else {
+      getStartedButtonNavShown = true;
+    }
 
     /**
      * Function to handle the intersection of the node and update the navbar cta display state based on intersection.
@@ -30,45 +32,16 @@
       observer.disconnect();
     };
   });
-
-  /**
-   * Function to get the documentation home page.
-   *
-   * @returns {page}
-   */
-  function getDocsHomePage() {
-    // Get the first page that doesn't have children in the pages lists from the config.
-    return pages.filter((page) => !page?.children)[0];
-  }
 </script>
-
-<svelte:head>
-  <title>{project.name}</title>
-  <meta name="description" content={project.description} />
-  <meta property="og:description" content={project.description} />
-  <meta property="twitter:description" content={project.description} />
-
-  <style>
-    @keyframes text {
-      0%,
-      100% {
-        background-size: 200% 200%;
-        background-position: left center;
-      }
-      50% {
-        background-size: 200% 200%;
-        background-position: right center;
-      }
-    }
-  </style>
-</svelte:head>
 
 <!-- Navbar -->
 <nav
   class="fixed left-1/2 top-5 z-30 flex h-16 w-[calc(100vw-40px)] -translate-x-1/2 gap-x-6 rounded-full border border-main bg-neutral-50/75 p-4 backdrop-blur-md dark:border-main-dark dark:bg-neutral-600/50 md:w-[584px]"
 >
   <div class="relative h-full w-full">
-    <div
+    <a
+      href="/"
+      aria-label="Go to the home page"
       class="absolute top-1/2 w-fit -translate-y-1/2 transition-all duration-500 ease-back-out {getStartedButtonNavShown
         ? 'left-0'
         : 'left-1/2 -translate-x-1/2'}"
@@ -79,7 +52,7 @@
       >
         {project.name}
       </h1>
-    </div>
+    </a>
 
     {#if getStartedButtonNavShown}
       <span
@@ -94,12 +67,6 @@
   </div>
 </nav>
 
-<div class="isolate flex w-full flex-col bg-body-dark dark:bg-body">
-  <main class="overflow-clip rounded-b-[32px] bg-body dark:bg-body-dark">
-    <Hero {docsHomePage} />
+<div class="h-16"></div>
 
-    <Bento />
-  </main>
-
-  <Footer />
-</div>
+{@render children()}
