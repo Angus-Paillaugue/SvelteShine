@@ -51,7 +51,7 @@
   <!-- Navbar right side on desktop is on the sidebar on mobile -->
   <div class="flex flex-row items-center justify-end gap-2 bg-inherit p-2 pr-0 xl:hidden">
     {#each sideBar.socials.list as { name, url, icon }}
-      <a href={url} target={sideBar.socials.target} class="h-fit p-1" id="{name}-link">
+      <a href={url} target={sideBar.socials.target} class="h-fit p-1" aria-label="{name} link" id="{name}-link">
         <Icon {icon} class="size-6" />
       </a>
     {/each}
@@ -63,7 +63,8 @@
 
     <!-- Toggle mode button -->
     <Button
-      name="toggleMode"
+      id="toggleMode"
+      name="Toggle mode"
       onclick={toggleMode}
       type="square ghost"
       class="bg-neutral-200/50 hocus:bg-transparent dark:bg-neutral-700/50 hocus:dark:bg-transparent"
@@ -79,7 +80,7 @@
       {/if}
     </Button>
 
-    <Button onclick={() => ($searchModalShown = true)} type="square ghost">
+    <Button onclick={() => ($searchModalShown = true)} name="Open search" type="square ghost">
       <Icon icon="line-md:search" class="size-6" />
     </Button>
   </div>
@@ -89,7 +90,9 @@
 <button
   class="fixed left-[0.5rem] top-[0.5rem] z-30 flex aspect-square h-12 flex-col items-center justify-center xl:hidden"
   onclick={() => (open = !open)}
-  name="search"
+  id="openSidebar"
+  name="Open sidebar"
+  aria-label="Open sidebar"
 >
   <Icon icon="line-md:menu" class="size-6" />
 </button>

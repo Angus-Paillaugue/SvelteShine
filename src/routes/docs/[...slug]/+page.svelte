@@ -105,12 +105,7 @@
   <meta property="og:description" content={data?.description ?? project.description} />
   <meta property="twitter:description" content={data?.description ?? project.description} />
   <!-- Adding katex stylesheet for math support -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css"
-    integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET"
-    crossorigin="anonymous"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 </svelte:head>
 
 {#key data?.name}
@@ -147,7 +142,8 @@
         {#if headings.length > 0}
           <!-- Toggle toc on mobile -->
           <Button
-            name="openToc"
+            id="openToc"
+            name="Open table of contents"
             onclick={() => (mobileTocVisible = !mobileTocVisible)}
             type="square ghost"
             class="fixed right-4 top-[4.5rem] z-40 flex items-center justify-center p-3 lg:hidden"

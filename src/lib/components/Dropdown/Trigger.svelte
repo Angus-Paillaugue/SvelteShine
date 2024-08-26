@@ -6,6 +6,6 @@
   const { toggle } = getContext('dropdown');
 </script>
 
-<Button onclick={toggle} {...restProps}>
+<Button onclick={toggle} name="Toggle dropdown" {...restProps}>
   {@render children()}
 </Button>

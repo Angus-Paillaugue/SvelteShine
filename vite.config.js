@@ -1,10 +1,11 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import path from 'path';
+import viteCompression from 'vite-plugin-compression';
 import { docsUrlStart } from './project.config.js';
 
 export default defineConfig({
-  plugins: [sveltekit()],
+  plugins: [sveltekit(), viteCompression()],
   server: {
     fs: {
       allow: [

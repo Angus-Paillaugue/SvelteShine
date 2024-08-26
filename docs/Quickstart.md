@@ -5,13 +5,13 @@ projectName: SvelteShine
 ---
 
 <script>
-  import { Collapsible, Commands } from "$lib/components";
+  import { Commands } from "$lib/components";
 </script>
 
 
 # Getting Started
 
-Welcome to the {projectName}! This guide will help you get started quickly with setting up and using the project. Follow these steps to clone the repository, install dependencies, run the setup script, and start editing your documentation.
+Welcome to {projectName}! This guide will help you get started quickly with setting up and using the project. Follow these steps to clone the repository, install dependencies, run the setup script, and start editing your documentation.
 
 
 ## Prerequisites

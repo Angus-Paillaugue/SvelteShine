@@ -120,7 +120,6 @@
           />
           <input
             type="text"
-            name="search"
             id="search"
             class={cn(
               'w-full rounded-xl border border-main bg-transparent py-4 pl-10 text-xl focus:outline-none dark:border-main-dark dark:bg-transparent md:px-12',

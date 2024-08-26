@@ -80,6 +80,8 @@
 
 <button
   tabindex="0"
+  name="Open tooltip"
+  aria-label="Open tooltip"
   class={cn(
     'inline-block cursor-pointer font-semibold underline decoration-primary-600/50 decoration-dashed underline-offset-2 dark:decoration-primary-600/70',
     className

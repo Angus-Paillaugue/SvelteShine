@@ -23,6 +23,7 @@
         target={sideBar.socials.target ?? '_self'}
         class="h-fit rounded p-2"
         id="{name}-link"
+        aria-label="{name} link"
       >
         <Icon {icon} class="size-6" />
       </a>
@@ -35,7 +36,8 @@
 
     <!-- Toggle mode button -->
     <Button
-      name="toggleMode"
+      id="toggleMode"
+      name="Toggle mode"
       onclick={toggleMode}
       type="square ghost"
       class="bg-neutral-200/50 hocus:bg-transparent dark:bg-neutral-700/50 dark:hocus:bg-transparent"
@@ -51,7 +53,7 @@
       {/if}
     </Button>
 
-    <Button onclick={() => ($searchModalShown = true)} type="square ghost" name="search">
+    <Button onclick={() => ($searchModalShown = true)} name="Open Search" type="square ghost" id="search">
       <Icon icon="line-md:search" class="size-6" />
     </Button>
   </div>

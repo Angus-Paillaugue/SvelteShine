@@ -64,6 +64,7 @@
       {#each commands as command, i}
         <li class="mb-0 list-none">
           <button
+            name="Change command"
             onclick={() => (selectedIndex = i)}
             class="lenis-prevent relative flex cursor-pointer list-none flex-row items-center gap-2 overflow-visible px-4 py-2 text-lg font-bold"
           >
@@ -94,6 +95,8 @@
 
       <!-- Copy command button -->
       <button
+        name="Copy code"
+        aria-label="Copy code"
         tabindex="0"
         class="absolute right-2 top-1/2 flex aspect-square h-[2.5rem] -translate-y-1/2 items-center justify-center rounded-full bg-neutral-950 p-1 text-white transition focus:outline-primary-200 active:scale-90 hocus:scale-105"
         onclick={(e) => {
