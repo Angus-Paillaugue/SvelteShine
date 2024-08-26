@@ -1,8 +1,10 @@
 import { error } from '@sveltejs/kit';
 import { pageBySlug } from '$lib/pages';
+import { slugify } from '$lib/utils';
 
 export async function load({ params }) {
-  const page = await pageBySlug(params.slug);
+  const slug = slugify(params.slug);
+  const page = await pageBySlug(slug);
   if (!page) error(404, 'Page not found');
 
   const pages = import.meta.glob(`/docs/**/*`, { eager: true });
@@ -13,7 +15,7 @@ export async function load({ params }) {
 
   return {
     component: component.default,
-    slug: params.slug,
+    slug,
     ...page
   };
 }

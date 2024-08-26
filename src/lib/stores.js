@@ -2,6 +2,7 @@ import { writable } from 'svelte/store';
 
 export const toasts = writable([]);
 export const searchModalShown = writable(false);
+export const syncKeyStore = writable({});
 
 /**
  * Generates a unique ID by combining the current timestamp with a random number.

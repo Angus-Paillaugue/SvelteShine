@@ -10,20 +10,14 @@
   let { headings, root = false } = $props();
   let headingScrolls = $state({});
   const topTriggerOffset = 10;
-  let indicatorHeight = spring(
-    0,
-    {
-      stiffness: 0.1,
-      damping: 0.25
-    }
-  );
-  let indicatorCoords = spring(
-    0,
-    {
-      stiffness: 0.05,
-      damping: 0.25
-    }
-  );
+  let indicatorHeight = spring(0, {
+    stiffness: 0.1,
+    damping: 0.25
+  });
+  let indicatorCoords = spring(0, {
+    stiffness: 0.05,
+    damping: 0.25
+  });
 
   afterNavigate(load);
   onMount(load);
@@ -101,34 +95,36 @@
 {#if headings.length > 0}
   <div>
     {#if root}
-      <h6 class="m-0 flex flex-row items-center gap-1 mb-1 text-base font-medium">
+      <p
+        class="m-0 mb-1 flex flex-row items-center gap-1 font-['Poppins'] text-base font-medium text-black text-wrap-balance dark:text-white"
+      >
         <Icon icon="line-md:menu-unfold-right" class="size-4" />On this page
-      </h6>
+      </p>
     {/if}
-
-    <ol
-      class={cn(root ? 'relative border-l border-main pl-4 dark:border-main-dark py-1' : 'ml-1.5')}
-    >
+    <div class="relative">
+      <!-- TOC Indicator -->
       {#if root}
         <div
           class="absolute -left-[2px] h-[1.4rem] w-[3px] rounded-full bg-primary-500"
           style="top: {$indicatorCoords}px; height: {$indicatorHeight}px;"
         ></div>
       {/if}
-      {#each headings as heading}
-        <li class="mb-2 list-none first:mt-2 last:m-0">
-          <a
-            href={'#' + heading.id}
-            class="mt-1 max-w-[50px] transition-colors hocus:text-primary-500 dark:hocus:text-primary-600 {!root &&
-              'px-1'}"
-          >
-            {heading.text}
-          </a>
-          {#if heading.children.length > 0}
-            <Toc headings={heading.children} />
-          {/if}
-        </li>
-      {/each}
-    </ol>
+      <ol class={cn(root ? 'border-l border-main py-1 pl-4 dark:border-main-dark' : 'ml-1.5')}>
+        {#each headings as heading}
+          <li class="mb-2 list-none first:mt-2 last:m-0">
+            <a
+              href={'#' + heading.id}
+              class="mt-1 max-w-[50px] transition-colors hocus:text-primary-500 dark:hocus:text-primary-600 {!root &&
+                'px-1'}"
+            >
+              {heading.text}
+            </a>
+            {#if heading.children.length > 0}
+              <Toc headings={heading.children} />
+            {/if}
+          </li>
+        {/each}
+      </ol>
+    </div>
   </div>
 {/if}

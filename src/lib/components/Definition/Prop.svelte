@@ -22,20 +22,20 @@
     </span>
     <div class="flex items-center space-x-2 text-xs font-medium">
       <div
-        class="rounded-md border-neutral-700 bg-neutral-600/20 px-2 py-0.5 text-text-heading dark:text-text-heading-dark"
+        class="rounded border-neutral-700 bg-neutral-600/20 px-2 py-0.5 text-text-heading dark:text-text-heading-dark"
       >
         {type}
       </div>
       {#if required}
         <div
-          class="rounded-md border-red-700 bg-red-600/20 px-2 py-0.5 text-red-900 dark:text-red-100"
+          class="rounded border-red-700 bg-red-600/20 px-2 py-0.5 text-red-900 dark:text-red-100"
         >
           Required
         </div>
       {/if}
       {#if defaultValue}
         <div
-          class="rounded-md border-primary-700 bg-primary-600/20 px-2 py-0.5 text-primary-900 dark:text-primary-100"
+          class="rounded border-primary-700 bg-primary-600/20 px-2 py-0.5 text-primary-900 dark:text-primary-100"
         >
           Default: {defaultValue}
         </div>

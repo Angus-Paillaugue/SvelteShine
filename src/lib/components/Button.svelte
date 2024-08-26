@@ -1,9 +1,8 @@
 <script>
   import { cn } from '$lib/utils';
-  const { children, class: className, href, type = 'normal', ...restProps } = $props();
+  const { children, class: className, href, type = 'normal', name, ...restProps } = $props();
 
-  const baseClasses =
-    'px-4 py-2 text-lg block rounded-md active:scale-90 transition-all font-medium';
+  const baseClasses = 'px-4 py-2 text-lg block rounded active:scale-90 transition-all font-medium';
 
   const typeClasses = {
     normal:
@@ -30,11 +29,11 @@
 </script>
 
 {#if href}
-  <a {href} class={buttonClasses} {...restProps}>
+  <a {href} class={buttonClasses} aria-label={name} {name} {...restProps}>
     {@render children()}
   </a>
 {:else}
-  <button class={buttonClasses} {...restProps}>
+  <button class={buttonClasses} aria-label={name} {name} {...restProps}>
     {@render children()}
   </button>
 {/if}

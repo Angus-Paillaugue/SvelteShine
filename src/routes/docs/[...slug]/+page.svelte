@@ -107,8 +107,8 @@
   <!-- Adding katex stylesheet for math support -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css"
-    integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET"
+    href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+    integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+"
     crossorigin="anonymous"
   />
 </svelte:head>
@@ -147,7 +147,8 @@
         {#if headings.length > 0}
           <!-- Toggle toc on mobile -->
           <Button
-            name="openToc"
+            id="openToc"
+            name="Open table of contents"
             onclick={() => (mobileTocVisible = !mobileTocVisible)}
             type="square ghost"
             class="fixed right-4 top-[4.5rem] z-40 flex items-center justify-center p-3 lg:hidden"
@@ -158,7 +159,7 @@
 
         <!-- Toc -->
         <div
-          class="fixed top-16 overflow-y-auto transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 lg:pb-8 {mobileTocVisible
+          class="lenis-prevent fixed top-16 overflow-y-auto transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 lg:pb-8 {mobileTocVisible
             ? 'max-lg:translate-x-0'
             : 'max-lg:-translate-x-full'}"
           id="toc-container"

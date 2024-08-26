@@ -12,8 +12,8 @@
 }
 
 code {
-  counter-reset: step;
-  counter-increment: step 0;
+  counter-reset: codeStep;
+  counter-increment: codeStep 0;
   direction: ltr;
   -moz-tab-size: 2;
   -o-tab-size: 2;
@@ -22,7 +22,7 @@ code {
 }
 
 .shiki {
-  @apply relative overflow-auto whitespace-pre rounded-md py-4 focus:-outline-offset-1;
+  @apply relative overflow-auto whitespace-pre rounded py-4 focus:-outline-offset-1;
 }
 .remark-code-container {
   @apply my-4;
@@ -41,8 +41,8 @@ code {
 }
 
 pre.line-numbers > code .line::before {
-  content: counter(step);
-  counter-increment: step;
+  content: counter(codeStep);
+  counter-increment: codeStep;
   font-variant-numeric: tabular-nums;
   @apply -ml-2 mr-2 inline-block w-6 text-right text-text-body dark:text-text-body-dark;
 }
@@ -63,7 +63,7 @@ code .line {
   background-color: rgba(var(--line-added-bg), var(--line-added-opacity));
 }
 code .line.diff::before {
-  counter-increment: step;
+  counter-increment: codeStep;
   font-variant-numeric: tabular-nums;
   @apply mr-2 inline-block w-6 text-right;
 }
@@ -80,7 +80,7 @@ code .line.diff.remove::before {
 }
 /* Inline code */
 code:not(pre code, .command) {
-  @apply rounded-md bg-primary-300 px-0.5 text-primary-900 text-shadow-none dark:bg-primary-950 dark:text-primary-300;
+  @apply rounded bg-primary-300 px-0.5 text-primary-900 text-shadow-none dark:bg-primary-950 dark:text-primary-300;
 }
 .commands > pre {
   @apply m-0 rounded-none;
@@ -94,10 +94,10 @@ code:not(pre code, .command) {
 
 /* Image */
 .page-image-container {
-  @apply mb-4 rounded-md border border-main bg-neutral-100 p-2 dark:border-main-dark dark:bg-neutral-950;
+  @apply mb-4 rounded border border-main bg-neutral-100 p-2 dark:border-main-dark dark:bg-neutral-950;
 }
 .page-image {
-  @apply cursor-zoom-in rounded-md;
+  @apply cursor-zoom-in rounded;
 }
 .page-image ~ figcaption {
   @apply relative mt-2 block justify-center rounded-xl px-8 text-center text-base text-gray-700 dark:text-gray-400;
@@ -111,7 +111,7 @@ code:not(pre code, .command) {
   @apply overflow-auto;
 }
 #pageContainer table {
-  @apply my-4 w-full table-auto border-collapse overflow-hidden rounded-md text-left text-sm;
+  @apply my-4 w-full table-auto border-collapse overflow-hidden rounded text-left text-sm;
 }
 
 #pageContainer table thead {
@@ -128,19 +128,19 @@ code:not(pre code, .command) {
 
 /* Lists */
 #pageContainer ul:not(.tree ul, .commands ul, .collapsible-details ul, .collapsible-details ol),
-#pageContainer ol {
+#pageContainer ol:not(.steps) {
   @apply my-5 list-outside list-none pl-0 ps-6;
 }
 
 #pageContainer ul li:not(.tree ul li, .commands li) {
-  @apply relative ps-1 list-none;
+  @apply relative list-none ps-1;
 }
 
 #pageContainer ul:not(.tree, .commands ul) > li::before {
   @apply absolute -left-[1.25rem] top-[12px] h-0.5 w-3 rounded-full bg-neutral-300 content-[''] dark:bg-neutral-700;
 }
 
-#pageContainer ol > li {
+#pageContainer ol:not(.steps) > li {
   @apply list-decimal;
 }
 
@@ -152,12 +152,12 @@ code:not(pre code, .command) {
   @apply flex items-center gap-2;
 }
 #pageContainer .task-list-item input[type='checkbox'] {
-  @apply relative size-[1.15rem] appearance-none rounded-md border border-neutral-300 after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:text-sm after:font-bold after:text-primary-800 checked:bg-primary-300 checked:after:content-["✓"] dark:border-neutral-700 dark:checked:bg-primary-400;
+  @apply relative size-[1.15rem] appearance-none rounded border border-neutral-300 after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:text-sm after:font-bold after:text-primary-800 checked:bg-primary-300 checked:after:content-["✓"] dark:border-neutral-700 dark:checked:bg-primary-400;
 }
 
 /* API references */
 .http-keyword {
-  @apply mr-1 rounded-md border px-2 py-0.5;
+  @apply mr-1 rounded border px-2 py-0.5;
 }
 .http-keyword[data-keyword='GET'] {
   @apply border-blue-700 bg-blue-600/20 text-blue-900 dark:text-blue-100;

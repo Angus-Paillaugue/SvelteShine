@@ -25,7 +25,7 @@
 <ul
   class={cn(
     root
-      ? 'tree rounded-md bg-[var(--inline-code-bg)] p-4'
+      ? 'tree rounded bg-[var(--inline-code-bg)] p-4'
       : 'ml-1.5 border-l-2 border-neutral-700 pl-2.5',
     className
   )}
@@ -34,20 +34,22 @@
   {#each tree as element}
     {#if element?.children}
       <!-- Is a directory -->
-      <details open={element?.open ?? open}>
-        <summary
-          class={cn(
-            'mt-1 flex w-fit cursor-pointer flex-row items-center gap-2 text-base font-bold text-neutral-100 transition-colors hover:text-neutral-400',
-            !root && 'px-1',
-            element?.highlighted && 'rounded bg-primary-700/50'
-          )}
-        >
-          <Icon icon="material-symbols:folder" class="folder-close size-4" />
-          <Icon icon="material-symbols:folder-open" class="folder-open size-4" />
-          {element.name}
-        </summary>
-        <Tree tree={element.children} root={false} />
-      </details>
+      <li>
+        <details open={element?.open ?? open}>
+          <summary
+            class={cn(
+              'mt-1 flex w-fit cursor-pointer flex-row items-center gap-2 text-base font-bold text-neutral-100 transition-colors hover:text-neutral-400',
+              !root && 'px-1',
+              element?.highlighted && 'rounded bg-primary-700/50'
+            )}
+          >
+            <Icon icon="material-symbols:folder" class="folder-close size-4" />
+            <Icon icon="material-symbols:folder-open" class="folder-open size-4" />
+            {element.name}
+          </summary>
+          <Tree tree={element.children} root={false} />
+        </details>
+      </li>
     {:else}
       <!-- Is a file -->
       <li

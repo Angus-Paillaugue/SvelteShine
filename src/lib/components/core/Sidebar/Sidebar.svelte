@@ -11,10 +11,17 @@
   import { cn } from '$lib/utils';
 
   const pages = getTree();
+  let theme = $state('dark');
   let { open = $bindable(false), style = 'details' } = $props();
 
+  // Close the mobile sidebar on navigation
   afterNavigate(() => {
     if (open) open = false;
+  });
+
+  // Watch for mode changes
+  $effect(() => {
+    theme = $mode;
   });
 </script>
 
@@ -27,17 +34,30 @@
   <!-- Sidebar heading -->
   <div class="flex flex-col pl-4 pr-2 pt-4">
     <a href="/">
-      <h3 class="m-0">{project.name}</h3>
+      <h3 class="m-0 flex flex-row items-center gap-4">
+        <img
+          src="/logos/{project.name}-{theme}.svg"
+          alt="{project.name}'s logo"
+          class="h-8 w-12 object-contain"
+        />
+        {project.name}
+      </h3>
     </a>
     <span class="mb-2 mt-4 grow border-b border-main dark:border-main-dark"></span>
   </div>
-  <div class="grow overflow-y-auto">
+  <div class="lenis-prevent grow overflow-y-auto">
     <Sidebar.PageList {pages} root={true} {style} />
   </div>
   <!-- Navbar right side on desktop is on the sidebar on mobile -->
   <div class="flex flex-row items-center justify-end gap-2 bg-inherit p-2 pr-0 xl:hidden">
     {#each sideBar.socials.list as { name, url, icon }}
-      <a href={url} target={sideBar.socials.target} class="h-fit p-1" {name}>
+      <a
+        href={url}
+        target={sideBar.socials.target}
+        class="h-fit p-1"
+        aria-label="{name} link"
+        id="{name}-link"
+      >
         <Icon {icon} class="size-6" />
       </a>
     {/each}
@@ -49,7 +69,8 @@
 
     <!-- Toggle mode button -->
     <Button
-      name="toggleMode"
+      id="toggleMode"
+      name="Toggle mode"
       onclick={toggleMode}
       type="square ghost"
       class="bg-neutral-200/50 hocus:bg-transparent dark:bg-neutral-700/50 hocus:dark:bg-transparent"
@@ -65,16 +86,19 @@
       {/if}
     </Button>
 
-    <Button onclick={() => ($searchModalShown = true)} type="square ghost">
+    <Button onclick={() => ($searchModalShown = true)} name="Open search" type="square ghost">
       <Icon icon="line-md:search" class="size-6" />
     </Button>
   </div>
 </aside>
 
+<!-- Open mobile sidebar button -->
 <button
   class="fixed left-[0.5rem] top-[0.5rem] z-30 flex aspect-square h-12 flex-col items-center justify-center xl:hidden"
   onclick={() => (open = !open)}
-  name="search"
+  id="openSidebar"
+  name="Open sidebar"
+  aria-label="Open sidebar"
 >
   <Icon icon="line-md:menu" class="size-6" />
 </button>

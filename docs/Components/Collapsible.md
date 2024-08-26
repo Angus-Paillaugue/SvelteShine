@@ -49,7 +49,7 @@ To make a collapsible group, you just have to wrap your collapsible into the `Co
 <Collapsible.Group>
 <Collapsible summary="Collapsible 1">
 
-#### Collapsible 1
+### Collapsible 1
 
 ```js
 function collapsibleFunction() {

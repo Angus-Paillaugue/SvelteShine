@@ -105,7 +105,7 @@
   ></div>
   <div class="fixed inset-0 z-50 p-4 sm:p-6 md:p-12">
     <div
-      class="no-scrollbar mx-auto max-h-full w-full max-w-screen-md overflow-hidden overflow-y-auto rounded-2xl border border-main bg-neutral-100 dark:border-main-dark dark:bg-neutral-950 dark:text-white"
+      class="no-scrollbar lenis-prevent mx-auto max-h-full w-full max-w-screen-md overflow-hidden overflow-y-auto rounded-2xl border border-main bg-neutral-100 dark:border-main-dark dark:bg-neutral-950 dark:text-white"
       transition:scale={{ start: 0.8, duration: 200 }}
       onscroll={onResultsScroll}
     >
@@ -120,7 +120,6 @@
           />
           <input
             type="text"
-            name="search"
             id="search"
             class={cn(
               'w-full rounded-xl border border-main bg-transparent py-4 pl-10 text-xl focus:outline-none dark:border-main-dark dark:bg-transparent md:px-12',
@@ -146,7 +145,7 @@
               )}
               id={`result-${index}`}
             >
-              <div class="flex w-full list-none flex-col justify-center gap-2 rounded-md">
+              <div class="flex w-full list-none flex-col justify-center gap-2 rounded">
                 <h2 class="m-0 line-clamp-1 truncate">
                   {@html result.name}
                 </h2>

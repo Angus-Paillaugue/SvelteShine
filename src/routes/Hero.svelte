@@ -94,9 +94,13 @@
 
       <!-- CTA buttons -->
       <div class="mt-8 flex w-full flex-row items-center justify-start gap-8">
-        <Button href="/docs/{docsHomePage.name}">Get started</Button>
+        <Button href="/docs/{docsHomePage.name}" name="Go to docs">Get started</Button>
 
-        <Button type="ghost" class="flex flex-row items-center gap-4 rounded-full">
+        <Button
+          type="ghost"
+          name="Learn more"
+          class="flex flex-row items-center gap-4 rounded-full"
+        >
           Learn more
           <Icon
             icon="line-md:arrow-right"
@@ -119,10 +123,6 @@
         style="animation: float 5s ease-in-out infinite;"
       >
         <picture>
-          <source
-            media="(max-width: 480px)"
-            srcset="/homepage/mockup/{$mode}/homepagePreview_480.webp"
-          />
           <source
             media="(max-width: 960px)"
             srcset="/homepage/mockup/{$mode}/homepagePreview_960.webp"

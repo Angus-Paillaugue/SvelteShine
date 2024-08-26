@@ -18,7 +18,9 @@
    */
   function setTabIndex() {
     const details = collapsible.querySelector('.collapsible-details');
-    const detailsElements = details.querySelectorAll('a, button, input, select, textarea, pre.shiki');
+    const detailsElements = details.querySelectorAll(
+      'a, button, input, select, textarea, pre.shiki'
+    );
 
     detailsElements.forEach((el) => {
       if (open) {
@@ -35,7 +37,7 @@
 
 <div
   class={cn(
-    'collapsible mb-6 w-full overflow-hidden rounded-md border border-main bg-body transition-colors dark:border-main-dark dark:bg-neutral-950',
+    'collapsible mb-6 w-full overflow-hidden rounded border border-main bg-body transition-colors dark:border-main-dark dark:bg-neutral-950',
     className
   )}
   {...restProps}
@@ -44,7 +46,8 @@
   <button
     onclick={() => (open = !open)}
     aria-expanded={open}
-    aria-controls={summary}
+    name="Toggle collapsible"
+    aria-label="Toggle collapsible"
     class="items-between flex w-full cursor-pointer flex-row items-center px-4 py-2 text-base font-semibold -outline-offset-2 transition-colors hover:bg-neutral-200/50 dark:bg-inherit"
   >
     <span class="arrow transition-all">

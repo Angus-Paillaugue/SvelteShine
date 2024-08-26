@@ -6,7 +6,7 @@
 
   const baseClasses = {
     github: 'border-l-2 p-2 pl-4 my-2',
-    custom: 'border p-2 rounded-md my-2'
+    custom: 'border p-2 rounded my-2'
   };
   const typeClasses = {
     github: {

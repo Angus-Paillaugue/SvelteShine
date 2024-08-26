@@ -18,7 +18,7 @@
 
   // USER CONFIG : Customize the sidebar colors
   const itemBaseClasses =
-    'transition-all px-2.5 py-1.5 font-semibold text-inherit capitalize text-sm cursor-pointer border-2 whitespace-nowrap rounded-md flex flex-row gap-2 items-center';
+    'transition-all px-2.5 py-1.5 font-semibold text-inherit capitalize text-sm cursor-pointer border-2 whitespace-nowrap rounded flex flex-row gap-2 items-center';
   const itemColors =
     'border-transparent dark:border-transparent hocus:bg-neutral-300/25 dark:hocus:bg-neutral-700/25';
   const activeItemColors =

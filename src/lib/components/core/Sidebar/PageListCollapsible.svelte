@@ -15,6 +15,8 @@
 
 <div class="flex flex-col">
   <button
+    name="Toggle collapsible"
+    aria-label="Toggle collapsible"
     onclick={() => (open = !open)}
     class={cn(
       'flex w-full flex-row items-center',

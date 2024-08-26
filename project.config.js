@@ -41,7 +41,8 @@ export const project = {
   name: 'SvelteShine',
   description: 'A simple documentation template for SvelteKit',
   author: 'Angus Paillaugue',
-  keywords: 'svelte, sveltekit, documentation, template'
+  keywords: 'svelte, sveltekit, documentation, template',
+  domain: 'https://svelte-shine.paillaugue.fr'
 };
 
 // Homepage config
@@ -117,7 +118,9 @@ export const pages = [
       { name: 'Images', icon: 'material-symbols:imagesmode' },
       { name: 'Api-reference', icon: 'mdi:api' },
       { name: 'Tables', icon: 'material-symbols:table-rows-narrow' },
-      { name: 'ComponentPreview', icon: 'iconamoon:component-fill' }
+      { name: 'Component preview', icon: 'iconamoon:component-fill' },
+      { name: 'Steps', icon: 'material-symbols:steppers' },
+      { name: 'Math', icon: 'material-symbols:calculate-outline-rounded' }
     ]
   }
 ];

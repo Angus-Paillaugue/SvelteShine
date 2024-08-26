@@ -110,3 +110,13 @@ import { twMerge } from 'tailwind-merge';
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
+
+/**
+ * Converts a string into a slug by replacing spaces with hyphens.
+ *
+ * @param {string} path - The string to be slugified.
+ * @returns {string} - The slugified string.
+ */
+export function slugify(path) {
+  return path.replace(/ /g, '-');
+}
