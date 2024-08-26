@@ -4,7 +4,7 @@
   import { sideBar } from '$conf';
   import Sidebar from './';
   import Icon from '@iconify/svelte';
-  import { slugify } from '$lib/utils'
+  import { slugify } from '$lib/utils';
 
   const { pages = [], root = false, style = 'details', class: className, ...restProps } = $props();
   const pathname = $derived(slugify(decodeURIComponent($page.url.pathname)));

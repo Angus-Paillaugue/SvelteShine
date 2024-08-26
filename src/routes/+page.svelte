@@ -1,8 +1,8 @@
 <script>
-  import { project, pages } from '$conf';
+  import Bento from './Bento.svelte';
   import Footer from './Footer.svelte';
   import Hero from './Hero.svelte';
-  import { addCopyCodeButtonFunctionality } from '$lib/utils';
+  import { project, pages } from '$conf';
   import { onMount } from 'svelte';
   import { fly } from 'svelte/transition';
   import { Button } from '$lib/components';
@@ -12,26 +12,24 @@
   let getStartedButtonNavShown = $state(false);
 
   onMount(() => {
-    addCopyCodeButtonFunctionality();
+    // For displaying the cta in the navbar when the user scrolls past the cta section
+    const observer = new IntersectionObserver(intersect, { threshold: 0 });
+    // Observe the cta section
+    const ctaSection = document.getElementById('cta');
+    observer.observe(ctaSection);
 
-    // Run on page scroll and load
-    window.onscroll = onScroll;
-    onScroll();
+    /**
+     * Function to handle the intersection of the node and update the navbar cta display state based on intersection.
+     * @param {IntersectionObserverEntry} entry
+     */
+    function intersect([entry]) {
+      getStartedButtonNavShown = !entry.isIntersecting;
+    }
 
     return () => {
-      window.onscroll = null;
+      observer.disconnect();
     };
   });
-
-  /**
-   * Function that handles the scroll event.
-   */
-  function onScroll() {
-    const screenHeight = window.screen.availHeight;
-    const triggerHeight = window.scrollY + (screenHeight / 3) * 2;
-    // Show get started button in the nav when the user scrolls past 1/3 of the screen height
-    getStartedButtonNavShown = triggerHeight > screenHeight;
-  }
 
   /**
    * Function to get the documentation home page.
@@ -98,104 +96,9 @@
 
 <div class="isolate flex w-full flex-col bg-body-dark dark:bg-body">
   <main class="overflow-clip rounded-b-[32px] bg-body dark:bg-body-dark">
-    <!-- Main page -->
     <Hero {docsHomePage} />
 
-    <!-- Bento grid -->
-    <section
-      class="mx-auto grid max-w-screen-2xl grid-cols-1 gap-2 px-2 md:my-24 md:grid-cols-6 md:px-10"
-    >
-      <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark max-md:rounded-t-[50px] md:col-span-3 md:rounded-tl-[50px] xl:p-8"
-      >
-        <img
-          src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fgorgeous.png&w=640&q=75"
-          class="w-[80%] object-contain"
-          alt=""
-        />
-        <div
-          class="pointer-events-none absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-b from-transparent to-white to-40% dark:to-neutral-900"
-        ></div>
-        <div
-          class="absolute bottom-0 left-0 right-0 flex flex-col justify-center gap-2 p-4 text-center xl:p-8"
-        >
-          <h1 class="m-0 text-base font-medium">Gorgeous out of the box</h1>
-          <span>Opinionated when you're lazy, but infinitely flexible when you need it to be</span>
-        </div>
-      </div>
-      <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark md:col-span-3 md:rounded-tr-[50px] xl:p-8"
-      >
-        <img
-          src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fdeveloper.png&w=640&q=75"
-          class="w-[80%] object-contain"
-          alt=""
-        />
-        <div
-          class="pointer-events-none absolute bottom-0 left-0 right-0 col-span-1 h-2/3 bg-gradient-to-b from-transparent to-white to-40% dark:to-neutral-900 md:col-span-2"
-        ></div>
-        <div
-          class="absolute bottom-0 left-0 right-0 flex flex-col justify-center gap-2 p-4 text-center xl:p-8"
-        >
-          <h1 class="m-0 text-base font-medium">Developer forward</h1>
-          <span>Content is powered by markdown and lives alongside your codebase</span>
-        </div>
-      </div>
-      <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark md:col-span-2 md:rounded-bl-[50px] xl:p-8"
-      >
-        <img
-          src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fperformance.png&w=640&q=75"
-          class="w-[80%] object-contain"
-          alt=""
-        />
-        <div
-          class="pointer-events-none absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-b from-transparent to-white to-40% dark:to-neutral-900"
-        ></div>
-        <div
-          class="absolute bottom-0 left-0 right-0 flex flex-col justify-center gap-2 p-4 text-center xl:p-8"
-        >
-          <h1 class="m-0 text-base font-medium">Built for performance</h1>
-          <span>Meticulously designed and optimized for a great user experience</span>
-        </div>
-      </div>
-      <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark md:col-span-2 xl:p-8"
-      >
-        <img
-          src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fconversion.png&w=640&q=75"
-          class="w-[80%] object-contain"
-          alt=""
-        />
-        <div
-          class="pointer-events-none absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-b from-transparent to-white to-40% dark:to-neutral-900"
-        ></div>
-        <div
-          class="absolute bottom-0 left-0 right-0 flex flex-col justify-center gap-2 p-4 text-center xl:p-8"
-        >
-          <h1 class="m-0 text-base font-medium">Conversion as a priority</h1>
-          <span>Crafted for more user engagement and conversions</span>
-        </div>
-      </div>
-      <div
-        class="relative col-span-1 flex flex-col items-center gap-2 overflow-hidden rounded border border-main p-4 text-center dark:border-main-dark max-md:rounded-b-[50px] md:col-span-2 md:rounded-br-[50px] xl:p-8"
-      >
-        <img
-          src="https://mintlify.com/_next/image?url=%2Fassets%2Fvalues%2Fdark%2Fmaintained.png&w=640&q=75"
-          class="w-[80%] object-contain"
-          alt=""
-        />
-        <div
-          class="pointer-events-none absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-b from-transparent to-white to-40% dark:to-neutral-900"
-        ></div>
-        <div
-          class="absolute bottom-0 left-0 right-0 flex flex-col justify-center gap-2 p-4 text-center xl:p-8"
-        >
-          <h1 class="m-0 text-base font-medium">Effortlessly maintained</h1>
-          <span>Designed to make updating documentation easy</span>
-        </div>
-      </div>
-    </section>
+    <Bento />
   </main>
 
   <Footer />

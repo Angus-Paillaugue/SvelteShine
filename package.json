@@ -39,6 +39,7 @@
     "clsx": "^2.1.1",
     "directory-tree": "^3.5.2",
     "flexsearch": "^0.7.43",
+    "gsap": "^3.12.5",
     "inquirer": "^10.1.8",
     "lenis": "^1.1.11",
     "material-file-icons": "^2.4.0",

@@ -101,7 +101,9 @@
         <Icon icon="line-md:menu-unfold-right" class="size-4" />On this page
       </p>
     {/if}
-    <div class={cn(root ? 'pl-4 py-1 relative border-l border-main dark:border-main-dark' : "ml-2")}>
+    <div
+      class={cn(root ? 'relative border-l border-main py-1 pl-4 dark:border-main-dark' : 'ml-2')}
+    >
       <!-- TOC Indicator -->
       {#if root}
         <div

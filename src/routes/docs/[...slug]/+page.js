@@ -4,7 +4,7 @@ import { slugify } from '$lib/utils';
 
 export async function load({ params }) {
   const slug = slugify(params.slug);
-  if(params.slug !== slug) throw redirect(303, `/docs/${slug}`);
+  if (params.slug !== slug) throw redirect(303, `/docs/${slug}`);
 
   const page = await pageBySlug(slug);
   if (!page) error(404, 'Page not found');

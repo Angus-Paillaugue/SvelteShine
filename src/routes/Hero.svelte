@@ -1,14 +1,10 @@
 <script>
   import { project, homepage } from '$conf';
   import Icon from '@iconify/svelte';
-  import { addCopyCodeButtonFunctionality } from '$lib/utils';
-  import { onMount } from 'svelte';
   import { Button } from '$lib/components';
   import { mode } from 'mode-watcher';
 
   const { docsHomePage } = $props();
-
-  onMount(addCopyCodeButtonFunctionality);
 </script>
 
 <svelte:head>
@@ -93,10 +89,11 @@
       </h1>
 
       <!-- CTA buttons -->
-      <div class="mt-8 flex w-full flex-row items-center justify-start gap-8">
+      <div class="mt-8 flex w-full flex-row items-center justify-start gap-8" id="cta">
         <Button href="/docs/{docsHomePage.name}" name="Go to docs">Get started</Button>
 
         <Button
+          href="#learn-more"
           type="ghost"
           name="Learn more"
           class="flex flex-row items-center gap-4 rounded-full"
