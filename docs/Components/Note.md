@@ -46,10 +46,7 @@ lastModified: 08-14-2024
 
 # Definition
 
-<Definition
-  name="Note"
-  description="The note component."
->
+<Definition name="Note" description="The note component.">
   <Definition.Prop type="string" path="type" default="warning">The type of the alert. Can be "note", "tip", "important", "warning" or "caution".</Definition.Prop>
   <Definition.Prop type="HTMLElement" path="<slot>" required>The actual contents of the note.</Definition.Prop>
   <Definition.Prop type="string" path="style" default='"custom"'>The styling of the component. Either "custom" or "github".</Definition.Prop>

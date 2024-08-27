@@ -3,116 +3,18 @@ lastModified: 08-09-2024
 ---
 
 <script>
-  import { Tree, Definition } from "$lib/components";
-
-  const treeStructure = [
-    {
-      name: "src",
-      children: [
-        "+page.svelte", "Component.svelte",
-        {
-          name: "lib",
-          children: [
-            {
-              name: "components",
-              highlighted: true,
-              children: [
-                {
-                  name: "core",
-                  children: [
-                    {
-                      name:"Tree.svelte",
-                      highlighted:true
-                    },
-                    "index.js"
-                  ]
-                },
-              ]
-            },
-          ]
-        },
-      ]
-    },
-    {
-      name: "docs",
-      children: [
-        "Home.md",
-        {
-          name: "Components",
-          open: false,
-          children: [
-            "Commands.md", "Tooltip.md", "Tree.md"
-          ]
-        }
-      ]
-    }
-  ]
+  import { Tree, Definition, Demo } from "$lib/components";
 </script>
 
-You can use the `Tree` component imported from `$lib/components`. Pass it a tree of files and directory to be displayed interactively.
+You can use the `<Tree>` component imported from `$lib/components`. Pass it a tree of files and directory to be displayed interactively.
 
-# Config
+# Demo
 
-```svelte
-<script>
-  import { Tree } from '$lib/components';
-
-  const treeStructure = [
-    {
-      name: 'src',
-      children: [
-        '+page.svelte',
-        'Component.svelte',
-        {
-          name: 'lib',
-          children: [
-            {
-              name: 'components',
-              highlighted: true,
-              children: [
-                {
-                  name: 'core',
-                  children: [
-                    {
-                      name: 'Tree.svelte',
-                      highlighted: true
-                    },
-                    'index.js'
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      name: 'docs',
-      children: [
-        'Home.md',
-        {
-          name: 'Components',
-          open: false,
-          children: ['Commands.md', 'Tooltip.md', 'Tree.md']
-        }
-      ]
-    }
-  ];
-</script>
-
-<Tree tree={treeStructure} />
-```
-
-# Result
-
-<Tree tree={treeStructure} />
+<Demo name="tree" container={false} />
 
 # Definition
 
-<Definition
-  name="Tree"
-  description="The tree component."
->
+<Definition name="Tree" description="The tree component.">
   <Definition.Prop type="array" path="tree" default="[]" required>The actual array of the tree.</Definition.Prop>
   <Definition.Prop type="string" path="tree.name" required>The file or directory name.</Definition.Prop>
   <Definition.Prop type="boolean" path="tree.open" default="true">If the children is a directory, controls whether the children are displayed.</Definition.Prop>

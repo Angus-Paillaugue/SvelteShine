@@ -3,7 +3,7 @@
   import Navbar from '$lib/components/core/Navbar.svelte';
   import Pagination from './Pagination.svelte';
   import Toc from './Toc.svelte';
-  import { formatDate, addCopyCodeButtonFunctionality } from '$lib/utils';
+  import { formatDate } from '$lib/utils';
   import { project } from '$conf';
   import { afterNavigate } from '$app/navigation';
   import Icon from '@iconify/svelte';
@@ -37,7 +37,6 @@
    */
   function load() {
     imageZoomPlugin();
-    addCopyCodeButtonFunctionality();
     const pageContainer = document.querySelector('#pageContainer');
     const allowedElements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
     const disallowedSelectors = [
@@ -123,7 +122,7 @@
   >
     <main class="mx-auto flex h-full w-full grow flex-col p-4">
       {#if data?.lastModified || data?.description}
-        <section class="mb-12 px-4">
+        <section class="mb-8 px-4">
           {#if data?.lastModified}
             <small class="mb-1">{formatDate(new Date(data.lastModified))}</small>
           {/if}

@@ -60,10 +60,7 @@ Gives the following result :
 
 # Definition
 
-<Definition
-  name="Commands"
-  description="The commands component."
->
+<Definition name="Commands" description="The commands component.">
   <Definition.Prop type="array" path="commands" required>The name of the component.</Definition.Prop>
   <Definition.Prop type="string" path="commands.name" required>The name of the file or directory.</Definition.Prop>
   <Definition.Prop type="string" path="commands.command" required>The actual command displayed.</Definition.Prop>

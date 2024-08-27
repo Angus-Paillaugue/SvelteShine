@@ -36,10 +36,6 @@ code {
   @apply rounded-t-none;
 }
 
-.copy-code-button {
-  @apply absolute bottom-1 right-1.5 top-1.5 flex aspect-square h-[2.5rem] items-center justify-center rounded-full bg-neutral-950 p-1 text-neutral-100 transition active:scale-90 hocus:scale-105;
-}
-
 pre.line-numbers > code .line::before {
   content: counter(codeStep);
   counter-increment: codeStep;
@@ -65,7 +61,7 @@ code .line {
 code .line.diff::before {
   counter-increment: codeStep;
   font-variant-numeric: tabular-nums;
-  @apply mr-2 inline-block w-6 text-right;
+  @apply mr-2 inline-block w-3 text-right;
 }
 code .line.diff.add::before {
   content: '+';
@@ -88,32 +84,7 @@ code:not(pre code, .command) {
 
 /* Styling page components */
 
-#pageContainer h1 {
-  @apply border-b border-main leading-[3rem] dark:border-main-dark;
-}
-
-/* Image */
-.page-image-container {
-  @apply mb-4 rounded border border-main bg-neutral-100 p-2 dark:border-main-dark dark:bg-neutral-950;
-}
-.page-image {
-  @apply cursor-zoom-in rounded;
-}
-.page-image ~ figcaption {
-  @apply relative mt-2 block justify-center rounded-xl px-8 text-center text-base text-gray-700 dark:text-gray-400;
-}
-#pageContainer figure:has(> .page-image) {
-  @apply w-fit;
-}
-
 /* Table */
-#pageContainer .table-container {
-  @apply overflow-auto;
-}
-#pageContainer table {
-  @apply my-4 w-full table-auto border-collapse overflow-hidden rounded text-left text-sm;
-}
-
 #pageContainer table thead {
   @apply bg-neutral-200/40 dark:bg-neutral-800/50;
 }
@@ -127,16 +98,16 @@ code:not(pre code, .command) {
 }
 
 /* Lists */
-#pageContainer ul:not(.tree ul, .commands ul, .collapsible-details ul, .collapsible-details ol),
+#pageContainer ul:not(.tree ul, .commands ul, .collapsible-details ul, .collapsible-details ol, .demo ul),
 #pageContainer ol:not(.steps) {
   @apply my-5 list-outside list-none pl-0 ps-6;
 }
 
-#pageContainer ul:not(.tree, .commands) li {
+#pageContainer ul:not(.tree, .commands, .demo) li {
   @apply relative list-none ps-1;
 }
 
-#pageContainer ul:not(.tree, .commands ul) > li::before {
+#pageContainer ul:not(.tree, .commands ul, .demo ul)>li::before {
   @apply absolute -left-[1.25rem] top-[12px] h-0.5 w-3 rounded-full bg-neutral-300 content-[''] dark:bg-neutral-700;
 }
 
@@ -144,9 +115,6 @@ code:not(pre code, .command) {
   @apply list-decimal;
 }
 
-#pageContainer blockquote {
-  @apply my-6 border-l-4 border-main pl-4 dark:border-main-dark;
-}
 /* TaskList */
 #pageContainer .task-list-item {
   @apply flex items-center gap-2;

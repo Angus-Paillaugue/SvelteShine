@@ -3,6 +3,7 @@ export { default as Commands } from './Commands.svelte';
 export { default as ComponentPreview } from './ComponentPreview.svelte';
 export { default as Collapsible } from './Collapsible';
 export { default as Definition } from './Definition';
+export { default as Demo } from './Demo.svelte';
 export { default as Dropdown } from './Dropdown';
 export { default as Note } from './Note.svelte';
 export { default as Steps } from './Steps';

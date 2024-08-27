@@ -6,16 +6,13 @@ lastModified: 08-27-2024
   import { Steps, Note } from "$lib/components"
 </script>
 
-<Note type="warning">
-
-We strongly advise you to backup everything manually or using our [backup script](#backing-up)
-</Note>
+<Note type="warning">We strongly advise you to backup everything manually or using our [backup script](#backing-up)</Note>
 
 # Backing up
 
 First, I recommend backing up all of your project using the update script bur running
 
-```bash no-line-numbers
+```bash
 npm run backup
 ```
 
@@ -30,7 +27,7 @@ Then, follow these simple steps
 <Steps.Step>
 If you have delete the SvelteShine remote repository, add it back (just during the update, you can remove it after)
 
-```bash no-line-numbers
+```bash
 git remote add origin https://github.com/Angus-Paillaugue/SvelteShine
 ```
 </Steps.Step>
@@ -38,7 +35,7 @@ git remote add origin https://github.com/Angus-Paillaugue/SvelteShine
 <Steps.Step>
 Fetch the new update content
 
-```bash no-line-numbers
+```bash
 git fetch origin
 ```
 </Steps.Step>
@@ -46,7 +43,7 @@ git fetch origin
 <Steps.Step>
 Merge the updated content with your own
 
-```bash no-line-numbers
+```bash
 git merge origin/main
 ```
 </Steps.Step>
@@ -54,7 +51,7 @@ git merge origin/main
 <Steps.Step>
 During the previous step, conflicts might have appeared. You will need to resolve them manually. If you mess up, remember that you have all of your files in the `backup` directory (if you backed up your work)
 
-```bash no-line-numbers
+```bash
 git add <resolved-file>
 git merge --continue
 ```
@@ -63,7 +60,7 @@ git merge --continue
 <Steps.Step>
 If you have delete the SvelteShine remote repository, add it back (just during the update, you can remove it after)
 
-```bash no-line-numbers
+```bash
 git remote add origin https://github.com/Angus-Paillaugue/SvelteShine
 ```
 </Steps.Step>

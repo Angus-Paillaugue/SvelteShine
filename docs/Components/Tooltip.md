@@ -34,10 +34,7 @@ Lorem ipsum <Tooltip title="dolor sit">I'm a long text to test the capability of
 
 # Definition
 
-<Definition
-  name="Tooltip"
-  description="The tooltip component."
->
+<Definition name="Tooltip" description="The tooltip component.">
   <Definition.Prop type="string" path="title" required>The text shown that, when hovered, reveals the content of the tooltip.</Definition.Prop>
   <Definition.Prop type="HTMLElement" path="<slot>" required>The content of the tooltip.</Definition.Prop>
   <Definition.Prop type="string" path="position" default="top">The position of the tooltip. Can be either "top", "right", "bottom" or "right".</Definition.Prop>

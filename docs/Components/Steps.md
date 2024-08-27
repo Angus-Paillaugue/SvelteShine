@@ -35,18 +35,12 @@ Task three
 
 # Definition
 
-<Definition
-  name="Steps"
-  description="The steps component."
->
+<Definition name="Steps" description="The steps component.">
   <Definition.Prop type="<slot>" path="children">The list of Steps.Step.</Definition.Prop>
   <Definition.Prop type="string" path="class">A list of extra classes to apply.</Definition.Prop>
 </Definition>
 
-<Definition
-  name="Steps.Step"
-  description="The steps component."
->
+<Definition name="Steps.Step" description="The steps component.">
   <Definition.Prop type="<slot>" path="children">The content of the step.</Definition.Prop>
   <Definition.Prop type="string" path="class">A list of extra classes to apply.</Definition.Prop>
 </Definition>
