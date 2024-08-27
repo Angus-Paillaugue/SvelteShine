@@ -8,6 +8,7 @@
   import { afterNavigate } from '$app/navigation';
   import Icon from '@iconify/svelte';
   import { onMount } from 'svelte';
+  import imageZoomPlugin from './image-zoom-plugin';
 
   const { data } = $props();
   let headings = $state([]);
@@ -31,7 +32,11 @@
     };
   });
 
+  /**
+   * On window load event handler.
+   */
   function load() {
+    imageZoomPlugin();
     addCopyCodeButtonFunctionality();
     const pageContainer = document.querySelector('#pageContainer');
     const allowedElements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
@@ -157,7 +162,7 @@
         : 'max-lg:-translate-x-full'}"
       id="tocContainer"
     >
-      <Toc {headings} root={true} />
+      <Toc bind:headings={headings} root={true} />
     </div>
   </div>
 </div>
