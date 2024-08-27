@@ -83,7 +83,9 @@ Here are some of the key features you can use:
  - [Tooltips](https://svelte-shine.paillaugue.fr/docs/Components/Tooltip): Add tooltips to provide additional context to your content.
  - [API Reference](https://svelte-shine.paillaugue.fr/docs/Components/Api-reference): Document API endpoints with detailed reference sections.
  - [Tables](https://svelte-shine.paillaugue.fr/docs/Components/Tables): Create and style tables for structured data presentation.
- - [Component Preview](https://svelte-shine.paillaugue.fr/docs/Components/ComponentPreview): Preview Svelte components directly within your documentation.
+ - [Component Preview](https://svelte-shine.paillaugue.fr/docs/Components/Component-preview): Preview Svelte components directly within your documentation.
+ - [Steps](https://svelte-shine.paillaugue.fr/docs/Components/Steps): Guide users with step by step tutorials.
+ - [Math](https://svelte-shine.paillaugue.fr/docs/Components/Math): Using mathematical notations with {projectName}.
 
 
 # Conclusion

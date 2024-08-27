@@ -18,7 +18,7 @@
 }
 
 * {
-  @apply scroll-smooth outline-offset-4 focus:outline-1 focus:outline-primary-600 dark:focus:outline-primary-600;
+  @apply scroll-smooth outline-offset-4 focus:outline-1 outline-primary-600 dark:outline-primary-600;
 }
 
 html {

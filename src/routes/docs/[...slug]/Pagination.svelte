@@ -36,7 +36,7 @@
       />
       <div class="flex flex-col justify-end text-start">
         <span class="text-xl font-light">Previous</span>
-        <span class="text-lg font-semibold text-primary-600 dark:text-primary-600">
+        <span class="text-lg font-semibold text-primary-700 dark:text-primary-600">
           {previousPage.name}
         </span>
       </div>
@@ -49,7 +49,7 @@
     >
       <div class="flex flex-col justify-end text-end">
         <span class="text-xl font-light">Next</span>
-        <span class="text-lg font-semibold text-primary-600 dark:text-primary-600">
+        <span class="text-lg font-semibold text-primary-700 dark:text-primary-600">
           {nextPage.name}
         </span>
       </div>

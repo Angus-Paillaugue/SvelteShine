@@ -1,14 +1,12 @@
 <script>
   import { project, homepage } from '$conf';
   import Icon from '@iconify/svelte';
-  import { addCopyCodeButtonFunctionality } from '$lib/utils';
-  import { onMount } from 'svelte';
   import { Button } from '$lib/components';
   import { mode } from 'mode-watcher';
+  import releases from './releases/releases.json';
 
   const { docsHomePage } = $props();
-
-  onMount(addCopyCodeButtonFunctionality);
+  const latestRelease = releases.at(-1);
 </script>
 
 <svelte:head>
@@ -57,14 +55,14 @@
       class="shrink-0 max-lg:p-2 max-md:row-span-2 max-md:self-end max-sm:row-span-1 max-sm:self-center"
     >
       <!-- New version badge -->
-      {#if homepage.version.showHomepageMessage}
+      {#if homepage.showHomepageMessage && latestRelease}
         <a
           class="group relative mb-5 flex w-max items-center gap-x-2 rounded-full border border-main px-2 py-1 text-sm transition-colors focus-visible:bg-neutral-600/20 hocus:bg-neutral-600/10 dark:border-main-dark"
-          href={homepage.version.latestVersionURL}
+          href="/releases"
           ><span
             class="-ml-1 flex items-center gap-2 rounded-full bg-neutral-950 px-2 py-1 text-xs font-medium text-neutral-100"
             >NEW</span
-          >{project.name} launches v{homepage.version.latestVersion}
+          >{project.name} launches {latestRelease.version}
 
           <Icon
             icon="line-md:arrow-right"
@@ -93,10 +91,11 @@
       </h1>
 
       <!-- CTA buttons -->
-      <div class="mt-8 flex w-full flex-row items-center justify-start gap-8">
+      <div class="mt-8 flex w-full flex-row items-center justify-start gap-8" id="cta">
         <Button href="/docs/{docsHomePage.name}" name="Go to docs">Get started</Button>
 
         <Button
+          href="#learn-more"
           type="ghost"
           name="Learn more"
           class="flex flex-row items-center gap-4 rounded-full"

@@ -37,6 +37,13 @@
     tooltip.addEventListener('mouseleave', hideTooltip);
     tooltip.addEventListener('focus', showTooltip);
     tooltip.addEventListener('blur', hideTooltip);
+
+    return () => {
+      tooltip.removeEventListener('mouseenter', showTooltip);
+      tooltip.removeEventListener('mouseleave', hideTooltip);
+      tooltip.removeEventListener('focus', showTooltip);
+      tooltip.removeEventListener('blur', hideTooltip);
+    };
   });
 
   /**

@@ -132,7 +132,7 @@ code:not(pre code, .command) {
   @apply my-5 list-outside list-none pl-0 ps-6;
 }
 
-#pageContainer ul li:not(.tree ul li, .commands li) {
+#pageContainer ul:not(.tree, .commands) li {
   @apply relative list-none ps-1;
 }
 

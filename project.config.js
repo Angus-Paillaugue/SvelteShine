@@ -47,11 +47,7 @@ export const project = {
 
 // Homepage config
 export const homepage = {
-  version: {
-    showHomepageMessage: true,
-    latestVersion: '1.0.0',
-    latestVersionURL: '/docs'
-  },
+  showHomepageMessage: true,
   catchphrase: 'Illuminate your Svelte documentation'
 };
 
@@ -89,6 +85,10 @@ export const pages = [
       {
         name: 'Homepage',
         icon: 'material-symbols:home-rounded'
+      },
+      {
+        name: 'Releases',
+        icon: 'ri:git-merge-line'
       }
     ]
   },
