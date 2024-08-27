@@ -30,7 +30,10 @@ function getSitemapXML(routes) {
  */
 function getSitemapUrl(location) {
   let url =
-    '  <url>\n' + `    <loc>${location}</loc>\n` + `    <lastmod>${date}</lastmod>\n` + '  </url>';
+    '  <url>\n' +
+    `    <loc>${location}</loc>\n` +
+    `    <lastmod>${date}</lastmod>\n` +
+    '  </url>';
   return url;
 }
 
@@ -50,7 +53,10 @@ function getEndpoints(tree, route) {
         .replace(/\/{2,}/g, '/')
         .replace(/\[([^\]]+)\]/g, '{$1}');
 
-      if (child.children.some((e) => e.name === '+page.svelte') && !routes.has(childRoute)) {
+      if (
+        child.children.some((e) => e.name === '+page.svelte') &&
+        !routes.has(childRoute)
+      ) {
         routes.add(childRoute);
       }
       getEndpoints(child, route + child.name + '/');

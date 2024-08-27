@@ -25,7 +25,9 @@
       }
     );
     // Observe both of the progress bars
-    const accessibilityProgress = document.getElementById('accessibilityProgress');
+    const accessibilityProgress = document.getElementById(
+      'accessibilityProgress'
+    );
     const performanceProgress = document.getElementById('performanceProgress');
     observer.observe(accessibilityProgress);
     observer.observe(performanceProgress);
@@ -56,7 +58,10 @@
   >
     <!-- Progress bar -->
     <div class="mx-auto flex h-2/3 w-[80%] flex-col items-center justify-start">
-      <div class="relative size-[150px] rounded-full" id="accessibilityProgress">
+      <div
+        class="relative size-[150px] rounded-full"
+        id="accessibilityProgress"
+      >
         <svg viewBox="0 0 120 120" class="size-full -rotate-90">
           <circle
             class="text-green-600/10"
@@ -93,13 +98,13 @@
     >
       <h1 class="m-0 text-base font-medium">Accessibility</h1>
       <span>
-        Your documentation is fully accessible, with perfect Google Lighthouse scores. Every page
-        and component is designed for inclusivity, ensuring that everyone can easily navigate and
-        understand your content.
+        Your documentation is fully accessible, with perfect Google Lighthouse
+        scores. Every page and component is designed for inclusivity, ensuring
+        that everyone can easily navigate and understand your content.
       </span>
       <span
         ><a
-          href="https://pagespeed.web.dev/analysis/https-svelte-shine-paillaugue-fr-docs-Quickstart/z7j8yxr328?form_factor=desktop"
+          href="https://pagespeed.web.dev/analysis/https-svelte-shine-paillaugue-fr-docs-Quickstart/txjspqep7c?form_factor=desktop"
           class="link"
           target="_blank">See the report</a
         ></span
@@ -113,7 +118,9 @@
     use:reveal={{ bottomMargin: 200 }}
   >
     <!-- Score blob -->
-    <div class="mx-auto flex h-2/3 w-[80%] flex-col items-center justify-center">
+    <div
+      class="mx-auto flex h-2/3 w-[80%] flex-col items-center justify-center"
+    >
       <div class="relative h-fit w-fit">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -142,8 +149,9 @@
     >
       <h1 class="m-0 text-base font-medium">Environmentally Friendly</h1>
       <span
-        >Our template is among the greenest on the web, outperforming 87% of websites in energy
-        efficiency. By using this template, you're contributing to a more sustainable internet.</span
+        >Our template is among the greenest on the web, outperforming 87% of
+        websites in energy efficiency. By using this template, you're
+        contributing to a more sustainable internet.</span
       >
       <span
         ><a
@@ -161,7 +169,10 @@
     use:reveal={{ bottomMargin: 200 }}
   >
     <picture class="w-[80%]">
-      <source media="(max-width: 500px)" srcset="/homepage/editConfiguration_480.webp" />
+      <source
+        media="(max-width: 500px)"
+        srcset="/homepage/editConfiguration_480.webp"
+      />
       <img
         src="/homepage/editConfiguration_720.webp"
         alt="Editing config file mockup"
@@ -176,8 +187,9 @@
     >
       <h1 class="m-0 text-base font-medium">Easy Configuration</h1>
       <span
-        >Set up your entire documentation site with a single config file. It's simple, quick, and
-        lets you focus on writing your content without worrying about complex settings.</span
+        >Set up your entire documentation site with a single config file. It's
+        simple, quick, and lets you focus on writing your content without
+        worrying about complex settings.</span
       >
     </div>
   </div>
@@ -226,8 +238,9 @@
     >
       <h1 class="m-0 text-base font-medium">Performance</h1>
       <span
-        >Experience lightning-fast load times and near-perfect performance scores. Our optimized
-        template ensures your documentation is smooth and responsive on any device.</span
+        >Experience lightning-fast load times and near-perfect performance
+        scores. Our optimized template ensures your documentation is smooth and
+        responsive on any device.</span
       >
     </div>
   </div>

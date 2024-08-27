@@ -12,6 +12,8 @@
   role="note"
   {...restProps}
 >
-  <span class="text-base font-bold text-primary-800 dark:text-primary-600">NOTE :</span>
+  <span class="text-base font-bold text-primary-800 dark:text-primary-600"
+    >NOTE :</span
+  >
   {@render children()}
 </div>

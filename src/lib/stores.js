@@ -8,7 +8,8 @@ export const syncKeyStore = writable({});
  * Generates a unique ID by combining the current timestamp with a random number.
  * @returns {string} The generated ID.
  */
-const generateId = () => Date.now().toString() + Math.floor(Math.random() * 10000).toString();
+const generateId = () =>
+  Date.now().toString() + Math.floor(Math.random() * 10000).toString();
 
 /**
  * Creates a new toast notification.

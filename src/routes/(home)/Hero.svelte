@@ -34,16 +34,26 @@
   </style>
 </svelte:head>
 
-<section class="relative isolate flex h-screen transform-gpu flex-col md:pb-10 md:pt-52" id="home">
+<section
+  class="relative isolate flex h-screen transform-gpu flex-col md:pb-10 md:pt-52"
+  id="home"
+>
   <!-- Grid -->
   <svg
     class="absolute inset-0 -z-10 h-full w-full stroke-black/5 [mask-image:radial-gradient(75%_50%_at_top_center,white,transparent)] dark:stroke-white/5"
     aria-hidden="true"
     ><defs
-      ><pattern id="hero" width="80" height="80" x="50%" y="-1" patternUnits="userSpaceOnUse"
+      ><pattern
+        id="hero"
+        width="80"
+        height="80"
+        x="50%"
+        y="-1"
+        patternUnits="userSpaceOnUse"
         ><path d="M.5 200V.5H200" fill="none"></path></pattern
       ></defs
-    ><rect width="100%" height="100%" stroke-width="0" fill="url(#hero)"></rect></svg
+    ><rect width="100%" height="100%" stroke-width="0" fill="url(#hero)"
+    ></rect></svg
   >
 
   <!-- Main content -->
@@ -55,7 +65,7 @@
       class="shrink-0 max-lg:p-2 max-md:row-span-2 max-md:self-end max-sm:row-span-1 max-sm:self-center"
     >
       <!-- New version badge -->
-      {#if homepage.showHomepageMessage && latestRelease}
+      {#if latestRelease}
         <a
           class="group relative mb-5 flex w-max items-center gap-x-2 rounded-full border border-main px-2 py-1 text-sm transition-colors focus-visible:bg-neutral-600/20 hocus:bg-neutral-600/10 dark:border-main-dark"
           href="/releases"
@@ -91,8 +101,13 @@
       </h1>
 
       <!-- CTA buttons -->
-      <div class="mt-8 flex w-full flex-row items-center justify-start gap-8" id="cta">
-        <Button href="/docs/{docsHomePage.name}" name="Go to docs">Get started</Button>
+      <div
+        class="mt-8 flex w-full flex-row items-center justify-start gap-8"
+        id="cta"
+      >
+        <Button href="/docs/{docsHomePage.name}" name="Go to docs"
+          >Get started</Button
+        >
 
         <Button
           href="#learn-more"

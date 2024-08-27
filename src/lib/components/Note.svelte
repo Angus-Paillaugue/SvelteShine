@@ -2,7 +2,13 @@
   import Icon from '@iconify/svelte';
   import { cn } from '$lib/utils';
 
-  const { type = 'warning', class: className, children, style = 'custom', ...restProps } = $props();
+  const {
+    type = 'warning',
+    class: className,
+    children,
+    style = 'custom',
+    ...restProps
+  } = $props();
 
   const baseClasses = {
     github: 'border-l-2 p-2 pl-4 my-2',
@@ -23,7 +29,8 @@
         'text-indigo-600 dark:text-indigo-500 border-indigo-600 bg-indigo-50/50 dark:bg-indigo-500/30',
       warning:
         'text-amber-600 dark:text-amber-500 border-amber-600 bg-amber-50/50 dark:bg-amber-500/30',
-      caution: 'text-red-600 dark:text-red-500 border-red-600 bg-red-50/50 dark:bg-red-500/30'
+      caution:
+        'text-red-600 dark:text-red-500 border-red-600 bg-red-50/50 dark:bg-red-500/30'
     }
   };
   const iconClasses = {
@@ -67,16 +74,22 @@
   >
     {#if style === 'github'}
       <div class="flex flex-col gap-1">
-        <div class="flex flex-row items-center gap-2 {iconClasses[style][type]}">
+        <div
+          class="flex flex-row items-center gap-2 {iconClasses[style][type]}"
+        >
           <Icon class="size-6" icon={iconNames[type]} />
           <span class="font-semibold capitalize">{type}</span>
         </div>
-        <p class="m-0 text-text-body dark:text-text-body-dark">{@render children()}</p>
+        <p class="m-0 text-text-body dark:text-text-body-dark">
+          {@render children()}
+        </p>
       </div>
     {:else if style === 'custom'}
       <div class="flex flex-row items-center gap-2">
         <Icon class="size-6" icon={iconNames[type]} />
-        <p class="m-0 text-text-body dark:text-text-body-dark">{@render children()}</p>
+        <p class="m-0 text-text-body dark:text-text-body-dark">
+          {@render children()}
+        </p>
       </div>
     {/if}
   </div>

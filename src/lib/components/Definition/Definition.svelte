@@ -1,7 +1,13 @@
 <script>
   import { cn } from '$lib/utils';
 
-  const { name, description, children, class: className, ...restProps } = $props();
+  const {
+    name,
+    description,
+    children,
+    class: className,
+    ...restProps
+  } = $props();
 </script>
 
 <div

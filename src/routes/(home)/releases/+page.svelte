@@ -22,7 +22,10 @@
       <span
         class="absolute right-2 top-2 -translate-x-1/2 translate-y-1/2 -rotate-[45deg] opacity-0 transition-all group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
       >
-        <Icon icon="material-symbols:arrow-forward-ios-rounded" class="size-8" />
+        <Icon
+          icon="material-symbols:arrow-forward-ios-rounded"
+          class="size-8"
+        />
       </span>
     </a>
   {/each}

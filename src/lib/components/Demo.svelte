@@ -8,8 +8,10 @@
 
   const { name, lang = 'svelte', container = true } = $props();
 
-  const component = async () => await import(`../Demos/${name}.svelte`).then((m) => m.default);
-  const raw = async () => await import(`../Demos/${name}.svelte?raw`).then((m) => m.default);
+  const component = async () =>
+    await import(`../Demos/${name}.svelte`).then((m) => m.default);
+  const raw = async () =>
+    await import(`../Demos/${name}.svelte?raw`).then((m) => m.default);
 
   let selectedIndex = $state(0);
   let commandsContainer = $state();
@@ -94,7 +96,9 @@
         <!-- TODO : add animated loader -->
         <p>Loading...</p>
       {:then rawFile}
-        <Pre class="lenis-prevent h-[20rem] overflow-y-auto rounded-xl lg:h-[28rem]">
+        <Pre
+          class="lenis-prevent h-[20rem] overflow-y-auto rounded-xl lg:h-[28rem]"
+        >
           {#await highlighter then highlighter}
             {@html highlighter.codeToHtml(rawFile, {
               theme: codeBlockTheme,

@@ -4,10 +4,10 @@
   import '../app.css';
   import 'lenis/dist/lenis.css';
   import Toasts from '$lib/components/core/Toasts.svelte';
+  import PageLoader from '$lib/components/core/PageLoader.svelte';
   import { ModeWatcher, mode } from 'mode-watcher';
   import { page } from '$app/stores';
   import { project } from '$conf';
-  import PageLoader from '$lib/components/core/PageLoader.svelte';
   import Lenis from 'lenis';
   import { onMount } from 'svelte';
 
@@ -44,7 +44,9 @@
     link.href = `/favicon/${$mode}/favicon-32x32.png`;
 
     // Set apple touch icon
-    let appleTouchIcon = document.querySelector("link[rel~='apple-touch-icon']");
+    let appleTouchIcon = document.querySelector(
+      "link[rel~='apple-touch-icon']"
+    );
     if (!appleTouchIcon) {
       appleTouchIcon = document.createElement('link');
       appleTouchIcon.rel = 'apple-touch-icon';

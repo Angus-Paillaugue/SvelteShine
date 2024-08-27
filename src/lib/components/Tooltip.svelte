@@ -4,7 +4,13 @@
   import { backOut } from 'svelte/easing';
   import { cn } from '$lib/utils';
 
-  const { children, title, position = 'top', class: className, ...restProps } = $props();
+  const {
+    children,
+    title,
+    position = 'top',
+    class: className,
+    ...restProps
+  } = $props();
 
   let isHovered = $state(false);
   let tooltipCoords = $state({ x: 0, y: 0, width: 0 });

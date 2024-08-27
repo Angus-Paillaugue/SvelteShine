@@ -15,7 +15,9 @@
   function copyText(e) {
     // Change the button icon to a checkmark
     codeCopied = true;
-    const textToCopy = e.target.closest('button').parentElement.querySelector('code').innerText;
+    const textToCopy = e.target
+      .closest('button')
+      .parentElement.querySelector('code').innerText;
     // Write the code to clipboard
     navigator.clipboard.writeText(textToCopy);
     // Show toast

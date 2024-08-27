@@ -6,7 +6,7 @@ lastModified: 08-27-2024
   import { Steps, Note } from "$lib/components"
 </script>
 
-<Note type="warning">We strongly advise you to backup everything manually or using our [backup script](#backing-up)</Note>
+<Note type="warning">We strongly advise you to backup everything manually or using our backup script</Note>
 
 # Backing up
 

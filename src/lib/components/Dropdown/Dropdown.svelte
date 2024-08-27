@@ -91,7 +91,10 @@
   };
 </script>
 
-<svelte:window onclick={onWindowClickHandler} onkeydown={onWindowKeydownHandler} />
+<svelte:window
+  onclick={onWindowClickHandler}
+  onkeydown={onWindowKeydownHandler}
+/>
 
 <div class={cn('dropdown relative w-fit', className)} {...restProps}>
   {@render children()}

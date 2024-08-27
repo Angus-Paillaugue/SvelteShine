@@ -5,6 +5,9 @@
 </script>
 
 <div
-  class={cn('my-2 h-0 w-full border-b border-main dark:border-main-dark', className)}
+  class={cn(
+    'my-2 h-0 w-full border-b border-main dark:border-main-dark',
+    className
+  )}
   {...restProps}
 ></div>

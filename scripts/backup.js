@@ -59,7 +59,9 @@ async function createBackup() {
   }
 
   const prohibitedItems = ['.git', 'node_modules', 'backup', '.svelte-kit'];
-  const thingsToCopy = readdirSync(process.cwd()).filter((name) => !prohibitedItems.includes(name));
+  const thingsToCopy = readdirSync(process.cwd()).filter(
+    (name) => !prohibitedItems.includes(name)
+  );
   for (const thing of thingsToCopy) {
     cpSync(thing, path.join(backupDir, thing), { recursive: true });
   }
@@ -80,7 +82,9 @@ async function createBackup() {
     console.log('No new release found');
     return;
   } else {
-    console.log(`New release found : ${version} -> ${latestGithubReleaseVersion}`);
+    console.log(
+      `New release found : ${version} -> ${latestGithubReleaseVersion}`
+    );
     await createBackup();
 
     console.log(

@@ -11,7 +11,9 @@
   <div
     class="component-preview lenis-prevent relative flex min-h-[20rem] flex-col overflow-auto rounded-xl bg-primary-400 before:pointer-events-none before:absolute before:inset-0 before:opacity-100 before:transition-opacity before:content-[''] before:hover:opacity-0 lg:min-h-[28rem]"
   >
-    <div class="z-0 flex h-full w-full grow flex-col items-center justify-center p-8">
+    <div
+      class="z-0 flex h-full w-full grow flex-col items-center justify-center p-8"
+    >
       {@render children()}
     </div>
   </div>

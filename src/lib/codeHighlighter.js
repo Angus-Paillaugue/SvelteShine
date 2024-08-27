@@ -16,7 +16,10 @@ const transformers = [
   {
     name: 'line-numbers',
     postprocess(code) {
-      return code.replace(/<pre class="\b([^>]*)>/g, '<pre class="line-numbers $1>');
+      return code.replace(
+        /<pre class="\b([^>]*)>/g,
+        '<pre class="line-numbers $1>'
+      );
     }
   }
 ];
@@ -44,7 +47,9 @@ async function highlighter(code, lang, meta) {
     html = highlighter.codeToHtml(code, {
       lang,
       theme: codeBlockTheme,
-      transformers: meta.includes('line-numbers') ? transformers : transformers.slice(0, -1),
+      transformers: meta.includes('line-numbers')
+        ? transformers
+        : transformers.slice(0, -1),
       meta: { __raw: meta }
     });
   }
@@ -61,7 +66,8 @@ async function highlighter(code, lang, meta) {
 function escapeHtml(code) {
   return code.replace(
     /[{}`]/g,
-    (character) => ({ '{': '&lbrace;', '}': '&rbrace;', '`': '&grave;' })[character]
+    (character) =>
+      ({ '{': '&lbrace;', '}': '&rbrace;', '`': '&grave;' })[character]
   );
 }
 

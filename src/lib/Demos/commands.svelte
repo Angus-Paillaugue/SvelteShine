@@ -12,7 +12,8 @@
     },
     {
       name: 'bun',
-      command: 'bun add angus && bun add angus && bun add angus && bun add angus'
+      command:
+        'bun add angus && bun add angus && bun add angus && bun add angus'
     }
   ];
 </script>

@@ -6,7 +6,10 @@ import chalk from 'chalk';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const changeLogFilePath = path.resolve(__dirname, '../src/routes/(home)/releases/releases.json');
+const changeLogFilePath = path.resolve(
+  __dirname,
+  '../src/routes/(home)/releases/releases.json'
+);
 const changeLogFile = JSON.parse(readFileSync(changeLogFilePath, 'utf-8'));
 const lastRelease = changeLogFile.at(-1);
 

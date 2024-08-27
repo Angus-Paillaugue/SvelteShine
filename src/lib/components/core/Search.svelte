@@ -131,7 +131,9 @@
             onblur={() => (selectedIndex = 0)}
             bind:value={searchTerm}
           />
-          <kbd class="absolute right-3 top-1/2 hidden -translate-y-1/2 md:block">ESC</kbd>
+          <kbd class="absolute right-3 top-1/2 hidden -translate-y-1/2 md:block"
+            >ESC</kbd
+          >
         </div>
       </div>
       {#if results.length > 0}
@@ -141,15 +143,20 @@
               href={result.url}
               class={cn(
                 'group relative m-0 flex list-none flex-row items-center justify-between rounded-xl p-2 px-4 py-2 transition-colors focus:outline-none hocus:bg-neutral-300/50 dark:hocus:bg-neutral-800/50',
-                index === selectedIndex && 'selected bg-neutral-300/50 dark:bg-neutral-800/50'
+                index === selectedIndex &&
+                  'selected bg-neutral-300/50 dark:bg-neutral-800/50'
               )}
               id={`result-${index}`}
             >
-              <div class="flex w-full list-none flex-col justify-center gap-2 rounded">
+              <div
+                class="flex w-full list-none flex-col justify-center gap-2 rounded"
+              >
                 <h2 class="m-0 line-clamp-1 truncate">
                   {@html result.name}
                 </h2>
-                <p class="m-0 line-clamp-1 truncate">{@html result.description}</p>
+                <p class="m-0 line-clamp-1 truncate">
+                  {@html result.description}
+                </p>
               </div>
               <Icon
                 icon="material-symbols:arrow-forward-ios-rounded"

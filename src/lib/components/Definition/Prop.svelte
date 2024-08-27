@@ -13,7 +13,10 @@
 </script>
 
 <div
-  class={cn('my-5 border-t border-main px-4 pt-5 dark:border-main-dark', className)}
+  class={cn(
+    'my-5 border-t border-main px-4 pt-5 dark:border-main-dark',
+    className
+  )}
   {...restProps}
 >
   <div class="flex flex-wrap items-center gap-2">
@@ -42,5 +45,7 @@
       {/if}
     </div>
   </div>
-  <div class="m-0 mt-2 text-neutral-700 dark:text-neutral-400">{@render children()}</div>
+  <div class="m-0 mt-2 text-neutral-700 dark:text-neutral-400">
+    {@render children()}
+  </div>
 </div>

@@ -35,7 +35,10 @@ export function getTree() {
         };
       } else if (page.children) {
         // If the page has children, recursively add metadata to the children
-        const updatedChildren = traverseAndAddMetadata(page.children, baseUrl + '/' + page.name);
+        const updatedChildren = traverseAndAddMetadata(
+          page.children,
+          baseUrl + '/' + page.name
+        );
         return { ...page, children: updatedChildren };
       } else {
         // Add metadata to the page

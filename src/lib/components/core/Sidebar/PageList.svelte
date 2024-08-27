@@ -6,7 +6,13 @@
   import Icon from '@iconify/svelte';
   import { slugify } from '$lib/utils';
 
-  const { pages = [], root = false, style = 'details', class: className, ...restProps } = $props();
+  const {
+    pages = [],
+    root = false,
+    style = 'details',
+    class: className,
+    ...restProps
+  } = $props();
   const pathname = $derived(slugify(decodeURIComponent($page.url.pathname)));
 
   /**
@@ -15,7 +21,8 @@
    * @param {Object} page - The page object.
    * @returns {boolean} - True if the page is nested, false otherwise.
    */
-  const isNested = (page) => page.children && Object.keys(page.children).length > 0;
+  const isNested = (page) =>
+    page.children && Object.keys(page.children).length > 0;
 
   // USER CONFIG : Customize the sidebar colors
   const itemBaseClasses =
@@ -56,7 +63,10 @@
           {#if page.icon}
             <Icon
               icon={typeof page.icon === 'string' ? page.icon : page.icon.name}
-              class={cn('size-5', typeof page.icon === 'object' && page.icon.class)}
+              class={cn(
+                'size-5',
+                typeof page.icon === 'object' && page.icon.class
+              )}
             />
           {/if}
           {page.name}
@@ -69,7 +79,9 @@
     {#each pages as page}
       {#if isNested(page)}
         <div class="flex flex-col gap-2">
-          <span class={cn(itemBaseClasses, 'border-none text-base uppercase')}>{page.name}</span>
+          <span class={cn(itemBaseClasses, 'border-none text-base uppercase')}
+            >{page.name}</span
+          >
           <Sidebar.PageList pages={page.children} />
         </div>
       {:else}
@@ -84,7 +96,10 @@
           {#if page.icon}
             <Icon
               icon={typeof page.icon === 'string' ? page.icon : page.icon.name}
-              class={cn('size-5', typeof page.icon === 'object' && page.icon.class)}
+              class={cn(
+                'size-5',
+                typeof page.icon === 'object' && page.icon.class
+              )}
             />
           {/if}
           {page.name}

@@ -55,14 +55,17 @@
    * @param {number} offset - The offset value.
    */
   function windowScrollHandler(offset) {
-    const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-    const maxScrollPosition = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPosition =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    const maxScrollPosition =
+      document.documentElement.scrollHeight - window.innerHeight;
     // Calculate the progress based on how much the user has scrolled relative to the maximum scroll position
     const progress = scrollPosition / maxScrollPosition;
 
     // Interpolate the trigger value between offset and window.innerHeight
     // As progress goes from 0 to 1, trigger smoothly moves from scrollPosition + offset to scrollPosition + window.innerHeight
-    const trigger = scrollPosition + offset + progress * (window.innerHeight - offset);
+    const trigger =
+      scrollPosition + offset + progress * (window.innerHeight - offset);
     let activeHeadingInSidebar;
 
     // Find the lowest heading that is above the trigger
@@ -87,7 +90,8 @@
     headings.forEach((e) => {
       const element = document.getElementById(e.id);
       if (!element) return;
-      headingScrolls[e.id] = element.getBoundingClientRect().top + window.scrollY;
+      headingScrolls[e.id] =
+        element.getBoundingClientRect().top + window.scrollY;
 
       if (e.children.length > 0) {
         setTopPos(e.children);
@@ -134,7 +138,9 @@
       >
         <Icon icon="line-md:menu-unfold-right" class="size-4" />On this page
       </p>
-      <div class="relative border-l border-main pb-1 pl-4 dark:border-main-dark">
+      <div
+        class="relative border-l border-main pb-1 pl-4 dark:border-main-dark"
+      >
         <!-- TOC Indicator -->
         <div
           class="absolute -left-[2px] h-[1.4rem] w-[3px] rounded-full bg-primary-500"

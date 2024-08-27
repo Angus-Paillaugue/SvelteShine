@@ -72,7 +72,10 @@ code .line.diff.remove::before {
   color: rgb(var(--line-removed-bg));
 }
 .highlighted {
-  background-color: rgba(var(--line-highlighted-bg), var(--line-highlighted-opacity));
+  background-color: rgba(
+    var(--line-highlighted-bg),
+    var(--line-highlighted-opacity)
+  );
 }
 /* Inline code */
 code:not(pre code, .command) {
@@ -99,7 +102,13 @@ code:not(pre code, .command) {
 
 /* Lists */
 #pageContainer
-  ul:not(.tree ul, .commands ul, .collapsible-details ul, .collapsible-details ol, .demo ul),
+  ul:not(
+    .tree ul,
+    .commands ul,
+    .collapsible-details ul,
+    .collapsible-details ol,
+    .demo ul
+  ),
 #pageContainer ol:not(.steps) {
   @apply my-5 list-outside list-none pl-0 ps-6;
 }

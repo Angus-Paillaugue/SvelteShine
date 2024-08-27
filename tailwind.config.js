@@ -49,6 +49,12 @@ export default {
       }
     }
   },
-  plugins: [radialGradientPlugin, hocusPlugin, textShadowPlugin, textWrapPlugin, ligaturesPlugin],
+  plugins: [
+    radialGradientPlugin,
+    hocusPlugin,
+    textShadowPlugin,
+    textWrapPlugin,
+    ligaturesPlugin
+  ],
   darkMode: 'class'
 };

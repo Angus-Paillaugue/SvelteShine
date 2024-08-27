@@ -11,7 +11,9 @@
     class="mx-auto mt-auto flex w-full max-w-screen-lg gap-8 max-md:flex-col-reverse md:grid md:grid-cols-[auto,auto]"
   >
     <div class="flex flex-col gap-8">
-      <p class="m-0 text-text-heading-dark dark:text-text-heading">{project.name}, {catchphrase}</p>
+      <p class="m-0 text-text-heading-dark dark:text-text-heading">
+        {project.name}, {catchphrase}
+      </p>
       <p class="m-0 mt-auto text-text-heading-dark dark:text-text-heading">
         Made with <svg
           xmlns="http://www.w3.org/2000/svg"

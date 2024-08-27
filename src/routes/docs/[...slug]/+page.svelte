@@ -8,8 +8,9 @@
 
   const { data } = $props();
   let headings = $state([]);
-  afterNavigate(load);
 
+
+  afterNavigate(load);
   onMount(load);
 
   /**
@@ -23,7 +24,10 @@
     ];
     const headingElements = pageContainer.querySelectorAll(
       allowedElements
-        .map((element) => element + '[id]:not(' + disallowedSelectors.join(', ') + ')')
+        .map(
+          (element) =>
+            element + '[id]:not(' + disallowedSelectors.join(', ') + ')'
+        )
         .join(', ')
     );
     headings = createHeadingTree(headingElements);
@@ -71,8 +75,14 @@
   <meta property="twitter:title" content={data?.name ?? 'Docs'} />
 
   <meta name="description" content={data?.description ?? project.description} />
-  <meta property="og:description" content={data?.description ?? project.description} />
-  <meta property="twitter:description" content={data?.description ?? project.description} />
+  <meta
+    property="og:description"
+    content={data?.description ?? project.description}
+  />
+  <meta
+    property="twitter:description"
+    content={data?.description ?? project.description}
+  />
   <!-- Adding katex stylesheet for math support -->
   <link
     rel="stylesheet"
@@ -85,7 +95,9 @@
 <div class="flex grow flex-col">
   <Navbar title={data?.name ?? 'Docs'} />
 
-  <div class="flex h-full flex-col-reverse justify-center max-lg:items-center lg:flex-row lg:gap-8">
+  <div
+    class="flex h-full flex-col-reverse justify-center max-lg:items-center lg:flex-row lg:gap-8"
+  >
     <main class="mx-auto flex h-full w-full grow flex-col p-4">
       {#if data?.component}
         <section id="pageContainer">

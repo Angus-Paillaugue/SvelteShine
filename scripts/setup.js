@@ -23,5 +23,7 @@ const askForGrayShade = async () => {
 
   await chooseTailwindGrayShade(grayShade);
 
-  console.log('You can now configure your template in the project.config.js file');
+  console.log(
+    'You can now configure your template in the project.config.js file'
+  );
 })();

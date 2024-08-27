@@ -4,7 +4,13 @@
   import Icon from '@iconify/svelte';
   import { cn } from '$lib/utils';
 
-  const { tree, root = true, open = true, class: className, ...restProps } = $props();
+  const {
+    tree,
+    root = true,
+    open = true,
+    class: className,
+    ...restProps
+  } = $props();
 
   // A tree is an array of objects with the following structure:
   // [
@@ -25,7 +31,9 @@
 <ul
   class={cn(
     'tree',
-    root ? 'rounded bg-neutral-800 p-4' : 'ml-1.5 border-l-2 border-neutral-700 pl-2.5',
+    root
+      ? 'rounded bg-neutral-800 p-4'
+      : 'ml-1.5 border-l-2 border-neutral-700 pl-2.5',
     className
   )}
   {...restProps}
@@ -43,7 +51,10 @@
             )}
           >
             <Icon icon="material-symbols:folder" class="folder-close size-4" />
-            <Icon icon="material-symbols:folder-open" class="folder-open size-4" />
+            <Icon
+              icon="material-symbols:folder-open"
+              class="folder-open size-4"
+            />
             {element.name}
           </summary>
           <Tree tree={element.children} root={false} />

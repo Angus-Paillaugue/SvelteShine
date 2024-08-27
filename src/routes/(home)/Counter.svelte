@@ -6,7 +6,11 @@
 </script>
 
 <section class="flex w-fit flex-row items-center gap-4">
-  <Button onclick={() => (count = Math.max(0, count - 1))} name="Decrement counter" type="square">
+  <Button
+    onclick={() => (count = Math.max(0, count - 1))}
+    name="Decrement counter"
+    type="square"
+  >
     <Icon icon="ri:subtract-line" class="size-6" />
   </Button>
 

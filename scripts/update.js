@@ -30,19 +30,21 @@ async function createBackup() {
   const backupDir = path.join(process.cwd(), 'backup');
   if (existsSync(backupDir)) {
     console.log('Backup directory already exists');
-    await inquirer.prompt([
-      {
-        type: 'confirm',
-        name: 'overwrite',
-        message: 'Do you want to overwrite the existing backup?',
-      },
-    ]).then((answers) => {
-      if (answers.overwrite) {
-        rmSync(backupDir, { recursive: true });
-      }else {
-        process.exit(0);
-      }
-    });
+    await inquirer
+      .prompt([
+        {
+          type: 'confirm',
+          name: 'overwrite',
+          message: 'Do you want to overwrite the existing backup?'
+        }
+      ])
+      .then((answers) => {
+        if (answers.overwrite) {
+          rmSync(backupDir, { recursive: true });
+        } else {
+          process.exit(0);
+        }
+      });
   }
   try {
     mkdirSync(backupDir);
@@ -52,7 +54,9 @@ async function createBackup() {
   }
 
   const prohibitedItems = ['.git', 'node_modules', 'backup', '.svelte-kit'];
-  const thingsToCopy = readdirSync(process.cwd()).filter((name) => !prohibitedItems.includes(name));
+  const thingsToCopy = readdirSync(process.cwd()).filter(
+    (name) => !prohibitedItems.includes(name)
+  );
   for (const thing of thingsToCopy) {
     cpSync(thing, path.join(backupDir, thing), { recursive: true });
   }
@@ -72,8 +76,10 @@ async function createBackup() {
   if (!isNewerVersion(version, latestGithubReleaseVersion)) {
     console.log('No new release found');
     return;
-  }else {
-    console.log(`New release found : ${version} -> ${latestGithubReleaseVersion}`);
+  } else {
+    console.log(
+      `New release found : ${version} -> ${latestGithubReleaseVersion}`
+    );
     await createBackup();
 
     console.log(
