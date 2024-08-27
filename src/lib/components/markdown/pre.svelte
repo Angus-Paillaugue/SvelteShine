@@ -41,7 +41,9 @@
 
 <div class="codeContainer my-4">
   {#if name}
-    <p class="flex flex-row items-center gap-2 rounded-t-md px-3 py-1 text-base font-medium text-body-dark dark:text-body border border-b-0 border-main dark:border-main-dark m-0">
+    <p
+      class="m-0 flex flex-row items-center gap-2 rounded-t-md border border-b-0 border-main px-3 py-1 text-base font-medium text-body-dark dark:border-main-dark dark:text-body"
+    >
       {#if icon == 'true'}
         <span class="size-5">
           {@html getIcon(name).svg}
@@ -91,7 +93,7 @@
 </div>
 
 <style lang="postcss">
-  :global(.codeContainer p + div .shiki ) {
-    @apply rounded-t-none
+  :global(.codeContainer p + div .shiki) {
+    @apply rounded-t-none;
   }
 </style>

@@ -40,14 +40,19 @@ async function highlighter(code, lang, meta) {
   let name = '';
   let icon = true;
   if (metaArray && metaArray.some((item) => item.startsWith('name='))) {
-    name = metaArray.find((item) => item.startsWith('name=')).slice(5).replace(/"/g, '').replace(/'/g, '');
-  }
-  if (metaArray && metaArray.some((item) => item.startsWith('icon='))) {
-    icon = (metaArray
-      .find((item) => item.startsWith('icon='))
+    name = metaArray
+      .find((item) => item.startsWith('name='))
       .slice(5)
       .replace(/"/g, '')
-      .replace(/'/g, '')) === 'true';
+      .replace(/'/g, '');
+  }
+  if (metaArray && metaArray.some((item) => item.startsWith('icon='))) {
+    icon =
+      metaArray
+        .find((item) => item.startsWith('icon='))
+        .slice(5)
+        .replace(/"/g, '')
+        .replace(/'/g, '') === 'true';
   }
 
   let html;
@@ -70,7 +75,9 @@ async function highlighter(code, lang, meta) {
 
   highlighter.dispose();
   return escapeHtml(
-    `<Components.pre name="${name}" icon="${icon}">` + html + `</Components.pre>`
+    `<Components.pre name="${name}" icon="${icon}">` +
+      html +
+      `</Components.pre>`
   );
 }
 
