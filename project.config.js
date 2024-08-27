@@ -61,3 +61,7 @@ export const pages = [
 // The root path of the markdown files.
 // Do not change unless you know what you are doing
 export const docsUrlStart = '/docs';
+
+
+// DO NOT CHANGE MANUALLY
+export const version = 'v0.0.1';
