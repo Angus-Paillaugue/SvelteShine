@@ -9,8 +9,7 @@
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
     "prebuild": "node ./scripts/generate-sitemap.js",
-    "setup": "node ./scripts/setup.js",
-    "new-release": "node ./scripts/new-release.js"
+    "setup": "node ./scripts/setup.js"
   },
   "devDependencies": {
     "@shikijs/transformers": "^1.11.1",
