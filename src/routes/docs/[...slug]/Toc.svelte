@@ -3,11 +3,9 @@
   import Icon from '@iconify/svelte';
   import { cn } from '$lib/utils';
   import { afterNavigate } from '$app/navigation';
-  import imageZoomPlugin from './image-zoom-plugin';
-  import { onMount } from 'svelte';
   import { spring } from 'svelte/motion';
 
-  let { headings, root = false } = $props();
+  let { headings = $bindable([]), root = false } = $props();
   let headingScrolls = $state({});
   const topTriggerOffset = 10;
   let indicatorHeight = spring(0, {
@@ -19,30 +17,36 @@
     damping: 0.25
   });
 
-  afterNavigate(load);
-  onMount(load);
-
-  /**
-   * On window load event handler.
-   */
-  function load() {
+  afterNavigate(() => {
     if (!root) return;
 
-    // On scroll event handler
+    headingScrolls = {};
+
+    // Reset she active heading indicator if the page is shorter than the viewport
+    if(document.body.scrollHeight <= window.innerHeight) {
+      indicatorHeight.set(0);
+      indicatorCoords.set(0);
+    }
+
     setTopPos(headings);
     const navBar = document.getElementsByTagName('nav')[0];
     const topOffset = topTriggerOffset + navBar.clientHeight;
+    // On scroll event handler
     windowScrollHandler(topOffset);
     window.addEventListener('scroll', () => {
       windowScrollHandler(topOffset);
     });
 
-    imageZoomPlugin();
-
     return () => {
-      window.removeEventListener('scroll', windowScrollHandler(topOffset));
+      window.removeEventListener('scroll', () => {
+        windowScrollHandler(topOffset);
+      });
     };
-  }
+  });
+
+  $effect(() => {
+    setTopPos(headings);
+  })
 
   /**
    * Function to handle window scroll events.
@@ -101,7 +105,7 @@
       </p>
     {/if}
     <div
-      class={cn(root ? 'relative border-l border-main py-1 pl-4 dark:border-main-dark' : 'ml-2')}
+      class={cn(root ? 'relative border-l border-main pb-1 pl-4 dark:border-main-dark' : 'ml-2')}
     >
       <!-- TOC Indicator -->
       {#if root}
