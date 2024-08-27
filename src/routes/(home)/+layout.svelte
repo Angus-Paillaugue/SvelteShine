@@ -14,9 +14,9 @@
     const observer = new IntersectionObserver(intersect, { threshold: 0 });
     // Observe the cta section
     const ctaSection = document.getElementById('cta');
-    if(ctaSection) {
+    if (ctaSection) {
       observer.observe(ctaSection);
-    }else {
+    } else {
       getStartedButtonNavShown = true;
     }
 

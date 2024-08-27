@@ -15,12 +15,15 @@
 
   onMount(() => {
     // For updating the progress bar when it intersects with the viewport
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(intersect);
-    }, {
-      threshold: 1,
-      rootMargin: '0px 0px -150px 0px'
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(intersect);
+      },
+      {
+        threshold: 1,
+        rootMargin: '0px 0px -150px 0px'
+      }
+    );
     // Observe both of the progress bars
     const accessibilityProgress = document.getElementById('accessibilityProgress');
     const performanceProgress = document.getElementById('performanceProgress');
@@ -79,7 +82,7 @@
           />
         </svg>
         <span
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold dark:text-green-400 text-green-400 font-mono"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-4xl font-bold text-green-400 dark:text-green-400"
         >
           {Math.round($accessibilityScore)}
         </span>
@@ -212,7 +215,7 @@
           />
         </svg>
         <span
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold dark:text-green-400 text-green-400 font-mono"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-4xl font-bold text-green-400 dark:text-green-400"
         >
           {Math.round($performanceScore)}
         </span>

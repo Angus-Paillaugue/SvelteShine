@@ -3,8 +3,7 @@ lastModified: 08-14-2024
 ---
 
 <script>
-  import { Collapsible } from '$lib/components';
-  import { Definition } from "$lib/components";
+  import { Collapsible, Definition } from '$lib/components';
 </script>
 
 # Exemples
@@ -97,7 +96,7 @@ function collapsibleFunction() {
   A list of `Collapsible`.
   </Definition.Prop>
   <Definition.Note>
-  
+
   This component is just a wrapper. It dos't have any props except for the `slot`.
   </Definition.Note>
 </Definition>

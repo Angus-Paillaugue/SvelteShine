@@ -4,7 +4,7 @@
   import Hero from './Hero.svelte';
   import { project } from '$conf';
 
-  const { data } = $props()
+  const { data } = $props();
   const { docsHomePage } = data;
 </script>
 
@@ -29,7 +29,7 @@
   </style>
 </svelte:head>
 
-<div class="isolate flex w-full flex-col bg-body-dark dark:bg-body -mt-16">
+<div class="isolate -mt-16 flex w-full flex-col bg-body-dark dark:bg-body">
   <main class="overflow-clip rounded-b-[32px] bg-body dark:bg-body-dark">
     <Hero {docsHomePage} />
 

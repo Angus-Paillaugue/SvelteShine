@@ -18,7 +18,7 @@ const lastRelease = changeLogFile.at(-1);
  * @throws {Error} If the description property is missing.
  */
 function checkRelease(release) {
-  if(!release.version) {
+  if (!release.version) {
     throw new Error('Version is required');
   }
   if (!release.description) {
@@ -34,7 +34,7 @@ function checkRelease(release) {
  * @returns {boolean} Returns true if the new version is newer, false otherwise.
  */
 function isNewerVersion(lastVersion, newVersion) {
-  if(!lastVersion) return true;
+  if (!lastVersion) return true;
   const lastParts = lastVersion.split('.').map(Number);
   const newParts = newVersion.split('.').map(Number);
 
@@ -72,7 +72,7 @@ function createNewRelease(release) {
   writeFileSync(changeLogFilePath, JSON.stringify(changeLogFile, null, 2));
 }
 
-(async() => {
+(async () => {
   // Ask for the new release information
   const release = await inquirer.prompt([
     {
@@ -89,7 +89,7 @@ function createNewRelease(release) {
         if (!isNewerVersion(lastRelease?.version, input)) {
           return 'New version must be greater than the last one';
         }
-         return true;
+        return true;
       }
     },
     {
@@ -108,11 +108,11 @@ function createNewRelease(release) {
       name: 'date',
       message: 'Date',
       default: new Date().toUTCString()
-    },
+    }
   ]);
 
   // Create the new release and save it to the src/routes/releases/releases.json file
   createNewRelease(release);
 
-  console.log("\n" + chalk.green('✓ ') + release.version + ' Release created');
-})()
+  console.log('\n' + chalk.green('✓ ') + release.version + ' Release created');
+})();

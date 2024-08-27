@@ -26,23 +26,30 @@ function isNewerVersion(lastVersion, newVersion) {
   return false; // if all parts are equal, the newVersion is not greater
 }
 
+/**
+ * Creates a backup of the current directory.
+ *
+ * @returns {Promise<void>} A promise that resolves when the backup is created.
+ */
 async function createBackup() {
   const backupDir = path.join(process.cwd(), 'backup');
   if (existsSync(backupDir)) {
     console.log('Backup directory already exists');
-    await inquirer.prompt([
-      {
-        type: 'confirm',
-        name: 'overwrite',
-        message: 'Do you want to overwrite the existing backup?',
-      },
-    ]).then((answers) => {
-      if (answers.overwrite) {
-        rmSync(backupDir, { recursive: true });
-      }else {
-        process.exit(0);
-      }
-    });
+    await inquirer
+      .prompt([
+        {
+          type: 'confirm',
+          name: 'overwrite',
+          message: 'Do you want to overwrite the existing backup?'
+        }
+      ])
+      .then((answers) => {
+        if (answers.overwrite) {
+          rmSync(backupDir, { recursive: true });
+        } else {
+          process.exit(0);
+        }
+      });
   }
   try {
     mkdirSync(backupDir);
@@ -72,7 +79,7 @@ async function createBackup() {
   if (!isNewerVersion(version, latestGithubReleaseVersion)) {
     console.log('No new release found');
     return;
-  }else {
+  } else {
     console.log(`New release found : ${version} -> ${latestGithubReleaseVersion}`);
     await createBackup();
 

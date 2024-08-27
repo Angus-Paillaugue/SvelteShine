@@ -98,7 +98,8 @@ code:not(pre code, .command) {
 }
 
 /* Lists */
-#pageContainer ul:not(.tree ul, .commands ul, .collapsible-details ul, .collapsible-details ol, .demo ul),
+#pageContainer
+  ul:not(.tree ul, .commands ul, .collapsible-details ul, .collapsible-details ol, .demo ul),
 #pageContainer ol:not(.steps) {
   @apply my-5 list-outside list-none pl-0 ps-6;
 }
@@ -107,7 +108,7 @@ code:not(pre code, .command) {
   @apply relative list-none ps-1;
 }
 
-#pageContainer ul:not(.tree, .commands ul, .demo ul)>li::before {
+#pageContainer ul:not(.tree, .commands ul, .demo ul) > li::before {
   @apply absolute -left-[1.25rem] top-[12px] h-0.5 w-3 rounded-full bg-neutral-300 content-[''] dark:bg-neutral-700;
 }
 

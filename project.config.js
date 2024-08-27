@@ -16,8 +16,7 @@ export const colors = {
     950: 'rgb(65, 28, 9)'
   },
   // For a list of available themes, visit https://shiki.matsu.io/themes
-  // You may also have to change the variable in the src/code.css 8:14
-  codeBlockTheme: 'one-dark-pro'
+  codeBlockTheme: 'github-dark-dimmed'
 };
 
 // Sidebar config

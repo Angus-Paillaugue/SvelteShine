@@ -1,5 +1,4 @@
 import { createHighlighter } from 'shiki';
-import { parse } from 'node-html-parser';
 
 import {
   transformerNotationDiff,

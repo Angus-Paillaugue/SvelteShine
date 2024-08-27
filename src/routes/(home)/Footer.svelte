@@ -5,10 +5,10 @@
 </script>
 
 <footer
-  class="sticky w-full px-6 pb-6 pt-14 text-text-heading dark:text-text-heading-dark md:bottom-0 md:-z-10 flex flex-col min-h-[300px]"
+  class="sticky flex min-h-[300px] w-full flex-col px-6 pb-6 pt-14 text-text-heading dark:text-text-heading-dark md:bottom-0 md:-z-10"
 >
   <div
-    class="mx-auto flex max-w-screen-lg gap-8 max-md:flex-col-reverse md:grid md:grid-cols-[auto,auto] w-full mt-auto"
+    class="mx-auto mt-auto flex w-full max-w-screen-lg gap-8 max-md:flex-col-reverse md:grid md:grid-cols-[auto,auto]"
   >
     <div class="flex flex-col gap-8">
       <p class="m-0 text-text-heading-dark dark:text-text-heading">{project.name}, {catchphrase}</p>

@@ -9,9 +9,9 @@
     <h3 class="m-0 mb-2">{title}</h3>
   {/if}
   <div
-    class="component-preview lenis-prevent relative flex h-[20rem] items-center overflow-auto rounded-xl bg-primary-400 before:absolute before:inset-0 before:opacity-100 before:transition-opacity before:content-[''] before:hover:opacity-0 lg:h-[28rem]"
+    class="component-preview lenis-prevent relative flex min-h-[20rem] flex-col overflow-auto rounded-xl bg-primary-400 before:pointer-events-none before:absolute before:inset-0 before:opacity-100 before:transition-opacity before:content-[''] before:hover:opacity-0 lg:min-h-[28rem]"
   >
-    <div class="z-10 mx-auto inline-block p-4">
+    <div class="z-0 flex h-full w-full grow flex-col items-center justify-center p-8">
       {@render children()}
     </div>
   </div>

@@ -19,5 +19,8 @@ export default defineConfig({
     alias: {
       $conf: path.resolve(__dirname, './project.config.js')
     }
+  },
+  build: {
+    sourcemap: true
   }
 });

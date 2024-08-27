@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 
-export const radialGradientPlugin = plugin(function ({ matchUtilities, theme }) {
+export const radialGradientPlugin = plugin(({ matchUtilities, theme }) => {
   matchUtilities(
     {
       // map to bg-radient-[*]
@@ -12,12 +12,12 @@ export const radialGradientPlugin = plugin(function ({ matchUtilities, theme }) 
   );
 });
 
-export const hocusPlugin = plugin(function ({ addVariant }) {
+export const hocusPlugin = plugin(({ addVariant }) => {
   // Add hocus utility variant
   addVariant('hocus', ['&:hover', '&:focus']);
 });
 
-export const textShadowPlugin = plugin(function ({ matchUtilities, theme }) {
+export const textShadowPlugin = plugin(({ matchUtilities, theme }) => {
   matchUtilities(
     {
       'text-shadow': (value) => ({
@@ -30,7 +30,7 @@ export const textShadowPlugin = plugin(function ({ matchUtilities, theme }) {
   );
 });
 
-export const textWrapPlugin = plugin(function ({ addUtilities }) {
+export const textWrapPlugin = plugin(({ addUtilities }) => {
   addUtilities({
     '.text-wrap-none': {
       textWrap: 'none'
@@ -41,7 +41,7 @@ export const textWrapPlugin = plugin(function ({ addUtilities }) {
   });
 });
 
-export const ligaturesPlugin = plugin(function ({ addUtilities }) {
+export const ligaturesPlugin = plugin(({ addUtilities }) => {
   addUtilities({
     '.ligatures-normal': {
       fontVariantLigatures: 'normal'
