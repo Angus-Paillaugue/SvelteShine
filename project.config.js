@@ -81,6 +81,10 @@ export const pages = [
       {
         name: 'Project',
         icon: 'material-symbols:deployed-code-sharp'
+      },
+      {
+        name: 'Updating',
+        icon: 'material-symbols:deployed-code-update-outline-rounded'
       }
     ]
   },
