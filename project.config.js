@@ -16,8 +16,7 @@ export const colors = {
     950: 'rgb(65, 28, 9)'
   },
   // For a list of available themes, visit https://shiki.matsu.io/themes
-  // You may also have to change the variable in the src/code.css 8:14
-  codeBlockTheme: 'one-dark-pro'
+  codeBlockTheme: 'github-dark-dimmed'
 };
 
 // Sidebar config
@@ -30,7 +29,7 @@ export const sideBar = {
       {
         name: 'GitHub',
         icon: 'line-md:github-loop',
-        url: 'https://github.com/Angus-Paillaugue/SvelteShine'
+        url: 'https://github.com/Angus-Paillaugue'
       }
     ]
   }
@@ -38,11 +37,17 @@ export const sideBar = {
 
 // project meta config
 export const project = {
-  name: 'Project name',
-  description: 'Project description',
+  name: 'SvelteShine',
+  description: 'A simple documentation template for SvelteKit',
   author: 'Angus Paillaugue',
   keywords: 'svelte, sveltekit, documentation, template',
   domain: 'https://svelte-shine.paillaugue.fr'
+};
+
+// Homepage config
+export const homepage = {
+  showHomepageMessage: true,
+  catchphrase: 'Illuminate your Svelte documentation'
 };
 
 // All of your docs pages
@@ -53,15 +58,67 @@ export const pages = [
   {
     name: 'Quickstart',
     icon: {
-      name: 'material-symbols:home-outline-rounded'
+      name: 'material-symbols:rocket-rounded',
+      class: 'rotate-45'
     }
+  },
+  {
+    name: 'Configuration',
+    children: [
+      {
+        name: 'Pages',
+        icon: 'mdi:file'
+      },
+      {
+        name: 'Colors',
+        icon: 'material-symbols:colors-rounded'
+      },
+      {
+        name: 'Sidebar',
+        icon: 'material-symbols:side-navigation'
+      },
+      {
+        name: 'Project',
+        icon: 'material-symbols:deployed-code-sharp'
+      },
+      {
+        name: 'Updating',
+        icon: 'material-symbols:deployed-code-update-outline-rounded'
+      }
+    ]
+  },
+  {
+    name: 'Pages',
+    children: [
+      {
+        name: 'Create a page',
+        icon: 'material-symbols:news-rounded'
+      },
+      {
+        name: 'Code blocks',
+        icon: 'material-symbols:code-blocks-rounded'
+      }
+    ]
+  },
+  {
+    name: 'Components',
+    children: [
+      { name: 'Commands', icon: 'material-symbols:terminal-rounded' },
+      { name: 'Tree', icon: 'material-symbols:account-tree-rounded' },
+      { name: 'Collapsible', icon: 'tabler:layout-bottombar-collapse-filled' },
+      { name: 'Dropdown', icon: 'material-symbols:arrow-drop-down-circle-rounded' },
+      { name: 'Note', icon: 'material-symbols:sticky-note-2-rounded' },
+      { name: 'Definition', icon: 'material-symbols:text-snippet-rounded' },
+      { name: 'Tooltip', icon: 'material-symbols:tooltip-rounded' },
+      { name: 'Images', icon: 'material-symbols:imagesmode' },
+      { name: 'Tables', icon: 'material-symbols:table-rows-narrow' },
+      { name: 'Component preview', icon: 'iconamoon:component-fill' },
+      { name: 'Steps', icon: 'material-symbols:steppers' },
+      { name: 'Math', icon: 'material-symbols:calculate-outline-rounded' }
+    ]
   }
 ];
 
 // The root path of the markdown files.
 // Do not change unless you know what you are doing
 export const docsUrlStart = '/docs';
-
-
-// DO NOT CHANGE MANUALLY
-export const version = 'v0.0.1';

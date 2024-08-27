@@ -71,12 +71,12 @@
           <Icon class="size-6" icon={iconNames[type]} />
           <span class="font-semibold capitalize">{type}</span>
         </div>
-        <div class="text-text-body dark:text-text-body-dark noteText">{@render children()}</div>
+        <p class="m-0 text-text-body dark:text-text-body-dark">{@render children()}</p>
       </div>
     {:else if style === 'custom'}
       <div class="flex flex-row items-center gap-2">
         <Icon class="size-6" icon={iconNames[type]} />
-        <div class="text-text-body dark:text-text-body-dark noteText">{@render children()}</div>
+        <p class="m-0 text-text-body dark:text-text-body-dark">{@render children()}</p>
       </div>
     {/if}
   </div>
@@ -87,9 +87,3 @@
       .join(', ')}
   </p>
 {/if}
-
-<style>
-  :global(.noteText p) {
-    margin: 0;
-  }
-</style>

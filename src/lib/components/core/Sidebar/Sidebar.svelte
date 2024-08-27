@@ -36,7 +36,7 @@
     <a href="/">
       <h3 class="m-0 flex flex-row items-center gap-4">
         <img
-          src="/logos/{theme}.svg"
+          src="/logos/{project.name}-{theme}.svg"
           alt="{project.name}'s logo"
           class="h-8 w-12 object-contain"
         />

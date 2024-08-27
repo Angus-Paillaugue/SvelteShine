@@ -36,36 +36,6 @@ export function flattenPages(tree) {
   return newPages;
 }
 
-import { newToast } from '$lib/stores';
-/**
- * Adds functionality to the copy code button.
- */
-export function addCopyCodeButtonFunctionality() {
-  const copyCodeButtons = document.querySelectorAll('.copy-code-button');
-  copyCodeButtons.forEach((copyButton) => {
-    // On copy code button click
-    copyButton.onclick = () => {
-      // Change the button icon to a checkmark
-      copyButton.querySelector('.copy').style.display = 'none';
-      copyButton.querySelector('.copied').style.display = 'block';
-      const textToCopy = copyButton.parentElement.querySelector('code').innerText;
-      // Write the code to clipboard
-      navigator.clipboard.writeText(textToCopy);
-      // Show toast
-      newToast({
-        title: 'Copied to clipboard',
-        message: 'The code has been copied to your clipboard',
-        type: 'green'
-      });
-      setTimeout(() => {
-        // Reset the button icon back to default
-        copyButton.querySelector('.copy').style.display = 'block';
-        copyButton.querySelector('.copied').style.display = 'none';
-      }, 2000);
-    };
-  });
-}
-
 /**
  * Creates an accordion effect on the specified node.
  * @param {HTMLElement} node - The HTML element to apply the accordion effect to.
@@ -120,4 +90,75 @@ export function cn(...inputs) {
  */
 export function slugify(path) {
   return path.replace(/ /g, '-');
+}
+
+/**
+ * Reveal the specified node with the given options.
+ *
+ * @param {Node} node - The node to reveal.
+ * @param {Object} options - The options for revealing the node.
+ */
+export function reveal(node, options) {
+  // Set the default options
+  const baseOptions = {
+    y: 8, // The y translation value in pixels
+    duration: 300, // The duration of the transition in milliseconds
+    bottomMargin: 100, // The bottom margin in pixels
+    once: false, // Whether to only reveal once
+    threshold: 0.5 // The threshold for the IntersectionObserver
+  };
+
+  // Merge the base options with the provided options
+  options = { ...baseOptions, ...options };
+
+  // Create the observer options object
+  const observerOptions = {
+    rootMargin: `0px 0px -${options.bottomMargin}px 0px`,
+    threshold: options.threshold
+  };
+
+  // Set the initial styles
+  node.style.willChange = 'transform, opacity';
+
+  /**
+   * Toggles the appear/disappear styles of the node.
+   */
+  const toggleStyles = (visible) => {
+    node.style.transition = `transform ${options.duration}ms, opacity ${options.duration}ms`;
+    if (visible) {
+      node.style.opacity = 1;
+      node.style.transform = 'translateY(0)';
+    } else {
+      node.style.opacity = 0;
+      node.style.transform = `translateY(${options.y}px)`;
+    }
+    setTimeout(() => {
+      node.style.transition = '';
+    }, options.duration);
+  };
+
+  // Create the observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(intersect);
+  }, observerOptions);
+
+  // Observe the node
+  observer.observe(node);
+
+  /**
+   * Function to handle the intersection of the node.
+   * @param {IntersectionObserverEntry} entry
+   */
+  function intersect(entry) {
+    toggleStyles(entry.isIntersecting);
+    // Unobserve the node if the once option is true
+    if (entry.isIntersecting && options.once) observer.unobserve(entry.target);
+  }
+
+  // Return the destroy function
+  return {
+    destroy() {
+      observer.disconnect();
+    }
+  };
 }

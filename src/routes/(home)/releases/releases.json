@@ -1,0 +1,12 @@
+[
+  {
+    "version": "v0.0.1",
+    "description": "The first production-ready version of SvelteShine",
+    "date": "Tue, 27 Aug 2024 12:39:14 GMT"
+  },
+  {
+    "version": "v0.0.2",
+    "description": "Extracted default html components into custom ones to improve speed",
+    "date": "Tue, 27 Aug 2024 21:37:13 GMT"
+  }
+]
