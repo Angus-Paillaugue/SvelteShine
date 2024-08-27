@@ -36,6 +36,20 @@ async function highlighter(code, lang, meta) {
     themes: [codeBlockTheme]
   });
 
+  const metaArray = meta?.split(' ');
+  let name = '';
+  let icon = true;
+  if (metaArray && metaArray.some((item) => item.startsWith('name='))) {
+    name = metaArray.find((item) => item.startsWith('name=')).slice(5).replace(/"/g, '').replace(/'/g, '');
+  }
+  if (metaArray && metaArray.some((item) => item.startsWith('icon='))) {
+    icon = (metaArray
+      .find((item) => item.startsWith('icon='))
+      .slice(5)
+      .replace(/"/g, '')
+      .replace(/'/g, '')) === 'true';
+  }
+
   let html;
   if (!meta) {
     html = highlighter.codeToHtml(code, {
@@ -47,7 +61,7 @@ async function highlighter(code, lang, meta) {
     html = highlighter.codeToHtml(code, {
       lang,
       theme: codeBlockTheme,
-      transformers: meta.includes('line-numbers')
+      transformers: metaArray.includes('line-numbers')
         ? transformers
         : transformers.slice(0, -1),
       meta: { __raw: meta }
@@ -55,7 +69,9 @@ async function highlighter(code, lang, meta) {
   }
 
   highlighter.dispose();
-  return escapeHtml(`<Components.pre>` + html + `</Components.pre>`);
+  return escapeHtml(
+    `<Components.pre name="${name}" icon="${icon}">` + html + `</Components.pre>`
+  );
 }
 
 /**

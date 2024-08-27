@@ -16,7 +16,7 @@ To add images in your markdown files, you can use the default syntax (`![Placeho
 
 To add a caption, add a `{data-caption="Caption"}` after the image definition like so :
 
-```md
+```markdown
 ![Image placeholder](image-url){data-caption="Image caption"}
 ```
 

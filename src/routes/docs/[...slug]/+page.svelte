@@ -9,7 +9,6 @@
   const { data } = $props();
   let headings = $state([]);
 
-
   afterNavigate(load);
   onMount(load);
 

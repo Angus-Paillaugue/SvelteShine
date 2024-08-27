@@ -13,7 +13,7 @@ Under the hood, we use [katex](https://katex.org/). So if you need a list of sym
 
 ## Inline maths
 
-```md
+```markdown
 $f(x) = x^2$
 ```
 $f(x) = x^2$
@@ -22,7 +22,7 @@ $f(x) = x^2$
 
 ## Math block
 
-```md
+```markdown
 $$
 f(x) = x^2
 $$
@@ -35,7 +35,7 @@ $$
 
 ## Notations in a sentence
 
-```md
+```markdown
 Lift($$L$$) can be determined by Lift Coefficient ($$C_L$$) like the following
 equation.
 
