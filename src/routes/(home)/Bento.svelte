@@ -79,9 +79,9 @@
           />
         </svg>
         <span
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-bold dark:text-text-heading-dark"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold dark:text-green-400 text-green-400 font-mono"
         >
-          {Math.round($accessibilityScore)}%
+          {Math.round($accessibilityScore)}
         </span>
       </div>
     </div>
@@ -212,9 +212,9 @@
           />
         </svg>
         <span
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-bold dark:text-text-heading-dark"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-bold dark:text-green-400 text-green-400 font-mono"
         >
-          {Math.round($performanceScore)}%
+          {Math.round($performanceScore)}
         </span>
       </div>
     </div>

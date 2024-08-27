@@ -1,11 +1,10 @@
 <script>
   import { Button } from '$lib/components/';
   import Navbar from '$lib/components/core/Navbar.svelte';
-  import Sidebar from '$lib/components/core/Sidebar';
   import Pagination from './Pagination.svelte';
   import Toc from './Toc.svelte';
   import { formatDate, addCopyCodeButtonFunctionality } from '$lib/utils';
-  import { sideBar, project } from '$conf';
+  import { project } from '$conf';
   import { afterNavigate } from '$app/navigation';
   import Icon from '@iconify/svelte';
   import { onMount } from 'svelte';
@@ -13,7 +12,6 @@
   const { data } = $props();
   let headings = $state([]);
   let mobileTocVisible = $state(false);
-  let sidebarOpen = $state(false);
 
   afterNavigate(() => {
     load();
@@ -112,63 +110,57 @@
   />
 </svelte:head>
 
-{#key data?.name}
-  <div class="mx-auto flex min-h-screen w-full max-w-screen-2xl flex-row">
-    <Sidebar open={sidebarOpen} style={sideBar.style} />
+<div class="flex grow flex-col">
+  <Navbar title={data?.name ?? 'Docs'} />
 
-    <div class="flex grow flex-col">
-      <Navbar title={data?.name ?? 'Docs'} />
+  <div
+    class="flex h-full flex-col-reverse justify-center max-lg:items-center lg:flex-row lg:gap-8"
+  >
+    <main class="mx-auto flex h-full w-full grow flex-col p-4">
+      {#if data?.lastModified || data?.description}
+        <section class="mb-12 px-4">
+          {#if data?.lastModified}
+            <small class="mb-1">{formatDate(new Date(data.lastModified))}</small>
+          {/if}
+          {#if data?.description}
+            <p class="m-0 text-lg">{data.description}</p>
+          {/if}
+        </section>
+      {/if}
+      {#if data?.component}
+        <section id="pageContainer" class="p-4">
+          <svelte:component this={data.component} />
+        </section>
+      {/if}
 
-      <div
-        class="flex h-full flex-col-reverse justify-center max-lg:items-center lg:flex-row lg:gap-8"
+      <Pagination slug={data.slug} />
+    </main>
+
+    <!-- Mobile open toc button -->
+    {#if headings.length > 0}
+      <!-- Toggle toc on mobile -->
+      <Button
+        id="openToc"
+        name="Open table of contents"
+        onclick={() => (mobileTocVisible = !mobileTocVisible)}
+        type="square ghost"
+        class="fixed right-4 top-[4.5rem] z-40 flex items-center justify-center p-3 lg:hidden"
       >
-        <main class="mx-auto flex h-full w-full grow flex-col p-4">
-          {#if data?.lastModified || data?.description}
-            <section class="mb-12 px-4">
-              {#if data?.lastModified}
-                <small class="mb-1">{formatDate(new Date(data.lastModified))}</small>
-              {/if}
-              {#if data?.description}
-                <p class="m-0 text-lg">{data.description}</p>
-              {/if}
-            </section>
-          {/if}
-          {#if data?.component}
-            <section id="pageContainer" class="p-4">
-              <svelte:component this={data.component} />
-            </section>
-          {/if}
+        <Icon icon="line-md:menu-unfold-right" class="size-5" />
+      </Button>
+    {/if}
 
-          <Pagination slug={data.slug} />
-        </main>
-
-        <!-- Mobile open toc button -->
-        {#if headings.length > 0}
-          <!-- Toggle toc on mobile -->
-          <Button
-            id="openToc"
-            name="Open table of contents"
-            onclick={() => (mobileTocVisible = !mobileTocVisible)}
-            type="square ghost"
-            class="fixed right-4 top-[4.5rem] z-40 flex items-center justify-center p-3 lg:hidden"
-          >
-            <Icon icon="line-md:menu-unfold-right" class="size-5" />
-          </Button>
-        {/if}
-
-        <!-- Toc -->
-        <div
-          class="lenis-prevent fixed top-16 overflow-y-auto transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 lg:pb-8 {mobileTocVisible
-            ? 'max-lg:translate-x-0'
-            : 'max-lg:-translate-x-full'}"
-          id="tocContainer"
-        >
-          <Toc {headings} root={true} />
-        </div>
-      </div>
+    <!-- Toc -->
+    <div
+      class="lenis-prevent fixed top-16 overflow-y-auto transition-transform max-lg:inset-0 max-lg:z-30 max-lg:flex max-lg:flex-col max-lg:bg-body max-lg:pl-4 max-lg:pt-4 max-lg:dark:bg-body-dark lg:sticky lg:top-24 lg:h-fit lg:w-[250px] lg:shrink-0 lg:px-2 lg:py-4 lg:pb-8 {mobileTocVisible
+        ? 'max-lg:translate-x-0'
+        : 'max-lg:-translate-x-full'}"
+      id="tocContainer"
+    >
+      <Toc {headings} root={true} />
     </div>
   </div>
-{/key}
+</div>
 
 <style>
   :global(#pageContainer > h1:first-child) {
