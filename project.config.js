@@ -81,14 +81,6 @@ export const pages = [
       {
         name: 'Project',
         icon: 'material-symbols:deployed-code-sharp'
-      },
-      {
-        name: 'Homepage',
-        icon: 'material-symbols:home-rounded'
-      },
-      {
-        name: 'Releases',
-        icon: 'ri:git-merge-line'
       }
     ]
   },
