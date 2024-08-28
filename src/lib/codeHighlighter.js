@@ -29,7 +29,7 @@ function parseMeta(meta) {
   let name = '';
   let icon = true;
   let lineNumbers =
-    metaArray && metaArray.some((item) => item.startsWith('line-umbers'));
+    metaArray && metaArray.some((item) => item.startsWith('line-numbers'));
   let copyCode =
     metaArray && !metaArray.some((item) => item.startsWith('no-copy'));
   if (metaArray && metaArray.some((item) => item.startsWith('name='))) {

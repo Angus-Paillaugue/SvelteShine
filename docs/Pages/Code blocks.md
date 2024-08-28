@@ -25,34 +25,6 @@ You can change it's display status by adding `icon=true|false` in the code block
 
 # Highlight lines
 
-You can highlight line multiple ways
-
-## In the code block data
-
-You can highlight a single or a range of line :
-
-````markdown
-```js {1, 3-5}
-console.log('Line 1');
-console.log('Line 2');
-console.log('Line 3');
-console.log('Line 4');
-console.log('Line 5');
-```
-````
-
-Here is the result
-
-```js {1, 3-5}
-console.log('Line 1');
-console.log('Line 2');
-console.log('Line 3');
-console.log('Line 4');
-console.log('Line 5');
-```
-
-## Inline highlighting
-
 You can highlight a single line (`// [!code highlight]`) or a range of line (`// [!code highlight:3]`) :
 
 ````markdown
