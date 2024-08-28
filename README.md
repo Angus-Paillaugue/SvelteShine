@@ -1,9 +1,3 @@
----
-lastModified: 08-16-2024
-description: Start building modern documentation in under five minutes
-projectName: SvelteShine
----
-
 # Getting Started
 
 Welcome to SvelteShine! This guide will help you get started quickly with setting up and using the project. Follow these steps to clone the repository, install dependencies, run the setup script, and start editing your documentation.

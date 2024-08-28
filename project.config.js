@@ -96,6 +96,10 @@ export const pages = [
       {
         name: 'Code blocks',
         icon: 'material-symbols:code-blocks-rounded'
+      },
+      {
+        name: 'Demos',
+        icon: 'carbon:demo'
       }
     ]
   },
@@ -114,7 +118,6 @@ export const pages = [
       { name: 'Tooltip', icon: 'material-symbols:tooltip-rounded' },
       { name: 'Images', icon: 'material-symbols:imagesmode' },
       { name: 'Tables', icon: 'material-symbols:table-rows-narrow' },
-      { name: 'Component preview', icon: 'iconamoon:component-fill' },
       { name: 'Steps', icon: 'material-symbols:steppers' },
       { name: 'Math', icon: 'material-symbols:calculate-outline-rounded' }
     ]

@@ -36,6 +36,14 @@
     }
   });
 
+  $effect(() => {
+    if ($searchModalShown) {
+      setTimeout(() => {
+        document.getElementById('search').focus();
+      }, 300);
+    }
+  });
+
   /**
    * Function to handle keydown events on the window.
    *
@@ -45,9 +53,6 @@
     if (e.ctrlKey && e.key === 'k') {
       e.preventDefault();
       $searchModalShown = true;
-      setTimeout(() => {
-        document.getElementById('search').focus();
-      }, 300);
     } else if (e.key === 'Escape') {
       $searchModalShown = false;
     }

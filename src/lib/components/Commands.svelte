@@ -85,7 +85,7 @@
       <div class="size-3 rounded-full bg-neutral-300 dark:bg-neutral-800"></div>
       <div class="size-3 rounded-full bg-neutral-300 dark:bg-neutral-800"></div>
     </div>
-    <Pre class="commands rounded-t-none">
+    <Pre class="commands commandsCode rounded-t-none">
       {#await highlighter then highlighter}
         {@html highlighter.codeToHtml(commands[selectedIndex].command, {
           theme: codeBlockTheme,
@@ -95,3 +95,9 @@
     </Pre>
   </div>
 </div>
+
+<style lang="postcss">
+  :global(.codeContainer:has(.commandsCode)) {
+    @apply m-0;
+  }
+</style>

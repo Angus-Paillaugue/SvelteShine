@@ -108,3 +108,7 @@ console.log('This code block has line numbers');
 
 console.log('Yay!');
 ```
+
+# Copy code
+
+By default, a copy code button is added on every `<pre>` tag. If you can to remove it, add `no-copy` to the code block metadata or if you use the component from `$lib/components/markdown/pre.svelte`, you can pass the `copyCode` prop to false

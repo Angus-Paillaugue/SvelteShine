@@ -24,21 +24,14 @@ const transformers = [
   }
 ];
 
-/**
- * @param code {string} - code to highlight
- * @param lang {string} - code language
- * @param meta {string} - code meta
- * @returns {Promise<string>} - highlighted html
- */
-async function highlighter(code, lang, meta) {
-  const highlighter = await createHighlighter({
-    langs: [lang],
-    themes: [codeBlockTheme]
-  });
-
+function parseMeta(meta) {
   const metaArray = meta?.split(' ');
   let name = '';
   let icon = true;
+  let lineNumbers =
+    metaArray && metaArray.some((item) => item.startsWith('lineNumbers'));
+  let copyCode =
+    metaArray && !metaArray.some((item) => item.startsWith('no-copy'));
   if (metaArray && metaArray.some((item) => item.startsWith('name='))) {
     name = metaArray
       .find((item) => item.startsWith('name='))
@@ -55,6 +48,23 @@ async function highlighter(code, lang, meta) {
         .replace(/'/g, '') === 'true';
   }
 
+  return { name, icon, lineNumbers, copyCode };
+}
+
+/**
+ * @param code {string} - code to highlight
+ * @param lang {string} - code language
+ * @param meta {string} - code meta
+ * @returns {Promise<string>} - highlighted html
+ */
+async function highlighter(code, lang, meta) {
+  const highlighter = await createHighlighter({
+    langs: [lang],
+    themes: [codeBlockTheme]
+  });
+
+  const { name, icon, lineNumbers, copyCode } = parseMeta(meta);
+
   let html;
   if (!meta) {
     html = highlighter.codeToHtml(code, {
@@ -66,16 +76,14 @@ async function highlighter(code, lang, meta) {
     html = highlighter.codeToHtml(code, {
       lang,
       theme: codeBlockTheme,
-      transformers: metaArray.includes('line-numbers')
-        ? transformers
-        : transformers.slice(0, -1),
+      transformers: lineNumbers ? transformers : transformers.slice(0, -1),
       meta: { __raw: meta }
     });
   }
 
   highlighter.dispose();
   return escapeHtml(
-    `<Components.pre name="${name}" icon="${icon}">` +
+    `<Components.pre name="${name}" icon="${icon}" copyCode=${copyCode}>` +
       html +
       `</Components.pre>`
   );

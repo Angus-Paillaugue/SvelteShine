@@ -1,17 +1,15 @@
 <script>
   import { createHighlighter } from 'shiki';
   import { colors } from '$conf';
-  import ComponentPreview from './ComponentPreview.svelte';
+  import { Spinner, Note } from '$lib/components';
   import { spring } from 'svelte/motion';
   import { pre as Pre } from './markdown';
   import { cn } from '$lib/utils';
+  import { registry } from '$lib/Demos';
 
-  const { name, lang = 'svelte', container = true } = $props();
+  const { name, lang = 'svelte', code = true } = $props();
 
-  const component = async () =>
-    await import(`../Demos/${name}.svelte`).then((m) => m.default);
-  const raw = async () =>
-    await import(`../Demos/${name}.svelte?raw`).then((m) => m.default);
+  const component = registry[name];
 
   let selectedIndex = $state(0);
   let commandsContainer = $state();
@@ -32,9 +30,11 @@
 
   // Update the underline width and position based on the selected index
   $effect(() => {
+    if (!commandsContainer) return;
     const selectedItem = commandsContainer.querySelector(
       'ul > li:nth-child(' + (selectedIndex + 1) + ')'
     );
+    if (!selectedItem) return;
     const left = selectedItem.offsetLeft;
     const width = selectedItem.offsetWidth;
 
@@ -43,79 +43,111 @@
   });
 </script>
 
-<div class="demo flex flex-col gap-4" bind:this={commandsContainer}>
-  <div class="relative">
-    <span
-      class="absolute bottom-0 h-[2px] bg-primary-600 dark:bg-primary-400"
-      style="left: {$underlineCoords}px; width: {$underlineWidth}px;"
-    ></span>
-    <ul class="flex flex-row border-b border-main py-2 dark:border-main-dark">
-      <li class="mb-0 list-none">
-        <button
-          name="Preview demo"
-          onclick={() => (selectedIndex = 0)}
-          class="lenis-prevent relative flex cursor-pointer list-none flex-row items-center gap-2 overflow-visible px-4 py-2 text-lg font-bold"
+{#if !component}
+  <Note type="caution">Demo not found.</Note>
+{:else}
+  <div class="demo" bind:this={commandsContainer}>
+    <!-- Select tabs -->
+    {#if code}
+      <div class="tabs relative w-fit">
+        <span
+          class="absolute bottom-0 h-[2px] bg-primary-600 dark:bg-primary-400"
+          style="left: {$underlineCoords}px; width: {$underlineWidth}px;"
+        ></span>
+        <ul
+          class="flex w-fit flex-row rounded-t border border-b-0 border-main py-2 dark:border-main-dark"
         >
-          Preview
-        </button>
-      </li>
-      <li class="mb-0 list-none">
-        <button
-          name="View code"
-          onclick={() => (selectedIndex = 1)}
-          class="lenis-prevent relative flex cursor-pointer list-none flex-row items-center gap-2 overflow-visible px-4 py-2 text-lg font-bold"
-        >
-          Code
-        </button>
-      </li>
-    </ul>
-  </div>
-  <div
-    class={cn(
-      'demoContainer overflow-hidden rounded-xl',
-      !container && 'border border-main p-4 dark:border-main-dark'
-    )}
-  >
-    {#if selectedIndex === 0}
-      {#await component()}
-        <!-- TODO : add animated loader -->
-        <p>Loading...</p>
-      {:then Component}
-        {#if container}
-          <ComponentPreview>
-            <Component />
-          </ComponentPreview>
-        {:else}
+          <li class="mb-0 list-none">
+            <button
+              name="Preview demo"
+              onclick={() => (selectedIndex = 0)}
+              class="lenis-prevent relative flex cursor-pointer list-none flex-row items-center gap-2 overflow-visible px-4 py-2 text-lg font-bold"
+            >
+              Preview
+            </button>
+          </li>
+          <li class="mb-0 list-none">
+            <button
+              name="View code"
+              onclick={() => (selectedIndex = 1)}
+              class="lenis-prevent relative flex cursor-pointer list-none flex-row items-center gap-2 overflow-visible px-4 py-2 text-lg font-bold"
+            >
+              Code
+            </button>
+          </li>
+        </ul>
+        <div
+          class="absolute -bottom-px left-0 right-0 h-px bg-body dark:bg-body-dark"
+        ></div>
+      </div>
+    {/if}
+
+    <!-- Preview/Code -->
+    <div
+      class={cn(
+        'demoContainer lenis-prevent h-[20rem] overflow-y-auto rounded-xl border border-main dark:border-main-dark lg:h-[28rem]',
+        code && 'rounded-tl-none'
+      )}
+    >
+      <!-- Preview -->
+      <div
+        class={cn(
+          'component-preview h-max min-h-full flex-col items-center justify-center p-4',
+          selectedIndex === 0 ? 'flex' : 'hidden'
+        )}
+      >
+        {#await component?.component()}
+          <div
+            class="flex flex-row items-center justify-center gap-4 rounded p-4"
+          >
+            <Spinner class="size-8" />
+            <p class="m-0">Loading...</p>
+          </div>
+        {:then Component}
           <Component />
-        {/if}
-      {:catch}
-        <p>Demo not found.</p>
-      {/await}
-    {:else}
-      {#await raw()}
-        <!-- TODO : add animated loader -->
-        <p>Loading...</p>
-      {:then rawFile}
+        {:catch}
+          <Note type="caution">Code not found.</Note>
+        {/await}
+      </div>
+
+      <!-- Code -->
+      {#if code}
         <Pre
-          class="lenis-prevent h-[20rem] overflow-y-auto rounded-xl lg:h-[28rem]"
+          class={cn(
+            selectedIndex === 1 ? 'block h-full rounded-tl-none' : 'hidden'
+          )}
         >
-          {#await highlighter then highlighter}
-            {@html highlighter.codeToHtml(rawFile, {
-              theme: codeBlockTheme,
-              lang
-            })}
+          {#await component?.raw()}
+            <div class="flex flex-row items-center justify-center gap-4 p-4">
+              <Spinner class="size-8" />
+              <p class="m-0">Loading...</p>
+            </div>
+          {:then rawFile}
+            <!-- Code block -->
+            {#await highlighter then highlighter}
+              {@html highlighter.codeToHtml(rawFile, {
+                theme: codeBlockTheme,
+                lang
+              })}
+            {/await}
+          {:catch}
+            <Note type="caution">Code not found.</Note>
           {/await}
         </Pre>
-      {:catch}
-        <!-- TODO : make it prettier -->
-        <p>Demo not found.</p>
-      {/await}
-    {/if}
+      {/if}
+    </div>
   </div>
-</div>
+{/if}
 
 <style>
   :global(.demoContainer > *) {
     margin: 0 !important;
+  }
+
+  :global(.component-preview > div > *:last-child) {
+    margin-bottom: 0;
+  }
+  :global(.demoContainer pre) {
+    border-top-left-radius: 0;
   }
 </style>

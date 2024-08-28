@@ -10,7 +10,8 @@
     "format": "prettier --write .",
     "prebuild": "node ./scripts/generate-sitemap.js",
     "setup": "node ./scripts/setup.js",
-    "new-release": "node ./scripts/new-release.js"
+    "new-release": "node ./scripts/new-release.js",
+    "update-registry": "node ./scripts/createDemoRegistry.js"
   },
   "devDependencies": {
     "@shikijs/transformers": "^1.11.1",
