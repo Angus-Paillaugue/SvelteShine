@@ -112,7 +112,7 @@
       <!-- Code -->
       {#if code}
         <Pre
-          class={cn(
+          class={cn('commandsCode',
             selectedIndex === 1 ? 'block h-full rounded-tl-none' : 'hidden'
           )}
         >
@@ -145,8 +145,5 @@
 
   :global(.component-preview > div > *:last-child) {
     margin-bottom: 0;
-  }
-  :global(.demoContainer pre) {
-    border-top-left-radius: 0;
   }
 </style>

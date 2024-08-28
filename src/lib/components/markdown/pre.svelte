@@ -5,7 +5,7 @@
   import { getIcon } from 'material-file-icons';
   import Icon from '@iconify/svelte';
 
-  const { children, class: className, name, icon, copyCode = true } = $props();
+  const { children, class: className, name, icon, copyCode = true, snippet = false } = $props();
   let codeCopied = $state(false);
   let interval = $state();
   let codeContainer = $state();
@@ -36,14 +36,15 @@
   }
 </script>
 
-{#snippet copyCodeButton(absolute = true)}
+{#snippet copyCodeButton(absolute = true, snippet = false)}
   {#if copyCode !== 'false'}
     <button
       onclick={copyText}
       tabindex="0"
       class={cn(
-        'flex aspect-square h-[2.5rem] items-center justify-center rounded-full p-1 text-neutral-600 transition active:scale-90 hocus:scale-105 dark:text-neutral-100',
-        absolute && 'absolute bottom-1 right-4 top-4'
+        'flex w-[2.5rem] items-center justify-center rounded-full p-1 text-neutral-600 dark:text-neutral-100',
+        absolute && 'absolute bottom-1 right-4 top-4 aspect-square',
+        snippet && 'rounded-none bg-body max shrink-0 dark:bg-neutral-900'
       )}
       name="Copy code"
       aria-label="Copy code"
@@ -64,36 +65,44 @@
   {/if}
 {/snippet}
 
-<div class="codeContainer relative my-4" bind:this={codeContainer}>
-  {#if name}
-    <div
-      class="codeBlockName relative flex w-full flex-row items-center rounded-t-md border border-b-0 border-main px-3 py-1.5 dark:border-main-dark"
-    >
-      <p
-        class="m-0 flex flex-row items-center gap-2 text-base font-medium text-body-dark dark:text-body"
-      >
-        {#if icon == 'true'}
-          <span class="size-5">
-            {@html getIcon(name).svg}
-          </span>
-        {/if}
-        {name}
-      </p>
-      <div class="ml-auto">
-        {@render copyCodeButton(false)}
-      </div>
-    </div>
-  {/if}
-  <div class={className}>
+{#if snippet == 'true'}
+  <div class="snippet" bind:this={codeContainer}>
     {@render children()}
-    {#if !name}
-      {@render copyCodeButton()}
-    {/if}
+    {@render copyCodeButton(false, true)}
   </div>
-</div>
+{:else}
+  <div class="codeContainer relative my-4" bind:this={codeContainer}>
+    {#if name}
+      <div
+        class="codeBlockName relative flex w-full flex-row items-center rounded-t-md border border-b-0 border-main px-3 py-1.5 dark:border-main-dark"
+      >
+        <p
+          class="m-0 flex flex-row items-center gap-2 text-base font-medium text-body-dark dark:text-body"
+        >
+          {#if icon == 'true'}
+            <span class="size-5">
+              {@html getIcon(name).svg}
+            </span>
+          {/if}
+          {name}
+        </p>
+        <div class="ml-auto">
+          {@render copyCodeButton(false, false)}
+        </div>
+      </div>
+    {/if}
+    <div class={className}>
+      {@render children()}
+      {#if !name}
+        {@render copyCodeButton(true,false)}
+      {/if}
+    </div>
+  </div>
+{/if}
 
 <style>
   :global(.codeBlockName + div .shiki) {
-    @apply rounded-t-none;
+    @apply !rounded-t-none;
   }
 </style>
+

@@ -25,19 +25,7 @@ You can change it's display status by adding `icon=true|false` in the code block
 
 # Highlight lines
 
-You can highlight a single line (`// [!code highlight]`) or a range of line (`// [!code highlight:3]`) :
-
-````markdown
-```js
-console.log('Line 1'); // [!code highlight]
-console.log('Line 2');
-console.log('Line 3'); // [!code highlight:3]
-console.log('Line 4');
-console.log('Line 5');
-```
-````
-
-Here is the result
+You can highlight a single line (`// [!code highlight]`) or a range of line (`// [!code highlight:3]`) by adding the comment at the end of the line(s) you want to highlight :
 
 ```js
 console.log('Line 1'); // [!code highlight]
@@ -84,3 +72,22 @@ console.log('Yay!');
 # Copy code
 
 By default, a copy code button is added on every `<pre>` tag. If you can to remove it, add `no-copy` to the code block metadata or if you use the component from `$lib/components/markdown/pre.svelte`, you can pass the `copyCode` prop to false
+
+
+# Code snippet
+You can create a code snippet like a command by creating a code block, and adding `snippet` in it's metadata.
+Commands can be multi-lines although it is recommended to keep them short.
+
+
+The following example shows how to install a package using npm :
+````markdown
+```bash snippet
+npm install
+```
+````
+
+Result :
+
+```bash snippet
+npm install
+```

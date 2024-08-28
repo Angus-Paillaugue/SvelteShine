@@ -25,7 +25,7 @@ Before you begin, ensure you have the following installed on your machine:
 
 First, clone the repository to your local machine using Git:
 
-```bash
+```bash snippet
 git clone https://github.com/Angus-Paillaugue/SvelteShine
 cd SvelteShine
 ```
@@ -42,7 +42,7 @@ This will install all required packages for the project.
 
 Once the dependencies are installed, run the setup script to initialize your project:
 
-```bash
+```bash snippet
 npm run setup
 ```
 
@@ -52,7 +52,7 @@ This script will guide you through the initial configuration of your project.
 
 Now, start the development server to begin editing your documentation:
 
-```bash
+```bash snippet
 npm run dev
 ```
 

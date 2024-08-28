@@ -32,6 +32,7 @@ function parseMeta(meta) {
     metaArray && metaArray.some((item) => item.startsWith('line-numbers'));
   let copyCode =
     metaArray && !metaArray.some((item) => item.startsWith('no-copy'));
+  const snippet = metaArray && metaArray.some((item) => item.startsWith('snippet'));
   if (metaArray && metaArray.some((item) => item.startsWith('name='))) {
     name = metaArray
       .find((item) => item.startsWith('name='))
@@ -48,7 +49,7 @@ function parseMeta(meta) {
         .replace(/'/g, '') === 'true';
   }
 
-  return { name, icon, lineNumbers, copyCode };
+  return { name, icon, lineNumbers, copyCode, snippet };
 }
 
 /**
@@ -63,7 +64,7 @@ async function highlighter(code, lang, meta) {
     themes: Object.values(codeBlockThemes)
   });
 
-  const { name, icon, lineNumbers, copyCode } = parseMeta(meta);
+  const { name, icon, lineNumbers, copyCode, snippet } = parseMeta(meta);
 
   let html;
   if (!meta) {
@@ -83,7 +84,7 @@ async function highlighter(code, lang, meta) {
 
   highlighter.dispose();
   return escapeHtml(
-    `<Components.pre name="${name}" icon="${icon}" copyCode=${copyCode}>` +
+    `<Components.pre name="${name}" icon="${icon}" copyCode=${copyCode} snippet=${snippet}>` +
       html +
       `</Components.pre>`
   );
