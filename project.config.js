@@ -29,7 +29,7 @@ export const sideBar = {
       {
         name: 'GitHub',
         icon: 'line-md:github-loop',
-        url: 'https://github.com/Angus-Paillaugue'
+        url: 'https://github.com/Angus-Paillaugue/Svelte-Shine'
       }
     ]
   }
@@ -37,8 +37,8 @@ export const sideBar = {
 
 // project meta config
 export const project = {
-  name: 'SvelteShine',
-  description: 'A simple documentation template for SvelteKit',
+  name: 'Project name',
+  description: 'Project description',
   author: 'Angus Paillaugue',
   keywords: 'svelte, sveltekit, documentation, template',
   domain: 'https://svelte-shine.paillaugue.fr'
@@ -60,67 +60,6 @@ export const pages = [
       name: 'material-symbols:rocket-rounded',
       class: 'rotate-45'
     }
-  },
-  {
-    name: 'Configuration',
-    children: [
-      {
-        name: 'Pages',
-        icon: 'mdi:file'
-      },
-      {
-        name: 'Colors',
-        icon: 'material-symbols:colors-rounded'
-      },
-      {
-        name: 'Sidebar',
-        icon: 'material-symbols:side-navigation'
-      },
-      {
-        name: 'Project',
-        icon: 'material-symbols:deployed-code-sharp'
-      },
-      {
-        name: 'Updating',
-        icon: 'material-symbols:deployed-code-update-outline-rounded'
-      }
-    ]
-  },
-  {
-    name: 'Pages',
-    children: [
-      {
-        name: 'Create a page',
-        icon: 'material-symbols:news-rounded'
-      },
-      {
-        name: 'Code blocks',
-        icon: 'material-symbols:code-blocks-rounded'
-      },
-      {
-        name: 'Demos',
-        icon: 'carbon:demo'
-      }
-    ]
-  },
-  {
-    name: 'Components',
-    children: [
-      { name: 'Commands', icon: 'material-symbols:terminal-rounded' },
-      { name: 'Tree', icon: 'material-symbols:account-tree-rounded' },
-      { name: 'Collapsible', icon: 'tabler:layout-bottombar-collapse-filled' },
-      {
-        name: 'Dropdown',
-        icon: 'material-symbols:arrow-drop-down-circle-rounded'
-      },
-      { name: 'Note', icon: 'material-symbols:sticky-note-2-rounded' },
-      { name: 'Definition', icon: 'material-symbols:text-snippet-rounded' },
-      { name: 'Tooltip', icon: 'material-symbols:tooltip-rounded' },
-      { name: 'Images', icon: 'material-symbols:imagesmode' },
-      { name: 'Tables', icon: 'material-symbols:table-rows-narrow' },
-      { name: 'Steps', icon: 'material-symbols:steppers' },
-      { name: 'Math', icon: 'material-symbols:calculate-outline-rounded' }
-    ]
   }
 ];
 
