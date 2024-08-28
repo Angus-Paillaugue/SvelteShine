@@ -28,16 +28,16 @@
   {#if previousPage}
     <a
       href={previousPage.url}
-      class="flex h-full flex-row items-center justify-start gap-2 rounded border border-main p-2 transition-all hocus:gap-4 dark:border-main-dark md:p-4"
+      class="relative flex h-full flex-row items-end justify-start gap-2 rounded p-2 pl-8 transition-all md:p-4 md:pl-8"
     >
       <Icon
         icon="material-symbols:arrow-back-ios-rounded"
-        class="size-8 text-neutral-500 dark:text-neutral-600"
+        class="absolute bottom-3 left-2 size-4 text-neutral-500 dark:text-neutral-600 md:bottom-5"
       />
       <div class="flex flex-col justify-end text-start">
-        <span class="text-xl font-light">Previous</span>
+        <span class="lg font-light">Previous</span>
         <span
-          class="text-lg font-semibold text-primary-700 dark:text-primary-600"
+          class="text-lg font-semibold text-neutral-900 dark:text-neutral-100"
         >
           {previousPage.name}
         </span>
@@ -47,19 +47,19 @@
   {#if nextPage}
     <a
       href={nextPage.url}
-      class="col-start-2 flex h-full flex-row items-center justify-end gap-2 rounded border border-main p-2 transition-all hocus:gap-4 dark:border-main-dark md:p-4"
+      class="relative flex h-full flex-row items-end justify-end gap-2 rounded p-2 pr-8 transition-all md:p-4 md:pr-8"
     >
       <div class="flex flex-col justify-end text-end">
         <span class="text-xl font-light">Next</span>
         <span
-          class="text-lg font-semibold text-primary-700 dark:text-primary-600"
+          class="text-lg font-semibold text-neutral-900 dark:text-neutral-100"
         >
           {nextPage.name}
         </span>
       </div>
       <Icon
         icon="material-symbols:arrow-forward-ios-rounded"
-        class="size-8 text-neutral-500 dark:text-neutral-600"
+        class="absolute bottom-3 right-2 size-4 text-neutral-500 dark:text-neutral-600 md:bottom-5"
       />
     </a>
   {/if}

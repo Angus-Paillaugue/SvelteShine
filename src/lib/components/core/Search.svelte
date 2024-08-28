@@ -65,13 +65,17 @@
    */
   function onResultsScroll(e) {
     const searchContainer = document.getElementById('searchContainer');
-    if(!searchContainer) return;
+    if (!searchContainer) return;
     if (e.target.scrollTop > 0) {
       searchContainer.classList.remove('border-transparent');
-      searchContainer.classList.add(...'border-main dark:border-main-dark'.split(' '));
+      searchContainer.classList.add(
+        ...'border-main dark:border-main-dark'.split(' ')
+      );
     } else {
       searchContainer.classList.add('border-transparent');
-      searchContainer.classList.remove(...'border-main dark:border-main-dark'.split(' '));
+      searchContainer.classList.remove(
+        ...'border-main dark:border-main-dark'.split(' ')
+      );
     }
   }
 
@@ -107,18 +111,18 @@
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
-    class="fixed inset-0 z-50 bg-neutral-950/20 backdrop-blur-sm"
+    class="fixed inset-0 z-50 bg-neutral-900/20 backdrop-blur-sm"
     transition:fade={{ duration: 200 }}
     onclick={() => ($searchModalShown = false)}
   ></div>
   <div class="fixed inset-0 z-50 p-4 sm:p-6 md:p-12">
     <div
-      class="no-scrollbar lenis-prevent mx-auto w-full max-w-screen-md overflow-hidden overflow-y-auto rounded-2xl border border-main bg-neutral-100 dark:border-main-dark dark:bg-neutral-950 dark:text-white max-h-[300px]"
+      class="no-scrollbar lenis-prevent mx-auto max-h-[300px] w-full max-w-screen-md overflow-hidden overflow-y-auto rounded-2xl border border-main bg-neutral-100 dark:border-main-dark dark:bg-neutral-900 dark:text-white"
       transition:scale={{ start: 0.8, duration: 200 }}
       onscroll={onResultsScroll}
     >
       <div
-        class="sticky top-0 z-10 w-full border-b border-transparent bg-neutral-100 p-2 transition-all dark:bg-neutral-950"
+        class="sticky top-0 z-10 w-full border-b border-transparent bg-neutral-100 p-2 transition-all dark:bg-neutral-900"
         id="searchContainer"
       >
         <div class="relative">

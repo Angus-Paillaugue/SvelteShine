@@ -8,7 +8,20 @@
   --line-highlighted-bg: 255, 255, 255;
   --line-highlighted-opacity: 0.1;
 }
-
+/* Used for theme toggling */
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  /* 
+    Uncomment the line below if you want to use the background providede by the theme you choose.
+    You will also need to remobve the bg classes for the .shiki class.
+  */
+  /* background-color: var(--shiki-dark-bg) !important; */
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+/* Base styles for all code blocks thruout the app */
 code {
   counter-reset: codeStep;
   counter-increment: codeStep 0;
@@ -16,57 +29,38 @@ code {
   -moz-tab-size: 2;
   -o-tab-size: 2;
   tab-size: 2;
-  @apply hyphens-none whitespace-pre-wrap text-shadow-code ligatures-normal;
+  @apply hyphens-none whitespace-pre-wrap ligatures-normal;
 }
-
+/* Highlighted code blocks */
 .shiki {
-  @apply relative overflow-auto whitespace-pre rounded py-4 focus:-outline-offset-1;
+  @apply relative overflow-auto whitespace-pre rounded border border-main !bg-white py-6 focus:-outline-offset-1 dark:border-main-dark dark:!bg-neutral-900;
 }
 
 pre.line-numbers > code .line::before {
   content: counter(codeStep);
   counter-increment: codeStep;
   font-variant-numeric: tabular-nums;
-  @apply -ml-2 mr-2 inline-block w-6 text-right text-text-body dark:text-text-body-dark;
+  @apply inline-block w-6 text-left text-text-body dark:text-text-body-dark;
 }
 pre > code .line {
-  @apply inline-block w-full px-4;
+  @apply relative inline-block w-full px-6;
 }
 pre > code {
   @apply block w-full;
 }
-code .line {
-  @apply inline-block w-full;
-}
 /* For highlighted lines */
 .diff.remove {
-  background-color: rgba(var(--line-removed-bg), var(--line-removed-opacity));
+  @apply bg-red-600/20 after:absolute after:left-2 after:top-1/2 after:-translate-y-1/2 after:text-red-600 after:content-['-'];
 }
 .diff.add {
-  background-color: rgba(var(--line-added-bg), var(--line-added-opacity));
-}
-code .line.diff::before {
-  counter-increment: codeStep;
-  font-variant-numeric: tabular-nums;
-  @apply mr-2 inline-block w-3 text-right;
-}
-code .line.diff.add::before {
-  content: '+';
-  color: rgb(var(--line-added-bg));
-}
-code .line.diff.remove::before {
-  content: '-';
-  color: rgb(var(--line-removed-bg));
+  @apply bg-green-600/20 after:absolute after:left-2 after:top-1/2 after:-translate-y-1/2 after:text-green-600 after:content-['+'];
 }
 .highlighted {
-  background-color: rgba(
-    var(--line-highlighted-bg),
-    var(--line-highlighted-opacity)
-  );
+  @apply bg-primary-600/20 after:absolute after:left-0 after:h-full after:w-[2px] after:bg-primary-600;
 }
 /* Inline code */
 code:not(pre code, .command) {
-  @apply rounded bg-primary-300 px-0.5 text-primary-900 text-shadow-none dark:bg-primary-950 dark:text-primary-300;
+  @apply rounded bg-primary-300 px-0.5 text-primary-900 dark:bg-primary-950 dark:text-primary-300;
 }
 .commands > pre {
   @apply m-0 rounded-none;

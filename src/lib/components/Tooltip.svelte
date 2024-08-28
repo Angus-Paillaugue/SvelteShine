@@ -119,14 +119,14 @@
     onmouseleave={hideTooltip}
   >
     <div
-      class="relative rounded bg-neutral-200 p-2 text-sm text-text-body dark:bg-neutral-950 dark:text-text-body-dark"
+      class="relative rounded bg-neutral-200 p-2 text-sm text-text-body dark:bg-neutral-900 dark:text-text-body-dark"
     >
       {@render children()}
       <!-- Tooltip arrow -->
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class={cn(
-          'absolute size-5 text-neutral-200 dark:text-neutral-950',
+          'absolute size-5 text-neutral-200 dark:text-neutral-900',
           arrowPositionClasses[position]
         )}
         viewBox="0 0 40 40"

@@ -101,7 +101,7 @@
 
   <div
     class={cn(
-      'absolute z-30 w-52 overflow-hidden rounded bg-neutral-100 shadow dark:bg-neutral-950',
+      'absolute z-30 w-52 overflow-hidden rounded bg-neutral-100 shadow dark:bg-neutral-900',
       positionClasses[position].pos,
       positionClasses[position].align[align]
     )}
