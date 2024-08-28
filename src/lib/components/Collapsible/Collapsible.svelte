@@ -71,6 +71,6 @@
 <style>
   /* Removes the margin bottom to the last element of the details of the collapsible to have just a nice padding all around */
   :global(.collapsible-details *:last-child) {
-    margin-bottom: 0;
+    @apply mb-0;
   }
 </style>

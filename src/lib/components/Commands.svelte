@@ -96,7 +96,7 @@
   </div>
 </div>
 
-<style lang="postcss">
+<style>
   :global(.codeContainer:has(.commandsCode)) {
     @apply m-0;
   }

@@ -77,7 +77,7 @@
           </li>
         </ul>
         <div
-          class="absolute -bottom-px left-0 right-0 h-px bg-body dark:bg-body-dark"
+          class="absolute -bottom-px left-px right-px h-px bg-body dark:bg-body-dark"
         ></div>
       </div>
     {/if}

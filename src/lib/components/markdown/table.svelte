@@ -3,9 +3,9 @@
 </script>
 
 <!-- TODO : Fix overflow -->
-<div class="lenis-prevent w-full overflow-x-scroll">
+<div class="overflow-x-auto lenis-prevent my-4">
   <table
-    class="my-4 w-full table-auto border-collapse overflow-scroll rounded text-left text-sm"
+    class="table-auto w-full border-collapse overflow-scroll rounded text-left text-sm"
   >
     {@render children()}
   </table>

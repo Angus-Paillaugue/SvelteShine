@@ -89,7 +89,7 @@
           href={page.url}
           class={cn(
             itemBaseClasses,
-            'block',
+            'text-text-body dark:text-text-body-dark',
             pathname === page.url ? activeItemColors : itemColors
           )}
         >

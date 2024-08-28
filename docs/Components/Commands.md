@@ -12,7 +12,7 @@ You can use the `Commands` component imported from `$lib/components`. Pass it an
 
 # Demo
 
-<Demo name="commands" container={false} />
+<Demo name="commands" />
 
 # SyncKey
 

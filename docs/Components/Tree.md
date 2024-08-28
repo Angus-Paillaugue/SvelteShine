@@ -10,7 +10,7 @@ You can use the `<Tree>` component imported from `$lib/components`. Pass it a tr
 
 # Demo
 
-<Demo name="tree" container={false} />
+<Demo name="tree" />
 
 # Definition
 

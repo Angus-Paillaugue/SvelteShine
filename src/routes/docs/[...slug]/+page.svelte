@@ -113,6 +113,6 @@
 
 <style>
   :global(#pageContainer > h1:first-child) {
-    margin-top: 0;
+    @apply mt-0;
   }
 </style>

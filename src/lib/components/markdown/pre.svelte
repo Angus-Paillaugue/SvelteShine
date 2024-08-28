@@ -3,6 +3,7 @@
   import { scale } from 'svelte/transition';
   import { cn } from '$lib/utils';
   import { getIcon } from 'material-file-icons';
+  import Icon from '@iconify/svelte';
 
   const { children, class: className, name, icon, copyCode = true } = $props();
   let codeCopied = $state(false);
@@ -62,38 +63,20 @@
         aria-label="Copy code"
       >
         {#if codeCopied}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            role="img"
-            class="h-6 w-6"
-            viewBox="0 0 24 24"
-            in:scale={{ start: 0.5 }}
-            ><path
-              fill="currentColor"
-              d="m9.55 15.15l8.475-8.475q.3-.3.7-.3t.7.3t.3.713t-.3.712l-9.175 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.712t.313-.713t.713-.3t.712.3z"
-            ></path>
-          </svg>
+          <div in:scale={{ start: 0.5 }}>
+            <Icon icon="material-symbols:check-rounded" class="size-6" />
+          </div>
         {:else}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            role="img"
-            class="h-6 w-6"
-            viewBox="0 0 24 24"
-            in:scale={{ start: 0.5 }}
-            ><path
-              fill="currentColor"
-              d="M9 18q-.825 0-1.412-.587T7 16V4q0-.825.588-1.412T9 2h9q.825 0 1.413.588T20 4v12q0 .825-.587 1.413T18 18zm0-2h9V4H9zm-4 6q-.825 0-1.412-.587T3 20V7q0-.425.288-.712T4 6t.713.288T5 7v13h10q.425 0 .713.288T16 21t-.288.713T15 22zm4-6V4z"
-            ></path></svg
-          >
+          <div in:scale={{ start: 0.5 }}>
+            <Icon icon="material-symbols:content-copy-outline-rounded" class="size-6" />
+          </div>
         {/if}
       </button>
     {/if}
   </div>
 </div>
 
-<style lang="postcss">
+<style>
   :global(.codeContainer p + div .shiki) {
     @apply rounded-t-none;
   }
