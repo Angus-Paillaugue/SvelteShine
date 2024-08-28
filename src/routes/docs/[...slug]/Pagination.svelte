@@ -21,14 +21,20 @@
     return { previousPage, nextPage };
   }
 
-  const { previousPage, nextPage } = getNavigation();
+  let { previousPage, nextPage } = $state(getNavigation());
+  
+  $effect(() => {
+   const nav = getNavigation();
+    previousPage = nav.previousPage;
+    nextPage = nav.nextPage;
+  })
 </script>
 
 <div class="mt-auto grid grid-cols-2 items-end justify-between gap-4 py-4">
   {#if previousPage}
     <a
       href={previousPage.url}
-      class="relative flex h-full flex-row items-end justify-start gap-2 rounded p-2 pl-8 transition-all md:p-4 md:pl-8"
+      class="relative flex h-full flex-row items-end justify-start gap-2 rounded p-2 pl-8 transition-all md:p-4 md:pl-8 cursor-pointer"
     >
       <Icon
         icon="material-symbols:arrow-back-ios-rounded"
@@ -43,11 +49,13 @@
         </span>
       </div>
     </a>
+  {:else}
+    <div></div>
   {/if}
   {#if nextPage}
     <a
       href={nextPage.url}
-      class="relative flex h-full flex-row items-end justify-end gap-2 rounded p-2 pr-8 transition-all md:p-4 md:pr-8"
+      class="relative flex h-full flex-row items-end justify-end gap-2 rounded p-2 pr-8 transition-all md:p-4 md:pr-8 cursor-pointer"
     >
       <div class="flex flex-col justify-end text-end">
         <span class="text-xl font-light">Next</span>

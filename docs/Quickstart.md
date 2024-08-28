@@ -1,1 +1,5 @@
 # Welcome
+
+```bash snippet
+test
+```
