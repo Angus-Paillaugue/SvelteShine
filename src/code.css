@@ -7,8 +7,6 @@
   --line-added-opacity: 0.3;
   --line-highlighted-bg: 255, 255, 255;
   --line-highlighted-opacity: 0.1;
-  /* The background color of the curent theme's code block */
-  --inline-code-bg: #282c34;
 }
 
 code {

@@ -8,7 +8,6 @@
   import { registry } from '$lib/Demos';
 
   const { name, lang = 'svelte', code = true } = $props();
-
   const component = registry[name];
 
   let selectedIndex = $state(0);

@@ -29,7 +29,7 @@ export const sideBar = {
       {
         name: 'GitHub',
         icon: 'line-md:github-loop',
-        url: 'https://github.com/Angus-Paillaugue/Svelte-Shine'
+        url: 'https://github.com/Angus-Paillaugue/SvelteShine'
       }
     ]
   }

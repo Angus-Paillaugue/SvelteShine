@@ -5,10 +5,6 @@
     <lastmod>2024-08-28</lastmod>
   </url>
   <url>
-    <loc>https://svelte-shine.paillaugue.fr/releases</loc>
-    <lastmod>2024-08-28</lastmod>
-  </url>
-  <url>
     <loc>https://svelte-shine.paillaugue.fr/docs/{...slug}</loc>
     <lastmod>2024-08-28</lastmod>
   </url>

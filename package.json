@@ -10,7 +10,7 @@
     "format": "prettier --write .",
     "prebuild": "node ./scripts/generate-sitemap.js",
     "setup": "node ./scripts/setup.js",
-    "new-release": "node ./scripts/new-release.js",
+    "backup": "node ./scripts/backup.js",
     "update-registry": "node ./scripts/createDemoRegistry.js"
   },
   "devDependencies": {
