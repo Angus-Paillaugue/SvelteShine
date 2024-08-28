@@ -16,7 +16,10 @@ export const colors = {
     950: 'rgb(65, 28, 9)'
   },
   // For a list of available themes, visit https://shiki.matsu.io/themes
-  codeBlockTheme: 'github-dark-dimmed'
+  codeBlockThemes: {
+    light: 'github-light',
+    dark: 'github-dark-dimmed'
+  }
 };
 
 // Sidebar config
@@ -29,7 +32,7 @@ export const sideBar = {
       {
         name: 'GitHub',
         icon: 'line-md:github-loop',
-        url: 'https://github.com/Angus-Paillaugue'
+        url: 'https://github.com/Angus-Paillaugue/SvelteShine'
       }
     ]
   }

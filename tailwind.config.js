@@ -2,7 +2,6 @@ import { colors } from './project.config.js';
 import {
   radialGradientPlugin,
   hocusPlugin,
-  textShadowPlugin,
   textWrapPlugin,
   ligaturesPlugin
 } from './plugins.tailwind.js';
@@ -28,12 +27,8 @@ export default {
         },
         body: {
           DEFAULT: 'theme(colors.white)',
-          dark: 'theme(colors.neutral.900)'
+          dark: 'theme(colors.neutral.950)'
         }
-      },
-      textShadow: {
-        code: '0 1px rgba(0, 0, 0, 0.3)',
-        none: 'none'
       },
       borderColor: {
         main: {
@@ -49,12 +44,6 @@ export default {
       }
     }
   },
-  plugins: [
-    radialGradientPlugin,
-    hocusPlugin,
-    textShadowPlugin,
-    textWrapPlugin,
-    ligaturesPlugin
-  ],
+  plugins: [radialGradientPlugin, hocusPlugin, textWrapPlugin, ligaturesPlugin],
   darkMode: 'class'
 };

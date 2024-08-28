@@ -8,7 +8,6 @@
   import { registry } from '$lib/Demos';
 
   const { name, lang = 'svelte', code = true } = $props();
-
   const component = registry[name];
 
   let selectedIndex = $state(0);
@@ -22,9 +21,9 @@
     damping: 0.25
   });
 
-  const { codeBlockTheme } = colors;
+  const { codeBlockThemes } = colors;
   const highlighter = createHighlighter({
-    themes: [codeBlockTheme],
+    themes: Object.values(codeBlockThemes),
     langs: [lang]
   });
 
@@ -126,7 +125,7 @@
             <!-- Code block -->
             {#await highlighter then highlighter}
               {@html highlighter.codeToHtml(rawFile, {
-                theme: codeBlockTheme,
+                themes: codeBlockThemes,
                 lang
               })}
             {/await}

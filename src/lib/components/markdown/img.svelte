@@ -14,7 +14,7 @@
 <button
   aria-label="Zoom on image"
   onclick={() => (zoomed = true)}
-  class="mb-4 rounded border border-main bg-neutral-100 p-2 dark:border-main-dark dark:bg-neutral-950"
+  class="mb-4 rounded border border-main bg-neutral-100 p-2 dark:border-main-dark dark:bg-neutral-900"
 >
   <figure {alt}>
     <img {src} {alt} class="cursor-zoom-in rounded object-contain" />

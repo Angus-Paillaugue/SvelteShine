@@ -7,7 +7,7 @@ import {
 } from '@shikijs/transformers'; /** @see https://shiki.style/packages/transformers  */
 import { colors } from '../../project.config.js';
 
-const { codeBlockTheme } = colors;
+const { codeBlockThemes } = colors;
 
 const transformers = [
   transformerNotationDiff(),
@@ -29,7 +29,7 @@ function parseMeta(meta) {
   let name = '';
   let icon = true;
   let lineNumbers =
-    metaArray && metaArray.some((item) => item.startsWith('lineNumbers'));
+    metaArray && metaArray.some((item) => item.startsWith('line-umbers'));
   let copyCode =
     metaArray && !metaArray.some((item) => item.startsWith('no-copy'));
   if (metaArray && metaArray.some((item) => item.startsWith('name='))) {
@@ -60,7 +60,7 @@ function parseMeta(meta) {
 async function highlighter(code, lang, meta) {
   const highlighter = await createHighlighter({
     langs: [lang],
-    themes: [codeBlockTheme]
+    themes: Object.values(codeBlockThemes)
   });
 
   const { name, icon, lineNumbers, copyCode } = parseMeta(meta);
@@ -69,13 +69,13 @@ async function highlighter(code, lang, meta) {
   if (!meta) {
     html = highlighter.codeToHtml(code, {
       lang,
-      theme: codeBlockTheme,
+      themes: codeBlockThemes,
       transformers: transformers.slice(0, -1)
     });
   } else {
     html = highlighter.codeToHtml(code, {
       lang,
-      theme: codeBlockTheme,
+      themes: codeBlockThemes,
       transformers: lineNumbers ? transformers : transformers.slice(0, -1),
       meta: { __raw: meta }
     });

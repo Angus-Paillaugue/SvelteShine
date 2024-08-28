@@ -6,9 +6,9 @@
   import { pre as Pre } from './markdown';
 
   const { commands, syncKey } = $props();
-  const { codeBlockTheme } = colors;
+  const { codeBlockThemes } = colors;
   const highlighter = createHighlighter({
-    themes: [codeBlockTheme],
+    themes: Object.values(codeBlockThemes),
     langs: ['bash']
   });
 
@@ -88,7 +88,7 @@
     <Pre class="commands commandsCode rounded-t-none">
       {#await highlighter then highlighter}
         {@html highlighter.codeToHtml(commands[selectedIndex].command, {
-          theme: codeBlockTheme,
+          themes: codeBlockThemes,
           lang: 'bash'
         })}
       {/await}

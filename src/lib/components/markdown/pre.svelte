@@ -8,18 +8,15 @@
   const { children, class: className, name, icon, copyCode = true } = $props();
   let codeCopied = $state(false);
   let interval = $state();
+  let codeContainer = $state();
 
   /**
    * Function to copy text.
-   *
-   * @param {Event} e - The event object.
    */
-  function copyText(e) {
+  function copyText() {
     // Change the button icon to a checkmark
     codeCopied = true;
-    const textToCopy = e.target
-      .closest('button')
-      .parentElement.querySelector('code').innerText;
+    const textToCopy = codeContainer.querySelector('code').innerText;
     // Write the code to clipboard
     navigator.clipboard.writeText(textToCopy);
     // Show toast
@@ -39,45 +36,64 @@
   }
 </script>
 
-<div class="codeContainer my-4">
-  {#if name}
-    <p
-      class="m-0 flex flex-row items-center gap-2 rounded-t-md border border-b-0 border-main px-3 py-1 text-base font-medium text-body-dark dark:border-main-dark dark:text-body"
+{#snippet copyCodeButton(absolute = true)}
+  {#if copyCode !== 'false'}
+    <button
+      onclick={copyText}
+      tabindex="0"
+      class={cn(
+        'flex aspect-square h-[2.5rem] items-center justify-center rounded-full p-1 text-neutral-600 transition active:scale-90 hocus:scale-105 dark:text-neutral-100',
+        absolute && 'absolute bottom-1 right-4 top-4'
+      )}
+      name="Copy code"
+      aria-label="Copy code"
     >
-      {#if icon == 'true'}
-        <span class="size-5">
-          {@html getIcon(name).svg}
-        </span>
+      {#if codeCopied}
+        <div in:scale={{ start: 0.5 }}>
+          <Icon icon="material-symbols:check-rounded" class="size-6" />
+        </div>
+      {:else}
+        <div in:scale={{ start: 0.5 }}>
+          <Icon
+            icon="material-symbols:content-copy-outline-rounded"
+            class="size-6"
+          />
+        </div>
       {/if}
-      {name}
-    </p>
+    </button>
   {/if}
-  <div class={cn('relative', className)}>
-    {@render children()}
-    {#if copyCode !== 'false'}
-      <button
-        onclick={copyText}
-        tabindex="0"
-        class="absolute bottom-1 right-1.5 top-1.5 flex aspect-square h-[2.5rem] items-center justify-center rounded-full bg-neutral-950 p-1 text-neutral-100 transition active:scale-90 hocus:scale-105"
-        name="Copy code"
-        aria-label="Copy code"
+{/snippet}
+
+<div class="codeContainer relative my-4" bind:this={codeContainer}>
+  {#if name}
+    <div
+      class="codeBlockName relative flex w-full flex-row items-center rounded-t-md border border-b-0 border-main px-3 py-1.5 dark:border-main-dark"
+    >
+      <p
+        class="m-0 flex flex-row items-center gap-2 text-base font-medium text-body-dark dark:text-body"
       >
-        {#if codeCopied}
-          <div in:scale={{ start: 0.5 }}>
-            <Icon icon="material-symbols:check-rounded" class="size-6" />
-          </div>
-        {:else}
-          <div in:scale={{ start: 0.5 }}>
-            <Icon icon="material-symbols:content-copy-outline-rounded" class="size-6" />
-          </div>
+        {#if icon == 'true'}
+          <span class="size-5">
+            {@html getIcon(name).svg}
+          </span>
         {/if}
-      </button>
+        {name}
+      </p>
+      <div class="ml-auto">
+        {@render copyCodeButton(false)}
+      </div>
+    </div>
+  {/if}
+  <div class={className}>
+    {@render children()}
+    {#if !name}
+      {@render copyCodeButton()}
     {/if}
   </div>
 </div>
 
 <style>
-  :global(.codeContainer p + div .shiki) {
+  :global(.codeBlockName + div .shiki) {
     @apply rounded-t-none;
   }
 </style>

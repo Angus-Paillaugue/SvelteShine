@@ -17,19 +17,6 @@ export const hocusPlugin = plugin(({ addVariant }) => {
   addVariant('hocus', ['&:hover', '&:focus']);
 });
 
-export const textShadowPlugin = plugin(({ matchUtilities, theme }) => {
-  matchUtilities(
-    {
-      'text-shadow': (value) => ({
-        textShadow: value
-      })
-    },
-    {
-      values: theme('textShadow')
-    }
-  );
-});
-
 export const textWrapPlugin = plugin(({ addUtilities }) => {
   addUtilities({
     '.text-wrap-none': {

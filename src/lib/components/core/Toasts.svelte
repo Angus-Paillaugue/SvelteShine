@@ -7,7 +7,7 @@
   import { cn } from '$lib/utils';
 
   const baseToastClasses =
-    'rounded-xl border bg-neutral-50 dark:bg-neutral-950 border-main dark:border-main-dark p-4 relative';
+    'rounded-xl border bg-neutral-50 dark:bg-neutral-900 border-main dark:border-main-dark p-4 relative';
 
   // USER CONFIG : Customize the toast svg colors
   const svgColors = {
