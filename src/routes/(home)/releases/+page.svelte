@@ -2,7 +2,24 @@
   import releases from './releases.json';
   import Icon from '@iconify/svelte';
   import { formatDate } from '$lib/utils';
+  import { project } from '$conf';
 </script>
+
+<svelte:head>
+  <title>Releases</title>
+  <meta property="og:title" content='Releases' />
+  <meta property="twitter:title" content='Releases' />
+
+  <meta name="description" content='{project.name} releases' />
+  <meta
+    property="og:description"
+    content='{project.name} releases'
+  />
+  <meta
+    property="twitter:description"
+    content='{project.name} releases'
+  />
+</svelte:head>
 
 <div class="mx-auto mt-6 flex max-w-screen-md flex-col gap-8 p-4">
   {#each releases.reverse() as release}
