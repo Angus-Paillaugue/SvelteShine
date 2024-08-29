@@ -23,14 +23,14 @@
       caution: 'border-red-600'
     },
     custom: {
-      note: 'text-blue-700 dark:text-blue-500 border-blue-600 dark:border-blue-800',
-      tip: 'text-emerald-700 dark:text-emerald-500 border-emerald-600 dark:border-emerald-800',
+      note: 'border-blue-600 dark:border-blue-800',
+      tip: 'border-emerald-600 dark:border-emerald-800',
       important:
-        'text-indigo-700 dark:text-indigo-500 border-indigo-600 dark:border-indigo-800',
+        'border-indigo-600 dark:border-indigo-800',
       warning:
-        'text-amber-700 dark:text-amber-500 border-amber-600 dark:border-amber-800',
+        'border-amber-600 dark:border-amber-800',
       caution:
-        'text-red-700 dark:text-red-500 border-red-600 dark:border-red-800'
+        'border-red-600 dark:border-red-800'
     }
   };
   const iconClasses = {
@@ -44,7 +44,7 @@
     custom: {
       note: 'text-blue-600 dark:text-blue-500',
       tip: 'text-emerald-600 dark:text-emerald-500',
-      important: 'text-indigo-600 dark:text-amber-400',
+      important: 'text-indigo-600 dark:text-indigo-400',
       warning: 'text-amber-600 dark:text-amber-500',
       caution: 'text-red-600 dark:text-red-500'
     }

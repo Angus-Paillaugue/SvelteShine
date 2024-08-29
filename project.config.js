@@ -103,6 +103,10 @@ export const pages = [
       {
         name: 'Demos',
         icon: 'carbon:demo'
+      },
+      {
+        name: 'Emojis',
+        icon: 'material-symbols:face'
       }
     ]
   },
