@@ -32,7 +32,8 @@ function parseMeta(meta) {
     metaArray && metaArray.some((item) => item.startsWith('line-numbers'));
   let copyCode =
     metaArray && !metaArray.some((item) => item.startsWith('no-copy'));
-  const snippet = metaArray && metaArray.some((item) => item.startsWith('snippet'));
+  const snippet =
+    metaArray && metaArray.some((item) => item.startsWith('snippet'));
   if (metaArray && metaArray.some((item) => item.startsWith('name='))) {
     name = metaArray
       .find((item) => item.startsWith('name='))

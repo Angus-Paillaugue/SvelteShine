@@ -23,30 +23,30 @@
       caution: 'border-red-600'
     },
     custom: {
-      note: 'text-blue-600 dark:text-blue-500 border-blue-600 bg-blue-50/50 dark:bg-blue-500/30',
-      tip: 'text-emerald-600 dark:text-emerald-500 border-emerald-600 bg-emerald-50/50 dark:bg-emerald-500/30',
+      note: 'text-blue-700 dark:text-blue-500 border-blue-600 dark:border-blue-800',
+      tip: 'text-emerald-700 dark:text-emerald-500 border-emerald-600 dark:border-emerald-800',
       important:
-        'text-indigo-600 dark:text-indigo-500 border-indigo-600 bg-indigo-50/50 dark:bg-indigo-500/30',
+        'text-indigo-700 dark:text-indigo-500 border-indigo-600 dark:border-indigo-800',
       warning:
-        'text-amber-600 dark:text-amber-500 border-amber-600 bg-amber-50/50 dark:bg-amber-500/30',
+        'text-amber-700 dark:text-amber-500 border-amber-600 dark:border-amber-800',
       caution:
-        'text-red-600 dark:text-red-500 border-red-600 bg-red-50/50 dark:bg-red-500/30'
+        'text-red-700 dark:text-red-500 border-red-600 dark:border-red-800'
     }
   };
   const iconClasses = {
     github: {
-      note: 'text-blue-600',
-      tip: 'text-green-600',
-      important: 'text-indigo-600',
-      warning: 'text-amber-600',
-      caution: 'text-red-600'
+      note: 'text-blue-600 dark:text-blue-500',
+      tip: 'text-emerald-600 dark:text-emerald-500',
+      important: 'text-indigo-600 dark:text-indigo-500',
+      warning: 'text-amber-600 dark:text-amber-500',
+      caution: 'text-red-600 dark:text-red-500'
     },
     custom: {
-      note: 'text-blue-600',
-      tip: 'text-green-600',
-      important: 'text-indigo-600',
-      warning: 'text-amber-600',
-      caution: 'text-red-600'
+      note: 'text-blue-600 dark:text-blue-500',
+      tip: 'text-emerald-600 dark:text-emerald-500',
+      important: 'text-indigo-600 dark:text-amber-400',
+      warning: 'text-amber-600 dark:text-amber-500',
+      caution: 'text-red-600 dark:text-red-500'
     }
   };
 
@@ -73,20 +73,26 @@
     {...restProps}
   >
     {#if style === 'github'}
-      <div class="flex flex-col gap-1">
+      <div class="note flex flex-col gap-1">
         <div
-          class="flex flex-row items-center gap-2 {iconClasses[style][type]}"
+          class={cn(
+            'flex flex-row items-center gap-2',
+            iconClasses[style][type]
+          )}
         >
           <Icon class="size-6" icon={iconNames[type]} />
-          <span class="font-semibold capitalize">{type}</span>
+          <span class="font-semibold capitalize !text-inherit">{type}</span>
         </div>
         <p class="m-0 text-text-body dark:text-text-body-dark">
           {@render children()}
         </p>
       </div>
     {:else if style === 'custom'}
-      <div class="flex flex-row items-center gap-2">
-        <Icon class="size-6" icon={iconNames[type]} />
+      <div class="note flex flex-row items-center gap-2">
+        <Icon
+          class={cn('size-6', iconClasses[style][type])}
+          icon={iconNames[type]}
+        />
         <p class="m-0 text-text-body dark:text-text-body-dark">
           {@render children()}
         </p>
@@ -100,3 +106,9 @@
       .join(', ')}
   </p>
 {/if}
+
+<style>
+  :global(.note p) {
+    @apply !text-inherit;
+  }
+</style>

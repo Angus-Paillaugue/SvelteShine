@@ -5,7 +5,14 @@
   import { getIcon } from 'material-file-icons';
   import Icon from '@iconify/svelte';
 
-  const { children, class: className, name, icon, copyCode = true, snippet = false } = $props();
+  const {
+    children,
+    class: className,
+    name,
+    icon,
+    copyCode = true,
+    snippet = false
+  } = $props();
   let codeCopied = $state(false);
   let interval = $state();
   let codeContainer = $state();
@@ -44,7 +51,7 @@
       class={cn(
         'flex w-[2.5rem] items-center justify-center rounded-full p-1 text-neutral-600 dark:text-neutral-100',
         absolute && 'absolute bottom-1 right-4 top-4 aspect-square',
-        snippet && 'rounded-none bg-body max shrink-0 dark:bg-neutral-900'
+        snippet && 'max shrink-0 rounded-none bg-body dark:bg-neutral-900'
       )}
       name="Copy code"
       aria-label="Copy code"
@@ -94,7 +101,7 @@
     <div class={className}>
       {@render children()}
       {#if !name}
-        {@render copyCodeButton(true,false)}
+        {@render copyCodeButton(true, false)}
       {/if}
     </div>
   </div>
@@ -105,4 +112,3 @@
     @apply !rounded-t-none;
   }
 </style>
-

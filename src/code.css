@@ -43,17 +43,18 @@ code {
   @apply inline-block w-6 text-left text-text-body dark:text-text-body-dark;
 }
 /* For snippet */
-.snippet { 
-  @apply rounded border border-main dark:border-main-dark relative w-full max-w-[500px] flex flex-row items-stretch overflow-hidden my-4;
+.snippet {
+  @apply relative my-4 flex w-full max-w-[500px] flex-row items-stretch overflow-hidden rounded border border-main dark:border-main-dark;
 }
 .snippet .shiki {
-  @apply p-4 border-none rounded-none w-full;
+  @apply w-full rounded-none border-none p-4;
 }
-.snippet > pre > code .line::before, .commands > pre > code .line::before {
-  @apply content-['$'] inline-block w-fit mr-4 text-center text-text-body dark:text-text-body-dark;
+.snippet > pre > code .line::before,
+.commands > pre > code .line::before {
+  @apply mr-4 inline-block w-fit text-center text-text-body content-['$'] dark:text-text-body-dark;
 }
 .snippet pre > code .line {
-  @apply p-0 whitespace-pre pr-10;
+  @apply whitespace-pre p-0 pr-10;
 }
 /* For regular code blocks */
 pre > code .line {
@@ -76,7 +77,8 @@ pre > code {
 code:not(pre code, .command) {
   @apply rounded bg-primary-300 px-0.5 text-primary-900 dark:bg-primary-950 dark:text-primary-300;
 }
-.commands > pre, .commandsCode pre {
+.commands > pre,
+.commandsCode pre {
   @apply m-0 rounded-none border-none py-4;
 }
 
