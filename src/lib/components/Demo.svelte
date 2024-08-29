@@ -112,7 +112,8 @@
       <!-- Code -->
       {#if code}
         <Pre
-          class={cn('commandsCode',
+          class={cn(
+            'commandsCode',
             selectedIndex === 1 ? 'block h-full rounded-tl-none' : 'hidden'
           )}
         >
