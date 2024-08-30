@@ -104,7 +104,7 @@
         </section>
       {/if}
 
-      <Pagination slug={data.slug} />
+      <Pagination slug={data.slug} bind:lastModified={data.lastModified} />
     </main>
 
     <Toc bind:headings root={true} />

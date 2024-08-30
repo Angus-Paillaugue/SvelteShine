@@ -6,6 +6,9 @@
  * @returns {string} The formatted date.
  */
 export function formatDate(date, dateStyle = 'medium', locales = 'en') {
+  if (!(date instanceof Date)) {
+    date = new Date(date);
+  }
   // Safari is mad about dashes in the date
   const dateFormatter = new Intl.DateTimeFormat(locales, {
     dateStyle,
