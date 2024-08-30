@@ -72,9 +72,8 @@
             stroke-width="8"
           ></circle>
           <circle
-            style="--val: {$accessibilityScore};"
             stroke-dasharray="100"
-            stroke-dashoffset="calc(100 - var(--val))"
+            stroke-dashoffset="{100 - $accessibilityScore}"
             cx="60"
             cy="60"
             r="54"
@@ -212,9 +211,8 @@
             stroke-width="8"
           ></circle>
           <circle
-            style="--val: {$performanceScore};"
             stroke-dasharray="100"
-            stroke-dashoffset="calc(100 - var(--val))"
+            stroke-dashoffset="{100 - $performanceScore}"
             cx="60"
             cy="60"
             r="54"
