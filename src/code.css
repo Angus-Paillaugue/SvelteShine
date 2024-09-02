@@ -36,7 +36,7 @@ code {
   @apply relative overflow-auto whitespace-pre rounded border border-main !bg-white py-6 focus:-outline-offset-1 dark:border-main-dark dark:!bg-neutral-900;
 }
 
-.snippetpre.line-numbers > code .line::before {
+.line-numbers .line::before {
   content: counter(codeStep);
   counter-increment: codeStep;
   font-variant-numeric: tabular-nums;

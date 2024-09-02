@@ -12,16 +12,7 @@ const { codeBlockThemes } = colors;
 const transformers = [
   transformerNotationDiff(),
   transformerMetaHighlight(),
-  transformerNotationHighlight(),
-  {
-    name: 'line-numbers',
-    postprocess(code) {
-      return code.replace(
-        /<pre class="\b([^>]*)>/g,
-        '<pre class="line-numbers $1>'
-      );
-    }
-  }
+  transformerNotationHighlight()
 ];
 
 function parseMeta(meta) {
@@ -72,20 +63,20 @@ async function highlighter(code, lang, meta) {
     html = highlighter.codeToHtml(code, {
       lang,
       themes: codeBlockThemes,
-      transformers: transformers.slice(0, -1)
+      transformers: transformers
     });
   } else {
     html = highlighter.codeToHtml(code, {
       lang,
       themes: codeBlockThemes,
-      transformers: lineNumbers ? transformers : transformers.slice(0, -1),
+      transformers: transformers,
       meta: { __raw: meta }
     });
   }
 
   highlighter.dispose();
   return escapeHtml(
-    `<Components.pre name="${name}" icon="${icon}" copyCode=${copyCode} snippet=${snippet}>` +
+    `<Components.pre name="${name}" icon="${icon}" lineNumbers=${lineNumbers} copyCode=${copyCode} snippet=${snippet}>` +
       html +
       `</Components.pre>`
   );

@@ -153,6 +153,6 @@
 
   <!-- Bottom gradient to hide the bottom of the mockup -->
   <div
-    class="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-[600px] bg-gradient-to-b from-transparent to-white to-40% dark:to-neutral-900 max-sm:hidden md:h-[400px] md:to-80% lg:h-[500px]"
+    class="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-[600px] bg-gradient-to-b from-transparent to-body to-40% dark:to-body-dark max-sm:hidden md:h-[400px] md:to-80% lg:h-[500px]"
   ></div>
 </section>
