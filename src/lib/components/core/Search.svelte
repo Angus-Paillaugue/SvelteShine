@@ -102,11 +102,11 @@
   function scrollToSelected() {
     const selectedElement = document.getElementById(`result-${selectedIndex}`);
     if (selectedElement) {
-      console.log(selectedElement)
+      console.log(selectedElement);
       selectedElement.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
-        inline: 'nearest',
+        inline: 'nearest'
       });
     }
   }

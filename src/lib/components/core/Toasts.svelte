@@ -35,13 +35,13 @@
           />
         {:else if toast.type === 'green'}
           <Icon
-            icon="material-symbols:check-rounded"
+            icon="lucide:check"
             class={cn('h-5 w-5', svgColors[toast.type])}
           />
         {:else}
           <Icon
             icon="material-symbols:info-outline-rounded"
-            class="h-5 w-5 {svgColors[toast.type]}"
+            class={cn('h-5 w-5', svgColors[toast.type])}
           />
         {/if}
 
@@ -57,7 +57,7 @@
         aria-label="Remove toast"
         on:click={() => removeToast(toast.id)}
       >
-        <Icon icon="material-symbols:close-rounded" class="size-5" />
+        <Icon icon="lucide:x" class="size-5" />
       </button>
     </div>
   {/each}

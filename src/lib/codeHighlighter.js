@@ -21,20 +21,13 @@ function parseMeta(meta) {
   let lineNumbers = false;
   let icon = true;
   if (metaArray && metaArray.some((item) => item.startsWith('lineNumbers'))) {
-    const match = metaArray.find((item) => item.startsWith('lineNumbers'))
-    if(match.includes('=')) {
-      lineNumbers = match
-        .slice(11)
-        .replace(/=/g, '')
-        .replace(/"/g, '')
-        .replace(/'/g, '') == 'true';
-      console.log(match
-        .slice(11)
-        .replace(/=/g, '')
-        .replace(/"/g, '')
-        .replace(/'/g, ''))
-    }else {
-      lineNumbers = true
+    const match = metaArray.find((item) => item.startsWith('lineNumbers'));
+    if (match.includes('=')) {
+      lineNumbers =
+        match.slice(11).replace(/=/g, '').replace(/"/g, '').replace(/'/g, '') ==
+        'true';
+    } else {
+      lineNumbers = true;
     }
   }
   let copyCode =
@@ -88,13 +81,23 @@ async function highlighter(code, lang, meta) {
       meta: { __raw: meta }
     });
   }
-
+  html = makeUnfocusable(html);
+  console.log(html);
   highlighter.dispose();
   return escapeHtml(
     `<Components.pre name="${name}" icon="${icon}" lineNumbers=${lineNumbers} copyCode=${copyCode} snippet=${snippet}>` +
       html +
       `</Components.pre>`
   );
+}
+
+/**
+ * Returns code with removed tabindex attribute.
+ * @param {string} html - highlighted HTML
+ * @returns {string} - modified HTML
+ */
+function makeUnfocusable(code) {
+  return code.replace('tabindex="0"', '');
 }
 
 /**
