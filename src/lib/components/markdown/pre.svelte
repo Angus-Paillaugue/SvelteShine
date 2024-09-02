@@ -59,14 +59,11 @@
     >
       {#if codeCopied}
         <div in:scale={{ start: 0.5 }}>
-          <Icon icon="material-symbols:check-rounded" class="size-6" />
+          <Icon icon="lucide:check" class="size-6" />
         </div>
       {:else}
         <div in:scale={{ start: 0.5 }}>
-          <Icon
-            icon="material-symbols:content-copy-outline-rounded"
-            class="size-6"
-          />
+          <Icon icon="lucide:copy" class="size-6" />
         </div>
       {/if}
     </button>
@@ -79,7 +76,13 @@
     {@render copyCodeButton(false, true)}
   </div>
 {:else}
-  <div class={cn("codeContainer relative my-4", lineNumbers == 'true' && "line-numbers")} bind:this={codeContainer}>
+  <div
+    class={cn(
+      'codeContainer relative my-4',
+      lineNumbers == 'true' && 'line-numbers'
+    )}
+    bind:this={codeContainer}
+  >
     {#if name}
       <div
         class="codeBlockName relative flex w-full flex-row items-center rounded-t-md border border-b-0 border-main px-3 py-1.5 dark:border-main-dark"

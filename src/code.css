@@ -90,7 +90,7 @@ code:not(pre code, .command) {
 /* Lists */
 #pageContainer
   ul:not(
-    .tree ul,
+    ul.tree,
     .commands ul,
     .collapsible-details ul,
     .collapsible-details ol,

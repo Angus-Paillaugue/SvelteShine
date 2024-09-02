@@ -46,23 +46,21 @@ export function flattenPages(tree) {
  * @returns {Object} - An object with an `update` method to control the accordion state.
  */
 export function accordion(node, isOpen) {
-  let initialHeight = node.offsetHeight;
-  node.style.height = isOpen ? 'auto' : 0;
   node.style.overflow = 'hidden';
+  node.style.height = isOpen ? 'auto' : '0';
+  node.classList.add('accordion');
   return {
     update(isOpen) {
       let animation = node.animate(
         [
           {
-            height: initialHeight + 'px',
-            overflow: 'hidden'
+            height: node.scrollHeight + 'px'
           },
           {
-            height: 0,
-            overflow: 'hidden'
+            height: 0
           }
         ],
-        { duration: 150, fill: 'both' }
+        { duration: Math.max(node.scrollHeight, 150), fill: 'both' }
       );
       animation.pause();
       if (!isOpen) {
@@ -70,6 +68,11 @@ export function accordion(node, isOpen) {
       } else {
         animation.reverse();
       }
+      // Used for nested accordions
+      animation.onfinish = () => {
+        animation.cancel();
+        node.style.height = isOpen ? 'auto' : '0';
+      };
     }
   };
 }

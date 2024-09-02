@@ -52,10 +52,10 @@
 
   // Same regardless of style
   const iconNames = {
-    note: 'material-symbols:info-outline-rounded',
+    note: 'lucide:info',
     tip: 'material-symbols:lightbulb-outline-rounded',
     important: 'iconoir:message-alert',
-    warning: 'material-symbols:warning-outline-rounded',
+    warning: 'lucide:message-square-warning',
     caution: 'material-symbols:dangerous-outline-rounded'
   };
 </script>
