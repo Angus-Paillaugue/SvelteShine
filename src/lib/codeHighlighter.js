@@ -18,9 +18,25 @@ const transformers = [
 function parseMeta(meta) {
   const metaArray = meta?.split(' ');
   let name = '';
+  let lineNumbers = false;
   let icon = true;
-  let lineNumbers =
-    metaArray && metaArray.some((item) => item.startsWith('line-numbers'));
+  if (metaArray && metaArray.some((item) => item.startsWith('lineNumbers'))) {
+    const match = metaArray.find((item) => item.startsWith('lineNumbers'))
+    if(match.includes('=')) {
+      lineNumbers = match
+        .slice(11)
+        .replace(/=/g, '')
+        .replace(/"/g, '')
+        .replace(/'/g, '') == 'true';
+      console.log(match
+        .slice(11)
+        .replace(/=/g, '')
+        .replace(/"/g, '')
+        .replace(/'/g, ''))
+    }else {
+      lineNumbers = true
+    }
+  }
   let copyCode =
     metaArray && !metaArray.some((item) => item.startsWith('no-copy'));
   const snippet =
@@ -40,7 +56,6 @@ function parseMeta(meta) {
         .replace(/"/g, '')
         .replace(/'/g, '') === 'true';
   }
-
   return { name, icon, lineNumbers, copyCode, snippet };
 }
 

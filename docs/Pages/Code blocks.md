@@ -51,7 +51,7 @@ console.log('Line 5');
 
 # Line numbers
 
-By default, the line numbers are not shown in code blocks. You can display them by adding `line-numbers` in the code block meta like so :
+By default, the line numbers are not shown in code blocks. You can display them by adding `lineNumbers` in the code block meta like so :
 
 ````markdown
 ```js lineNumbers
@@ -63,11 +63,13 @@ console.log('Yay!');
 
 And here is what it looks like with line numbers :
 
-```js line-numbers
+```js lineNumbers
 console.log('This code block has line numbers');
 
 console.log('Yay!');
 ```
+
+The actual code passed is `lineNumbers=true`, so you can also use that or `lineNumbers=false` to remove the line numbers if they are already displayed by default.
 
 # Copy code
 
