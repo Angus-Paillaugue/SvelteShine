@@ -31,7 +31,7 @@ function getSitemapXML(routes) {
 function getSitemapUrl(location) {
   let url =
     '  <url>\n' +
-    `    <loc>${location}</loc>\n` +
+    `    <loc>${location.replace('...', '')}</loc>\n` +
     `    <lastmod>${date}</lastmod>\n` +
     '  </url>';
   return url;

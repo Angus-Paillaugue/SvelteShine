@@ -11,7 +11,8 @@
     name,
     icon,
     copyCode = true,
-    snippet = false
+    snippet = false,
+    lineNumbers = false
   } = $props();
   let codeCopied = $state(false);
   let interval = $state();
@@ -78,7 +79,7 @@
     {@render copyCodeButton(false, true)}
   </div>
 {:else}
-  <div class="codeContainer relative my-4" bind:this={codeContainer}>
+  <div class={cn("codeContainer relative my-4", lineNumbers == 'true' && "line-numbers")} bind:this={codeContainer}>
     {#if name}
       <div
         class="codeBlockName relative flex w-full flex-row items-center rounded-t-md border border-b-0 border-main px-3 py-1.5 dark:border-main-dark"
