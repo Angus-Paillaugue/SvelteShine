@@ -21,7 +21,28 @@ You can add the file name by adding `:`after the language and the file name afte
 ## File icon
 
 If you added a file name, you will be able to see the file icon preceding the filename.
-You can change it's display status by adding `icon=true|false` in the code block metadata.
+The icon metadata field is optional, but if you want to add it, you can do so by adding the `icon` metadata field to the code block. By default the icon will be chosen dynamically based on the file name.
+This field can either be `dynamic`(default) | `default` | `false`.
+
+Here are exemple of each values : 
+
+```svelte name=filename.svelte icon=dynamic
+<!-- icon=dynamic
+  This will show the icon based on the file name
+-->
+```
+
+```svelte name=filename.svelte icon=default
+<!-- icon=default
+  This will show the default icon 
+-->
+```
+
+```svelte name=filename.svelte icon=false
+<!-- icon=false
+  This will hide the icon 
+-->
+```
 
 # Highlight lines
 
