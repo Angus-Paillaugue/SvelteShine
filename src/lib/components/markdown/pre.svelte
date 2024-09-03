@@ -9,7 +9,7 @@
     children,
     class: className,
     name,
-    icon,
+    icon = 'dynamic',
     copyCode = true,
     snippet = false,
     lineNumbers = false
@@ -50,8 +50,10 @@
       onclick={copyText}
       tabindex="0"
       class={cn(
-        'flex w-[2.5rem] items-center justify-center rounded-full p-1 text-neutral-600 dark:text-neutral-100',
-        absolute && 'absolute bottom-1 right-4 top-4 aspect-square',
+        'flex items-center justify-center rounded-full p-2 text-neutral-600 dark:text-neutral-100',
+        absolute
+          ? 'absolute bottom-1 right-5 top-4 aspect-square'
+          : !snippet && 'aspect-square h-full',
         snippet && 'max shrink-0 rounded-none bg-body dark:bg-neutral-900'
       )}
       name="Copy code"
@@ -59,11 +61,11 @@
     >
       {#if codeCopied}
         <div in:scale={{ start: 0.5 }}>
-          <Icon icon="lucide:check" class="size-6" />
+          <Icon icon="lucide:check" class="size-4" />
         </div>
       {:else}
         <div in:scale={{ start: 0.5 }}>
-          <Icon icon="lucide:copy" class="size-6" />
+          <Icon icon="lucide:copy" class="size-4" />
         </div>
       {/if}
     </button>
@@ -90,10 +92,12 @@
         <p
           class="m-0 flex flex-row items-center gap-2 text-base font-medium text-body-dark dark:text-body"
         >
-          {#if icon == 'true'}
-            <span class="size-5">
+          {#if icon == 'dynamic'}
+            <span class="size-4">
               {@html getIcon(name).svg}
             </span>
+          {:else if icon == 'default'}
+            <Icon icon="lucide:file" class="size-4" />
           {/if}
           {name}
         </p>
