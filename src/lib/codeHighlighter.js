@@ -19,7 +19,7 @@ function parseMeta(meta) {
   const metaArray = meta?.split(' ');
   let name = '';
   let lineNumbers = false;
-  let icon = true;
+  let icon = 'dynamic';
   if (metaArray && metaArray.some((item) => item.startsWith('lineNumbers'))) {
     const match = metaArray.find((item) => item.startsWith('lineNumbers'));
     if (match.includes('=')) {
@@ -42,12 +42,11 @@ function parseMeta(meta) {
       .replace(/'/g, '');
   }
   if (metaArray && metaArray.some((item) => item.startsWith('icon='))) {
-    icon =
-      metaArray
-        .find((item) => item.startsWith('icon='))
-        .slice(5)
-        .replace(/"/g, '')
-        .replace(/'/g, '') === 'true';
+    icon = metaArray
+      .find((item) => item.startsWith('icon='))
+      .slice(5)
+      .replace(/"/g, '')
+      .replace(/'/g, '');
   }
   return { name, icon, lineNumbers, copyCode, snippet };
 }
@@ -82,7 +81,6 @@ async function highlighter(code, lang, meta) {
     });
   }
   html = makeUnfocusable(html);
-  console.log(html);
   highlighter.dispose();
   return escapeHtml(
     `<Components.pre name="${name}" icon="${icon}" lineNumbers=${lineNumbers} copyCode=${copyCode} snippet=${snippet}>` +
