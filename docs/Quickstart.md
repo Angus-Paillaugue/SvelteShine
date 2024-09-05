@@ -81,7 +81,7 @@ Here are some of the key features you can use:
 - [Tooltips](/docs/Components/Tooltip): Add tooltips to provide additional context to your content.
 - [API Reference](/docs/Components/Api-reference): Document API endpoints with detailed reference sections.
 - [Tables](/docs/Components/Tables): Create and style tables for structured data presentation.
-- [Component Preview](</docs/Components/Component preview>): Preview Svelte components directly within your documentation.
+- [Component Demos](</docs/Components/Demos>): Preview Svelte components directly within your documentation.
 - [Steps](/docs/Components/Steps): Guide users with step by step tutorials.
 - [Math](/docs/Components/Math): Using mathematical notations with {projectName}.
 
