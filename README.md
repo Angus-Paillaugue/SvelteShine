@@ -58,7 +58,7 @@ This command will launch the SvelteKit development server, allowing you to view 
 With the server running, you can now edit the config file located at `project.config.js`. Here, you can customize:
 
  - Tailwind Colors: Set your project's primary color palette.
- - Sidebar : You can change it's style and add socials links.
+ - Sidebar : You can change its style and add social links.
  - Project Information: Update the name, description, and other metadata for your project.
  - Markdown Pages: Reference the markdown files you want to include in the sidebar.
 
